@@ -31,6 +31,16 @@ public class KeyDown : MonoBehaviour
     public GameObject x;
     public GameObject y;
     public GameObject z;
+    public GameObject num1;
+    public GameObject num2;
+    public GameObject num3;
+    public GameObject num4;
+    public GameObject num5;
+    public GameObject num6;
+    public GameObject num7;
+    public GameObject num8;
+    public GameObject num9;
+    public GameObject num0;
     // Start is called before the first frame update
     void Start()
     {
@@ -327,5 +337,124 @@ public class KeyDown : MonoBehaviour
         }
 
         //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            num1.SetActive(true);
+        }
+        else
+        {
+            num1.SetActive(false);
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            num2.SetActive(true);
+        }
+        else
+        {
+            num2.SetActive(false);
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            num3.SetActive(true);
+        }
+        else
+        {
+            num3.SetActive(false);
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            num4.SetActive(true);
+        }
+        else
+        {
+            num4.SetActive(false);
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Alpha5))
+        {
+            num5.SetActive(true);
+        }
+        else
+        {
+            num5.SetActive(false);
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Alpha6))
+        {
+            num6.SetActive(true);
+        }
+        else
+        {
+            num6.SetActive(false);
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Alpha7))
+        {
+            num7.SetActive(true);
+        }
+        else
+        {
+            num7.SetActive(false);
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Alpha8))
+        {
+            num8.SetActive(true);
+        }
+        else
+        {
+            num8.SetActive(false);
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Alpha9))
+        {
+            num9.SetActive(true);
+        }
+        else
+        {
+            num9.SetActive(false);
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Alpha0))
+        {
+            num0.SetActive(true);
+        }
+        else
+        {
+            num0.SetActive(false);
+        }
+
+
     }
 }
