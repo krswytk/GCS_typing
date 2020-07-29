@@ -45,7 +45,16 @@ public class KeyDown : MonoBehaviour
     public GameObject minus;
     public GameObject Caret;
     public GameObject Dollar;
-    public GameObject Backspace;
+
+    public GameObject At;
+    public GameObject LeftBracket;
+    public GameObject Semicolon;
+    public GameObject Colon;
+    public GameObject RightBracket;
+    public GameObject Comma;
+    public GameObject Period;
+    public GameObject Slash;
+    public GameObject Underscore;
 
     void Start()
     {
@@ -500,18 +509,85 @@ public class KeyDown : MonoBehaviour
         }
 
         //////////////////////////////////////////////////////////////////////////
-
-        if (Input.GetKey(KeyCode.Backspace))
+        if (Input.GetKey(KeyCode.Underscore))
         {
-
-            Backspace.SetActive(true);
+            Underscore.SetActive(true);
         }
         else
         {
-
-            Backspace.SetActive(false);
+            Underscore.SetActive(false);
         }
-
-
+        //////////////////////////////////////////////////////////////////////////
+        if (Input.GetKey(KeyCode.Slash))
+        {
+            Slash.SetActive(true);
+        }
+        else
+        {
+            Slash.SetActive(false);
+        }
+        //////////////////////////////////////////////////////////////////////////
+        if (Input.GetKey(KeyCode.Period))
+        {
+            Period.SetActive(true);
+        }
+        else
+        {
+            Period.SetActive(false);
+        }
+        //////////////////////////////////////////////////////////////////////////
+        if (Input.GetKey(KeyCode.Comma))
+        {
+            Comma.SetActive(true);
+        }
+        else
+        {
+            Comma.SetActive(false);
+        }
+        //////////////////////////////////////////////////////////////////////////
+        if (Input.GetKey(KeyCode.RightBracket))
+        {
+            RightBracket.SetActive(true);
+        }
+        else
+        {
+            RightBracket.SetActive(false);
+        }
+        //////////////////////////////////////////////////////////////////////////
+        if (Input.GetKey(KeyCode.Colon))
+        {
+            Colon.SetActive(true);
+        }
+        else
+        {
+            Colon.SetActive(false);
+        }
+        //////////////////////////////////////////////////////////////////////////
+        if (Input.GetKey(KeyCode.Semicolon))
+        {
+            Semicolon.SetActive(true);
+        }
+        else
+        {
+            Semicolon.SetActive(false);
+        }
+        //////////////////////////////////////////////////////////////////////////
+        if (Input.GetKey(KeyCode.LeftBracket))
+        {
+            LeftBracket.SetActive(true);
+        }
+        else
+        {
+            LeftBracket.SetActive(false);
+        }
+        //////////////////////////////////////////////////////////////////////////
+        if (Input.GetKey(KeyCode.At))
+        {
+            At.SetActive(true);
+        }
+        else
+        {
+            At.SetActive(false);
+        }
     }
 }
