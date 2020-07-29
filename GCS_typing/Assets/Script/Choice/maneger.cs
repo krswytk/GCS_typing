@@ -16,14 +16,20 @@ public class maneger : MonoBehaviour
 
         for (int i = 0; i < Number; i++)//原稿を生成　thisの子にする　thisを回転　これを繰り返す
         {
-            Manuscripts[i] = Instantiate(Manuscript, new Vector3(0.0f, 0.0f, -4.0f), Quaternion.identity,this.transform);
-            this.transform.Rotate(new Vector3(0, 360/Number, 0));
+            Manuscripts[i] = Instantiate(Manuscript, new Vector3(0.0f, 0.0f, -6.0f), Quaternion.identity, this.transform);
+            this.transform.Rotate(new Vector3(0, 360 / Number, 0));
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public int GetN()
+    {
+        return Number;
     }
 }
+    
