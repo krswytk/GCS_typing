@@ -14,9 +14,15 @@ public class Onturn : MonoBehaviour
     Transform Manuscripttrn;
     Vector3 Angle;
 
+    //float sin = Mathf.Sin(Time.time);
+    //float cos = Mathf.Cos(Time.time);
+
+    [SerializeField] float stage = 10;//1押し何段階で次の原稿に回るか
+    [SerializeField] float time = 0.05f;//1段階の進むのにかかる時間　time * stage が1押し分の所要時間
+    float y;
+
     private void Start()
     {
-
         if(Manuscript == null){
             Manuscript = GameObject.Find("TestManuscripS");
         }
@@ -27,25 +33,27 @@ public class Onturn : MonoBehaviour
 
         Manuscripttrn = Manuscript.GetComponent<Transform>();
         Angle = Manuscripttrn.eulerAngles;
+
+        y = 360 / Number / stage;
     }
 
     public void OnRight()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < stage; i++)
         {
-            StartCoroutine(DelayMethod(i * 0.05f, () =>
+            StartCoroutine(DelayMethod(i * time, () =>
             {
-                Debug.Log("実行"+i);
-                Angle.y -= 360 / Number/10;
+                Angle.y -= y;
+                Angle.x = Mathf.Cos(Angle.y * Mathf.Deg2Rad) * -10;
+                Angle.z = Mathf.Sin(Angle.y * Mathf.Deg2Rad) * -10;
                 Manuscripttrn.eulerAngles = Angle;
             }));
         }
-        //Debug.Log("回転");
     }
 
     public void OnLeft()
     {
-        Angle.y += 360 / Number;
+        Angle.y += y;
         Manuscripttrn.eulerAngles = Angle;
     }
 
