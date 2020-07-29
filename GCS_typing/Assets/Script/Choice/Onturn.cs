@@ -53,8 +53,16 @@ public class Onturn : MonoBehaviour
 
     public void OnLeft()
     {
-        Angle.y += y;
-        Manuscripttrn.eulerAngles = Angle;
+        for (int i = 0; i < stage; i++)
+        {
+            StartCoroutine(DelayMethod(i * time, () =>
+            {
+                Angle.y += y;
+                Angle.x = Mathf.Cos(Angle.y * Mathf.Deg2Rad) * -10;
+                Angle.z = Mathf.Sin(Angle.y * Mathf.Deg2Rad) * -10;
+                Manuscripttrn.eulerAngles = Angle;
+            }));
+        }
     }
 
     private IEnumerator DelayMethod(float waitTime, Action action)
