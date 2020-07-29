@@ -11,4 +11,5 @@ public class OnStart : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
+
 }
