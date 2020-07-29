@@ -41,7 +41,12 @@ public class KeyDown : MonoBehaviour
     public GameObject num8;
     public GameObject num9;
     public GameObject num0;
-    // Start is called before the first frame update
+
+    public GameObject minus;
+    public GameObject Caret;
+    public GameObject Dollar;
+    public GameObject Backspace;
+
     void Start()
     {
 
@@ -453,6 +458,58 @@ public class KeyDown : MonoBehaviour
         else
         {
             num0.SetActive(false);
+        }
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Minus))
+        {
+
+            minus.SetActive(true);
+        }
+        else
+        {
+
+            minus.SetActive(false);
+        }
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Caret))
+        {
+
+            Caret.SetActive(true);
+        }
+        else
+        {
+
+            Caret.SetActive(false);
+        }
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Dollar))
+        {
+
+            Dollar.SetActive(true);
+        }
+        else
+        {
+
+            Dollar.SetActive(false);
+        }
+
+        //////////////////////////////////////////////////////////////////////////
+
+        if (Input.GetKey(KeyCode.Backspace))
+        {
+
+            Backspace.SetActive(true);
+        }
+        else
+        {
+
+            Backspace.SetActive(false);
         }
 
 
