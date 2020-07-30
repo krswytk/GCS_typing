@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class dictionaryScene : MonoBehaviour
 {
-    public GetClickedGameObject _clickedGameObject;
-    public GameObject Cube;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +14,11 @@ public class dictionaryScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_clickedGameObject.clickedGameObject == Cube)
-        {
-            SceneManager.LoadScene("Main");
-        }
+        
+    }
+
+    void Dicsionary()
+    {
+        SceneManager.LoadScene("Main");
     }
 }
