@@ -1568,8 +1568,8 @@ MonoBehaviour:
   Dollar: {fileID: 447832351}
   At: {fileID: 1461486663}
   LeftBracket: {fileID: 630206423}
-  Semicolon: {fileID: 875089837}
-  Colon: {fileID: 1282419713}
+  Semicolon: {fileID: 1282419713}
+  Colon: {fileID: 875089837}
   RightBracket: {fileID: 1821920160}
   Comma: {fileID: 392132196}
   Period: {fileID: 750244116}
