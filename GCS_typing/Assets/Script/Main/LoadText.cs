@@ -31,11 +31,8 @@ public class LoadText : MonoBehaviour
     void Start()
     {
         loadText1 = textAsset.text;
-        loadText2 = (Resources.Load("Test2", typeof(TextAsset)) as TextAsset).text;
         splitText1 = loadText1.Split(char.Parse("\n"));
-        splitText2 = loadText2.Split(char.Parse("\n"));
         textNum1 = 0;
-        textNum2 = 0;
         dataText.text = "マウスの左クリックで通常のテキストファイルの読み込み、右クリックでResourcesフォルダ内のテキストファイル読み込みしたテキストが表示されます。";
         
     }

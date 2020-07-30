@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 70469562}
   - component: {fileID: 70469561}
   - component: {fileID: 70469560}
+  - component: {fileID: 70469563}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -329,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataText: {fileID: 70469561}
-  textAsset: {fileID: 4900000, guid: 26181cad8a73d2249a4c97f462e3bd3b, type: 3}
+  textAsset: {fileID: 4900000, guid: 6efcc819208e29441a7e7f64780426f9, type: 3}
 --- !u!114 &70469561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +373,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70469558}
   m_CullTransparentMesh: 0
+--- !u!114 &70469563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70469558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604f802c5daa46647925d2f73e68b6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 70469561}
 --- !u!1 &70972443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,7 +1313,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2009,7 +2023,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772298105}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &772298108
 Camera:
   m_ObjectHideFlags: 0
