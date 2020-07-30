@@ -584,7 +584,6 @@ public class KeyDown : MonoBehaviour
         if (Input.GetKey(KeyCode.BackQuote))//@です。
         {
             At.SetActive(true);
-            Debug.Log("@");
         }
         else
         {
