@@ -484,7 +484,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Caret))
+        if (Input.GetKey(KeyCode.Quote))//Caret(^)
         {
 
             Caret.SetActive(true);
@@ -497,7 +497,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Dollar))
+        if (Input.GetKey(KeyCode.Backslash))//これ→\
         {
 
             Dollar.SetActive(true);
@@ -509,7 +509,7 @@ public class KeyDown : MonoBehaviour
         }
 
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.Underscore))
+        if (Input.GetKey(KeyCode.Underscore))//動かん
         {
             Underscore.SetActive(true);
         }
@@ -554,7 +554,7 @@ public class KeyDown : MonoBehaviour
             RightBracket.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.Colon))
+        if (Input.GetKey(KeyCode.Semicolon))//Colon
         {
             Colon.SetActive(true);
         }
@@ -563,7 +563,7 @@ public class KeyDown : MonoBehaviour
             Colon.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.Semicolon))
+        if (Input.GetKey(KeyCode.Equals))//Semicolon
         {
             Semicolon.SetActive(true);
         }
@@ -581,9 +581,10 @@ public class KeyDown : MonoBehaviour
             LeftBracket.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.At))
+        if (Input.GetKey(KeyCode.BackQuote))//@です。
         {
             At.SetActive(true);
+            Debug.Log("@");
         }
         else
         {
