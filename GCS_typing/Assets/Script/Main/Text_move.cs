@@ -31,19 +31,26 @@ public class Text_move : MonoBehaviour
             for (int i = 0; i < ret + 1; i++)
             {
                 Lenth[i] = Text_Lenth.LineLenth[i];
-                Debug.Log(Lenth[i]);
+                //Debug.Log(Lenth[i]);
             }
         }
 
 
-        if (Input.GetKey(KeyCode.Space))// 9文字で2.82だけ移動
+        if (Input.GetKey(KeyCode.Space))// 9文字で2.1だけ移動
         {
-            Debug.Log(add.x - pos.x);
-            if((add.x - pos.x) < 2.1f)
+            if ((add.x - pos.x) < (Lenth[Line] - 7) * 0.23)
             {
-                add.x += 0.01f;
+                add.x += 0.02f;
+                myTransform.position = add;
+            }else
+            {
+                Line++;
+                add.y -= 0.27f;//行を下に移動1.95 1.579
+                add.x = -7.61f;
+                pos.x = -7.61f;
                 myTransform.position = add;
             }
         }
+        Debug.Log(myTransform.position);
     }
 }
