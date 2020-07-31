@@ -35,4 +35,4 @@ public class GenerateDictionary : MonoBehaviour
         return Number;
     }
 }
-    
+

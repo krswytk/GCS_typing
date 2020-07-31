@@ -41,7 +41,7 @@ public class Onturn : MonoBehaviour
         if (sw == false)
         {
             Number = s.GetN();
-            Debug.Log(Number);
+            //Debug.Log(Number);
             y = 360 / Number / stage;
             sw = true;
         }
