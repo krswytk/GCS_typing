@@ -3043,6 +3043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2067147782}
   - component: {fileID: 2067147781}
+  - component: {fileID: 2067147783}
   m_Layer: 0
   m_Name: TestManuscripS
   m_TagString: Untagged
@@ -3079,3 +3080,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}
+--- !u!114 &2067147783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067147780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998558c493af98d4f908a1bcee776599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  str: []

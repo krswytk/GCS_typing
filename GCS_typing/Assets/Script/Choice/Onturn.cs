@@ -9,7 +9,7 @@ public class Onturn : MonoBehaviour
 
     private int Number;//生成する原稿数
 
-    private maneger s;
+    private GenerateDictionary s;
 
     Transform Manuscripttrn;
     Vector3 Angle;
@@ -21,20 +21,30 @@ public class Onturn : MonoBehaviour
     [SerializeField] float time = 0.05f;//1段階の進むのにかかる時間　time * stage が1押し分の所要時間
     float y;
 
+    private bool sw = false;
     private void Start()
     {
         if(Manuscript == null){
             Manuscript = GameObject.Find("TestManuscripS");
         }
 
-         s = Manuscript.GetComponent<maneger>();
+         s = Manuscript.GetComponent<GenerateDictionary>();
 
-        Number = s.GetN();
 
         Manuscripttrn = Manuscript.GetComponent<Transform>();
         Angle = Manuscripttrn.eulerAngles;
 
-        y = 360 / Number / stage;
+    }
+
+    private void Update()
+    {
+        if (sw == false)
+        {
+            Number = s.GetN();
+            Debug.Log(Number);
+            y = 360 / Number / stage;
+            sw = true;
+        }
     }
 
     public void OnRight()
