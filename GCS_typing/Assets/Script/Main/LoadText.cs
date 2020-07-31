@@ -42,6 +42,16 @@ public class LoadText : MonoBehaviour
 
         if (sw == false)
         {
+            loadText1 = loadText1.Replace("1", "１");
+            loadText1 = loadText1.Replace("2", "２");
+            loadText1 = loadText1.Replace("3", "３");
+            loadText1 = loadText1.Replace("4", "４");
+            loadText1 = loadText1.Replace("5", "５");
+            loadText1 = loadText1.Replace("6", "６");
+            loadText1 = loadText1.Replace("7", "７");
+            loadText1 = loadText1.Replace("8", "８");
+            loadText1 = loadText1.Replace("9", "９");
+            loadText1 = loadText1.Replace("0", "０");
             dataText.text = loadText1;
             sw = true;
         }
