@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class OnTitle : MonoBehaviour
+public class OnDictionary : MonoBehaviour
 {
-    public void OnStart()
+    public void OnDictionarys()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("Dictionary");
     }
 }
