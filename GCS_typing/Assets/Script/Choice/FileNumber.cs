@@ -7,9 +7,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 {
     private int num;
     [SerializeField, Multiline(5)] private string[] str;
-
-    GenerateDictionary GD;
-
+    
     public Dictionary[] D;
 
     void Awake()
@@ -17,13 +15,6 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         num = 0;
         ReadFiles();
     }
-
-    private void Start()
-    {
-        GD = this.gameObject.GetComponent<GenerateDictionary>();
-
-    }
-
 
 
     /// <summary>
@@ -39,10 +30,12 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             StreamReader sr = new StreamReader(files[i], Encoding.UTF8);
             str[i] = sr.ReadToEnd();
             sr.Close();
-            //Debug.Log(str[i]);
-            //Debug.Log(sr);
         }
         num = files.Length;
+    }
+
+    private void Start()
+    {
         clclassD(str);
     }
 
@@ -58,6 +51,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         string t;
         string d;
         string h;
+
 
         for (int i = 0; i < num; i++)
         {
@@ -99,22 +93,43 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             Debug.Log(t);
             Debug.Log(d);
             Debug.Log(h);
-            D[i] = new Dictionary(t, int.Parse(d), h);
+            D[i] = new Dictionary(t, int.Parse(d), h,this.GetComponent<GenerateDictionary>().Manuscripts[i]);
         }
+
     }
 }
 
 public class Dictionary
 {
-    public string title;//タイトルを格納する変数
-    public int Difficulty;//難易度を格納する変数　1-5 それ以外は例外
-    public string text;//本文を格納する変数
+    private string title;//タイトルを格納する変数
+    private int Difficulty;//難易度を格納する変数　1-5 それ以外は例外
+    private string text;//本文を格納する変数
+    private GameObject Manuscripts;//原稿オブジェクトをGenerateDictionaryから持ってきて格納する変数
 
-    public Dictionary(string title, int Difficulty, string text)
+    public Dictionary(string title, int Difficulty, string text, GameObject Manuscripts)
     {
         this.title = title;
         this.Difficulty = Difficulty;
         this.text = text;
+        this.Manuscripts = Manuscripts;
+    }
+
+
+    public string GetTitle()
+    {
+        return title;
+    }
+    public int GetNumber()
+    {
+        return Difficulty;
+    }
+    public string GetText()
+    {
+        return text;//本文を格納する変数
+    }
+    public GameObject GetManuscripts()
+    {
+        return Manuscripts;//本文を格納する変数
     }
 
 };
