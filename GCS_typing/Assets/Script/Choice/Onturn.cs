@@ -9,6 +9,8 @@ public class Onturn : MonoBehaviour
 
     private int Number;//生成する原稿数
 
+    public static int Num;//現在最前に来ている原稿の番号0からNumber-1
+
     private GenerateDictionary s;
 
     Transform Manuscripttrn;
@@ -34,6 +36,7 @@ public class Onturn : MonoBehaviour
         Manuscripttrn = Manuscript.GetComponent<Transform>();
         Angle = Manuscripttrn.eulerAngles;
 
+        Num = 0;
     }
 
     private void Update()
@@ -59,6 +62,12 @@ public class Onturn : MonoBehaviour
                 Manuscripttrn.eulerAngles = Angle;
             }));
         }
+
+        Num++;
+        if(Num == Number)
+        {
+            Num = 0;
+        }
     }
 
     public void OnLeft()
@@ -73,11 +82,22 @@ public class Onturn : MonoBehaviour
                 Manuscripttrn.eulerAngles = Angle;
             }));
         }
+
+        Num--;
+        if (Num == -1)
+        {
+            Num = Number - 1;
+        }
     }
 
     private IEnumerator DelayMethod(float waitTime, Action action)
     {
         yield return new WaitForSeconds(waitTime);
         action();
+    }
+
+    public int GetNum()
+    {
+        return Num;
     }
 }

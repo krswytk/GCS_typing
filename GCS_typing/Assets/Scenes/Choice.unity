@@ -1196,7 +1196,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 960, y: 840}
-  m_SizeDelta: {x: 480, y: 130}
+  m_SizeDelta: {x: 680, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &571926790
 MonoBehaviour:
@@ -1972,7 +1972,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 960, y: 840}
-  m_SizeDelta: {x: 500, y: 200}
+  m_SizeDelta: {x: 700, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &896024558
 MonoBehaviour:
@@ -2007,7 +2007,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30B3\u30ED\u30CA"
+  m_Text: "\u539F\u7A3F\u30BF\u30A4\u30C8\u30EB"
 --- !u!222 &896024559
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2308,7 +2308,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 960, y: 840}
-  m_SizeDelta: {x: 500, y: 150}
+  m_SizeDelta: {x: 700, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1075626442
 MonoBehaviour:
@@ -3380,6 +3380,7 @@ GameObject:
   - component: {fileID: 2067147781}
   - component: {fileID: 2067147783}
   - component: {fileID: 2067147784}
+  - component: {fileID: 2067147785}
   m_Layer: 0
   m_Name: TestManuscripS
   m_TagString: Untagged
@@ -3441,3 +3442,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023a33fd06ec3a049917b6b2a259e6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  str:
+  - {fileID: 2049500987}
+  - {fileID: 1110859045}
+  - {fileID: 1398670787}
+  - {fileID: 425823056}
+  - {fileID: 275206785}
+  title: {fileID: 896024556}
+--- !u!114 &2067147785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067147780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7ddfae56c046d45b99edacf8e80ddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Manuscript: {fileID: 0}
+  stage: 10
+  time: 0.05
