@@ -1,27 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
-public class GetClickedGameObject : MonoBehaviour
+public class GetClickedGameObject : MonoBehaviour, IPointerClickHandler
 {
-
-    public GameObject clickedGameObject;
-
-    void Update()
+    public void OnPointerClick(PointerEventData eventData)
     {
-
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            clickedGameObject = null;
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit = new RaycastHit();
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                clickedGameObject = hit.collider.gameObject;
-            }
-
-            Debug.Log(clickedGameObject);
-        }
+        SceneManager.LoadScene("Main");
     }
 }
