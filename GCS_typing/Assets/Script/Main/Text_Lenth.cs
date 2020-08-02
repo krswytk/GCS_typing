@@ -13,23 +13,17 @@ public class Text_Lenth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (sw == false)//行ごとの文字数をLineLenth[i]に格納
+        if (LoadText.sw == true)//行ごとの文字数をLineLenth[i]に格納
         {
             GetLengh(text.text);
-            for (int i = 0; i < ret + 1; i++)
-            {
-               // Debug.Log(LineLenth[i]);
-            }
-            sw = true;
+            LoadText.sw = false;
         }
-
     }
 
     void GetLengh(string str)
