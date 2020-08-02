@@ -25,46 +25,49 @@ public class Text_move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (sw==false)
+        if (Text_Lenth.ret > 0)
         {
-            ret = Text_Lenth.ret;
-            Lenth= new int[ret + 1];
-            for (int i = 0; i < ret + 1; i++)
+            if (sw == false)
             {
-                Lenth[i] = Text_Lenth.LineLenth[i];
-                //Debug.Log(Lenth[i]);
-            }
+                ret = Text_Lenth.ret;
+                Lenth = new int[ret + 1];
+                for (int i = 0; i < ret + 1; i++)
+                {
+                    Lenth[i] = Text_Lenth.LineLenth[i];
+                    Debug.Log(Lenth[i]);
+                }
 
-            if (Lenth[Line] % 2 == 0)
-            {
-                add.x = -5.2f - (((Lenth[Line]) / 2) * 0.23f);
-                pos.x = -5.2f - (((Lenth[Line]) / 2) * 0.23f);
-                //Debug.Log("Lenth[Line] % 2 == 0");
-            }
-            else
-            {
-                add.x = -5.3f - (((Lenth[Line] - 1) / 2) * 0.23f);
-                pos.x = -5.3f - (((Lenth[Line] - 1) / 2) * 0.23f);
-                //Debug.Log("Lenth[Line] % 2 == 1");
-            }
+                if (Lenth[Line] % 2 == 0)
+                {
+                    add.x = -5.2f - (((Lenth[Line]) / 2) * 0.23f);
+                    pos.x = -5.2f - (((Lenth[Line]) / 2) * 0.23f);
+                    //Debug.Log("Lenth[Line] % 2 == 0");
+                }
+                else
+                {
+                    add.x = -5.3f - (((Lenth[Line] - 1) / 2) * 0.23f);
+                    pos.x = -5.3f - (((Lenth[Line] - 1) / 2) * 0.23f);
+                    //Debug.Log("Lenth[Line] % 2 == 1");
+                }
 
-            if (ret % 2 == 0)//奇数 次ここ ret=0は一行目　2は3行目
-            {
-                //add.y = 1.6f + ((ret/2)* 0.13f);
-                //add.y = 1.6f + (((ret / 2) * 0.072f)* (ret / 2));
-                add.y = 1.45f + ((ret/ 2) * 0.27f);
-                //Debug.Log("ret % 2 == 0");
+                if (ret % 2 == 0)//奇数 次ここ ret=0は一行目　2は3行目
+                {
+                    //add.y = 1.6f + ((ret/2)* 0.13f);
+                    //add.y = 1.6f + (((ret / 2) * 0.072f)* (ret / 2));
+                    add.y = 1.45f + ((ret / 2) * 0.27f);
+                    //Debug.Log("ret % 2 == 0");
+                }
+                else//偶数　ここは完成
+                {
+                    add.y = 1.6f + (((ret - 1) / 2) * 0.27f);
+                    //Debug.Log("ret % 2 == 1");
+                }
+                myTransform.position = add;
+                sw = true;
             }
-            else//偶数　ここは完成
-            {
-                add.y = 1.6f + (((ret - 1) / 2) * 0.27f);
-                //Debug.Log("ret % 2 == 1");
-            }
-            myTransform.position = add;
-            sw = true;
         }
 
+        //Debug.Log(Text_Lenth.ret);
 
         if (Input.GetKeyDown(KeyCode.Space))// 9文字で2.1だけ移動
         {
