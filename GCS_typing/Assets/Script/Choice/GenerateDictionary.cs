@@ -29,6 +29,10 @@ public class GenerateDictionary : MonoBehaviour
     {
 
     }
-    
+
+    public int GetN()
+    {
+        return Number;
+    }
 }
 
