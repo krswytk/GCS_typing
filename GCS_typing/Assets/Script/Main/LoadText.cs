@@ -12,7 +12,7 @@ public class LoadText : MonoBehaviour
     [SerializeField]
     private TextAsset textAsset;
 
-    bool sw = false;
+    public static bool sw = false;
 
 
     //　テキストファイルから読み込んだデータ
@@ -31,15 +31,6 @@ public class LoadText : MonoBehaviour
     void Start()
     {
         loadText1 = textAsset.text;
-        splitText1 = loadText1.Split(char.Parse("\n"));
-        textNum1 = 0;
-        dataText.text = "マウスの左クリックで通常のテキストファイルの読み込み、右クリックでResourcesフォルダ内のテキストファイル読み込みしたテキストが表示されます。";
-        
-    }
-
-    void Update()
-    {
-
         if (sw == false)
         {
             loadText1 = loadText1.Replace("1", "１");
@@ -55,7 +46,10 @@ public class LoadText : MonoBehaviour
             dataText.text = loadText1;
             sw = true;
         }
+    }
 
+    void Update()
+    {
 
         //　読み込んだテキストファイルの内容を表示
 
