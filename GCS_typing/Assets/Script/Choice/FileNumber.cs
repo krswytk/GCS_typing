@@ -22,7 +22,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
     /// </summary>
     void ReadFiles()
     {
-        string path = Application.dataPath + "/" + "Text" + "/" + "Manuscript";
+        string path = Application.dataPath + "/" + "text" + "/" + "Manuscript";
         string[] files = Directory.GetFiles(path, "*.txt", SearchOption.AllDirectories);
         str = new string[files.Length];
         for (int i = 0; i < files.Length; i++)
@@ -59,7 +59,6 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             t = "";
             d = "";
             h = "";
-            int id;
 
             for (int lp = 0; lp < s[i].Length; lp++)
             {
@@ -91,23 +90,10 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                     h += s[i][lp];//本文を格納
                 }
             }
-            //Debug.Log(t);
-            //Debug.Log(d);
-            //Debug.Log(h);
-
-            try
-            {
-                id = int.Parse(d);
-            }
-            catch (System.FormatException)
-            {
-                Debug.Log("原稿内容がおかしいです");
-                t = "ERROR";
-                id = 0;
-                h = s[i];
-            }
-
-            D[i] = new Dictionary(t, id, h,this.GetComponent<GenerateDictionary>().Manuscripts[i]);
+            Debug.Log(t);
+            Debug.Log(d);
+            Debug.Log(h);
+            D[i] = new Dictionary(t, int.Parse(d), h,this.GetComponent<GenerateDictionary>().Manuscripts[i]);
         }
 
     }
