@@ -10,8 +10,8 @@ public class Onturn : MonoBehaviour
     private int Number;//生成する原稿数
 
     public static int Num;//現在最前に来ている原稿の番号0からNumber-1
-
-    private GenerateDictionary s;
+    
+    private FileNumber FN;
 
     Transform Manuscripttrn;
     Vector3 Angle;
@@ -24,26 +24,31 @@ public class Onturn : MonoBehaviour
     float y;
 
     private bool sw = false;
+
+    [SerializeField] AudioClip sound1;
+    AudioSource audioSource;
     private void Start()
     {
         if(Manuscript == null){
             Manuscript = GameObject.Find("TestManuscripS");
         }
-
-         s = Manuscript.GetComponent<GenerateDictionary>();
+        
+        FN = Manuscript.GetComponent<FileNumber>();
 
 
         Manuscripttrn = Manuscript.GetComponent<Transform>();
         Angle = Manuscripttrn.eulerAngles;
 
         Num = 0;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         if (sw == false)
         {
-            Number = s.GetN();
+            Number = FN.GetFN();
             //Debug.Log(Number);
             y = 360 / Number / stage;
             sw = true;
@@ -68,6 +73,7 @@ public class Onturn : MonoBehaviour
         {
             Num = 0;
         }
+        audioSource.PlayOneShot(sound1);
     }
 
     public void OnLeft()
@@ -88,6 +94,7 @@ public class Onturn : MonoBehaviour
         {
             Num = Number - 1;
         }
+        audioSource.PlayOneShot(sound1);
     }
 
     private IEnumerator DelayMethod(float waitTime, Action action)
