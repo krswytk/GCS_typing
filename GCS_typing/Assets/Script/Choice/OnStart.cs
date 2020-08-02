@@ -6,21 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class OnStart : MonoBehaviour
 {
-
-    public void OnStarts()
-    {
-        SceneManager.LoadScene("Main");
-    }
-
-}
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-
-public class OnStart : MonoBehaviour
-{
     [SerializeField] AudioClip sound1;
     AudioSource audioSource;
     FileNumber FN;
@@ -54,4 +39,3 @@ public class OnStart : MonoBehaviour
     }
 
 }
-*/

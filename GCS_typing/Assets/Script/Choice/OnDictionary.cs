@@ -5,18 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class OnDictionary : MonoBehaviour
 {
-    public void OnDictionarys()
-    {
-        SceneManager.LoadScene("Dictionary");
-    }
-}
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class OnDictionary : MonoBehaviour
-{
     [SerializeField] AudioClip sound1;
     AudioSource audioSource;
     public void Start()
@@ -30,4 +18,3 @@ public class OnDictionary : MonoBehaviour
         SceneManager.LoadScene("Dictionary");
     }
 }
-*/

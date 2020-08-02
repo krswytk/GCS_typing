@@ -5,18 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class OnTitle : MonoBehaviour
 {
-    public void OnStart()
-    {
-        SceneManager.LoadScene("Start");
-    }
-}
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class OnTitle : MonoBehaviour
-{
     [SerializeField] AudioClip sound1;
     AudioSource audioSource;
     public void Start()
@@ -30,4 +18,3 @@ public class OnTitle : MonoBehaviour
     }
 
 }
-*/
