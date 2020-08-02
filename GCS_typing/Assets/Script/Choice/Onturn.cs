@@ -24,6 +24,9 @@ public class Onturn : MonoBehaviour
     float y;
 
     private bool sw = false;
+
+    [SerializeField] AudioClip sound1;
+    AudioSource audioSource;
     private void Start()
     {
         if(Manuscript == null){
@@ -37,6 +40,8 @@ public class Onturn : MonoBehaviour
         Angle = Manuscripttrn.eulerAngles;
 
         Num = 0;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -68,6 +73,7 @@ public class Onturn : MonoBehaviour
         {
             Num = 0;
         }
+        audioSource.PlayOneShot(sound1);
     }
 
     public void OnLeft()
@@ -88,6 +94,7 @@ public class Onturn : MonoBehaviour
         {
             Num = Number - 1;
         }
+        audioSource.PlayOneShot(sound1);
     }
 
     private IEnumerator DelayMethod(float waitTime, Action action)

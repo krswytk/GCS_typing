@@ -61,7 +61,7 @@ public class TurnManeger : MonoBehaviour
         
         switch (FN.D[num].GetNumber())
         {
-            case 1: str[0].SetActive(true);break;
+            case 1: str[0].SetActive(true); break;
             case 2: str[1].SetActive(true); break;
             case 3: str[2].SetActive(true); break;
             case 4: str[3].SetActive(true); break;
