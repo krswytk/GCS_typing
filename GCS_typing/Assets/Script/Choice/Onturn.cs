@@ -10,8 +10,8 @@ public class Onturn : MonoBehaviour
     private int Number;//生成する原稿数
 
     public static int Num;//現在最前に来ている原稿の番号0からNumber-1
-
-    private GenerateDictionary s;
+    
+    private FileNumber FN;
 
     Transform Manuscripttrn;
     Vector3 Angle;
@@ -32,8 +32,8 @@ public class Onturn : MonoBehaviour
         if(Manuscript == null){
             Manuscript = GameObject.Find("TestManuscripS");
         }
-
-         s = Manuscript.GetComponent<GenerateDictionary>();
+        
+        FN = Manuscript.GetComponent<FileNumber>();
 
 
         Manuscripttrn = Manuscript.GetComponent<Transform>();
@@ -48,7 +48,7 @@ public class Onturn : MonoBehaviour
     {
         if (sw == false)
         {
-            Number = s.GetN();
+            Number = FN.GetFN();
             //Debug.Log(Number);
             y = 360 / Number / stage;
             sw = true;

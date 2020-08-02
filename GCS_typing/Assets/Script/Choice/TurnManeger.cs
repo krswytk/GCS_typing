@@ -31,14 +31,14 @@ public class TurnManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sw == false)
+        if (sw == false)//最初の星とタイトルを呼ぶ
         {
             num = OT.GetNum();
             Debug.Log(OT.GetNum());
             Change();
             sw = true;
         }
-        if (num != OT.GetNum())
+        if (num != OT.GetNum())//以降回転ごとに星とタイトルを再設定
         {
             Debug.Log(OT.GetNum());
             num = OT.GetNum();
@@ -46,7 +46,7 @@ public class TurnManeger : MonoBehaviour
         }
     }
 
-    private void Change()
+    private void Change()//★表示の切り替え
     {
         Debug.Log("ChangeON");
         text.text = FN.D[num].GetTitle();
