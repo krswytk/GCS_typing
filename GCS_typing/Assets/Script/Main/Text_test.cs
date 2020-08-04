@@ -13,26 +13,41 @@ public class Text_test : MonoBehaviour
     string[] splitted;
     int Line = 0;
 
+    private string loadText1;
+    [SerializeField]
+    private TextAsset textAsset;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        loadText1 = textAsset.text;
+        loadText1 = loadText1.Replace("1", "１");
+        loadText1 = loadText1.Replace("2", "２");
+        loadText1 = loadText1.Replace("3", "３");
+        loadText1 = loadText1.Replace("4", "４");
+        loadText1 = loadText1.Replace("5", "５");
+        loadText1 = loadText1.Replace("6", "６");
+        loadText1 = loadText1.Replace("7", "７");
+        loadText1 = loadText1.Replace("8", "８");
+        loadText1 = loadText1.Replace("9", "９");
+        loadText1 = loadText1.Replace("0", "０");
+        text.text = loadText1;
+        Debug.Log(loadText1);
+        SplitLengh(text.text);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (LoadText.sw == true)//行ごとの文字数をLineLenth[i]に格納
+        if (Line < ret + 1)
         {
-            SplitLengh(text.text);
-            LoadText.sw = false;
+            text.text = splitted[Line];
         }
-
-        text.text = splitted[Line];
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Line++;
         }
+        //Debug.Log(splitted[Line]);
     }
 
 
@@ -55,50 +70,7 @@ public class Text_test : MonoBehaviour
 
         for (int i = 0; i < ret+1; i++)
         {
-            Debug.Log(splitted[i]);
-        }
-    }
-
-    void GetLengh(string str)
-    {
-        string a = str;
-
-        string before = str;
-        string after = str.Replace("\n", "");
-        ret = before.Length - after.Length;
-
-
-        int[] Lenth = new int[ret + 1];
-        LineLenth = new int[ret + 1];
-
-        //Debug.Log(ret);
-
-        for (int i = 0; i < ret; i++)
-        {
-            if (i != 0)
-            {
-                Lenth[i] = a.IndexOf('\n', Lenth[i - 1] + i + i + 2) - i - i - 1;
-            }
-            else
-            {
-                Lenth[i] = a.IndexOf('\n', 0) - 1;
-            }
-
-            //Debug.Log("Lenth:" + Lenth[i]+"  i:" + i);
-        }
-        Lenth[ret] = before.Length - (ret) - (ret);
-        //Debug.Log("Lenth:" + Lenth[ret] + "  i:" + ret);
-
-        for (int i = 0; i < ret + 1; i++)
-        {
-            if (i != 0)
-            {
-                LineLenth[i] = Lenth[i] - Lenth[i - 1];
-            }
-            else
-            {
-                LineLenth[i] = Lenth[i];
-            }
+            //Debug.Log(splitted[i]);
         }
     }
 }
