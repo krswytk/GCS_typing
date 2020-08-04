@@ -69,7 +69,7 @@ public class Text_move : MonoBehaviour
 
         //Debug.Log(Text_Lenth.ret);
 
-        if (Input.GetKeyDown(KeyCode.Space))// 9文字で2.1だけ移動
+        if (Input.GetKeyDown(KeyCode.Space))// 文字が一文字進む
         {
             if (Line < ret + 1)
             {
