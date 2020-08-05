@@ -16,6 +16,8 @@ public class Text_test : MonoBehaviour
     private string loadText1;
     [SerializeField]
     private TextAsset textAsset;
+    public GameObject prefab;
+    GameObject[] obj;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,18 @@ public class Text_test : MonoBehaviour
         text.text = loadText1;
         Debug.Log(loadText1);
         SplitLengh(text.text);
+        string[] str = new string[splitted[Line].Length];
+        string arr = splitted[Line];
+        for (int i = 0; i < splitted[Line].Length; i++)
+        {
+            str[i] = arr[i].ToString();
+            obj = new GameObject[splitted[Line].Length];
+            obj[i] = Instantiate(prefab, transform.position*i, transform.rotation);
+            obj[i].transform.parent = transform;
+            obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
+            obj[i].GetComponent<Text>().text = str[i];
+            Debug.Log("obj[i]:"+obj[i]);
+        }
     }
 
     // Update is called once per frame
@@ -45,9 +59,27 @@ public class Text_test : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            for (int i = 0; i < splitted[Line].Length; i++)
+            {
+                Debug.Log("obj[i]:" + obj[i]);
+                Destroy(obj[i]);
+            }
             Line++;
+            string[] str = new string[splitted[Line].Length];
+            string arr = splitted[Line];
+            for (int i = 0; i < splitted[Line].Length; i++)
+            {
+                str[i] = arr[i].ToString();
+                Debug.Log(str[i]);
+                GameObject[] obj = new GameObject[splitted[Line].Length];
+                obj[i] = Instantiate(prefab, transform.position * i, transform.rotation);
+                obj[i].transform.parent = transform;
+                obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
+                obj[i].GetComponent<Text>().text = str[i];
+            }
         }
         //Debug.Log(splitted[Line]);
+
     }
 
 

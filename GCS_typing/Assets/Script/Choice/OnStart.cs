@@ -31,8 +31,8 @@ public class OnStart : MonoBehaviour
 
         GT.text = new string[num];
         for (int i = 0; i < num; i++) {
-            GT.text[i] = FN.D[i].GetText();
-            Debug.Log(FN.D[i].GetText());
+            GT.text[i] = FN.M[i].GetText();
+            Debug.Log(FN.M[i].GetText());
         }
         
         SceneManager.sceneLoaded -= GameSceneLoaded;

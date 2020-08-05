@@ -25,6 +25,6 @@ public class ContentDisplay : MonoBehaviour
     {
         num = OT.GetNum();
         Debug.Log("num : " + num);
-        text.text = FN.D[num].GetText();
+        text.text = FN.M[num].GetText();
     }
 }
