@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetText : MonoBehaviour
+public class GeterText : MonoBehaviour
 {
-    public string[] text;
+    public string[] word;
+    public string[] hiragana;
+    public string[] meaning;
     // Start is called before the first frame update
     void Start()
     {
-       // Debug.Log(text);
+        
     }
 
     // Update is called once per frame
