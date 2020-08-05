@@ -7,7 +7,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 {
     private int num;
     [SerializeField, Multiline(5)] private string[] Mstr;
-    private string[] Dstr;
+    private string Dstr;
 
     public Manuscript[] M;
     public Dictionary[] D;
@@ -39,13 +39,24 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
     void ReadDictionaryFiles()
     {
-        string filePath = Application.dataPath + "/" + "Text" + "/"+ "dictionary.txt";
-        Debug.Log(filePath);
+        string[] str;
+        string path = Application.dataPath + "/" + "Text";
+        string[] files = Directory.GetFiles(path, "*.txt", SearchOption.AllDirectories);
+        str = new string[files.Length];
+        for (int i = 0; i < files.Length; i++)
+        {
+            StreamReader sr = new StreamReader(files[i], Encoding.UTF8);
+            str[i] = sr.ReadToEnd();
+            sr.Close();
+        }
+        Dstr = str[0];
+        Debug.Log(Dstr);
     }
 
     private void Start()
     {
-        clclassD(Mstr);
+        clclassM(Mstr);
+        clclassD(Dstr);
     }
 
     public int GetFN()
@@ -53,7 +64,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         return num;
     }
 
-    private void clclassD(string[] s)
+    private void clclassM(string[] s)
     {
         M = new Manuscript[num];
         int n;
@@ -120,6 +131,59 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         }
 
     }
+
+    private void clclassD(string s)
+    {
+        string t;
+        string k;
+        string h;
+        int n = -1;
+        int count = 0;
+        for(int i = 0;i < s.Length; i++)
+        {
+            if(s[i] == '\n')
+            {
+                count++;
+            }
+        }
+        D = new Dictionary[count];
+        for (int i = 0; i < count; i++)
+        {
+            t = "";
+            k = "";
+            h = "";
+            while (true)
+            {
+                n++;
+                if (s[n] == ' ' || s[n] == '　' || s[n] == '\n')
+                {
+                    break;
+                }
+                t += s[n];
+            }
+            Debug.Log(t);
+            while (true)
+            {
+                n++;
+                if (s[n] == ' ' || s[n] == '　' || s[n] == '\n')
+                {
+                    break;
+                }
+                k += s[n];
+            }
+            while (true)
+            {
+                n++;
+                if (s[n] == ' ' || s[n] == '　' || s[n] == '\n')
+                {
+                    break;
+                }
+                h += s[n];
+            }
+            D[i] = new Dictionary(t, k, h);
+        }
+
+    }
 }
 
 public class Manuscript
@@ -163,9 +227,9 @@ public class Dictionary
     private string Hiragana;//単語(ひらがな)を格納する変数
     private string meaning;//意味を格納する変数
 
-    public Dictionary(string title, string Hiragana, string meaning)
+    public Dictionary(string word, string Hiragana, string meaning)
     {
-        this.word = title;
+        this.word = word;
         this.Hiragana = Hiragana;
         this.meaning = meaning;
     }
