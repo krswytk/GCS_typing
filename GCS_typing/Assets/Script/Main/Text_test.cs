@@ -18,6 +18,7 @@ public class Text_test : MonoBehaviour
     private TextAsset textAsset;
     public GameObject prefab;
     GameObject[] obj;
+    int count = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -34,55 +35,54 @@ public class Text_test : MonoBehaviour
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
         text.text = loadText1;
-        //Debug.Log(loadText1);
         SplitLengh(text.text);
         string[] str = new string[splitted[Line].Length];
         string arr = splitted[Line];
+        obj = new GameObject[splitted[Line].Length];
         for (int i = 0; i < splitted[Line].Length; i++)
         {
             str[i] = arr[i].ToString();
-            obj = new GameObject[splitted[Line].Length];
-            obj[i] = Instantiate(prefab, transform.position*i, transform.rotation);
+            obj[i] = Instantiate(prefab, new Vector2(transform.position.x*i, transform.position.y), transform.rotation);
             obj[i].transform.parent = transform;
             obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
             obj[i].GetComponent<Text>().text = str[i];
-            Debug.Log("obj[i]:"+obj[i]+ "i:" + i);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Line < ret + 1)
-        {
-            text.text = splitted[Line];
-        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Debug.Log(obj[4].GetComponent<Text>().text);
-            for (int i = 0; i < splitted[Line].Length; i++)
+            if(count < splitted[Line].Length)
             {
-                //Debug.Log(obj[i].GetComponent<Text>().text);
-                Debug.Log("obj[i]:" + obj[i] + "i:" + i);
-                //Destroy(obj[i]);
+                obj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0);
+                count++;
             }
-            /*
-            Line++;
-            string[] str = new string[splitted[Line].Length];
-            string arr = splitted[Line];
-            for (int i = 0; i < splitted[Line].Length; i++)
+            else
             {
-                str[i] = arr[i].ToString();
-                //Debug.Log(str[i]);
-                GameObject[] obj = new GameObject[splitted[Line].Length];
-                obj[i] = Instantiate(prefab, transform.position * i, transform.rotation);
-                obj[i].transform.parent = transform;
-                obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
-                obj[i].GetComponent<Text>().text = str[i];
-            }*/
-        }
-        //Debug.Log(splitted[Line]);
+                count = 0;
+                for (int i = 0; i < splitted[Line].Length; i++)
+                {
+                    Debug.Log("obj[i]:" + obj[i] + "i:" + i);
+                    Destroy(obj[i]);
+                }
 
+                Line++;
+                string[] str = new string[splitted[Line].Length];
+                string arr = splitted[Line];
+                obj = new GameObject[splitted[Line].Length];
+                for (int i = 0; i < splitted[Line].Length; i++)
+                {
+                    str[i] = arr[i].ToString();
+                    obj[i] = Instantiate(prefab, new Vector2(transform.position.x * i, transform.position.y), transform.rotation);
+                    obj[i].transform.parent = transform;
+                    obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
+                    obj[i].GetComponent<Text>().text = str[i];
+                }
+            }
+        }
     }
 
 
@@ -100,12 +100,5 @@ public class Text_test : MonoBehaviour
 
         string[] del = { "\r\n" };
         splitted = str.Split(del, StringSplitOptions.None);
-
-        //Debug.Log(ret);
-
-        for (int i = 0; i < ret+1; i++)
-        {
-            //Debug.Log(splitted[i]);
-        }
     }
 }
