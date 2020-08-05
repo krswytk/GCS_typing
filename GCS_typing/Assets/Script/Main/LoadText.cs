@@ -42,7 +42,7 @@ public class LoadText : MonoBehaviour
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
         dataText.text = loadText1;
-        Debug.Log(loadText1);
+        //Debug.Log(loadText1);
     }
 
     void Update()

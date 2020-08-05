@@ -34,7 +34,7 @@ public class Text_test : MonoBehaviour
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
         text.text = loadText1;
-        Debug.Log(loadText1);
+        //Debug.Log(loadText1);
         SplitLengh(text.text);
         string[] str = new string[splitted[Line].Length];
         string arr = splitted[Line];
@@ -46,7 +46,7 @@ public class Text_test : MonoBehaviour
             obj[i].transform.parent = transform;
             obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
             obj[i].GetComponent<Text>().text = str[i];
-            Debug.Log("obj[i]:"+obj[i]);
+            Debug.Log("obj[i]:"+obj[i]+ "i:" + i);
         }
     }
 
@@ -59,24 +59,27 @@ public class Text_test : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //Debug.Log(obj[4].GetComponent<Text>().text);
             for (int i = 0; i < splitted[Line].Length; i++)
             {
-                Debug.Log("obj[i]:" + obj[i]);
-                Destroy(obj[i]);
+                //Debug.Log(obj[i].GetComponent<Text>().text);
+                Debug.Log("obj[i]:" + obj[i] + "i:" + i);
+                //Destroy(obj[i]);
             }
+            /*
             Line++;
             string[] str = new string[splitted[Line].Length];
             string arr = splitted[Line];
             for (int i = 0; i < splitted[Line].Length; i++)
             {
                 str[i] = arr[i].ToString();
-                Debug.Log(str[i]);
+                //Debug.Log(str[i]);
                 GameObject[] obj = new GameObject[splitted[Line].Length];
                 obj[i] = Instantiate(prefab, transform.position * i, transform.rotation);
                 obj[i].transform.parent = transform;
                 obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
                 obj[i].GetComponent<Text>().text = str[i];
-            }
+            }*/
         }
         //Debug.Log(splitted[Line]);
 
