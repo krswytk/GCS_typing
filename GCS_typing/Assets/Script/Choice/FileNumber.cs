@@ -50,7 +50,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             sr.Close();
         }
         Dstr = str[0];
-        Debug.Log(Dstr);
+        //Debug.Log(Dstr);
     }
 
     private void Start()
@@ -161,7 +161,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 }
                 t += s[n];
             }
-            Debug.Log(t);
+            //Debug.Log(t);
             while (true)
             {
                 n++;
@@ -171,6 +171,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 }
                 k += s[n];
             }
+            //Debug.Log(d);
             while (true)
             {
                 n++;
@@ -180,6 +181,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 }
                 h += s[n];
             }
+            //Debug.Log(h);
             D[i] = new Dictionary(t, k, h);
         }
 
