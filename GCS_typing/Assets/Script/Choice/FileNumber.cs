@@ -6,37 +6,46 @@ using System.Text;
 public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 {
     private int num;
-    [SerializeField, Multiline(5)] private string[] str;
-    
+    [SerializeField, Multiline(5)] private string[] Mstr;
+    private string[] Dstr;
+
+    public Manuscript[] M;
     public Dictionary[] D;
 
     void Awake()
     {
         num = 0;
-        ReadFiles();
+        ReadManuscriptFiles();
+        ReadDictionaryFiles();
     }
 
 
     /// <summary>
     /// 任意のフォルダ内のCSVファイル内容をすべて読み込む
     /// </summary>
-    void ReadFiles()
+    void ReadManuscriptFiles()
     {
         string path = Application.dataPath + "/" + "Text" + "/" + "Manuscript";
         string[] files = Directory.GetFiles(path, "*.txt", SearchOption.AllDirectories);
-        str = new string[files.Length];
+        Mstr = new string[files.Length];
         for (int i = 0; i < files.Length; i++)
         {
             StreamReader sr = new StreamReader(files[i], Encoding.UTF8);
-            str[i] = sr.ReadToEnd();
+            Mstr[i] = sr.ReadToEnd();
             sr.Close();
         }
         num = files.Length;
     }
 
+    void ReadDictionaryFiles()
+    {
+        string filePath = Application.dataPath + "/" + "Text" + "/"+ "dictionary.txt";
+        Debug.Log(filePath);
+    }
+
     private void Start()
     {
-        clclassD(str);
+        clclassD(Mstr);
     }
 
     public int GetFN()
@@ -46,7 +55,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
     private void clclassD(string[] s)
     {
-        D = new Dictionary[num];
+        M = new Manuscript[num];
         int n;
         string t;
         string d;
@@ -107,20 +116,20 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 h = s[i];
             }
 
-            D[i] = new Dictionary(t, id, h,this.GetComponent<GenerateDictionary>().Manuscripts[i]);
+            M[i] = new Manuscript(t, id, h,this.GetComponent<GenerateDictionary>().Manuscripts[i]);
         }
 
     }
 }
 
-public class Dictionary
+public class Manuscript
 {
     private string title;//タイトルを格納する変数
     private int Difficulty;//難易度を格納する変数　1-5 それ以外は例外
     private string text;//本文を格納する変数
     private GameObject Manuscripts;//原稿オブジェクトをGenerateDictionaryから持ってきて格納する変数
 
-    public Dictionary(string title, int Difficulty, string text, GameObject Manuscripts)
+    public Manuscript(string title, int Difficulty, string text, GameObject Manuscripts)
     {
         this.title = title;
         this.Difficulty = Difficulty;
@@ -148,3 +157,29 @@ public class Dictionary
 
 };
 
+public class Dictionary
+{
+    private string word;//単語(漢字)を格納する変数
+    private string Hiragana;//単語(ひらがな)を格納する変数
+    private string meaning;//意味を格納する変数
+
+    public Dictionary(string title, string Hiragana, string meaning)
+    {
+        this.word = title;
+        this.Hiragana = Hiragana;
+        this.meaning = meaning;
+    }
+    public string GetTitle()
+    {
+        return word;
+    }
+    public string GetNumber()
+    {
+        return Hiragana;
+    }
+    public string GetText()
+    {
+        return meaning;
+    }
+
+}
