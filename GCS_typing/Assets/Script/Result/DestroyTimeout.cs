@@ -22,13 +22,13 @@ public class DestroyTimeout : MonoBehaviour
     void Start()
     {
         //Difficulty = GameObject.Find("Difficulty");
-        Destroy(Difficulty, outtimer);
+        //Destroy(Difficulty, outtimer);
 
         text = new string[5];
-        text[0] = "流石です！これなら安心して任せられますね！";
-        text[1] = "概ね良好ですね。完璧な原稿までもう少しですよ！";
-        text[2] = "可もなく不可もなくといった感じですね。まだまだ成長できますよ！";
-        text[3] = "ミスが少々目立ちますね。もっと頑張りましょう！";
+        text[0] = "流石です！\nこれなら安心して\n任せられますね！";
+        text[1] = "概ね良好ですね。\n完璧な原稿まで\nもう少しですよ！";
+        text[2] = "可もなく不可もなくと\nいった感じですね。\nまだまだ成長できますよ！";
+        text[3] = "ミスが少々目立ちますね。\nもっと頑張りましょう！";
         text[4] = "・・・練習あるのみですね。";
 
         t = tx.GetComponent<Text>();
@@ -51,7 +51,7 @@ public class DestroyTimeout : MonoBehaviour
         n++;
         if(n > 4)
         {
-            n = 1;
+            n = 0;
         }
         t.text = text[n];
         i.sprite = anImage[n];
