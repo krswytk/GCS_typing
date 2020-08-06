@@ -22,14 +22,14 @@ public class DestroyTimeout : MonoBehaviour
     void Start()
     {
         //Difficulty = GameObject.Find("Difficulty");
-        //Destroy(Difficulty, outtimer);
+        Destroy(Difficulty, outtimer);
 
         text = new string[5];
         text[0] = "流石です！\nこれなら安心して\n任せられますね！";
         text[1] = "概ね良好ですね。\n完璧な原稿まで\nもう少しですよ！";
         text[2] = "可もなく不可もなくと\nいった感じですね。\nまだまだ成長できますよ！";
         text[3] = "ミスが少々目立ちますね。\nもっと頑張りましょう！";
-        text[4] = "・・・練習あるのみですね。";
+        text[4] = "・・・練習あるのみですね";
 
         t = tx.GetComponent<Text>();
         i = an.GetComponent<Image>();
