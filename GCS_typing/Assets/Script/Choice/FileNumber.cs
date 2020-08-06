@@ -126,7 +126,6 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 id = 0;
                 h = s[i];
             }
-
             M[i] = new Manuscript(t, id, h,this.GetComponent<GenerateDictionary>().Manuscripts[i]);
         }
 
