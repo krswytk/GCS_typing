@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class DestroyTimeout : MonoBehaviour
 {
-    public GameObject obj;
-    public float timer = 15.0f;
+    [SerializeField] private GameObject Difficulty;
+    public float outtimer = 15.0f;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(obj, timer);
+        //Difficulty = GameObject.Find("Difficulty");
+        Destroy(Difficulty, outtimer);
     }
 
     // Update is called once per frame
