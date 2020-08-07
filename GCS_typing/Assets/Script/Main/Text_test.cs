@@ -44,8 +44,7 @@ public class Text_test : MonoBehaviour
             if(splitted[Line].Length%2==0)//文字数が遇数なら
             {
                 Debug.Log("偶数");
-                text_x = transform.position.x + (((-(splitted[Line].Length / 2) + i) + 1.5f)/2);
-                Debug.Log(text_x);
+                text_x = transform.position.x + ((i - (splitted[Line].Length / 2) + 0.5f) / 1.5f);
             }
             else//文字数が奇数なら
             {
@@ -53,13 +52,13 @@ public class Text_test : MonoBehaviour
                 if (i== (splitted[Line].Length-1) / 2)
                 {
                     text_x = transform.position.x;
-                    Debug.Log(transform.position.x);
                 }
                 else
                 {
                     text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i)/1.5f);
                 }
             }
+            Debug.Log(text_x);
             obj[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y), transform.rotation);
             obj[i].transform.parent = transform;
             obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
@@ -73,7 +72,7 @@ public class Text_test : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(count < splitted[Line].Length)
+            if(count < splitted[Line].Length-1)
             {
                 obj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0);
                 count++;
@@ -97,8 +96,7 @@ public class Text_test : MonoBehaviour
                     if (splitted[Line].Length % 2 == 0)//文字数が遇数なら
                     {
                         Debug.Log("偶数");
-                        text_x = transform.position.x + (((-(splitted[Line].Length / 2) + i) + 1.5f) / 2);
-                        Debug.Log(text_x);
+                        text_x = transform.position.x + ((i-(splitted[Line].Length / 2)+0.5f) / 1.5f);
                     }
                     else//文字数が奇数なら
                     {
@@ -106,13 +104,13 @@ public class Text_test : MonoBehaviour
                         if (i == (splitted[Line].Length - 1) / 2)
                         {
                             text_x = transform.position.x;
-                            Debug.Log(transform.position.x);
                         }
                         else
                         {
                             text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i) / 1.5f);
                         }
                     }
+                    Debug.Log(text_x);
                     obj[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y), transform.rotation);
                     obj[i].transform.parent = transform;
                     obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
