@@ -11,7 +11,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
     public Manuscript[] M;
     public Dictionary[] D;
-
+    public int count;
     void Awake()
     {
         num = 0;
@@ -126,7 +126,6 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 id = 0;
                 h = s[i];
             }
-
             M[i] = new Manuscript(t, id, h,this.GetComponent<GenerateDictionary>().Manuscripts[i]);
         }
 
@@ -138,7 +137,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         string k;
         string h;
         int n = -1;
-        int count = 0;
+        count = 0;
         for(int i = 0;i < s.Length; i++)
         {
             if(s[i] == '\n')

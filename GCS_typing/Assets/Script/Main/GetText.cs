@@ -8,7 +8,7 @@ public class GetText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(text);
+       // Debug.Log(text);
     }
 
     // Update is called once per frame
