@@ -17,6 +17,7 @@ public class Text_test : MonoBehaviour
     private TextAsset textAsset;
     public GameObject prefab;
     GameObject[] obj;
+    GameObject[] Transparent;
     int count = 0;
     float text_x=0;
 
@@ -38,6 +39,7 @@ public class Text_test : MonoBehaviour
         string[] str = new string[splitted[Line].Length];
         string arr = splitted[Line];
         obj = new GameObject[splitted[Line].Length];
+        Transparent = new GameObject[splitted[Line].Length];
         for (int i = 0; i < splitted[Line].Length; i++)
         {
             str[i] = arr[i].ToString();
@@ -63,6 +65,10 @@ public class Text_test : MonoBehaviour
             obj[i].transform.parent = transform;
             obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
             obj[i].GetComponent<Text>().text = str[i];
+            Transparent[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y - 0.75f), transform.rotation);
+            Transparent[i].transform.parent = transform;
+            Transparent[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
+            Transparent[i].GetComponent<Text>().text = str[i];
         }
     }
 
@@ -74,7 +80,8 @@ public class Text_test : MonoBehaviour
         {
             if(count < splitted[Line].Length-1)
             {
-                obj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0);
+                //obj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0);
+                Transparent[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 count++;
             }
             else
@@ -82,14 +89,15 @@ public class Text_test : MonoBehaviour
                 count = 0;
                 for (int i = 0; i < splitted[Line].Length; i++)
                 {
-                    Debug.Log("obj[i]:" + obj[i] + "i:" + i);
                     Destroy(obj[i]);
+                    Destroy(Transparent[i]);
                 }
 
                 Line++;
                 string[] str = new string[splitted[Line].Length];
                 string arr = splitted[Line];
                 obj = new GameObject[splitted[Line].Length];
+                Transparent = new GameObject[splitted[Line].Length];
                 for (int i = 0; i < splitted[Line].Length; i++)
                 {
                     str[i] = arr[i].ToString();
@@ -115,6 +123,10 @@ public class Text_test : MonoBehaviour
                     obj[i].transform.parent = transform;
                     obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
                     obj[i].GetComponent<Text>().text = str[i];
+                    Transparent[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y - 0.75f), transform.rotation);
+                    Transparent[i].transform.parent = transform;
+                    Transparent[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
+                    Transparent[i].GetComponent<Text>().text = str[i];
                 }
             }
         }
