@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 
 public class GetClickedText : MonoBehaviour, IPointerClickHandler
 {
-    public int number;
-    public mean meanObject;
+    private int number;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +20,12 @@ public class GetClickedText : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Ok");
-        meanObject.meanNumber = number;
+        Debug.Log(number);
+        mean.meanNumber = number;
+    }
+
+    public void setNumber(int n)
+    {
+        number = n;
     }
 }
