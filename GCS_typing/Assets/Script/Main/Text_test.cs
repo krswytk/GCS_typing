@@ -18,6 +18,8 @@ public class Text_test : MonoBehaviour
     private TextAsset textAsset;
     public GameObject prefab;
     GameObject[] obj;
+    int count = 0;
+    float text_x=0;
 
     // Start is called before the first frame update
     void Start()
@@ -34,52 +36,92 @@ public class Text_test : MonoBehaviour
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
         text.text = loadText1;
-        Debug.Log(loadText1);
         SplitLengh(text.text);
         string[] str = new string[splitted[Line].Length];
         string arr = splitted[Line];
+        obj = new GameObject[splitted[Line].Length];
         for (int i = 0; i < splitted[Line].Length; i++)
         {
             str[i] = arr[i].ToString();
-            obj = new GameObject[splitted[Line].Length];
-            obj[i] = Instantiate(prefab, transform.position*i, transform.rotation);
+            if(splitted[Line].Length%2==0)//文字数が遇数なら
+            {
+                Debug.Log("偶数");
+                text_x = transform.position.x + (((-(splitted[Line].Length / 2) + i) + 1.5f)/2);
+                Debug.Log(text_x);
+            }
+            else//文字数が奇数なら
+            {
+                Debug.Log("奇数");
+                if (i== (splitted[Line].Length-1) / 2)
+                {
+                    text_x = transform.position.x;
+                    Debug.Log(transform.position.x);
+                }
+                else
+                {
+                    text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i)/1.5f);
+                }
+            }
+            obj[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y), transform.rotation);
             obj[i].transform.parent = transform;
             obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
             obj[i].GetComponent<Text>().text = str[i];
-            Debug.Log("obj[i]:"+obj[i]);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Line < ret + 1)
-        {
-            text.text = splitted[Line];
-        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            for (int i = 0; i < splitted[Line].Length; i++)
+            if(count < splitted[Line].Length)
             {
-                Debug.Log("obj[i]:" + obj[i]);
-                Destroy(obj[i]);
+                obj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0);
+                count++;
             }
-            Line++;
-            string[] str = new string[splitted[Line].Length];
-            string arr = splitted[Line];
-            for (int i = 0; i < splitted[Line].Length; i++)
+            else
             {
-                str[i] = arr[i].ToString();
-                Debug.Log(str[i]);
-                GameObject[] obj = new GameObject[splitted[Line].Length];
-                obj[i] = Instantiate(prefab, transform.position * i, transform.rotation);
-                obj[i].transform.parent = transform;
-                obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
-                obj[i].GetComponent<Text>().text = str[i];
+                count = 0;
+                for (int i = 0; i < splitted[Line].Length; i++)
+                {
+                    Debug.Log("obj[i]:" + obj[i] + "i:" + i);
+                    Destroy(obj[i]);
+                }
+
+                Line++;
+                string[] str = new string[splitted[Line].Length];
+                string arr = splitted[Line];
+                obj = new GameObject[splitted[Line].Length];
+                for (int i = 0; i < splitted[Line].Length; i++)
+                {
+                    str[i] = arr[i].ToString();
+                    if (splitted[Line].Length % 2 == 0)//文字数が遇数なら
+                    {
+                        Debug.Log("偶数");
+                        text_x = transform.position.x + (((-(splitted[Line].Length / 2) + i) + 1.5f) / 2);
+                        Debug.Log(text_x);
+                    }
+                    else//文字数が奇数なら
+                    {
+                        Debug.Log("奇数");
+                        if (i == (splitted[Line].Length - 1) / 2)
+                        {
+                            text_x = transform.position.x;
+                            Debug.Log(transform.position.x);
+                        }
+                        else
+                        {
+                            text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i) / 1.5f);
+                        }
+                    }
+                    obj[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y), transform.rotation);
+                    obj[i].transform.parent = transform;
+                    obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
+                    obj[i].GetComponent<Text>().text = str[i];
+                }
             }
         }
-        //Debug.Log(splitted[Line]);
-
     }
 
 
@@ -97,12 +139,5 @@ public class Text_test : MonoBehaviour
 
         string[] del = { "\r\n" };
         splitted = str.Split(del, StringSplitOptions.None);
-
-        //Debug.Log(ret);
-
-        for (int i = 0; i < ret+1; i++)
-        {
-            //Debug.Log(splitted[i]);
-        }
     }
 }
