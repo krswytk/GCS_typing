@@ -12,7 +12,7 @@ public class NodePrefub : MonoBehaviour
     private string loadText1;
     private string[] splitText1;
     private string[] splitText2;
-
+    Dictionary dictionary;
     void Start()
     {
         loadText1 = textAsset.text;
@@ -21,14 +21,17 @@ public class NodePrefub : MonoBehaviour
 
         for (int i = 0; i < splitText1.Length - 2; i++)
         {
-            var item = GameObject.Instantiate(prefab) as RectTransform;
-            item.SetParent(transform, false);
+            if (dictionary.GetText() == splitText2[i * 3])
+            {
+                var item = GameObject.Instantiate(prefab) as RectTransform;
+                item.SetParent(transform, false);
 
-            var text = item.GetComponentInChildren<Text>();
-            var g_object = item.GetComponent<GetClickedText>();
-
-            text.text = splitText2[i * 3];
-            g_object.setNumber(i);
+                var text = item.GetComponentInChildren<Text>();
+                var g_object = item.GetComponent<GetClickedText>();
+                
+                text.text = splitText2[i * 3];
+                g_object.setNumber(i);
+            }
         }
     }
 }
