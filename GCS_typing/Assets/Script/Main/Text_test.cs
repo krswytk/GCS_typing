@@ -6,7 +6,6 @@ using System;
 
 public class Text_test : MonoBehaviour
 {
-    [SerializeField] private Text text;
     public static int[] LineLenth;
     public static int ret;
     bool sw = false;
@@ -35,8 +34,7 @@ public class Text_test : MonoBehaviour
         loadText1 = loadText1.Replace("8", "８");
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
-        text.text = loadText1;
-        SplitLengh(text.text);
+        SplitLengh(loadText1);
         string[] str = new string[splitted[Line].Length];
         string arr = splitted[Line];
         obj = new GameObject[splitted[Line].Length];
