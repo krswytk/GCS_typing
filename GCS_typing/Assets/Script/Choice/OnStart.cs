@@ -29,13 +29,18 @@ public class OnStart : MonoBehaviour
     {
         GetText GT = GameObject.Find("GetText").GetComponent<GetText>();
 
+
         GT.text = new string[num];
+        GT.word = new string[num];
+        GT.meaning = new string[num];
+
         for (int i = 0; i < num; i++) {
             GT.text[i] = FN.M[i].GetText();
-            Debug.Log(FN.M[i].GetText());
+            GT.word[i] = FN.D[i].GetTitle();
+            GT.meaning[i] = FN.D[i].GetText();
         }
         
         SceneManager.sceneLoaded -= GameSceneLoaded;
+        
     }
-
 }

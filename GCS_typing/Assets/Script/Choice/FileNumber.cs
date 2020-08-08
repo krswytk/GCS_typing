@@ -248,3 +248,39 @@ public class Dictionary
     }
 
 }
+
+public class DictionaryManuscript
+{
+    private string title;//タイトルを格納する変数
+    private int Difficulty;//難易度を格納する変数　1-5 それ以外は例外
+    private string text;//本文を格納する変数 
+    private string word;//単語(漢字)を格納する変数
+    private string Hiragana;//単語(ひらがな)を格納する変数
+    private string meaning;//意味を格納する変数
+    
+    public string GetTitle()
+    {
+        return title;
+    }
+    public int GetNumber()
+    {
+        return Difficulty;
+    }
+    public string GetText()
+    {
+        return text;//本文を格納する変数
+    }
+    public string Getword()
+    {
+        return word;
+    }
+    public string GetHiragana()
+    {
+        return Hiragana;
+    }
+    public string Getmeaning()
+    {
+        return meaning;
+    }
+
+}
