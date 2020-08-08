@@ -50,7 +50,7 @@ public class Text_test : MonoBehaviour
             if(splitted[Line].Length%2==0)//文字数が遇数なら
             {
                 //Debug.Log("偶数");
-                text_x = transform.position.x + ((i - (splitted[Line].Length / 2) + 0.5f) / 1.5f);
+                text_x = transform.position.x + ((i - (splitted[Line].Length / 2) + 0.5f) / width);
             }
             else//文字数が奇数なら
             {
@@ -61,7 +61,7 @@ public class Text_test : MonoBehaviour
                 }
                 else
                 {
-                    text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i)/1.5f);
+                    text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i)/ width);
                 }
             }
             //Debug.Log(text_x);
@@ -108,7 +108,7 @@ public class Text_test : MonoBehaviour
                     if (splitted[Line].Length % 2 == 0)//文字数が遇数なら
                     {
                         //Debug.Log("偶数");
-                        text_x = transform.position.x + ((i-(splitted[Line].Length / 2)+0.5f) / 1.5f);
+                        text_x = transform.position.x + ((i-(splitted[Line].Length / 2)+0.5f) / width);
                     }
                     else//文字数が奇数なら
                     {
@@ -119,7 +119,7 @@ public class Text_test : MonoBehaviour
                         }
                         else
                         {
-                            text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i) / 1.5f);
+                            text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i) / width);
                         }
                     }
                     //Debug.Log(text_x);
