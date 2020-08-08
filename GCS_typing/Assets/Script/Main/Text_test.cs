@@ -21,6 +21,8 @@ public class Text_test : MonoBehaviour
     int count = 0;
     float text_x=0;
 
+    public bool NextSpace=false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +78,7 @@ public class Text_test : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)||NextSpace)
         {
             if(count < splitted[Line].Length-1)
             {
@@ -129,6 +131,7 @@ public class Text_test : MonoBehaviour
                     Transparent[i].GetComponent<Text>().text = str[i];
                 }
             }
+            NextSpace = false;
         }
     }
 
