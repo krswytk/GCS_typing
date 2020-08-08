@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataText: {fileID: 146301396}
-  textAsset: {fileID: 4900000, guid: 26181cad8a73d2249a4c97f462e3bd3b, type: 3}
+  textAsset: {fileID: 4900000, guid: 80f648064820e774a822a8a1bfe1cb3e, type: 3}
 --- !u!114 &146301396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4996,8 +4996,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c10641fee14c7e4e8b9e3ac4b3ae1f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textAsset: {fileID: 4900000, guid: 26181cad8a73d2249a4c97f462e3bd3b, type: 3}
+  textAsset: {fileID: 4900000, guid: 80f648064820e774a822a8a1bfe1cb3e, type: 3}
   prefab: {fileID: 4173940732923891084, guid: 1d6ae5a7860afd24eb46e174a6240d12, type: 3}
+  NextSpace: 0
 --- !u!114 &2044241041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5010,6 +5011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62c4cc964f5a12469325c1f2edbd7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text_Test: {fileID: 2044241040}
   TextF: {fileID: 4900000, guid: 80f648064820e774a822a8a1bfe1cb3e, type: 3}
 --- !u!222 &2044241044
 CanvasRenderer:

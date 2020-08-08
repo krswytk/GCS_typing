@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CheckTestScript : MonoBehaviour
 {
+    public Text_test text_Test;
     public TextAsset TextF;//日本語テキストファイルがここに
     //public Text pre;//次を表示するとこ
     //public Text_test text_Test;
@@ -50,6 +51,7 @@ public class CheckTestScript : MonoBehaviour
                 if (NowKey[KeyNum] == Input.inputString)
                 {
                     Debug.Log("成功です");
+                    
                     KeyNum++;
                 }
                 else
@@ -63,6 +65,8 @@ public class CheckTestScript : MonoBehaviour
 
             if (NowKey[KeyNum] == "おわり")//次のひらがなに行きたい
             {
+                //ここで送信
+                text_Test.NextSpace = true;
                 KeyNum = 0;
                 KanaNum++;
                 Debug.Log("kanaNum："+KanaNum);
@@ -794,5 +798,10 @@ public class CheckTestScript : MonoBehaviour
             }
         }
         return i;
+    }
+
+    public bool GetNextSpace()
+    {
+        return true;
     }
 }
