@@ -28,9 +28,12 @@ public class LoadText : MonoBehaviour
     //　現在表示中テキスト2番号
     private int textNum2;
 
+    public GetText GetText;
+
     void Start()
     {
-        loadText1 = textAsset.text;
+        //GetText.text[0];
+        loadText1 = GetText.text[0];
         loadText1 = loadText1.Replace("1", "１");
         loadText1 = loadText1.Replace("2", "２");
         loadText1 = loadText1.Replace("3", "３");
@@ -42,7 +45,7 @@ public class LoadText : MonoBehaviour
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
         dataText.text = loadText1;
-        Debug.Log(loadText1);
+        //Debug.Log(loadText1);
     }
 
     void Update()
