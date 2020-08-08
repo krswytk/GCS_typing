@@ -21,6 +21,8 @@ public class Text_test : MonoBehaviour
     int count = 0;
     float text_x=0;
 
+    public float width = 1.5f;
+
     public bool NextSpace=false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
 
     // Start is called before the first frame update

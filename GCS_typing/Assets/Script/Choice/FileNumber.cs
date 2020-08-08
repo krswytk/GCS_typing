@@ -11,12 +11,18 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
     public Manuscript[] M;
     public Dictionary[] D;
+    
+    private string[][][] kiririn;//[原稿番号][行数][表示する単語]
+
     public int count;
+
     void Awake()
     {
         num = 0;
         ReadManuscriptFiles();
-        ReadDictionaryFiles();
+        ReadDictionaryFiles();//ファイル操作
+        
+
     }
 
 
@@ -53,10 +59,19 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         //Debug.Log(Dstr);
     }
 
-    private void Start()
+    public void Start()
     {
         clclassM(Mstr);
-        clclassD(Dstr);
+        clclassD(Dstr);//ファイルから持ってきた文字列をクラスに格納
+
+        inDM();//単語と原稿を一致させる
+
+        /*Debug.Log(M[0].GetTitle());
+        Debug.Log(M[0].GetNumber());
+        Debug.Log(M[0].GetText());  
+        Debug.Log(D[0].GetTitle());
+        Debug.Log(D[0].GetNumber());
+        Debug.Log(D[0].GetText());*/
     }
 
     public int GetFN()
@@ -68,9 +83,16 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
     {
         M = new Manuscript[num];
         int n;
-        string t;
-        string d;
-        string h;
+
+        string t;//原稿タイトル   
+        string d;//原稿難易度(文字列)
+        int id;//原稿難易度(整数値)
+
+        string h;//原稿本文（本文）
+        string g;//原稿本文（ひらがな）
+        string r;//原稿本文（ローマ字）
+
+        int nol;//原稿本文の行数  
 
 
         for (int i = 0; i < num; i++)
@@ -79,7 +101,9 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             t = "";
             d = "";
             h = "";
-            int id;
+            g = "";
+            r = "";
+            nol = 0;
 
             for (int lp = 0; lp < s[i].Length; lp++)
             {
@@ -106,14 +130,36 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                         d += s[i][lp];//難易度を格納
                     }
                 }
-                else
+                else if (n == 2)
                 {
+                    if (s[i][lp] == '\n')
+                    {
+                        nol++;
+                    }
                     h += s[i][lp];//本文を格納
                 }
+                else if (n == 3)
+                {
+                        g += s[i][lp];//ひらがなを格納
+                }
+                else if (n == 4)
+                {
+                        r += s[i][lp];//ローマ字を格納
+                }
+
+                if (s[i][lp] == '\n' )
+                {
+                    //Debug.Log(s[i][lp -2] + "" + s[i][lp -1] + "" + s[i][lp] + "" + s[i][lp + 1] + "" + s[i][lp + 2]);
+                    if (s[i][lp + 2] == '\n')
+                    {
+                        Debug.Log("改行発見②");
+                        n++;
+                        lp += 1;
+                    }
+                }
+                //Debug.Log(n);
             }
-            //Debug.Log(t);
-            //Debug.Log(d);
-            //Debug.Log(h);
+
 
             try
             {
@@ -126,7 +172,18 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 id = 0;
                 h = s[i];
             }
-            M[i] = new Manuscript(t, id, h,this.GetComponent<GenerateDictionary>().Manuscripts[i]);
+            M[i] = new Manuscript(t, id, h, g, r, nol, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
+
+            /*if (i == 0)
+            {
+                Debug.Log(t);
+                Debug.Log(d);
+                Debug.Log(nol);
+                Debug.Log(h);
+                Debug.Log(g);
+                Debug.Log(r);
+            }*/
+
         }
 
     }
@@ -185,6 +242,37 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         }
 
     }
+
+    private void inDM()
+    {
+        kiririn= new string[num][][];//ジャグ配列  //num=原稿数
+
+        for(int i = 0; i < num; i++)
+        {
+            kiririn[i] = new string[1][];//ジャグ配列 //原稿内の行数
+
+            for (int l = 0; l < num; l++)
+            {
+                kiririn[i][l] = new string[1];//ジャグ配列 //
+
+                for (int k = 0; k < num; k++)
+                {
+
+
+
+
+
+
+                   // kiririn[i][l][k] = "";
+                }
+
+            }
+
+        }
+        
+        //private string[][][] kiririn;//[原稿番号][行数][表示する単語]
+    }
+
 }
 
 public class Manuscript
@@ -192,14 +280,28 @@ public class Manuscript
     private string title;//タイトルを格納する変数
     private int Difficulty;//難易度を格納する変数　1-5 それ以外は例外
     private string text;//本文を格納する変数
+    private string Htext;//本文(ひらがな）を格納する変数
+    private string Rtext;//本文（ローマ字）を格納する変数
     private GameObject Manuscripts;//原稿オブジェクトをGenerateDictionaryから持ってきて格納する変数
+    private int NoL; //行数
 
-    public Manuscript(string title, int Difficulty, string text, GameObject Manuscripts)
+    
+
+    public Manuscript(string title, int Difficulty, string text, string Htext, string Rtext, int NoL, GameObject Manuscripts)
     {
         this.title = title;
         this.Difficulty = Difficulty;
         this.text = text;
+        this.Htext = Htext;
+        this.Rtext = Rtext;
+        this.NoL = NoL ;
         this.Manuscripts = Manuscripts;
+    }
+    public Manuscript(string title, int Difficulty, string text)
+    {
+        this.title = title;
+        this.Difficulty = Difficulty;
+        this.text = text;
     }
 
 
@@ -214,6 +316,18 @@ public class Manuscript
     public string GetText()
     {
         return text;//本文を格納する変数
+    }
+    public string GetHtext()
+    {
+        return Htext;//本文を格納する変数
+    }
+    public string GetRtext()
+    {
+        return Rtext;//本文を格納する変数
+    }
+    public int GetNoL()
+    {
+        return NoL;//本文を格納する変数
     }
     public GameObject GetManuscripts()
     {
@@ -243,42 +357,6 @@ public class Dictionary
         return Hiragana;
     }
     public string GetText()
-    {
-        return meaning;
-    }
-
-}
-
-public class DictionaryManuscript
-{
-    private string title;//タイトルを格納する変数
-    private int Difficulty;//難易度を格納する変数　1-5 それ以外は例外
-    private string text;//本文を格納する変数 
-    private string word;//単語(漢字)を格納する変数
-    private string Hiragana;//単語(ひらがな)を格納する変数
-    private string meaning;//意味を格納する変数
-    
-    public string GetTitle()
-    {
-        return title;
-    }
-    public int GetNumber()
-    {
-        return Difficulty;
-    }
-    public string GetText()
-    {
-        return text;//本文を格納する変数
-    }
-    public string Getword()
-    {
-        return word;
-    }
-    public string GetHiragana()
-    {
-        return Hiragana;
-    }
-    public string Getmeaning()
     {
         return meaning;
     }

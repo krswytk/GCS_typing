@@ -29,7 +29,7 @@ public class CheckTestScript : MonoBehaviour
         LoadText();
 
         //↓初期設定
-        lineNow = 0;//0行目はたいとるなら変更
+        //lineNow = 0;//0行目はたいとるなら変更
         SetStrig(lineNow);
         SetChar(0);
         KeyNum = 0;
@@ -51,7 +51,8 @@ public class CheckTestScript : MonoBehaviour
                 if (NowKey[KeyNum] == Input.inputString)
                 {
                     Debug.Log("成功です");
-                    
+                    //ローマ字ならここで送信
+                    //text_Test.NextSpace = true;
                     KeyNum++;
                 }
                 else
@@ -65,8 +66,9 @@ public class CheckTestScript : MonoBehaviour
 
             if (NowKey[KeyNum] == "おわり")//次のひらがなに行きたい
             {
-                //ここで送信
+                //ひらがなならここで送信
                 text_Test.NextSpace = true;
+
                 KeyNum = 0;
                 KanaNum++;
                 Debug.Log("kanaNum："+KanaNum);
@@ -118,6 +120,20 @@ public class CheckTestScript : MonoBehaviour
         Strings = TextLines.Split('\n');
         //Debug.Log("一行目→" + Strings[0]);//ok
         lineNum = Strings.Length;//全部で何行だか入れる
+
+        //開始マークの読み込み
+        for (int i=0;i<lineNum;i++)
+        {
+            //Debug.Log("原稿検証:"+Strings[i]);
+            //Debug.Log("文字数:" + Strings[i].Length);
+            //Debug.Log("これは改行コードか？：" + Strings[i].Substring(Strings[i].Length - 1, 1));
+            if (Strings[i] == "#ひらがな原稿開始"+Strings[i].Substring(Strings[i].Length-1,1))//改行コード的なやつを後ろに
+            {
+                Debug.Log("ひらがな原稿を検出");
+                lineNow = i+1;
+            }
+        }
+
     }
 
     /// <summary>
