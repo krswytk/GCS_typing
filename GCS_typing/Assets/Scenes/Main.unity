@@ -3431,12 +3431,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -7
-  m_Sprite: {fileID: 21300000, guid: 8af18a77d3861ef42867037470e0599b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfe6595b085e1c24d804f8cc99e97a29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 2.47}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5244,6 +5244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textAsset: {fileID: 4900000, guid: 26181cad8a73d2249a4c97f462e3bd3b, type: 3}
   prefab: {fileID: 4173940732923891084, guid: 1d6ae5a7860afd24eb46e174a6240d12, type: 3}
+  width: 1.5
   NextSpace: 0
 --- !u!222 &2044241044
 CanvasRenderer:
