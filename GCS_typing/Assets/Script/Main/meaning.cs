@@ -22,7 +22,8 @@ public class meaning : MonoBehaviour
         loadText1 = loadText1.Replace("8", "８");
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
-        //if(loadText1.Length>42)
+        if(loadText1.Length>42)
+            loadText1 = loadText1.Insert(42, "\n");
         dataText.text = loadText1;
     }
 
