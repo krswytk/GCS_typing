@@ -5,9 +5,11 @@ using UnityEngine;
 public class GetText : MonoBehaviour
 {
     public string text;
+    public string Htext;
+    public string Rtext;
     public string[] word;
     public string[] meaning;
-
+    /*
     private void Start()
     {
         Debug.Log(text);
@@ -18,4 +20,5 @@ public class GetText : MonoBehaviour
         Debug.Log(word[2]);
         Debug.Log(meaning[2]);
     }
+    */
 }
