@@ -21,6 +21,8 @@ public class Text_test : MonoBehaviour
     int count = 0;
     float text_x=0;
 
+    public float width = 1.5f;
+
     public bool NextSpace=false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
 
     // Start is called before the first frame update
@@ -47,22 +49,22 @@ public class Text_test : MonoBehaviour
             str[i] = arr[i].ToString();
             if(splitted[Line].Length%2==0)//文字数が遇数なら
             {
-                Debug.Log("偶数");
-                text_x = transform.position.x + ((i - (splitted[Line].Length / 2) + 0.5f) / 1.5f);
+                //Debug.Log("偶数");
+                text_x = transform.position.x + ((i - (splitted[Line].Length / 2) + 0.5f) / width);
             }
             else//文字数が奇数なら
             {
-                Debug.Log("奇数");
+                //Debug.Log("奇数");
                 if (i== (splitted[Line].Length-1) / 2)
                 {
                     text_x = transform.position.x;
                 }
                 else
                 {
-                    text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i)/1.5f);
+                    text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i)/ width);
                 }
             }
-            Debug.Log(text_x);
+            //Debug.Log(text_x);
             obj[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y), transform.rotation);
             obj[i].transform.parent = transform;
             obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
@@ -105,22 +107,22 @@ public class Text_test : MonoBehaviour
                     str[i] = arr[i].ToString();
                     if (splitted[Line].Length % 2 == 0)//文字数が遇数なら
                     {
-                        Debug.Log("偶数");
-                        text_x = transform.position.x + ((i-(splitted[Line].Length / 2)+0.5f) / 1.5f);
+                        //Debug.Log("偶数");
+                        text_x = transform.position.x + ((i-(splitted[Line].Length / 2)+0.5f) / width);
                     }
                     else//文字数が奇数なら
                     {
-                        Debug.Log("奇数");
+                        //Debug.Log("奇数");
                         if (i == (splitted[Line].Length - 1) / 2)
                         {
                             text_x = transform.position.x;
                         }
                         else
                         {
-                            text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i) / 1.5f);
+                            text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i) / width);
                         }
                     }
-                    Debug.Log(text_x);
+                    //Debug.Log(text_x);
                     obj[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y), transform.rotation);
                     obj[i].transform.parent = transform;
                     obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
