@@ -10,7 +10,7 @@ public class Text_test : MonoBehaviour
     bool sw = false;
     string[] splitted;
     string[] Rsplitted;
-    int Line = 0;
+    public int Line = 0;
 
     private string loadText1;
     [SerializeField]
