@@ -1683,10 +1683,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: 
-
   Htext: 
   Rtext: 
-  
   word: []
   meaning: []
 --- !u!1 &519420028
@@ -5504,6 +5502,8 @@ MonoBehaviour:
   textAsset: {fileID: 4900000, guid: 26181cad8a73d2249a4c97f462e3bd3b, type: 3}
   prefab: {fileID: 4173940732923891084, guid: 1d6ae5a7860afd24eb46e174a6240d12, type: 3}
   width: 2
+  Rwidth: 3.75
+  GetText: {fileID: 496542784}
   NextSpace: 0
 --- !u!222 &2044241044
 CanvasRenderer:
