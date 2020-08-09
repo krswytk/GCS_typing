@@ -165,7 +165,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             }
             catch (System.FormatException)
             {
-                Debug.Log("原稿内容がおかしいです");
+                Debug.LogError("原稿内容がおかしいです");
                 t = "ERROR";
                 id = 0;
                 h = s[i];
