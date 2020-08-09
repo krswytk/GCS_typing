@@ -6,10 +6,10 @@ using System;
 
 public class Text_test : MonoBehaviour
 {
-    public static int[] LineLenth;
     public static int ret;
     bool sw = false;
     string[] splitted;
+    string[] Rsplitted;
     int Line = 0;
 
     private string loadText1;
@@ -20,15 +20,18 @@ public class Text_test : MonoBehaviour
     GameObject[] Transparent;
     int count = 0;
     float text_x=0;
+    float Rtext_x = 0;
 
     public float width = 1.5f;
+    public float Rwidth = 1.5f;
+    public GetText GetText;
 
     public bool NextSpace=false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
 
     // Start is called before the first frame update
     void Start()
     {
-        loadText1 = textAsset.text;
+        loadText1 = GetText.text;
         loadText1 = loadText1.Replace("1", "１");
         loadText1 = loadText1.Replace("2", "２");
         loadText1 = loadText1.Replace("3", "３");
@@ -40,21 +43,22 @@ public class Text_test : MonoBehaviour
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
         SplitLengh(loadText1);
+        RSplitLengh(GetText.Rtext);
         string[] str = new string[splitted[Line].Length];
+        string[] Rstr = new string[Rsplitted[Line].Length];
         string arr = splitted[Line];
+        string Rarr = Rsplitted[Line];
         obj = new GameObject[splitted[Line].Length];
-        Transparent = new GameObject[splitted[Line].Length];
+        Transparent = new GameObject[Rsplitted[Line].Length];
         for (int i = 0; i < splitted[Line].Length; i++)
         {
             str[i] = arr[i].ToString();
-            if(splitted[Line].Length%2==0)//文字数が遇数なら
+            if (splitted[Line].Length%2==0)//文字数が遇数なら
             {
-                //Debug.Log("偶数");
                 text_x = transform.position.x + ((i - (splitted[Line].Length / 2) + 0.5f) / width);
             }
             else//文字数が奇数なら
             {
-                //Debug.Log("奇数");
                 if (i== (splitted[Line].Length-1) / 2)
                 {
                     text_x = transform.position.x;
@@ -64,15 +68,34 @@ public class Text_test : MonoBehaviour
                     text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i)/ width);
                 }
             }
-            //Debug.Log(text_x);
             obj[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y), transform.rotation);
             obj[i].transform.parent = transform;
             obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
             obj[i].GetComponent<Text>().text = str[i];
-            Transparent[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y - 0.75f), transform.rotation);
+        }
+
+        for (int i = 0; i < Rsplitted[Line].Length; i++)
+        {
+            Rstr[i] = Rarr[i].ToString();
+            if (Rsplitted[Line].Length % 2 == 0)//文字数が遇数なら
+            {
+                Rtext_x = transform.position.x + ((i - (Rsplitted[Line].Length / 2) + 0.5f) / Rwidth);
+            }
+            else//文字数が奇数なら
+            {
+                if (i == (Rsplitted[Line].Length - 1) / 2)
+                {
+                    Rtext_x = transform.position.x;
+                }
+                else
+                {
+                    Rtext_x = transform.position.x + ((-((Rsplitted[Line].Length - 1) / 2) + i) / Rwidth);
+                }
+            }
+            Transparent[i] = Instantiate(prefab, new Vector2(Rtext_x, transform.position.y - 0.75f), transform.rotation);
             Transparent[i].transform.parent = transform;
             Transparent[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
-            Transparent[i].GetComponent<Text>().text = str[i];
+            Transparent[i].GetComponent<Text>().text = Rstr[i];
         }
     }
 
@@ -82,7 +105,7 @@ public class Text_test : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space)||NextSpace)
         {
-            if(count < splitted[Line].Length-1)
+            if(count < Rsplitted[Line].Length-1)
             {
                 //obj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0);
                 Transparent[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
@@ -94,25 +117,28 @@ public class Text_test : MonoBehaviour
                 for (int i = 0; i < splitted[Line].Length; i++)
                 {
                     Destroy(obj[i]);
+                }
+                for (int i = 0; i < Rsplitted[Line].Length; i++)
+                {
                     Destroy(Transparent[i]);
                 }
 
                 Line++;
                 string[] str = new string[splitted[Line].Length];
+                string[] Rstr = new string[Rsplitted[Line].Length];
                 string arr = splitted[Line];
+                string Rarr = Rsplitted[Line];
                 obj = new GameObject[splitted[Line].Length];
-                Transparent = new GameObject[splitted[Line].Length];
+                Transparent = new GameObject[Rsplitted[Line].Length];
                 for (int i = 0; i < splitted[Line].Length; i++)
                 {
                     str[i] = arr[i].ToString();
                     if (splitted[Line].Length % 2 == 0)//文字数が遇数なら
                     {
-                        //Debug.Log("偶数");
-                        text_x = transform.position.x + ((i-(splitted[Line].Length / 2)+0.5f) / width);
+                        text_x = transform.position.x + ((i - (splitted[Line].Length / 2) + 0.5f) / width);
                     }
                     else//文字数が奇数なら
                     {
-                        //Debug.Log("奇数");
                         if (i == (splitted[Line].Length - 1) / 2)
                         {
                             text_x = transform.position.x;
@@ -122,15 +148,34 @@ public class Text_test : MonoBehaviour
                             text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i) / width);
                         }
                     }
-                    //Debug.Log(text_x);
                     obj[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y), transform.rotation);
                     obj[i].transform.parent = transform;
                     obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
                     obj[i].GetComponent<Text>().text = str[i];
-                    Transparent[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y - 0.75f), transform.rotation);
+                }
+
+                for (int i = 0; i < Rsplitted[Line].Length; i++)
+                {
+                    Rstr[i] = Rarr[i].ToString();
+                    if (Rsplitted[Line].Length % 2 == 0)//文字数が遇数なら
+                    {
+                        Rtext_x = transform.position.x + ((i - (Rsplitted[Line].Length / 2) + 0.5f) / Rwidth);
+                    }
+                    else//文字数が奇数なら
+                    {
+                        if (i == (Rsplitted[Line].Length - 1) / 2)
+                        {
+                            Rtext_x = transform.position.x;
+                        }
+                        else
+                        {
+                            Rtext_x = transform.position.x + ((-((Rsplitted[Line].Length - 1) / 2) + i) / Rwidth);
+                        }
+                    }
+                    Transparent[i] = Instantiate(prefab, new Vector2(Rtext_x, transform.position.y - 0.75f), transform.rotation);
                     Transparent[i].transform.parent = transform;
                     Transparent[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
-                    Transparent[i].GetComponent<Text>().text = str[i];
+                    Transparent[i].GetComponent<Text>().text = Rstr[i];
                 }
             }
             NextSpace = false;
@@ -140,17 +185,13 @@ public class Text_test : MonoBehaviour
 
     void SplitLengh(string str)
     {
-        string a = str;
-
-        string before = str;
-        string after = str.Replace("\n", "");
-        ret = before.Length - after.Length;
-
-
-        int[] Lenth = new int[ret + 1];
-        LineLenth = new int[ret + 1];
-
         string[] del = { "\r\n" };
         splitted = str.Split(del, StringSplitOptions.None);
+    }
+
+    void RSplitLengh(string str)
+    {
+        string[] del = { "\r\n" };
+        Rsplitted = str.Split(del, StringSplitOptions.None);
     }
 }
