@@ -34,9 +34,9 @@ public class OnDictionary : MonoBehaviour
 
         for (int i = 0; i < num; i++)
         {
-            GT.word[i] = FN.D[i].GetTitle();
-            GT.hiragana[i] = FN.D[i].GetNumber();
-            GT.meaning[i] = FN.D[i].GetText();
+            GT.word[i] = FN.D[i].GetWord();
+            GT.hiragana[i] = FN.D[i].GetHiragana();
+            GT.meaning[i] = FN.D[i].GetMeaning();
             //Debug.Log(FN.M[i].GetText());
         }
 

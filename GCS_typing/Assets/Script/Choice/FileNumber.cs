@@ -152,12 +152,12 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                     //Debug.Log(s[i][lp -2] + "" + s[i][lp -1] + "" + s[i][lp] + "" + s[i][lp + 1] + "" + s[i][lp + 2]);
                     if (s[i][lp + 2] == '\n')
                     {
-                        Debug.Log("改行発見②");
+                        //Debug.Log("改行発見②");
                         n++;
                         lp += 1;
+                        //Debug.Log(n);
                     }
                 }
-                //Debug.Log(n);
             }
 
 
@@ -247,24 +247,52 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
     {
         kiririn= new string[num][][];//ジャグ配列  //num=原稿数
 
-        for(int i = 0; i < num; i++)
+        for(int i = 0; i < kiririn.Length; i++)
         {
-            kiririn[i] = new string[1][];//ジャグ配列 //原稿内の行数
+            kiririn[i] = new string[M[i].GetNoL()][];//ジャグ配列 //原稿内の行数
 
-            for (int l = 0; l < num; l++)
+            for (int l = 0; l < kiririn[i].Length; l++)
             {
-                kiririn[i][l] = new string[1];//ジャグ配列 //
+                kiririn[i][l] = new string[2];//ジャグ配列 //0は単語　1は意味
+                kiririn[i][l][0] = "";
+                kiririn[i][l][1] = "";
 
-                for (int k = 0; k < num; k++)
+                for (int k = 0; k < D.Length; k++)//辞書クラスの個数
                 {
+                    //まず単語の長さ
+                    int sh = D[k].GetWord().Length;
+                    int n = 0;
+                    while (true)
+                    {
+                        for (int lp = 0; lp < sh; lp++)//原稿からサーチを始める
+                        {
+                            if (D[k].GetWord()[lp] == M[i].GetText()[n + lp])//検索単語のlp文字目と辞書のlp + n文字目が一致
+                            {
+                                if(sh-1 == lp)
+                                {
+                                    kiririn[i][l][0] = D[k].GetWord();//単語を入れる
+                                    kiririn[i][l][1] = D[k].GetMeaning();//意味を入れる
+                                }
+                            }
+                            else
+                            {
+                                break;//単語と原稿が一致しないためブレイク
+                            }
+
+                        }
+                        n++;
+                        if(n + sh > M[i].GetText().Length)//原稿文字数をサーチ文字数が超えた場合ブレイクで抜け出す
+                        {
+                            break;
+                        }
+                    }
 
 
 
 
 
-
-                   // kiririn[i][l][k] = "";
-                }
+                        // kiririn[i][l][k] = "";
+                    }
 
             }
 
@@ -348,15 +376,15 @@ public class Dictionary
         this.Hiragana = Hiragana;
         this.meaning = meaning;
     }
-    public string GetTitle()
+    public string GetWord()
     {
         return word;
     }
-    public string GetNumber()
+    public string GetHiragana()
     {
         return Hiragana;
     }
-    public string GetText()
+    public string GetMeaning()
     {
         return meaning;
     }
