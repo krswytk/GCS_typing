@@ -145,7 +145,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 {
                     if (s[i][lp] == '\n' && s[i][lp + 2] == '\n')
                     {
-                        Debug.Log("改行発見②");
+                        Debug.Log("改行発見--" + i );
                         n++;
                         lp += 2;
                         //Debug.Log(n);
@@ -153,7 +153,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 }
                 catch
                 {
-                    Debug.LogError(i+1 + "個目の原稿がおかしいです\n無視します");
+                    Debug.LogError(i + "個目の原稿がおかしいです\n無視します");
                     break;
                 }
             }
@@ -172,14 +172,14 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             }
             M[i] = new Manuscript(t, id, h, g, r, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
 
-            if (i == 0)
+            /*if (i == 0)
             {
                 Debug.Log(t);
                 Debug.Log(d);
                 Debug.Log(h);
                 Debug.Log(g);
                 Debug.Log(r);
-            }
+            }*/
 
         }
 
