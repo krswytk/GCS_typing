@@ -18,7 +18,7 @@ public class OnDictionary : MonoBehaviour
 
     public void OnDictionarys()
     {
-        SceneManager.sceneLoaded += GameSceneLoaded;
+        //SceneManager.sceneLoaded += GameSceneLoaded;
 
         audioSource.PlayOneShot(sound1);
         SceneManager.LoadScene("Dictionary");
