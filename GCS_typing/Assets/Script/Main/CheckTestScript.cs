@@ -57,8 +57,80 @@ public class CheckTestScript : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("失敗ですこれ打って：" + NowKey[KeyNum]);
-                    Debug.Log("keynum：" + KeyNum);
+                    //別表記。し、つ、ふ、じ、しゃ、ちゃ、じゃ
+                    switch (NowChar)
+                    {
+                        case "つ":
+                            if (KeyNum==1&&Input.inputString=="s")//tsu
+                            {
+                                Debug.Log("成功です");
+                                //ローマ字ならここで送信
+                                NowKey[1]="s";
+                                NowKey[2] = "u";
+                                NowKey[3] = "おわり";
+                                KeyNum++;
+                            }
+                            break;
+                        case "ふ":
+                            if (KeyNum == 0 && Input.inputString == "f")//fu
+                            {
+                                Debug.Log("成功です");
+                                //ローマ字ならここで送信
+                                /*
+                                NowKey[0] = "f";
+                                NowKey[1] = "u";
+                                NowKey[2] = "おわり";
+                                */
+                                KeyNum++;
+                            }
+                            break;
+
+                        case "じ":
+                            if (KeyNum == 0 && Input.inputString == "j")//ji,jyaとかも先頭だけだからおｋ？
+                            {
+                                Debug.Log("成功です");
+                                //ローマ字ならここで送信
+                                KeyNum++;
+                            }
+                            break;
+
+                        case "し":
+                        case "ち":
+                            if (NowChar=="ち"&&KeyNum == 0 && Input.inputString == "c")
+                            {
+                                KeyNum++;
+                            }
+                            if (KeyNum == 1 && Input.inputString == "h")//
+                            {
+                                Debug.Log("成功です");
+                                //ローマ字ならここで送信
+                                NowKey[1] = "h";
+                                NowKey[2] = "i";
+                                NowKey[3] = "おわり";
+                                KeyNum++;
+                            }
+                            //これで？
+                            if (NextChar == "ゃ")
+                            {
+                                NowKey[2] = "a";
+                            } else if (NextChar == "ゅ")
+                            {
+                                NowKey[2] = "u";
+                            }
+                            else if (NextChar == "ょ")
+                            {
+                                NowKey[2] = "o";
+                            }
+                            break;
+
+                        
+                        default:
+                            Debug.Log("失敗ですこれ打って：" + NowKey[KeyNum]);
+                            Debug.Log("keynum：" + KeyNum);
+                            break;
+                    }
+
+                    
 
                 }
             }
@@ -277,8 +349,8 @@ public class CheckTestScript : MonoBehaviour
                 NowKey[1] = "a";
                 NowKey[2] = "おわり";
                 break;
-            case "じ"://////////////////////
-                NowKey[0] = "j";
+            case "じ":
+                NowKey[0] = "z";
                 NowKey[1] = "i";
                 NowKey[2] = "おわり";
                 break;
@@ -731,6 +803,10 @@ public class CheckTestScript : MonoBehaviour
                 NowKey[0] = "=";
                 NowKey[1] = "おわり";
                 break;
+            case "ー":
+                NowKey[0] = "-";
+                NowKey[1] = "おわり";
+                break;
 
             case "。":
                 NowKey[0] = ".";
@@ -744,19 +820,6 @@ public class CheckTestScript : MonoBehaviour
             //促音処理
 
             case "っ":
-                /*
-                CharSplit(NextChar);
-                //最後を確認
-                int f = GetOwari();
-                //後ろに一つずつずらす
-                for (; 0 < f; f--)
-                {
-                    NowKey[f + 1] = NowKey[f];
-                }
-                NowKey[0] = NowKey[1];//文字重ねる
-                KanaNum++; 
-                 */
-
                 //この関数をもう一度呼び出す
 
                 CharSplit(NextChar);//まず次の文字で呼び出す
@@ -817,7 +880,7 @@ public class CheckTestScript : MonoBehaviour
         return i;
     }
 
-    public bool GetNextSpace()
+    public bool GetNextSpace()//これ何？いる？
     {
         return true;
     }
