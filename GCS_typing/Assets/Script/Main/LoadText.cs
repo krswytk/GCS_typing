@@ -33,7 +33,7 @@ public class LoadText : MonoBehaviour
     void Start()
     {
         //GetText.text[0];
-        loadText1 = GetText.text[0];
+        loadText1 = GetText.text;
         loadText1 = loadText1.Replace("1", "１");
         loadText1 = loadText1.Replace("2", "２");
         loadText1 = loadText1.Replace("3", "３");

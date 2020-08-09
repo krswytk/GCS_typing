@@ -67,4 +67,9 @@ public class TurnManeger : MonoBehaviour
             default: str[str.Length - 1].SetActive(true); break;
         }
     }
+
+    public int GetTMnum()
+    {
+        return num;
+    }
 }
