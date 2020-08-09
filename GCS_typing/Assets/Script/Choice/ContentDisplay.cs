@@ -10,6 +10,7 @@ public class ContentDisplay : MonoBehaviour
     private Onturn OT;
     GameObject Manuscript;
     int num;
+    string[] maintext;
 
     // Start is called before the first frame update
     void Start()
@@ -18,13 +19,27 @@ public class ContentDisplay : MonoBehaviour
         Manuscript = GameObject.Find("TestManuscripS");
         FN = Manuscript.GetComponent<FileNumber>();
         OT = Manuscript.GetComponent<Onturn>();
-    }
 
-    // Update is called once per frame
-    void Update()
+        maintext = new string[FN.GetFN()];//原稿数の配列を確保
+        for(int i = 0; i < maintext.Length; i++)
+        {
+            maintext[i] = "";
+            for (int l = 0; l< FN.M[i].GetText().Length; l++)
+            {
+                if (FN.M[i].GetText()[l] != '\n')
+                {
+                    maintext[i] += FN.M[i].GetText()[l];//原稿クラスにアクセスしてテキストをコピー
+                }
+            }
+        }
+        num = 0;
+    }
+    
+    public void CT()
     {
+        Debug.Log("num : " + num);
         num = OT.GetNum();
         Debug.Log("num : " + num);
-        text.text = FN.M[num].GetText();
+        text.text = maintext[num];
     }
 }
