@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.UI;
 using System;
 
 public class LoadText : MonoBehaviour
@@ -91,59 +90,5 @@ public class LoadText : MonoBehaviour
     void Update()
     {
 
-        //　読み込んだテキストファイルの内容を表示
-
-        /*
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Debug.Log("111111");
-            Debug.Log(loadText1);
-
-            dataText.text = loadText1;
-
-            if (splitText1[textNum1] != "")
-            {
-                dataText.text = splitText1[textNum1];
-                textNum1++;
-                if (textNum1 >= splitText1.Length)
-                {
-                    textNum1 = 0;
-                }
-                Debug.Log(textNum1);
-            }
-            else
-            {
-                dataText.text = "";
-                textNum1++;
-            }
-            //　Resourcesフォルダに配置したテキストファイルの内容を表示
-        }
-        else if (Input.GetButtonDown("Fire2"))
-        {
-            if (splitText2[textNum2] != "")
-            {
-                dataText.text = splitText2[textNum2];
-                textNum2++;
-                if (textNum2 >= splitText2.Length)
-                {
-                    textNum2 = 0;
-                }
-            }
-            else
-            {
-                dataText.text = "";
-                textNum2++;
-            }
-        }*/
-    }
-
-    void SplitLengh(string str)
-    {
-        string before = str;
-        string after = str.Replace("\n", "");
-        int ret = before.Length - after.Length;
-
-        string[] del = { "\r\n" };
-        splitted = str.Split(del, StringSplitOptions.None);
     }
 }
