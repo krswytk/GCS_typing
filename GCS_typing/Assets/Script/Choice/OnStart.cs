@@ -42,7 +42,9 @@ public class OnStart : MonoBehaviour
             GT.meaning[i] = FN.D[i].GetMeaning();
         }
         GT.text = FN.M[TM.GetTMnum()].GetText();
-        
+        GT.Htext = FN.M[TM.GetTMnum()].GetHtext();
+        GT.Rtext = FN.M[TM.GetTMnum()].GetRtext();
+
         SceneManager.sceneLoaded -= GameSceneLoaded;
         
     }
