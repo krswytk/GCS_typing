@@ -112,6 +112,7 @@ public class CheckTestScript : MonoBehaviour
     /// <summary>
     /// 初期設定
     /// TextLinesに読み込み、Stringsに行で振り分け、行数をLinenumに
+    /// ひらがなの先頭を「#ひらがな原稿開始」で見ています。
     /// </summary>
     void LoadText()
     {
