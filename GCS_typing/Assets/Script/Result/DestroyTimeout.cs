@@ -8,11 +8,13 @@ public class DestroyTimeout : MonoBehaviour
     [SerializeField] private GameObject Difficulty;
     [SerializeField] private GameObject an;
     [SerializeField] private GameObject tx;
+    [SerializeField] private GameObject tx2;
     public float outtimer = 15.0f;
+    int seconds;
 
     [SerializeField] private Sprite[] anImage; 
     private string[] text;
-    private Text t;
+    private Text t,t2;
     private Image i;
 
     private int n;
@@ -29,9 +31,10 @@ public class DestroyTimeout : MonoBehaviour
         text[1] = "概ね良好ですね。\n完璧な原稿まで\nもう少しですよ！";
         text[2] = "可もなく不可もなくと\nいった感じですね。\nまだまだ成長できますよ！";
         text[3] = "ミスが少々目立ちますね。\nもっと頑張りましょう！";
-        text[4] = "・・・練習あるのみですね";
+        text[4] = "・・・練習あるのみですね。";
 
         t = tx.GetComponent<Text>();
+        t2 = tx2.GetComponent<Text>();
         i = an.GetComponent<Image>();
 
         n = 5;
@@ -44,6 +47,9 @@ public class DestroyTimeout : MonoBehaviour
         if (Input.GetMouseButtonUp(0)){
             c();
         }
+        outtimer -= Time.deltaTime;
+        seconds = (int)outtimer+1;
+        t2.text = seconds.ToString() + "秒後にセレクト画面に移行します";
     }
 
     private void c()
