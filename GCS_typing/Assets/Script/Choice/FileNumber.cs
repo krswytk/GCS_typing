@@ -91,8 +91,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         string h;//原稿本文（本文）
         string g;//原稿本文（ひらがな）
         string r;//原稿本文（ローマ字）
-
-        int nol;//原稿本文の行数  
+        
 
 
         for (int i = 0; i < num; i++)
@@ -103,7 +102,6 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             h = "";
             g = "";
             r = "";
-            nol = 0;
 
             for (int lp = 0; lp < s[i].Length; lp++)
             {
@@ -132,33 +130,32 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 }
                 else if (n == 2)
                 {
-                    if (s[i][lp] == '\n')
-                    {
-                        nol++;
-                    }
                     h += s[i][lp];//本文を格納
                 }
                 else if (n == 3)
                 {
-                        g += s[i][lp];//ひらがなを格納
+                    g += s[i][lp];//ひらがなを格納
                 }
                 else if (n == 4)
                 {
-                        r += s[i][lp];//ローマ字を格納
+                    r += s[i][lp];//ローマ字を格納
                 }
-                /*
-                if (s[i][lp] == '\n' )
+
+                try
                 {
-                    //Debug.Log(s[i][lp -2] + "" + s[i][lp -1] + "" + s[i][lp] + "" + s[i][lp + 1] + "" + s[i][lp + 2]);
-                    if (s[i][lp + 2] == '\n')
+                    if (s[i][lp] == '\n' && s[i][lp + 2] == '\n')
                     {
-                        //Debug.Log("改行発見②");
+                        Debug.Log("改行発見②");
                         n++;
-                        lp += 1;
+                        lp += 2;
                         //Debug.Log(n);
                     }
                 }
-                */
+                catch
+                {
+                    Debug.LogError(i+1 + "個目の原稿がおかしいです\n無視します");
+                    break;
+                }
             }
 
 
@@ -173,17 +170,16 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 id = 0;
                 h = s[i];
             }
-            M[i] = new Manuscript(t, id, h, g, r, nol, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
+            M[i] = new Manuscript(t, id, h, g, r, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
 
-            /*if (i == 0)
+            if (i == 0)
             {
                 Debug.Log(t);
                 Debug.Log(d);
-                Debug.Log(nol);
                 Debug.Log(h);
                 Debug.Log(g);
                 Debug.Log(r);
-            }*/
+            }
 
         }
 
@@ -244,84 +240,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
     }
 
-    private void inDM()
-    {
-        int sh;
-        int n;
-        int m;
-        string[] s;//行数ごとの分を格納
-
-        kiririn = new string[num][][];//ジャグ配列  //num=原稿数
-
-        for (int i = 0; i < kiririn.Length; i++)//原稿数繰り返す
-        {
-            s = new string[M[i].GetNoL()];
-            n = 0;
-            m = 0;
-            while (true)
-            {
-                s[n] = "";//l行目を""で初期化
-                s[n] += M[i].GetText()[m];
-            }
-        }
-        
-            /*
-            kiririn = new string[num][][];//ジャグ配列  //num=原稿数
-
-            for(int i = 0; i < kiririn.Length; i++)
-            {
-                kiririn[i] = new string[M[i].GetNoL()][];//ジャグ配列 //原稿内の行数
-
-                for (int l = 0; l < kiririn[i].Length; l++)
-                {
-                    kiririn[i][l] = new string[2];//ジャグ配列 //0は単語　1は意味
-                    kiririn[i][l][0] = "";
-                    kiririn[i][l][1] = "";
-
-                    for (int k = 0; k < D.Length; k++)//辞書クラスの個数
-                    {
-                        //まず単語の長さ
-                        sh = D[k].GetWord().Length;
-                        n = 0;
-                        while (true)
-                        {
-                            for (int lp = 0; lp < sh; lp++)//原稿からサーチを始める
-                            {
-                                if (D[k].GetWord()[lp] == M[i].GetText()[n + lp])//検索単語のlp文字目と辞書のlp + n文字目が一致
-                                {
-                                    if(sh-1 == lp)
-                                    {
-                                        kiririn[i][l][0] = D[k].GetWord();//単語を入れる
-                                        kiririn[i][l][1] = D[k].GetMeaning();//意味を入れる
-                                    }
-                                }
-                                else
-                                {
-                                    break;//単語と原稿が一致しないためブレイク
-                                }
-
-                            }
-                            n++;
-                            if(n + sh > M[i].GetText().Length)//原稿文字数をサーチ文字数が超えた場合ブレイクで抜け出す
-                            {
-                                break;
-                            }
-                        }
-
-
-
-
-
-                            // kiririn[i][l][k] = "";
-                        }
-
-                }
-
-            }
-            */
-            //private string[][][] kiririn;//[原稿番号][行数][表示する単語]
-        }
-
+  
 }
 
 public class Manuscript
@@ -332,18 +251,16 @@ public class Manuscript
     private string Htext;//本文(ひらがな）を格納する変数
     private string Rtext;//本文（ローマ字）を格納する変数
     private GameObject Manuscripts;//原稿オブジェクトをGenerateDictionaryから持ってきて格納する変数
-    private int NoL; //行数
 
     
 
-    public Manuscript(string title, int Difficulty, string text, string Htext, string Rtext, int NoL, GameObject Manuscripts)
+    public Manuscript(string title, int Difficulty, string text, string Htext, string Rtext, GameObject Manuscripts)
     {
         this.title = title;
         this.Difficulty = Difficulty;
         this.text = text;
         this.Htext = Htext;
         this.Rtext = Rtext;
-        this.NoL = NoL ;
         this.Manuscripts = Manuscripts;
     }
     public Manuscript(string title, int Difficulty, string text)
@@ -373,10 +290,6 @@ public class Manuscript
     public string GetRtext()
     {
         return Rtext;//本文を格納する変数
-    }
-    public int GetNoL()
-    {
-        return NoL;//本文を格納する変数
     }
     public GameObject GetManuscripts()
     {
