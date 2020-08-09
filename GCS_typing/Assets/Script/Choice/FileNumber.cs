@@ -64,7 +64,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         clclassM(Mstr);
         clclassD(Dstr);//ファイルから持ってきた文字列をクラスに格納
 
-        inDM();//単語と原稿を一致させる
+        //inDM();//単語と原稿を一致させる//未完成放置
 
         /*Debug.Log(M[0].GetTitle());
         Debug.Log(M[0].GetNumber());
@@ -146,7 +146,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 {
                         r += s[i][lp];//ローマ字を格納
                 }
-
+                /*
                 if (s[i][lp] == '\n' )
                 {
                     //Debug.Log(s[i][lp -2] + "" + s[i][lp -1] + "" + s[i][lp] + "" + s[i][lp + 1] + "" + s[i][lp + 2]);
@@ -158,6 +158,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                         //Debug.Log(n);
                     }
                 }
+                */
             }
 
 
@@ -247,6 +248,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
     {
         int sh;
         int n;
+        int m;
         string[] s;//行数ごとの分を格納
 
         kiririn = new string[num][][];//ジャグ配列  //num=原稿数
@@ -255,10 +257,11 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         {
             s = new string[M[i].GetNoL()];
             n = 0;
+            m = 0;
             while (true)
             {
                 s[n] = "";//l行目を""で初期化
-                s[n] += M[i].GetText()[n];
+                s[n] += M[i].GetText()[m];
             }
         }
         
