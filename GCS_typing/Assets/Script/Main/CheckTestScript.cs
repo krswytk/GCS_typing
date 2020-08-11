@@ -7,6 +7,7 @@ public class CheckTestScript : MonoBehaviour
 {
     public Text_test text_Test;
     public TextAsset TextF;//日本語テキストファイルがここに
+    public GetText GetText;//日本語がとってこれるかも
     //public Text pre;//次を表示するとこ
     //public Text_test text_Test;
 
@@ -52,7 +53,7 @@ public class CheckTestScript : MonoBehaviour
                 {
                     Debug.Log("成功です");
                     //ローマ字ならここで送信
-                    //text_Test.NextSpace = true;
+                    text_Test.NextSpace = true;
                     KeyNum++;
                 }
                 else
@@ -65,6 +66,7 @@ public class CheckTestScript : MonoBehaviour
                             {
                                 Debug.Log("成功です");
                                 //ローマ字ならここで送信
+                                text_Test.NextSpace = true;
                                 NowKey[1]="s";
                                 NowKey[2] = "u";
                                 NowKey[3] = "おわり";
@@ -76,6 +78,7 @@ public class CheckTestScript : MonoBehaviour
                             {
                                 Debug.Log("成功です");
                                 //ローマ字ならここで送信
+                                text_Test.NextSpace = true;
                                 /*
                                 NowKey[0] = "f";
                                 NowKey[1] = "u";
@@ -90,6 +93,7 @@ public class CheckTestScript : MonoBehaviour
                             {
                                 Debug.Log("成功です");
                                 //ローマ字ならここで送信
+                                text_Test.NextSpace = true;
                                 KeyNum++;
                             }
                             break;
@@ -99,11 +103,13 @@ public class CheckTestScript : MonoBehaviour
                             if (NowChar=="ち"&&KeyNum == 0 && Input.inputString == "c")
                             {
                                 KeyNum++;
+                                text_Test.NextSpace = true;
                             }
                             if (KeyNum == 1 && Input.inputString == "h")//
                             {
                                 Debug.Log("成功です");
                                 //ローマ字ならここで送信
+                                text_Test.NextSpace = true;
                                 NowKey[1] = "h";
                                 NowKey[2] = "i";
                                 NowKey[3] = "おわり";
@@ -139,7 +145,7 @@ public class CheckTestScript : MonoBehaviour
             if (NowKey[KeyNum] == "おわり")//次のひらがなに行きたい
             {
                 //ひらがなならここで送信
-                text_Test.NextSpace = true;
+                //text_Test.NextSpace = true;
 
                 KeyNum = 0;
                 KanaNum++;
@@ -188,13 +194,21 @@ public class CheckTestScript : MonoBehaviour
     /// </summary>
     void LoadText()
     {
+        /*
         string TextLines = TextF.text;
         Debug.Log("今読み込んだやつ→" + TextLines);//ok
         Strings = TextLines.Split('\n');
         //Debug.Log("一行目→" + Strings[0]);//ok
         lineNum = Strings.Length;//全部で何行だか入れる
+        */
+        string TextLines = GetText.Htext;
+        Debug.Log("今読み込んだやつ→" + TextLines);//ok?
+        Strings = TextLines.Split('\n');
+        Debug.Log("一行目→" + Strings[0]);//ok?
+        lineNum = Strings.Length;//全部で何行だか入れる
 
         //開始マークの読み込み
+        /*
         for (int i=0;i<lineNum;i++)
         {
             //Debug.Log("原稿検証:"+Strings[i]);
@@ -206,6 +220,7 @@ public class CheckTestScript : MonoBehaviour
                 lineNow = i+1;
             }
         }
+        */
 
     }
 
@@ -720,43 +735,52 @@ public class CheckTestScript : MonoBehaviour
                 NowKey[1] = "おわり";
                 break;
 
-
+            case "１":
             case "1":
                 NowKey[0] = "1";
                 NowKey[1] = "おわり";
                 break;
+            case "２":
             case "2":
                 NowKey[0] = "2";
                 NowKey[1] = "おわり";
                 break;
+            case "３":
             case "3":
                 NowKey[0] = "3";
                 NowKey[1] = "おわり";
                 break;
+            case "４":
             case "4":
                 NowKey[0] = "4";
                 NowKey[1] = "おわり";
                 break;
+            case "５":
             case "5":
                 NowKey[0] = "5";
                 NowKey[1] = "おわり";
                 break;
+            case "６":
             case "6":
                 NowKey[0] = "6";
                 NowKey[1] = "おわり";
                 break;
+            case "７":
             case "7":
                 NowKey[0] = "7";
                 NowKey[1] = "おわり";
                 break;
+            case "８":
             case "8":
                 NowKey[0] = "8";
                 NowKey[1] = "おわり";
                 break;
+            case "９":
             case "9":
                 NowKey[0] = "9";
                 NowKey[1] = "おわり";
                 break;
+            case "０":
             case "0":
                 NowKey[0] = "8";
                 NowKey[1] = "おわり";
