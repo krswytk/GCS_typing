@@ -11,6 +11,7 @@ public class ContentDisplay : MonoBehaviour
     GameObject Manuscript;
     int num;
     string[] maintext;
+    string[] Rtext;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,8 @@ public class ContentDisplay : MonoBehaviour
         OT = Manuscript.GetComponent<Onturn>();
 
         maintext = new string[FN.GetFN()];//原稿数の配列を確保
-        for(int i = 0; i < maintext.Length; i++)
+        Rtext = new string[FN.GetFN()];//原稿数の配列を確保
+        for (int i = 0; i < maintext.Length; i++)
         {
             maintext[i] = "";
             for (int l = 0; l< FN.M[i].GetText().Length; l++)
@@ -29,6 +31,15 @@ public class ContentDisplay : MonoBehaviour
                 if (FN.M[i].GetText()[l] != '\n')
                 {
                     maintext[i] += FN.M[i].GetText()[l];//原稿クラスにアクセスしてテキストをコピー
+                }
+            }
+            Rtext[i] = "";
+            for (int l = 0; l < maintext[i].Length; l++)
+            {
+                Rtext[i] += maintext[i][l];
+                if (maintext[i][l] == '。')
+                {
+                    Rtext[i] += "\n";
                 }
             }
         }
@@ -41,6 +52,6 @@ public class ContentDisplay : MonoBehaviour
         Debug.Log("num : " + num);
         num = OT.GetNum();
         Debug.Log("num : " + num);
-        text.text = maintext[num];
+        text.text = Rtext[num];
     }
 }
