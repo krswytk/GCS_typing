@@ -47,7 +47,7 @@ public class CheckTestScript : MonoBehaviour
         {
             //Debug.Log("入力：" + Input.inputString);//押されたキーがこれ
 
-            if (Input.inputString != " " && Input.inputString != "\n" && !Input.GetMouseButton(0))//エンターじゃないとか
+            if (Input.inputString != " " && Input.inputString != "\n" && !Input.GetMouseButton(0)&&!Input.GetKeyDown(KeyCode.LeftShift))//エンターじゃないとか
             {
                 if (NowKey[KeyNum] == Input.inputString)
                 {
@@ -79,11 +79,6 @@ public class CheckTestScript : MonoBehaviour
                                 Debug.Log("成功です");
                                 //ローマ字ならここで送信
                                 text_Test.NextSpace = true;
-                                /*
-                                NowKey[0] = "f";
-                                NowKey[1] = "u";
-                                NowKey[2] = "おわり";
-                                */
                                 KeyNum++;
                             }
                             break;
@@ -197,33 +192,11 @@ public class CheckTestScript : MonoBehaviour
     /// </summary>
     void LoadText()
     {
-        /*
-        string TextLines = TextF.text;
-        Debug.Log("今読み込んだやつ→" + TextLines);//ok
-        Strings = TextLines.Split('\n');
-        //Debug.Log("一行目→" + Strings[0]);//ok
-        lineNum = Strings.Length;//全部で何行だか入れる
-        */
         string TextLines = GetText.Htext;
         Debug.Log("今読み込んだやつ→" + TextLines);//ok?
         Strings = TextLines.Split('\n');
         Debug.Log("一行目→" + Strings[0]);//ok?
         lineNum = Strings.Length;//全部で何行だか入れる
-
-        //開始マークの読み込み
-        /*
-        for (int i=0;i<lineNum;i++)
-        {
-            //Debug.Log("原稿検証:"+Strings[i]);
-            //Debug.Log("文字数:" + Strings[i].Length);
-            //Debug.Log("これは改行コードか？：" + Strings[i].Substring(Strings[i].Length - 1, 1));
-            if (Strings[i] == "#ひらがな原稿開始"+Strings[i].Substring(Strings[i].Length-1,1))//改行コード的なやつを後ろに
-            {
-                Debug.Log("ひらがな原稿を検出");
-                lineNow = i+1;
-            }
-        }
-        */
 
     }
 
