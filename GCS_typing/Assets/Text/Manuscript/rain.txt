@@ -1,7 +1,7 @@
-最上川氾濫 2
+﻿最上川氾濫 2
 停滞する梅雨前線や低気圧の影響による
 大雨で、山形県を流れる最上川では
-大石田町など複数箇所で反乱が発生し、
+大石田町など複数箇所で氾濫が発生し、
 2400人以上が避難をしています。
 最上川では昨日深夜から今朝にかけて
 大石田町など4ヶ所で氾濫しました。
@@ -40,6 +40,6 @@ kossetusitahoka,sukunakutomo88munenojyuutakuni
 sinnsuihigaigaari2400ninnijyougahinannsimasita.
 ippoukoremadenisisyayayukuehumeisyahakakuninn
 sareteimasenn.
-kisyoutyouya,mogamigawanotyuuryuuikidehahinannjyouhouwo
+kisyoutyouha,mogamigawanotyuuryuuikidehahinannjyouhouwo
 kakuninnsurutotomoni,annzennkakuhowohakarunadotekisetu
 nabousaikoudouwotoruyouyobikaketeimasu.
