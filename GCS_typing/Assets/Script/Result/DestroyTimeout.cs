@@ -16,18 +16,18 @@ public class DestroyTimeout : MonoBehaviour
     private string[] text;
     private Text t,t2;
     private Image i;
-
-    private int n;
-
+    
     [SerializeField] AudioClip[] sound;
     private AudioSource audioSource;
+
+    private int n = 3;
     // [SerializeField] private sp
 
     // Start is called before the first frame update
     void Start()
     {
         //Difficulty = GameObject.Find("Difficulty");
-        Destroy(Difficulty, outtimer);
+        //Destroy(Difficulty, outtimer);
 
         text = new string[5];
         text[0] = "流石です！\nこれなら安心して\n任せられますね！";
@@ -39,33 +39,33 @@ public class DestroyTimeout : MonoBehaviour
         t = tx.GetComponent<Text>();
         t2 = tx2.GetComponent<Text>();
         i = an.GetComponent<Image>();
-
-        n = 5;
-        c();
+        
         audioSource = GetComponent<AudioSource>();
+        Risult();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0)){
-            c();
-        }
         outtimer -= Time.deltaTime;
         seconds = (int)outtimer+1;
         t2.text = seconds.ToString() + "秒後にセレクト画面に移行します";
+        if(seconds < 0)
+        {
+            Difficulty.SetActive(false);
+        }
     }
 
-    private void c()
+    private void Risult()
     {
-        n++;
-        if(n > 4)
-        {
-            n = 0;
-        }
         t.text = text[n];
         i.sprite = anImage[n];
         audioSource.PlayOneShot(sound[n]);
+    }
 
+    public void SetScore(int i)
+    {
+        n = i;
+        Risult();
     }
 }
