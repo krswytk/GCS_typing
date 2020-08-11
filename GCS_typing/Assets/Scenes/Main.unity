@@ -5455,6 +5455,7 @@ GameObject:
   - component: {fileID: 2044241039}
   - component: {fileID: 2044241044}
   - component: {fileID: 2044241040}
+  - component: {fileID: 2044241041}
   m_Layer: 5
   m_Name: Prefab_text
   m_TagString: Untagged
@@ -5500,6 +5501,21 @@ MonoBehaviour:
   Rwidth: 3.75
   GetText: {fileID: 496542784}
   NextSpace: 0
+--- !u!114 &2044241041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044241038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d62c4cc964f5a12469325c1f2edbd7f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text_Test: {fileID: 2044241040}
+  TextF: {fileID: 0}
+  GetText: {fileID: 496542784}
 --- !u!222 &2044241044
 CanvasRenderer:
   m_ObjectHideFlags: 0

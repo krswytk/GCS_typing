@@ -782,7 +782,7 @@ public class CheckTestScript : MonoBehaviour
                 break;
             case "０":
             case "0":
-                NowKey[0] = "8";
+                NowKey[0] = "0";
                 NowKey[1] = "おわり";
                 break;
 
