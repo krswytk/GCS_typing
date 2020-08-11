@@ -33,6 +33,7 @@ public class ContentDisplay : MonoBehaviour
             }
         }
         num = 0;
+        CT();
     }
     
     public void CT()
