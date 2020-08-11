@@ -1232,11 +1232,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 58ef210094b6af846a5debcea57e6892, type: 3}
   - {fileID: 21300000, guid: db766de45d3986343af1fb3a70e8488a, type: 3}
   sound:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: a90fb03522d423848b9c1d26e8b14ed5, type: 3}
+  - {fileID: 8300000, guid: a90fb03522d423848b9c1d26e8b14ed5, type: 3}
+  - {fileID: 8300000, guid: 4415d19ae29dd7b4dab4942374b321b1, type: 3}
+  - {fileID: 8300000, guid: d92d26ddb746f014ea7934175c1080c2, type: 3}
+  - {fileID: 8300000, guid: d92d26ddb746f014ea7934175c1080c2, type: 3}
 --- !u!82 &1051510201
 AudioSource:
   m_ObjectHideFlags: 0
