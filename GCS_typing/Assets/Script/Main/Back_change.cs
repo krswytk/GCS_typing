@@ -10,17 +10,20 @@ public class Back_change : MonoBehaviour
     public Sprite afterSprite;
 
     bool sw = false;
-
+    private float flashtime;
     void Start()
     {
         // このobjectのSpriteRendererを取得
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        flashtime = 0f;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        flashtime += Time.deltaTime;
+        if (flashtime>=1.5f)//均等にパカパカするのは変かも？
         {
+            flashtime = 0f;
             if (sw == false)
             {
                 MainSpriteRenderer.sprite = afterSprite;

@@ -18,15 +18,18 @@ public class minichange : MonoBehaviour
 
     bool sw = false;
     int no = 1;
+    private float flashtime;//ピカピカします
 
     void Start()
     {
         // このobjectのSpriteRendererを取得
         MainSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        flashtime = 0f;
     }
 
     void Update()
     {
+        flashtime += Time.deltaTime;
         if (no == 1)
         {
             MainSpriteRenderer.sprite = Sprite1;
@@ -59,8 +62,9 @@ public class minichange : MonoBehaviour
             MainSpriteRenderer.sprite = Sprite8;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (flashtime>=0.5f)
         {
+            flashtime = 0f;
             if (sw == false)
             {
                 no++;
