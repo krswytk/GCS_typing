@@ -102,6 +102,7 @@ public class CheckTestScript : MonoBehaviour
                         case "ち":
                             if (NowChar=="ち"&&KeyNum == 0 && Input.inputString == "c")
                             {
+                                
                                 KeyNum++;
                                 text_Test.NextSpace = true;
                             }
@@ -109,10 +110,12 @@ public class CheckTestScript : MonoBehaviour
                             {
                                 Debug.Log("成功です");
                                 //ローマ字ならここで送信
-                                text_Test.NextSpace = true;
+                                //↓ガイドの仕方によってはここで送る。ガイド固定なのでここでは送らない。
+                                //text_Test.NextSpace = true;
                                 NowKey[1] = "h";
                                 NowKey[2] = "i";
                                 NowKey[3] = "おわり";
+                                
                                 KeyNum++;
                             }
                             //これで？
