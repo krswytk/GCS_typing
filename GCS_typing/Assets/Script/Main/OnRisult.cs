@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class OnRIsult : MonoBehaviour
+public class OnRisult : MonoBehaviour
 {
     [SerializeField] AudioClip sound1;
     AudioSource audioSource;
@@ -14,6 +14,10 @@ public class OnRIsult : MonoBehaviour
     public void Start()
     {
         flag = false;
+    }
+    private void Update()
+    {
+        if (flag) OnStarts();
     }
 
     public void OnStarts()

@@ -27,7 +27,7 @@ public class DestroyTimeout : MonoBehaviour
     void Start()
     {
         //Difficulty = GameObject.Find("Difficulty");
-        Destroy(Difficulty, outtimer);
+        //Destroy(Difficulty, outtimer);
 
         text = new string[5];
         text[0] = "流石です！\nこれなら安心して\n任せられますね！";
@@ -50,6 +50,10 @@ public class DestroyTimeout : MonoBehaviour
         outtimer -= Time.deltaTime;
         seconds = (int)outtimer+1;
         t2.text = seconds.ToString() + "秒後にセレクト画面に移行します";
+        if(seconds < 0)
+        {
+            Difficulty.SetActive(false);
+        }
     }
 
     private void Risult()
