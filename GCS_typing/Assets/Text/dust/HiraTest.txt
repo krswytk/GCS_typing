@@ -1,0 +1,16 @@
+﻿あいうえお
+#原稿開始
+漢字の原稿
+#原稿開始
+
+#ひらがな原稿開始
+あいうえおABCD
+かきくけこEFGH
+さしすせそIJKL
+#ひらがな原稿終了
+
+#ローマ字原稿開始
+aiueoABCD
+kakikukekoEFGH
+sasisusesoIJKL
+#ローマ字原稿終了

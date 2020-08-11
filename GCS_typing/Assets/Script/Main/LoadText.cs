@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class LoadText : MonoBehaviour
 {
@@ -28,9 +29,15 @@ public class LoadText : MonoBehaviour
     //　現在表示中テキスト2番号
     private int textNum2;
 
+    public GetText GetText;
+    public meaning meaning;
+    public string[] splitted;
+    public int[,] num;
+
     void Start()
     {
-        loadText1 = textAsset.text;
+        //GetText.text[0];
+        loadText1 = GetText.text;
         loadText1 = loadText1.Replace("1", "１");
         loadText1 = loadText1.Replace("2", "２");
         loadText1 = loadText1.Replace("3", "３");
@@ -41,6 +48,40 @@ public class LoadText : MonoBehaviour
         loadText1 = loadText1.Replace("8", "８");
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
+
+        string before = GetText.text;
+        string after = GetText.text.Replace("\n", "");
+        int ret = before.Length - after.Length;
+
+        string[] del = { "\r\n" };
+        splitted = GetText.text.Split(del, StringSplitOptions.None);
+
+        num = new int[splitted.Length, GetText.word.Length];
+
+        meaning.meaning_line = new int[splitted.Length];
+        meaning.meaning_word = new int[GetText.word.Length];
+
+        for (int i = 0; i < splitted.Length; i++)
+        {
+            for (int i2 = 0; i2 < GetText.word.Length; i2++)
+            {
+                num[i,i2] = splitted[i].IndexOf(GetText.word[i2]);
+                if (num[i, i2] >= 0)
+                {
+                    //Debug.Log("num:" + num[i, i2] + " i_" + i + " i2_" + i2);//ここが0になった時のiが表示する段落i2が表示する配列番号
+                    meaning.meaning_line[meaning.Add_num] = i;
+                    meaning.meaning_word[meaning.Add_num] = i2;
+                    meaning.Add_num++;
+                }
+            }
+        }
+
+        //int num = GetText.text.IndexOf(GetText.word[1]);
+        //Debug.Log(num);
+
+
+
+
         dataText.text = loadText1;
         //Debug.Log(loadText1);
     }
@@ -48,49 +89,5 @@ public class LoadText : MonoBehaviour
     void Update()
     {
 
-        //　読み込んだテキストファイルの内容を表示
-
-        /*
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Debug.Log("111111");
-            Debug.Log(loadText1);
-
-            dataText.text = loadText1;
-
-            if (splitText1[textNum1] != "")
-            {
-                dataText.text = splitText1[textNum1];
-                textNum1++;
-                if (textNum1 >= splitText1.Length)
-                {
-                    textNum1 = 0;
-                }
-                Debug.Log(textNum1);
-            }
-            else
-            {
-                dataText.text = "";
-                textNum1++;
-            }
-            //　Resourcesフォルダに配置したテキストファイルの内容を表示
-        }
-        else if (Input.GetButtonDown("Fire2"))
-        {
-            if (splitText2[textNum2] != "")
-            {
-                dataText.text = splitText2[textNum2];
-                textNum2++;
-                if (textNum2 >= splitText2.Length)
-                {
-                    textNum2 = 0;
-                }
-            }
-            else
-            {
-                dataText.text = "";
-                textNum2++;
-            }
-        }*/
     }
 }

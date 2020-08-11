@@ -11,4 +11,9 @@ public class titlestart : MonoBehaviour
     {
         SceneManager.LoadScene("Choice");
     }
+
+    public void Credit() //https://dianxnao.com/ボタンクリックでシーン間を遷移%ef%bc%88移動%ef%bc%89する/
+    {
+        SceneManager.LoadScene("Favorite");
+    }
 }

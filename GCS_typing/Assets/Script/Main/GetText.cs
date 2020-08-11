@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class GetText : MonoBehaviour
 {
-    public string[] text;
-    // Start is called before the first frame update
-    void Start()
+    public string text;
+    public string Htext;
+    public string Rtext;
+    public string[] word;
+    public string[] meaning;
+    /*
+    private void Start()
     {
-       Debug.Log(text);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
+    */
 }

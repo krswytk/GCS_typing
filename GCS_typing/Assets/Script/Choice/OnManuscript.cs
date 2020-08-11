@@ -5,13 +5,16 @@ using UnityEngine;
 public class OnManuscript : MonoBehaviour
 {
     [SerializeField] private GameObject Manuscript;//原稿オブジェクトを格納
+    [SerializeField] private GameObject CDO;//原稿オブジェクトを格納
 
     private bool sw;
+    ContentDisplay CD;
     // Start is called before the first frame update
     void Start()
     {
         sw = false;
         cs();
+        CD = CDO.GetComponent<ContentDisplay>();
     }
 
     // Update is called once per frame
@@ -38,6 +41,7 @@ public class OnManuscript : MonoBehaviour
         if(sw == true)//表示処理
         {
             Manuscript.SetActive(true);
+            CD.CT();
         }
         else//非表示処理
         {
