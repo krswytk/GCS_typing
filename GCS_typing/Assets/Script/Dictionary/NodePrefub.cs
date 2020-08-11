@@ -21,7 +21,6 @@ public class NodePrefub : MonoBehaviour
 
         for (int i = 0; i < splitText1.Length - 2; i++)
         {
-            
                 var item = GameObject.Instantiate(prefab) as RectTransform;
                 item.SetParent(transform, false);
 

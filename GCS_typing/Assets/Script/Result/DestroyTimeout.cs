@@ -18,6 +18,9 @@ public class DestroyTimeout : MonoBehaviour
     private Image i;
 
     private int n;
+
+    [SerializeField] AudioClip[] sound;
+    private AudioSource audioSource;
     // [SerializeField] private sp
 
     // Start is called before the first frame update
@@ -39,6 +42,7 @@ public class DestroyTimeout : MonoBehaviour
 
         n = 5;
         c();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -61,6 +65,7 @@ public class DestroyTimeout : MonoBehaviour
         }
         t.text = text[n];
         i.sprite = anImage[n];
+        audioSource.PlayOneShot(sound[n]);
 
     }
 }
