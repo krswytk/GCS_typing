@@ -103,7 +103,7 @@ public class Text_test : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space)||NextSpace)
+        if (Input.GetKeyDown(KeyCode.Space)||NextSpace)/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             if(count < Rsplitted[Line].Length-1)
             {
