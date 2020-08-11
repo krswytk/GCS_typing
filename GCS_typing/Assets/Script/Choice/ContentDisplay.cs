@@ -31,6 +31,14 @@ public class ContentDisplay : MonoBehaviour
                     maintext[i] += FN.M[i].GetText()[l];//原稿クラスにアクセスしてテキストをコピー
                 }
             }
+            /*for (int l = 0; l < maintext.Length; l++)
+            {
+                if (FN.M[i].GetText()[l] != '。')
+                {
+                    maintext[i] 
+                    maintext[i] += FN.M[i].GetText()[l];//原稿クラスにアクセスしてテキストをコピー
+                }
+            }*/
         }
         num = 0;
         CT();
