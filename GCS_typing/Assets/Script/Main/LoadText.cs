@@ -68,7 +68,9 @@ public class LoadText : MonoBehaviour
                 num[i,i2] = splitted[i].IndexOf(GetText.word[i2]);
                 if (num[i, i2] >= 0)
                 {
-                    //Debug.Log("num:" + num[i, i2] + " i_" + i + " i2_" + i2);//ここが0になった時のiが表示する段落i2が表示する配列番号
+                    //Debug.Log("num:" + num[i, i2] + " i_" + i + " i2_" + i2);
+                    //iが表示する段落
+                    //i2が表示する配列番号
                     meaning.meaning_line[meaning.Add_num] = i;
                     meaning.meaning_word[meaning.Add_num] = i2;
                     meaning.Add_num++;
