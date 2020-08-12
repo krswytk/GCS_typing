@@ -26,6 +26,7 @@ public class Text_test : MonoBehaviour
     public float Rwidth = 1.5f;
     public GetText GetText;
     public meaning meaning;
+    public LoadText LoadText;
     [SerializeField]
     private Text meaning_title;
     [SerializeField]
@@ -140,6 +141,7 @@ public class Text_test : MonoBehaviour
                 }
 
                 Line++;
+                text_move();
 
                 if (meaning.meaning_line[meaning.Line] == Line)
                 {
@@ -222,5 +224,20 @@ public class Text_test : MonoBehaviour
     {
         string[] del = { "\r\n" };
         Rsplitted = str.Split(del, StringSplitOptions.None);
+    }
+
+    public void text_move()
+    {
+        if ((LoadText.ret > 14)&&(LoadText.ret > 14 + Line))
+        {
+            LoadText.result = LoadText.result.Remove(0, LoadText.result.Length);
+            for (int i = Line; i < 15 + Line; i++)
+            {
+                LoadText.result = String.Concat(LoadText.result, splitted[i]);
+                LoadText.result = String.Concat(LoadText.result, "\n");
+            }
+            Debug.Log(LoadText.result);
+            LoadText.dataText.text = LoadText.result;
+        }
     }
 }

@@ -8,31 +8,25 @@ public class LoadText : MonoBehaviour
 
     //　読み込んだテキストを出力するUIテキスト
     [SerializeField]
-    private Text dataText;
+    public Text dataText;
     //　読む込むテキストが書き込まれている.txtファイル
     [SerializeField]
     private TextAsset textAsset;
 
     public static bool sw = false;
 
+    private string loadText1; //　テキストファイルから読み込んだデータ
+    private string[] splitText1;//　改行で分割して配列に入れる
+    private string[] splitText2;//　改行で分割して配列に入れる
 
-    //　テキストファイルから読み込んだデータ
-    private string loadText1;
-    //　Resourcesフォルダから直接テキストを読み込む
-    private string loadText2;
-    //　改行で分割して配列に入れる
-    private string[] splitText1;
-    //　改行で分割して配列に入れる
-    private string[] splitText2;
-    //　現在表示中テキスト1番号
-    private int textNum1;
-    //　現在表示中テキスト2番号
-    private int textNum2;
 
     public GetText GetText;
+    public Text_test Text_test;
     public meaning meaning;
     public string[] splitted;
+    public string result;
     public int[,] num;
+    public int ret;
 
     void Start()
     {
@@ -51,7 +45,7 @@ public class LoadText : MonoBehaviour
 
         string before = GetText.text;
         string after = GetText.text.Replace("\n", "");
-        int ret = before.Length - after.Length;
+        ret = before.Length - after.Length;
 
         string[] del = { "\r\n" };
         splitted = GetText.text.Split(del, StringSplitOptions.None);
@@ -77,6 +71,14 @@ public class LoadText : MonoBehaviour
                 }
             }
         }
+        if(ret>14)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                result = String.Concat(result, splitted[i]);
+                result = String.Concat(result, "\n");
+            }
+        }
 
         //int num = GetText.text.IndexOf(GetText.word[1]);
         //Debug.Log(num);
@@ -84,12 +86,26 @@ public class LoadText : MonoBehaviour
 
 
 
-        dataText.text = loadText1;
+        dataText.text = result;
         //Debug.Log(loadText1);
     }
 
     void Update()
     {
 
+    }
+
+    public void text_move()
+    {
+        if (ret > 14)
+        {
+            result= result.Remove(0, result.Length);
+            for (int i = Text_test.Line; i < 15 + Text_test.Line; i++)
+            {
+                result = String.Concat(result, splitted[i]);
+            }
+            Debug.Log(result);
+            dataText.text = result;
+        }
     }
 }

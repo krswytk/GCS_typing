@@ -37,7 +37,7 @@ public class meaning : MonoBehaviour
             //Debug.Log(GetText.word[meaning_word[0]]);
             for (int i = 0; i < Add_num; i++)
             {
-                Debug.Log(meaning_line[i]+"行目"+GetText.word[meaning_word[i]]);
+                //Debug.Log(meaning_line[i]+"行目"+GetText.word[meaning_word[i]]);
             }
         }
 

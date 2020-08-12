@@ -233,7 +233,7 @@ public class CheckTestScript : MonoBehaviour
     void SetStrig(int n)
     {
         NowString = Strings[n];
-        Debug.Log("Setstring関数\nNowStringに代入\"" + NowString + ".");
+        //Debug.Log("Setstring関数\nNowStringに代入\"" + NowString + ".");
         KanaNum = 0;
         SetChar(0);
     }
