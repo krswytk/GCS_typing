@@ -5020,8 +5020,10 @@ MonoBehaviour:
   dataText: {fileID: 1898957813}
   textAsset: {fileID: 4900000, guid: 26181cad8a73d2249a4c97f462e3bd3b, type: 3}
   GetText: {fileID: 496542784}
+  Text_test: {fileID: 2044241040}
   meaning: {fileID: 146301394}
   splitted: []
+  result: 
 --- !u!114 &1898957813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5595,6 +5597,7 @@ MonoBehaviour:
   Rwidth: 3.75
   GetText: {fileID: 496542784}
   meaning: {fileID: 146301394}
+  LoadText: {fileID: 1898957812}
   meaning_title: {fileID: 146301396}
   meaning_text: {fileID: 757580616}
   NextSpace: 0
