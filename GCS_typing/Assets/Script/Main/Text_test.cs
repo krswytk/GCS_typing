@@ -25,6 +25,9 @@ public class Text_test : MonoBehaviour
     public float width = 1.5f;
     public float Rwidth = 1.5f;
     public GetText GetText;
+    public meaning meaning;
+    [SerializeField]
+    private Text meaning_text;
 
     public bool NextSpace=false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
 
@@ -97,6 +100,12 @@ public class Text_test : MonoBehaviour
             Transparent[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
             Transparent[i].GetComponent<Text>().text = Rstr[i];
         }
+
+        if(meaning.meaning_line[meaning.Line]==0)
+        {
+            meaning_text.text = GetText.word[meaning.meaning_word[meaning.Line]];
+        }
+        meaning.Line++;
     }
 
     // Update is called once per frame
@@ -124,6 +133,14 @@ public class Text_test : MonoBehaviour
                 }
 
                 Line++;
+
+                if (meaning.meaning_line[meaning.Line] == Line)
+                {
+                    meaning_text.text = GetText.word[meaning.meaning_word[meaning.Line]];
+                    meaning.Line++;
+                }
+
+
                 string[] str = new string[splitted[Line].Length];
                 string[] Rstr = new string[Rsplitted[Line].Length];
                 string arr = splitted[Line];

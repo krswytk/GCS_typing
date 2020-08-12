@@ -788,10 +788,10 @@ MonoBehaviour:
   textAsset: {fileID: 4900000, guid: b1b9c7084dee9974ba0fb517c153850c, type: 3}
   GetText: {fileID: 496542784}
   LoadText: {fileID: 1898957812}
-  Text_test: {fileID: 0}
   meaning_line: 
   meaning_word: 
   Add_num: 0
+  Line: 0
 --- !u!114 &146301396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u4ECA\u5E74\u306E\uFF11\u6708\u304B\u3089\u731B\u5A01\u3092\u632F\u308B\u3063\u3066\u3044\u305F\r"
+  m_Text: 
 --- !u!222 &146301397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5514,6 +5514,8 @@ MonoBehaviour:
   width: 2
   Rwidth: 3.75
   GetText: {fileID: 496542784}
+  meaning: {fileID: 146301394}
+  meaning_text: {fileID: 146301396}
   NextSpace: 0
 --- !u!114 &2044241041
 MonoBehaviour:
