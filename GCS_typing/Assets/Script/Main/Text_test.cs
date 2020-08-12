@@ -27,6 +27,8 @@ public class Text_test : MonoBehaviour
     public GetText GetText;
     public meaning meaning;
     [SerializeField]
+    private Text meaning_title;
+    [SerializeField]
     private Text meaning_text;
 
     public bool NextSpace=false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
@@ -103,7 +105,12 @@ public class Text_test : MonoBehaviour
 
         if(meaning.meaning_line[meaning.Line]==0)
         {
-            meaning_text.text = GetText.word[meaning.meaning_word[meaning.Line]];
+            meaning_title.text = GetText.word[meaning.meaning_word[meaning.Line]];
+            meaning_text.text = GetText.meaning[meaning.meaning_word[meaning.Line]];
+            if (meaning_text.text.Length > 30)
+            {
+                meaning_text.text = meaning_text.text.Insert(30, "\n");
+            }
         }
         meaning.Line++;
     }
@@ -136,7 +143,12 @@ public class Text_test : MonoBehaviour
 
                 if (meaning.meaning_line[meaning.Line] == Line)
                 {
-                    meaning_text.text = GetText.word[meaning.meaning_word[meaning.Line]];
+                    meaning_title.text = GetText.word[meaning.meaning_word[meaning.Line]];
+                    meaning_text.text = GetText.meaning[meaning.meaning_word[meaning.Line]];
+                    if (meaning_text.text.Length > 30)
+                    {
+                        meaning_text.text= meaning_text.text.Insert(30, "\n");
+                    }
                     meaning.Line++;
                 }
 
