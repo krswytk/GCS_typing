@@ -3864,6 +3864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound1: {fileID: 0}
+  flag: 0
 --- !u!1 &1485678854
 GameObject:
   m_ObjectHideFlags: 0
@@ -5024,6 +5025,7 @@ MonoBehaviour:
   meaning: {fileID: 146301394}
   splitted: []
   result: 
+  ret: 0
 --- !u!114 &1898957813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5597,6 +5599,7 @@ MonoBehaviour:
   Rwidth: 3.75
   GetText: {fileID: 496542784}
   meaning: {fileID: 146301394}
+  OnRisult: {fileID: 1468563245}
   LoadText: {fileID: 1898957812}
   meaning_title: {fileID: 146301396}
   meaning_text: {fileID: 757580616}

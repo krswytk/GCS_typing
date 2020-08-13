@@ -26,6 +26,8 @@ public class Text_test : MonoBehaviour
     public float Rwidth = 1.5f;
     public GetText GetText;
     public meaning meaning;
+
+    public OnRisult OnRisult;
     public LoadText LoadText;
     [SerializeField]
     private Text meaning_title;
@@ -33,6 +35,12 @@ public class Text_test : MonoBehaviour
     private Text meaning_text;
 
     public bool NextSpace=false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
+
+    int score_Failure = 50;
+    int score_time = 50;
+    float time = 0;
+    public int Failure = 0;
+    public bool score_sw = false;
 
     // Start is called before the first frame update
     void Start()
@@ -119,6 +127,7 @@ public class Text_test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time = time + Time.deltaTime;
 
         if (NextSpace)/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
@@ -141,6 +150,14 @@ public class Text_test : MonoBehaviour
                 }
 
                 Line++;
+                //Debug.Log("Line:" + Line + "ret:" + LoadText.ret);
+                //ここにクリアフラグ
+                if(Line==LoadText.ret)
+                {
+                    OnRisult.flag = true;
+                    //Debug.Log(OnRisult.flag);
+                }
+
                 text_move();
 
                 if (meaning.meaning_line[meaning.Line] == Line)
@@ -210,6 +227,25 @@ public class Text_test : MonoBehaviour
                 }
             }
             NextSpace = false;
+        }
+
+        if ((Failure % 5 == 0)&&(Failure!=0)&&(score_sw==false))
+        {
+            if (score_Failure > -1)
+            {
+                score_Failure--;
+            }
+            score_sw = true;
+        }
+
+        if (time >20)
+        {
+            if (score_time > -1)
+            {
+                score_time--;
+            }
+            Debug.Log(score_time);
+            time = 0;
         }
     }
 
