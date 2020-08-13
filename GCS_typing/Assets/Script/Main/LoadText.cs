@@ -78,6 +78,9 @@ public class LoadText : MonoBehaviour
                 result = String.Concat(result, splitted[i]);
                 result = String.Concat(result, "\n");
             }
+        }else
+        {
+            result = loadText1;
         }
 
         //int num = GetText.text.IndexOf(GetText.word[1]);

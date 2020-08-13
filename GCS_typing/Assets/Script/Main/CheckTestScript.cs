@@ -139,6 +139,11 @@ public class CheckTestScript : MonoBehaviour
                             break;
                     }
 
+                    if(text_Test.NextSpace == false)
+                    {
+                        text_Test.Failure++;
+                        text_Test.score_sw = false;
+                    }
                     
 
                 }

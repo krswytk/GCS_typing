@@ -9,7 +9,7 @@ public class OnRisult : MonoBehaviour
     [SerializeField] AudioClip sound1;
     AudioSource audioSource;
 
-    private bool flag;
+    public bool flag;
 
     public void Start()
     {
@@ -17,14 +17,18 @@ public class OnRisult : MonoBehaviour
     }
     private void Update()
     {
-        if (flag) OnStarts();
+        if (flag)
+        {
+            Debug.Log("OnStarts");
+            OnStarts();
+        }
     }
 
     public void OnStarts()
     {
         SceneManager.sceneLoaded += GameSceneLoaded;
 
-        audioSource.PlayOneShot(sound1);
+        //audioSource.PlayOneShot(sound1);素材アタッチしたら//消して
         SceneManager.LoadScene("Result");
     }
 
