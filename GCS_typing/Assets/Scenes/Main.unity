@@ -3865,6 +3865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound1: {fileID: 0}
   flag: 0
+  TT: {fileID: 2044241040}
 --- !u!1 &1485678854
 GameObject:
   m_ObjectHideFlags: 0
@@ -5604,6 +5605,8 @@ MonoBehaviour:
   meaning_title: {fileID: 146301396}
   meaning_text: {fileID: 757580616}
   NextSpace: 0
+  Failure: 0
+  score_sw: 0
 --- !u!114 &2044241041
 MonoBehaviour:
   m_ObjectHideFlags: 0

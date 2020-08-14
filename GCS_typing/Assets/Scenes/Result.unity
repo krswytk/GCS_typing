@@ -1226,11 +1226,11 @@ MonoBehaviour:
   tx2: {fileID: 1069167560}
   outtimer: 3
   anImage:
-  - {fileID: 21300000, guid: c4b26449ee81ed942b5c60816aeeed21, type: 3}
-  - {fileID: 21300000, guid: 9df66b3cc3d885b4c82fca9ee6ed8d17, type: 3}
-  - {fileID: 21300000, guid: 98bd7fb3a1eeae74b963cc1a62f59375, type: 3}
-  - {fileID: 21300000, guid: 58ef210094b6af846a5debcea57e6892, type: 3}
   - {fileID: 21300000, guid: db766de45d3986343af1fb3a70e8488a, type: 3}
+  - {fileID: 21300000, guid: 58ef210094b6af846a5debcea57e6892, type: 3}
+  - {fileID: 21300000, guid: 98bd7fb3a1eeae74b963cc1a62f59375, type: 3}
+  - {fileID: 21300000, guid: 9df66b3cc3d885b4c82fca9ee6ed8d17, type: 3}
+  - {fileID: 21300000, guid: c4b26449ee81ed942b5c60816aeeed21, type: 3}
   sound:
   - {fileID: 8300000, guid: a90fb03522d423848b9c1d26e8b14ed5, type: 3}
   - {fileID: 8300000, guid: a90fb03522d423848b9c1d26e8b14ed5, type: 3}

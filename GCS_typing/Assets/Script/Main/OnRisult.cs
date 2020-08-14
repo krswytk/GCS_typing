@@ -10,6 +10,7 @@ public class OnRisult : MonoBehaviour
     AudioSource audioSource;
 
     public bool flag;
+    [SerializeField] Text_test TT;
 
     public void Start()
     {
@@ -20,6 +21,7 @@ public class OnRisult : MonoBehaviour
         if (flag)
         {
             Debug.Log("OnStarts");
+            Debug.Log(TT.GetScore());
             OnStarts();
         }
     }
@@ -36,7 +38,7 @@ public class OnRisult : MonoBehaviour
     {
         DestroyTimeout DT = GameObject.Find("EventSystem").GetComponent<DestroyTimeout>();
 
-        DT.SetScore(4);//リザルトにスコアを渡す0-4
+        DT.SetScore(TT.GetScore()-1);//リザルトにスコアを渡す0-4
 
         SceneManager.sceneLoaded -= GameSceneLoaded;
 

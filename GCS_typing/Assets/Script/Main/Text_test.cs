@@ -276,4 +276,9 @@ public class Text_test : MonoBehaviour
             LoadText.dataText.text = LoadText.result;
         }
     }
+
+    public int GetScore()
+    {
+        return (score_Failure + score_time) / 19;
+    }
 }
