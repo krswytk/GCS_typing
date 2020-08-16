@@ -9,7 +9,8 @@ public class OnRisult : MonoBehaviour
     [SerializeField] AudioClip sound1;
     AudioSource audioSource;
 
-    private bool flag;
+    public bool flag;
+    [SerializeField] Text_test TT;
 
     public void Start()
     {
@@ -17,14 +18,19 @@ public class OnRisult : MonoBehaviour
     }
     private void Update()
     {
-        if (flag) OnStarts();
+        if (flag)
+        {
+            Debug.Log("OnStarts");
+            Debug.Log(TT.GetScore());
+            OnStarts();
+        }
     }
 
     public void OnStarts()
     {
         SceneManager.sceneLoaded += GameSceneLoaded;
 
-        audioSource.PlayOneShot(sound1);
+        //audioSource.PlayOneShot(sound1);素材アタッチしたら//消して
         SceneManager.LoadScene("Result");
     }
 
@@ -32,7 +38,7 @@ public class OnRisult : MonoBehaviour
     {
         DestroyTimeout DT = GameObject.Find("EventSystem").GetComponent<DestroyTimeout>();
 
-        DT.SetScore(4);//リザルトにスコアを渡す0-4
+        DT.SetScore(TT.GetScore()-1);//リザルトにスコアを渡す0-4
 
         SceneManager.sceneLoaded -= GameSceneLoaded;
 
