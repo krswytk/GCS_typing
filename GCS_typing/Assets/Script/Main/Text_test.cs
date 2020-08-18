@@ -131,100 +131,107 @@ public class Text_test : MonoBehaviour
 
         if (NextSpace)/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
-            if(count < Rsplitted[Line].Length-1)
+            try
             {
-                //obj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0);
-                Transparent[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
-                count++;
+                if (count < Rsplitted[Line].Length - 1)
+                {
+                    //obj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0);
+                    Transparent[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+                    count++;
+                }
+                else
+                {
+                    count = 0;
+                    for (int i = 0; i < splitted[Line].Length; i++)
+                    {
+                        Destroy(obj[i]);
+                    }
+                    for (int i = 0; i < Rsplitted[Line].Length; i++)
+                    {
+                        Destroy(Transparent[i]);
+                    }
+
+                    Line++;
+                    //Debug.Log("Line:" + Line + "ret:" + LoadText.ret);
+                    //ここにクリアフラグ
+                    if (Line == LoadText.ret)
+                    {
+                        OnRisult.flag = true;
+                        //Debug.Log(OnRisult.flag);
+                    }
+
+                    text_move();
+
+                    if (meaning.meaning_line[meaning.Line] == Line)
+                    {
+                        meaning_title.text = GetText.word[meaning.meaning_word[meaning.Line]];
+                        meaning_text.text = GetText.meaning[meaning.meaning_word[meaning.Line]];
+                        if (meaning_text.text.Length > 30)
+                        {
+                            meaning_text.text = meaning_text.text.Insert(30, "\n");
+                        }
+                        meaning.Line++;
+                    }
+
+
+                    string[] str = new string[splitted[Line].Length];
+                    string[] Rstr = new string[Rsplitted[Line].Length];
+                    string arr = splitted[Line];
+                    string Rarr = Rsplitted[Line];
+                    obj = new GameObject[splitted[Line].Length];
+                    Transparent = new GameObject[Rsplitted[Line].Length];
+                    for (int i = 0; i < splitted[Line].Length; i++)
+                    {
+                        str[i] = arr[i].ToString();
+                        if (splitted[Line].Length % 2 == 0)//文字数が遇数なら
+                        {
+                            text_x = transform.position.x + ((i - (splitted[Line].Length / 2) + 0.5f) / width);
+                        }
+                        else//文字数が奇数なら
+                        {
+                            if (i == (splitted[Line].Length - 1) / 2)
+                            {
+                                text_x = transform.position.x;
+                            }
+                            else
+                            {
+                                text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i) / width);
+                            }
+                        }
+                        obj[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y), transform.rotation);
+                        obj[i].transform.parent = transform;
+                        obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
+                        obj[i].GetComponent<Text>().text = str[i];
+                    }
+
+                    for (int i = 0; i < Rsplitted[Line].Length; i++)
+                    {
+                        Rstr[i] = Rarr[i].ToString();
+                        if (Rsplitted[Line].Length % 2 == 0)//文字数が遇数なら
+                        {
+                            Rtext_x = transform.position.x + ((i - (Rsplitted[Line].Length / 2) + 0.5f) / Rwidth);
+                        }
+                        else//文字数が奇数なら
+                        {
+                            if (i == (Rsplitted[Line].Length - 1) / 2)
+                            {
+                                Rtext_x = transform.position.x;
+                            }
+                            else
+                            {
+                                Rtext_x = transform.position.x + ((-((Rsplitted[Line].Length - 1) / 2) + i) / Rwidth);
+                            }
+                        }
+                        Transparent[i] = Instantiate(prefab, new Vector2(Rtext_x, transform.position.y - 0.75f), transform.rotation);
+                        Transparent[i].transform.parent = transform;
+                        Transparent[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
+                        Transparent[i].GetComponent<Text>().text = Rstr[i];
+                    }
+                }
             }
-            else
+            catch
             {
-                count = 0;
-                for (int i = 0; i < splitted[Line].Length; i++)
-                {
-                    Destroy(obj[i]);
-                }
-                for (int i = 0; i < Rsplitted[Line].Length; i++)
-                {
-                    Destroy(Transparent[i]);
-                }
-
-                Line++;
-                //Debug.Log("Line:" + Line + "ret:" + LoadText.ret);
-                //ここにクリアフラグ
-                if(Line==LoadText.ret)
-                {
-                    OnRisult.flag = true;
-                    //Debug.Log(OnRisult.flag);
-                }
-
-                text_move();
-
-                if (meaning.meaning_line[meaning.Line] == Line)
-                {
-                    meaning_title.text = GetText.word[meaning.meaning_word[meaning.Line]];
-                    meaning_text.text = GetText.meaning[meaning.meaning_word[meaning.Line]];
-                    if (meaning_text.text.Length > 30)
-                    {
-                        meaning_text.text= meaning_text.text.Insert(30, "\n");
-                    }
-                    meaning.Line++;
-                }
-
-
-                string[] str = new string[splitted[Line].Length];
-                string[] Rstr = new string[Rsplitted[Line].Length];
-                string arr = splitted[Line];
-                string Rarr = Rsplitted[Line];
-                obj = new GameObject[splitted[Line].Length];
-                Transparent = new GameObject[Rsplitted[Line].Length];
-                for (int i = 0; i < splitted[Line].Length; i++)
-                {
-                    str[i] = arr[i].ToString();
-                    if (splitted[Line].Length % 2 == 0)//文字数が遇数なら
-                    {
-                        text_x = transform.position.x + ((i - (splitted[Line].Length / 2) + 0.5f) / width);
-                    }
-                    else//文字数が奇数なら
-                    {
-                        if (i == (splitted[Line].Length - 1) / 2)
-                        {
-                            text_x = transform.position.x;
-                        }
-                        else
-                        {
-                            text_x = transform.position.x + ((-((splitted[Line].Length - 1) / 2) + i) / width);
-                        }
-                    }
-                    obj[i] = Instantiate(prefab, new Vector2(text_x, transform.position.y), transform.rotation);
-                    obj[i].transform.parent = transform;
-                    obj[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
-                    obj[i].GetComponent<Text>().text = str[i];
-                }
-
-                for (int i = 0; i < Rsplitted[Line].Length; i++)
-                {
-                    Rstr[i] = Rarr[i].ToString();
-                    if (Rsplitted[Line].Length % 2 == 0)//文字数が遇数なら
-                    {
-                        Rtext_x = transform.position.x + ((i - (Rsplitted[Line].Length / 2) + 0.5f) / Rwidth);
-                    }
-                    else//文字数が奇数なら
-                    {
-                        if (i == (Rsplitted[Line].Length - 1) / 2)
-                        {
-                            Rtext_x = transform.position.x;
-                        }
-                        else
-                        {
-                            Rtext_x = transform.position.x + ((-((Rsplitted[Line].Length - 1) / 2) + i) / Rwidth);
-                        }
-                    }
-                    Transparent[i] = Instantiate(prefab, new Vector2(Rtext_x, transform.position.y - 0.75f), transform.rotation);
-                    Transparent[i].transform.parent = transform;
-                    Transparent[i].transform.localScale = new Vector3(1, 1, 1);//希望する値
-                    Transparent[i].GetComponent<Text>().text = Rstr[i];
-                }
+                Debug.LogError("配列参照外 おそらくnewで確保していないのが原因　scriptの呼び出しの順番かな？");
             }
             NextSpace = false;
         }

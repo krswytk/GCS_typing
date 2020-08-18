@@ -21,8 +21,9 @@ public class OnRisult : MonoBehaviour
         if (flag)
         {
             Debug.Log("OnStarts");
-            Debug.Log(TT.GetScore());
+            //Debug.Log(TT.GetScore());
             OnStarts();
+            flag = false;
         }
     }
 
@@ -37,8 +38,14 @@ public class OnRisult : MonoBehaviour
     private void GameSceneLoaded(Scene next, LoadSceneMode mode)
     {
         DestroyTimeout DT = GameObject.Find("EventSystem").GetComponent<DestroyTimeout>();
-
-        DT.SetScore(TT.GetScore()-1);//リザルトにスコアを渡す0-4
+        try
+        {
+            DT.SetScore(TT.GetScore() - 1);//リザルトにスコアを渡す0-4
+        }
+        catch
+        {
+            DT.SetScore(4);//リザルトにスコアを渡す0-4
+        }
 
         SceneManager.sceneLoaded -= GameSceneLoaded;
 
