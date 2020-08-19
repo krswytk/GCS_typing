@@ -51,7 +51,7 @@ public class CheckTestScript : MonoBehaviour
             {
                 if (NowKey[KeyNum] == Input.inputString)
                 {
-                    Debug.Log("成功です");
+                    //Debug.Log("成功です");
                     //ローマ字ならここで送信
                     text_Test.NextSpace = true;
                     KeyNum++;
@@ -64,7 +64,7 @@ public class CheckTestScript : MonoBehaviour
                         case "つ":
                             if (KeyNum==1&&Input.inputString=="s")//tsu
                             {
-                                Debug.Log("成功です");
+                                //Debug.Log("成功です");
                                 //ローマ字ならここで送信
                                 text_Test.NextSpace = true;
                                 NowKey[1]="s";
@@ -76,7 +76,7 @@ public class CheckTestScript : MonoBehaviour
                         case "ふ":
                             if (KeyNum == 0 && Input.inputString == "f")//fu
                             {
-                                Debug.Log("成功です");
+                                //Debug.Log("成功です");
                                 //ローマ字ならここで送信
                                 text_Test.NextSpace = true;
                                 KeyNum++;
@@ -86,7 +86,7 @@ public class CheckTestScript : MonoBehaviour
                         case "じ":
                             if (KeyNum == 0 && Input.inputString == "j")//ji,jyaとかも先頭だけだからおｋ？
                             {
-                                Debug.Log("成功です");
+                                //Debug.Log("成功です");
                                 //ローマ字ならここで送信
                                 text_Test.NextSpace = true;
                                 KeyNum++;
@@ -103,7 +103,7 @@ public class CheckTestScript : MonoBehaviour
                             }
                             if (KeyNum == 1 && Input.inputString == "h")//
                             {
-                                Debug.Log("成功です");
+                                //Debug.Log("成功です");
                                 //ローマ字ならここで送信
                                 //↓ガイドの仕方によってはここで送る。ガイド固定なのでここでは送らない。
                                 //text_Test.NextSpace = true;
@@ -129,11 +129,16 @@ public class CheckTestScript : MonoBehaviour
 
                         
                         default:
-                            Debug.Log("失敗ですこれ打って：" + NowKey[KeyNum]);
-                            Debug.Log("keynum：" + KeyNum);
+                            //Debug.Log("失敗ですこれ打って：" + NowKey[KeyNum]);
+                            //Debug.Log("keynum：" + KeyNum);
                             break;
                     }
 
+                    if(text_Test.NextSpace == false)
+                    {
+                        text_Test.Failure++;
+                        text_Test.score_sw = false;
+                    }
                     
 
                 }
@@ -147,21 +152,21 @@ public class CheckTestScript : MonoBehaviour
 
                 KeyNum = 0;
                 KanaNum++;
-                Debug.Log("kanaNum："+KanaNum);
-                Debug.Log("Length：" + NowString.Length);
+                //Debug.Log("kanaNum："+KanaNum);
+               // Debug.Log("Length：" + NowString.Length);
                 if (KanaNum + 1 >= NowString.Length)//なんでプラス？
                 {
-                    Debug.Log("行の最後まで来ました。次の行を読み込みます。");
+                    //Debug.Log("行の最後まで来ました。次の行を読み込みます。");
                     //次の行を呼ぶ
                     lineNow++;
 
                     if (lineNum == lineNow)
                     {
-                        Debug.Log("終了です");
+                        //Debug.Log("終了です");
                     }
                     else
                     {
-                        Debug.Log("SetStringの呼び出し");
+                       // Debug.Log("SetStringの呼び出し");
                         SetStrig(lineNow);
                     }
                     //Debug.Log("次の行→"+lineNow);
@@ -171,12 +176,12 @@ public class CheckTestScript : MonoBehaviour
                 {
                     SetChar(KanaNum);
                 }
-                Debug.Log("次の文字：" + NowChar);
+                //Debug.Log("次の文字：" + NowChar);
 
             }
 
 
-            Debug.Log("次のキー：" + NowKey[KeyNum]);
+            //Debug.Log("次のキー：" + NowKey[KeyNum]);
         }
 
         //
@@ -206,7 +211,7 @@ public class CheckTestScript : MonoBehaviour
     void SetStrig(int n)
     {
         NowString = Strings[n];
-        Debug.Log("Setstring関数\nNowStringに代入\"" + NowString + ".");
+        //Debug.Log("Setstring関数\nNowStringに代入\"" + NowString + ".");
         KanaNum = 0;
         SetChar(0);
     }
@@ -222,10 +227,10 @@ public class CheckTestScript : MonoBehaviour
         if (n + 1 <= NowString.Length) NextChar = NowString.Substring(n + 1, 1);//次の文字があれば入れてみる
 
 
-        Debug.Log("Setchar関数で、NowCharに代入：" + NowChar);
+        //Debug.Log("Setchar関数で、NowCharに代入：" + NowChar);
         CharSplit(NowChar);
         //pre.text = NowChar;
-        Debug.Log("今の文字→" + NowChar);
+        //Debug.Log("今の文字→" + NowChar);
     }
 
     /// <summary>

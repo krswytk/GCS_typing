@@ -174,7 +174,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 23d4c54a91ac4014e9cb0a17a081783d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e061f5bdb09dce44fbbff35b17929127, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 146301396}
   - component: {fileID: 146301394}
   m_Layer: 5
-  m_Name: meaning_text
+  m_Name: meaning_title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -769,7 +769,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 444, y: 232.8}
+  m_AnchoredPosition: {x: 252, y: 300}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146301394
@@ -788,10 +788,10 @@ MonoBehaviour:
   textAsset: {fileID: 4900000, guid: b1b9c7084dee9974ba0fb517c153850c, type: 3}
   GetText: {fileID: 496542784}
   LoadText: {fileID: 1898957812}
-  Text_test: {fileID: 0}
   meaning_line: 
   meaning_word: 
   Add_num: 0
+  Line: 0
 --- !u!114 &146301396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +825,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u4ECA\u5E74\u306E\uFF11\u6708\u304B\u3089\u731B\u5A01\u3092\u632F\u308B\u3063\u3066\u3044\u305F\r"
+  m_Text: aaaaa
 --- !u!222 &146301397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2347,6 +2347,85 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &757580614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757580615}
+  - component: {fileID: 757580617}
+  - component: {fileID: 757580616}
+  m_Layer: 5
+  m_Name: meaning_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &757580615
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757580614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3799999, y: 0.3799999, z: 0.3797999}
+  m_Children: []
+  m_Father: {fileID: 1754562060}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 433, y: 237}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &757580616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757580614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 9a60635952b55684ba18a2775d763c59, type: 3}
+    m_FontSize: 59
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 125
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: aaaaa
+--- !u!222 &757580617
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757580614}
+  m_CullTransparentMesh: 0
 --- !u!1 &800103691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3716,6 +3795,8 @@ GameObject:
   - component: {fileID: 1468563244}
   - component: {fileID: 1468563243}
   - component: {fileID: 1468563242}
+  - component: {fileID: 1468563245}
+  - component: {fileID: 1468563246}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -3771,6 +3852,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1468563245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468563241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3de96033c3e4b458332e194ba2fb0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound1: {fileID: 0}
+--- !u!114 &1468563246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468563241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a2aa114481e1d44927dda1ffa987f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1485678854
 GameObject:
   m_ObjectHideFlags: 0
@@ -4568,6 +4674,7 @@ RectTransform:
   - {fileID: 1898957810}
   - {fileID: 2044241039}
   - {fileID: 146301393}
+  - {fileID: 757580615}
   m_Father: {fileID: 1605768475}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4926,8 +5033,11 @@ MonoBehaviour:
   dataText: {fileID: 1898957813}
   textAsset: {fileID: 4900000, guid: 26181cad8a73d2249a4c97f462e3bd3b, type: 3}
   GetText: {fileID: 496542784}
+  Text_test: {fileID: 2044241040}
   meaning: {fileID: 146301394}
   splitted: []
+  result: 
+  ret: 0
 --- !u!114 &1898957813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5500,7 +5610,14 @@ MonoBehaviour:
   width: 2
   Rwidth: 3.75
   GetText: {fileID: 496542784}
+  meaning: {fileID: 146301394}
+  OnRisult: {fileID: 1468563245}
+  LoadText: {fileID: 1898957812}
+  meaning_title: {fileID: 146301396}
+  meaning_text: {fileID: 757580616}
   NextSpace: 0
+  Failure: 0
+  score_sw: 0
 --- !u!114 &2044241041
 MonoBehaviour:
   m_ObjectHideFlags: 0
