@@ -134,11 +134,14 @@ public class CheckTestScript : MonoBehaviour
                                 //Debug.Log("成功です");
                                 //ローマ字ならここで送信
                                 //↓ガイドの仕方によってはここで送る。ガイド固定なのでここでは送らない。
-                                text_Test.NextSpace = true;
+                                //text_Test.NextSpace = true;
                                 NowKey[1] = "h";
                                 NowKey[2] = "i";
                                 NowKey[3] = "おわり";
-
+                                if (NextChar == "ゃ"|| NextChar == "ゅ"|| NextChar == "ょ")//しゃなら
+                                {
+                                    text_Test.NextSpace = true;
+                                }
                                 KeyNum++;
                                 PreKey = Input.inputString;
                             }
