@@ -15,6 +15,7 @@ public class CheckTestScript : MonoBehaviour
     private string NowString;//今読み込んでる行。これを一文字ずつ↓に入れる
     private string NowChar;//今のひらがな(大文字英語も)一文字→これを分解する
     private string NextChar;//次の文字、拗音,促音のため。
+    private string PreKey="";//前に入力したキー
     private string[] NowKey = new string[4];//分解されたキーはこちら**charじゃないかも？
     private int lineNum;//全体の行数
     private int lineNow;//今の行数
@@ -47,14 +48,25 @@ public class CheckTestScript : MonoBehaviour
         {
             //Debug.Log("入力：" + Input.inputString);//押されたキーがこれ
 
-            if (Input.inputString != " " && Input.inputString != "\n" && !Input.GetMouseButton(0)&&!Input.GetKeyDown(KeyCode.LeftShift))//エンターじゃないとか
+            if (Input.inputString != " " && Input.inputString != "\n" && !Input.GetMouseButton(0) && !Input.GetKeyDown(KeyCode.LeftShift))//エンターじゃないとか
             {
                 if (NowKey[KeyNum] == Input.inputString)
                 {
+                    if (Input.inputString == "y" && NowChar == "じ" && (NextChar == "ゃ" || NextChar == "ゅ" || NextChar == "ょ"))//じゃとか
+                    {//「じ」であり、「ゃゅょ」であり、yが打たれたら内部だけ更新
+                        KeyNum++;
+                        PreKey = Input.inputString;
+                    }
+                    else
+                    {
+                        text_Test.NextSpace = true;
+                        KeyNum++;
+                        PreKey = Input.inputString;
+                    }
                     //Debug.Log("成功です");
                     //ローマ字ならここで送信
-                    text_Test.NextSpace = true;
-                    KeyNum++;
+                    
+
                 }
                 else
                 {
@@ -62,15 +74,16 @@ public class CheckTestScript : MonoBehaviour
                     switch (NowChar)
                     {
                         case "つ":
-                            if (KeyNum==1&&Input.inputString=="s")//tsu
+                            if (KeyNum == 1 && Input.inputString == "s")//tsu
                             {
                                 //Debug.Log("成功です");
                                 //ローマ字ならここで送信
                                 text_Test.NextSpace = true;
-                                NowKey[1]="s";
+                                NowKey[1] = "s";
                                 NowKey[2] = "u";
                                 NowKey[3] = "おわり";
                                 KeyNum++;
+                                PreKey = Input.inputString;
                             }
                             break;
                         case "ふ":
@@ -80,6 +93,7 @@ public class CheckTestScript : MonoBehaviour
                                 //ローマ字ならここで送信
                                 text_Test.NextSpace = true;
                                 KeyNum++;
+                                PreKey = Input.inputString;
                             }
                             break;
 
@@ -90,34 +104,50 @@ public class CheckTestScript : MonoBehaviour
                                 //ローマ字ならここで送信
                                 text_Test.NextSpace = true;
                                 KeyNum++;
+                                PreKey = Input.inputString;
+                            }
+                            if (KeyNum == 1&&PreKey=="j")//ｊで売ってたら
+                            {
+                                if ((NextChar=="ゃ"&&Input.inputString=="a")|| (NextChar == "ゅ"&&Input.inputString=="u")|| (NextChar == "ょ"&&Input.inputString=="o"))//やゆよ
+                                {
+                                    text_Test.NextSpace = true;
+                                    KeyNum++;
+                                    PreKey = Input.inputString;
+                                }
+                                text_Test.NextSpace = true;
+                                KeyNum++;
+                                PreKey = Input.inputString;
                             }
                             break;
 
                         case "し":
                         case "ち":
-                            if (NowChar=="ち"&&KeyNum == 0 && Input.inputString == "c")
+                            if (NowChar == "ち" && KeyNum == 0 && Input.inputString == "c")
                             {
-                                
+
                                 KeyNum++;
                                 text_Test.NextSpace = true;
+                                PreKey = Input.inputString;
                             }
                             if (KeyNum == 1 && Input.inputString == "h")//
                             {
                                 //Debug.Log("成功です");
                                 //ローマ字ならここで送信
                                 //↓ガイドの仕方によってはここで送る。ガイド固定なのでここでは送らない。
-                                //text_Test.NextSpace = true;
+                                text_Test.NextSpace = true;
                                 NowKey[1] = "h";
                                 NowKey[2] = "i";
                                 NowKey[3] = "おわり";
-                                
+
                                 KeyNum++;
+                                PreKey = Input.inputString;
                             }
                             //これで？
                             if (NextChar == "ゃ")
                             {
                                 NowKey[2] = "a";
-                            } else if (NextChar == "ゅ")
+                            }
+                            else if (NextChar == "ゅ")
                             {
                                 NowKey[2] = "u";
                             }
@@ -127,19 +157,19 @@ public class CheckTestScript : MonoBehaviour
                             }
                             break;
 
-                        
+
                         default:
-                            //Debug.Log("失敗ですこれ打って：" + NowKey[KeyNum]);
-                            //Debug.Log("keynum：" + KeyNum);
+                            Debug.Log("失敗ですこれ打って：" + NowKey[KeyNum]);
+                            Debug.Log("keynum：" + KeyNum);
                             break;
                     }
 
-                    if(text_Test.NextSpace == false)
+                    if (text_Test.NextSpace == false)
                     {
                         text_Test.Failure++;
                         text_Test.score_sw = false;
                     }
-                    
+
 
                 }
             }
@@ -153,7 +183,7 @@ public class CheckTestScript : MonoBehaviour
                 KeyNum = 0;
                 KanaNum++;
                 //Debug.Log("kanaNum："+KanaNum);
-               // Debug.Log("Length：" + NowString.Length);
+                // Debug.Log("Length：" + NowString.Length);
                 if (KanaNum + 1 >= NowString.Length)//なんでプラス？
                 {
                     //Debug.Log("行の最後まで来ました。次の行を読み込みます。");
@@ -166,11 +196,11 @@ public class CheckTestScript : MonoBehaviour
                     }
                     else
                     {
-                       // Debug.Log("SetStringの呼び出し");
+                        // Debug.Log("SetStringの呼び出し");
                         SetStrig(lineNow);
                     }
                     //Debug.Log("次の行→"+lineNow);
-                    
+
                 }
                 else
                 {
@@ -182,11 +212,13 @@ public class CheckTestScript : MonoBehaviour
 
 
             //Debug.Log("次のキー：" + NowKey[KeyNum]);
+            
         }
 
         //
         //
         //
+        
     }
 
 
@@ -835,7 +867,7 @@ public class CheckTestScript : MonoBehaviour
 
 
         }
-        
+
         //↓ゃゅょ(拗音)の処理
         if (NextChar == "ゃ" || NextChar == "ゅ" || NextChar == "ょ")
         {
