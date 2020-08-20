@@ -182,33 +182,7 @@ public class CheckTestScript : MonoBehaviour
             {
                 //ひらがなならここで送信
                 //text_Test.NextSpace = true;
-
-                KeyNum = 0;
-                KanaNum++;
-                //Debug.Log("kanaNum："+KanaNum);
-                // Debug.Log("Length：" + NowString.Length);
-                if (KanaNum + 1 >= NowString.Length)//なんでプラス？
-                {
-                    //Debug.Log("行の最後まで来ました。次の行を読み込みます。");
-                    //次の行を呼ぶ
-                    lineNow++;
-
-                    if (lineNum == lineNow)
-                    {
-                        //Debug.Log("終了です");
-                    }
-                    else
-                    {
-                        // Debug.Log("SetStringの呼び出し");
-                        SetStrig(lineNow);
-                    }
-                    //Debug.Log("次の行→"+lineNow);
-
-                }
-                else
-                {
-                    SetChar(KanaNum);
-                }
+                FinChar();
                 //Debug.Log("次の文字：" + NowChar);
 
             }
@@ -224,6 +198,35 @@ public class CheckTestScript : MonoBehaviour
         
     }
 
+    void FinChar()
+    {
+        KeyNum = 0;
+        KanaNum++;
+        //Debug.Log("kanaNum："+KanaNum);
+        // Debug.Log("Length：" + NowString.Length);
+        if (KanaNum + 1 >= NowString.Length)//なんでプラス？
+        {
+            //Debug.Log("行の最後まで来ました。次の行を読み込みます。");
+            //次の行を呼ぶ
+            lineNow++;
+
+            if (lineNum == lineNow)
+            {
+                //Debug.Log("終了です");
+            }
+            else
+            {
+                // Debug.Log("SetStringの呼び出し");
+                SetStrig(lineNow);
+            }
+            //Debug.Log("次の行→"+lineNow);
+
+        }
+        else
+        {
+            SetChar(KanaNum);
+        }
+    }
 
     /// <summary>
     /// 初期設定
