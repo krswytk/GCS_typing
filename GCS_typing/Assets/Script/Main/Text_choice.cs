@@ -146,6 +146,7 @@ public class Text_choice : MonoBehaviour
                         Robj[i2].transform.parent = transform;
                         Robj[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         Robj[i2].GetComponent<Text>().text = str[i2];
+                        Robj[i2].GetComponent<Text>().color = new Color(1, 0, 0, 1);
                     }
                     
                 }
@@ -193,6 +194,7 @@ public class Text_choice : MonoBehaviour
                         Robj2[i2].transform.parent = transform;
                         Robj2[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         Robj2[i2].GetComponent<Text>().text = str2[i2];
+                        Robj2[i2].GetComponent<Text>().color = new Color(1, 0, 0, 1);
                     }
                 }
             }
@@ -239,6 +241,7 @@ public class Text_choice : MonoBehaviour
                         Robj3[i2].transform.parent = transform;
                         Robj3[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         Robj3[i2].GetComponent<Text>().text = str3[i2];
+                        Robj3[i2].GetComponent<Text>().color = new Color(1, 0, 0, 1);
                     }
                 }
             }
@@ -285,6 +288,7 @@ public class Text_choice : MonoBehaviour
                         Robj4[i2].transform.parent = transform;
                         Robj4[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         Robj4[i2].GetComponent<Text>().text = str4[i2];
+                        Robj4[i2].GetComponent<Text>().color = new Color(1, 0, 0, 1);
                     }
                 }
             }
