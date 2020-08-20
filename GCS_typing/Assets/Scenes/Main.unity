@@ -3865,6 +3865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound1: {fileID: 0}
+  flag: 0
+  TT: {fileID: 0}
 --- !u!114 &1468563246
 MonoBehaviour:
   m_ObjectHideFlags: 0
