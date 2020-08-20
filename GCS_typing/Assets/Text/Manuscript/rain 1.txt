@@ -10,8 +10,8 @@
 豪雨による浸水被害があるため/避難情報/を確認して行動してください。
 豪雨の影響で/土砂崩れ/が相次ぎ一部集落が孤立しています。
 国土交通省では適切な/防災行動/をとるよう呼び掛けています。
-気象庁は/大雨特別警報/を鹿児島県と熊本県に発表しました。
-四国地方や近畿地方を中心に/高潮警報/が発表されました。
+/避難指示/が発表されており極めて危険な状況です。
+台風による影響で四国地方や近畿地方を中心に/高潮警報/が発表されました。
 
 氾濫 はんらん hanrann
 激流 げきりゅう gekiryuu
@@ -40,21 +40,25 @@
 
 避難情報 ひなんじょうほう hinanjyouhou
 早期注意報 そうきちゅういほう soukityuuihou
-
-
+大雨特別警報 おおあめとくべつけいほう ooametokubetukeihou
+天気予報 てんきよほう tenkiyohou
 
 土砂崩れ どしゃくずれ dosyakuzure
-
-
+停電 ていでん teiden
+洪水 こうずい kouzui
+液状化 えきじょうか ekijyouka
 
 防災行動 ぼうさいこうどう bousaikoudou
+避難指示 ひなんしじ hinansiji
+避難準備 ひなんじゅんび hinanjyunbi
+予防準備 よぼうじゅんび yoboujyunbi
 
-
-
-大雨特別警報 おおあめとくべつけいほう ooametokubetukeihou
-
-
+避難指示 ひなんしじ hinansiji
+避難準備 ひなんじゅんび hinanjyunbi
+避難命令 ひなんめいれい hinanmeirei
+避難勧告 ひなんかんこく hinankankoku
 
 高潮警報 たかしおけいほう takasiokeihou
-
-
+土石流警報 どせきりゅうけいほう dosekiryuukeihou
+緊急事態宣言 きんきゅうじたいせんげん kinkyuujiraisengenn
+なだれ注意報 なだれちゅういほう nadaretyuuihou
