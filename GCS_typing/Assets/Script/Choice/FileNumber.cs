@@ -275,17 +275,17 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 if (n == 0)
                 {
                     if (s[i][lp] != '\r' && s[i][lp] != '\n' && s[i][lp] != ' ' && s[i][lp] != '　') t += s[i][lp];
-                    Debug.Log(t + "  文字数は" + lp);
+                    //Debug.Log(t + "  文字数は" + lp);
                 }
                 else if (n == 1)
                 {
                     if (s[i][lp] != '\r' && s[i][lp] != '\n' && s[i][lp] != ' ' && s[i][lp] != '　') d += s[i][lp];
-                    Debug.Log(d + "  文字数は" + lp);
+                    //Debug.Log(d + "  文字数は" + lp);
                 }
                 else if (n == 2)
                 {
                     if (s[i][lp] != '\r' && s[i][lp] != '\n' && s[i][lp] != ' ' && s[i][lp] != '　') text[Tnum] += s[i][lp];
-                    Debug.Log(text[Tnum] + "  文字数は" + lp);
+                    //Debug.Log(text[Tnum] + "  文字数は" + lp);
                     if (s[i][lp] == '\r' && s[i][lp+1] == '\n')
                     {
                         Tnum++;
@@ -306,7 +306,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                     {
                         if (s[i][lp] != '\r' && s[i][lp] != '\n' &&s[i][lp] != ' ' && s[i][lp] != '　') D[Dnum, dnum] += s[i][lp];
                     }
-                    Debug.Log(D[Dnum, 0] + " " + D[Dnum, 1] + " " + D[Dnum, 2] + "  文字数は" + lp);
+                    //Debug.Log(D[Dnum, 0] + " " + D[Dnum, 1] + " " + D[Dnum, 2] + "  文字数は" + lp);
                 }
 
                 try
@@ -322,7 +322,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 {
                     if (lp + 1 == s[i].Length)
                     {
-                        Debug.Log("最後エラー：無視できます");
+                        //Debug.Log("最後エラー：無視できます");
                     }
                     else
                     {
