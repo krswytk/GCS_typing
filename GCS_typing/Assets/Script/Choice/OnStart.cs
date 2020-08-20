@@ -31,7 +31,7 @@ public class OnStart : MonoBehaviour
     {
         GetText GT = GameObject.Find("GetText").GetComponent<GetText>();
 
-        
+        /////////辞書部分の渡し
         GT.word = new string[FN.count];
         Debug.Log(FN.count);
         GT.meaning = new string[FN.count];
@@ -41,9 +41,13 @@ public class OnStart : MonoBehaviour
             GT.word[i] = FN.D[i].GetWord();
             GT.meaning[i] = FN.D[i].GetMeaning();
         }
-        GT.text = FN.M[TM.GetTMnum()].GetText();
-        GT.Htext = FN.M[TM.GetTMnum()].GetHtext();
-        GT.Rtext = FN.M[TM.GetTMnum()].GetRtext();
+        /////////////
+
+        
+        ///////////原稿の渡し
+        GT.text = FN.NM[TM.GetTMnum()].GetText();
+        GT.debris = FN.NM[TM.GetTMnum()].GetDebris();
+        /////////////
 
         SceneManager.sceneLoaded -= GameSceneLoaded;
         
