@@ -267,45 +267,55 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
             for (int lp = 0; lp < s[i].Length; lp++)//そのファイルに含まれる文字数繰り返す
             {
+                //Debug.Log(s[i][lp] + "  文字数は" + lp);
+                //if(s[i][lp] == '\r') Debug.Log("r発見" + "  文字数は" + lp);
+                //if (s[i][lp] == '\n') Debug.Log("n発見" + "  文字数は" + lp);
+
+
                 if (n == 0)
                 {
-                    t += s[i][lp];
-                    Debug.Log(t);
+                    if (s[i][lp] != '\r' && s[i][lp] != '\n' && s[i][lp] != ' ' && s[i][lp] != '　') t += s[i][lp];
+                    Debug.Log(t + "  文字数は" + lp);
                 }
                 else if (n == 1)
                 {
-                    d += s[i][lp];
+                    if (s[i][lp] != '\r' && s[i][lp] != '\n' && s[i][lp] != ' ' && s[i][lp] != '　') d += s[i][lp];
+                    Debug.Log(d + "  文字数は" + lp);
+                }
+                else if (n == 2)
+                {
+                    if (s[i][lp] != '\r' && s[i][lp] != '\n' && s[i][lp] != ' ' && s[i][lp] != '　') text[Tnum] += s[i][lp];
+                    Debug.Log(text[Tnum] + "  文字数は" + lp);
+                    if (s[i][lp] == '\r' && s[i][lp+1] == '\n')
+                    {
+                        Tnum++;
+                    }
                 }
                 else if (n == 3)
-                {
-                    text[Tnum] += s[i][lp];
-                    if (s[i][lp] == '\n') Tnum++;
-                }
-                else if (n == 4)
                 {
                     if (s[i][lp] == ' ' || s[i][lp] == '　')//半角、全角空白の場合
                     {
                         dnum++;
                     }
-                    else if(s[i][lp] == '\n')
+                    else if(s[i][lp] == '\r'&& s[i][lp + 1] == '\n')
                     {
                         dnum = 0;
                         Dnum++;
                     }
                     else
                     {
-                        D[Dnum,dnum] += s[i][lp];
+                        if (s[i][lp] != '\r' && s[i][lp] != '\n' &&s[i][lp] != ' ' && s[i][lp] != '　') D[Dnum, dnum] += s[i][lp];
                     }
+                    Debug.Log(D[Dnum, 0] + " " + D[Dnum, 1] + " " + D[Dnum, 2] + "  文字数は" + lp);
                 }
 
                 try
                 {
-                    Debug.Log("1文字目　"+s[i][lp] + "　1文字目　" + s[i][lp+1]);
-                    if (s[i][lp] == '\n' && s[i][lp + 1] == '\n')
+                    //Debug.Log("1文字目;"+s[i][lp] + "2文字目:" + s[i][lp+1]);
+                    if (s[i][lp + 1] == '\r' && s[i][lp + 2] == '\n' && s[i][lp + 3] == '\r' && s[i][lp + 4] == '\n')//改行
                     {
-                        Debug.Log("N++します");
                         n++;
-                        lp += 1;
+                        lp += 4;
                     }
                 }
                 catch
@@ -471,5 +481,4 @@ public class NewManuscript
         for (int lp = 0; lp < text.Length; lp++) { Debug.Log(text[lp]); }
         for (int lp = 0; lp < debris.GetLength(0); lp++) { Debug.Log(debris[lp, 0]); }
     }
-
 };
