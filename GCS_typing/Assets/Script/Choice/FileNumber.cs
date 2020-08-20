@@ -305,7 +305,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                     {
                         if (s[i][lp] != '\r' && s[i][lp] != '\n' &&s[i][lp] != ' ' && s[i][lp] != '　') D[Qnum,Dnum, dnum] += s[i][lp];
                     }
-                    //Debug.Log(D[Dnum, 0] + " " + D[Dnum, 1] + " " + D[Dnum, 2] + "  文字数は" + lp);
+                    Debug.Log(D[Qnum,Dnum, 0] + " " + D[Qnum, Dnum, 1] + " " + D[Qnum, Dnum, 2] + "  文字数は" + lp);
                 }
 
                 try
