@@ -234,9 +234,9 @@ public class CheckTestScript : MonoBehaviour
     /// </summary>
     void LoadText()
     {
-        string TextLines = GetText.Htext;
-        Debug.Log("今読み込んだやつ→" + TextLines);//ok?
-        Strings = TextLines.Split('\n');
+        //string TextLines = GetText.Htext;
+        //Debug.Log("今読み込んだやつ→" + TextLines);//ok?
+        //Strings = TextLines.Split('\n');
         Debug.Log("一行目→" + Strings[0]);//ok?
         lineNum = Strings.Length;//全部で何行だか入れる
 
