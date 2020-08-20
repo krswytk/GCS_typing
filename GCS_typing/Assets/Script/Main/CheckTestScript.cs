@@ -182,33 +182,7 @@ public class CheckTestScript : MonoBehaviour
             {
                 //ひらがなならここで送信
                 //text_Test.NextSpace = true;
-
-                KeyNum = 0;
-                KanaNum++;
-                //Debug.Log("kanaNum："+KanaNum);
-                // Debug.Log("Length：" + NowString.Length);
-                if (KanaNum + 1 >= NowString.Length)//なんでプラス？
-                {
-                    //Debug.Log("行の最後まで来ました。次の行を読み込みます。");
-                    //次の行を呼ぶ
-                    lineNow++;
-
-                    if (lineNum == lineNow)
-                    {
-                        //Debug.Log("終了です");
-                    }
-                    else
-                    {
-                        // Debug.Log("SetStringの呼び出し");
-                        SetStrig(lineNow);
-                    }
-                    //Debug.Log("次の行→"+lineNow);
-
-                }
-                else
-                {
-                    SetChar(KanaNum);
-                }
+                FinChar();
                 //Debug.Log("次の文字：" + NowChar);
 
             }
@@ -224,6 +198,35 @@ public class CheckTestScript : MonoBehaviour
         
     }
 
+    void FinChar()
+    {
+        KeyNum = 0;
+        KanaNum++;
+        //Debug.Log("kanaNum："+KanaNum);
+        // Debug.Log("Length：" + NowString.Length);
+        if (KanaNum + 1 >= NowString.Length)//なんでプラス？
+        {
+            Debug.Log("行の最後まで来ました。次の行を読み込みます。");
+            //次の行を呼ぶ
+            lineNow++;
+
+            if (lineNum == lineNow)
+            {
+                //Debug.Log("終了です");
+            }
+            else
+            {
+                // Debug.Log("SetStringの呼び出し");
+                SetStrig(lineNow);
+            }
+            //Debug.Log("次の行→"+lineNow);
+
+        }
+        else
+        {
+            SetChar(KanaNum);
+        }
+    }
 
     /// <summary>
     /// 初期設定
@@ -252,14 +255,26 @@ public class CheckTestScript : MonoBehaviour
     }
 
     /// <summary>
-    /// NowStringの先頭からn文字目をNowcharに代入
+    /// NowStringの先頭からn文字目をNowCharに,
+    /// n+1文字目があればNextCharに,なければ"行の最後"
     /// </summary>
     /// <param name="n"></param>
     void SetChar(int n)
     {
 
         NowChar = NowString.Substring(n, 1);//NowStringの先頭からn文字をaに(0スタート)
-        if (n + 1 <= NowString.Length) NextChar = NowString.Substring(n + 1, 1);//次の文字があれば入れてみる
+        //Debug.Log("NowString.Length="+ NowString.Length);
+        //Debug.Log("n=" + n);
+        if (n < NowString.Length-2)//改行文字とかの関係
+        {
+            NextChar = NowString.Substring(n + 1, 1);//次の文字がある
+            Debug.Log("次の文字ある：" + NextChar);
+        }
+        else
+        {
+            Debug.Log("次の文字ない" );
+            NextChar = "行の最後";
+        }
 
 
         //Debug.Log("Setchar関数で、NowCharに代入：" + NowChar);
@@ -640,9 +655,19 @@ public class CheckTestScript : MonoBehaviour
                 NowKey[2] = "おわり";
                 break;
             case "ん":
-                NowKey[0] = "n";
-                NowKey[1] = "n";
-                NowKey[2] = "おわり";
+                if (NextChar=="行の最後")
+                {
+                    Debug.Log("終わりのん");
+                    NowKey[0] = "n";
+                    NowKey[1] = "n";
+                    NowKey[2] = "おわり";
+                }
+                else
+                {
+                    NowKey[0] = "n";
+                    NowKey[1] = "おわり";
+                }
+                
                 break;
 
 
