@@ -11,7 +11,8 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
     public Manuscript[] M;
     public Dictionary[] D;
-    
+    public NewManuscript[] NM;
+
     private string[][][] kiririn;//[原稿番号][行数][表示する単語]
 
     public int count;
@@ -40,7 +41,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             Mstr[i] = sr.ReadToEnd();
             sr.Close();
         }
-        num = files.Length;
+        num = files.Length;//numはファイルの数
     }
 
     void ReadDictionaryFiles()
@@ -63,6 +64,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
     {
         clclassM(Mstr);
         clclassD(Dstr);//ファイルから持ってきた文字列をクラスに格納
+        NewclclassM(Mstr);//ファイルから持ってきた文字列をクラスに格納
 
         //inDM();//単語と原稿を一致させる//未完成放置
 
@@ -240,7 +242,70 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
     }
 
-  
+    private void NewclclassM(string[] s)
+    {
+        NM = new NewManuscript[num];//ここはファイル数分クラスが生成される
+        int n, Tnum,Dnum;//現在の状態管理/本文の数/デブリの数
+
+        string t;//原稿タイトル   
+        string d;//原稿難易度(文字列)
+        int id;//原稿難易度(整数値)
+
+        string[] text;//原稿本文（本文）
+        string[,] D;//デブリの格納（0 本文）（1 ひらがな）（2 ローマ字）
+
+
+
+        for (int i = 0; i < num; i++)//各ファイルに関して処理、ファイル数分繰り返す
+        {
+            n = 0;Tnum = 0;Dnum = 0;
+            for (int lp = 0; lp < s[i].Length; lp++)//そのファイルに含まれる文字数繰り返す
+            {
+                if(n == 0)
+                {
+
+                }
+                else if(n == 1){
+
+                }
+                else if (n == 3)
+                {
+
+                }
+                else if (n == 4)
+                {
+
+                }
+
+
+                if(s[i])
+            }
+
+            try
+            {
+                id = int.Parse(d);
+            }
+            catch (System.FormatException)
+            {
+                Debug.LogError("原稿内容がおかしいです");
+                t = "ERROR";
+                id = 0;
+            }
+            NM[i] = new NewManuscript(Tnum,Dnum,t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
+
+            /*if (i == 0)
+            {
+                Debug.Log(t);
+                Debug.Log(d);
+                Debug.Log(h);
+                Debug.Log(g);
+                Debug.Log(r);
+            }*/
+
+        }
+
+    }
+
 }
 
 public class Manuscript
@@ -324,3 +389,41 @@ public class Dictionary
     }
 
 }
+
+
+public class NewManuscript
+{
+    private string title;//タイトルを格納する変数
+    private int Difficulty;//難易度を格納する変数　2-4 それ以外は例外
+    private string[] text;//本文を格納する変数
+    private string[,] debris;//デブリを格納する変数
+    private GameObject Manuscripts;//原稿オブジェクトをGenerateDictionaryから持ってきて格納する変数
+
+
+
+    public NewManuscript(int Hnum,int Dnum,string title, int Difficulty, string[] text, string[,] debris, GameObject Manuscripts)
+    {
+        this.text = new string[Hnum];
+        this.debris = new string[Dnum,3];
+        this.title = title;
+        this.Difficulty = Difficulty;
+        this.text = text;
+        this.debris = debris;
+
+        this.Manuscripts = Manuscripts;
+    }
+
+    public string GetTitle()
+    {
+        return title;
+    }
+    public int GetNumber()
+    {
+        return Difficulty;
+    }
+    public GameObject GetManuscripts()
+    {
+        return Manuscripts;//本文を格納する変数
+    }
+
+};
