@@ -62,7 +62,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
     public void Start()
     {
-        clclassM(Mstr);
+        //clclassM(Mstr);
         clclassD(Dstr);//ファイルから持ってきた文字列をクラスに格納
         NewclclassM(Mstr);//ファイルから持ってきた文字列をクラスに格納
 
@@ -147,7 +147,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 {
                     if (s[i][lp] == '\n' && s[i][lp + 2] == '\n')
                     {
-                        Debug.Log("改行発見--" + i );
+                        //Debug.Log("改行発見--" + i );
                         n++;
                         lp += 2;
                         //Debug.Log(n);
@@ -167,7 +167,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             }
             catch (System.FormatException)
             {
-                Debug.LogError("原稿内容がおかしいです");
+                Debug.LogError("原稿内容がおかしいです。" + (i + 1) + "の原稿です。");
                 t = "ERROR";
                 id = 0;
                 h = s[i];
@@ -245,7 +245,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
     private void NewclclassM(string[] s)
     {
         NM = new NewManuscript[num];//ここはファイル数分クラスが生成される
-        int n, Tnum,Dnum;//現在の状態管理/本文の数/デブリの数
+        int n, Tnum,Dnum,dnum;//現在の状態管理/本文の数/デブリの数/デブリの状態管理
 
         string t;//原稿タイトル   
         string d;//原稿難易度(文字列)
@@ -258,27 +258,67 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
         for (int i = 0; i < num; i++)//各ファイルに関して処理、ファイル数分繰り返す
         {
-            n = 0;Tnum = 0;Dnum = 0;
+            n = 0;Tnum = 0;Dnum = 0;dnum = 0; id = 0; t = "";d = "";//初期化
+            text = new string[3];//初期化
+            D = new string[7,3];//初期化
+            for (int lp = 0; lp < text.Length; lp++) { text[lp] = ""; }//初期化
+            for (int lp = 0; lp < D.GetLength(0); lp++) { D[lp,0] = ""; D[lp, 1] = ""; D[lp, 2] = ""; }//初期化
+
+
             for (int lp = 0; lp < s[i].Length; lp++)//そのファイルに含まれる文字数繰り返す
             {
-                if(n == 0)
+                if (n == 0)
                 {
-
+                    t += s[i][lp];
+                    Debug.Log(t);
                 }
-                else if(n == 1){
-
+                else if (n == 1)
+                {
+                    d += s[i][lp];
                 }
                 else if (n == 3)
                 {
-
+                    text[Tnum] += s[i][lp];
+                    if (s[i][lp] == '\n') Tnum++;
                 }
                 else if (n == 4)
                 {
-
+                    if (s[i][lp] == ' ' || s[i][lp] == '　')//半角、全角空白の場合
+                    {
+                        dnum++;
+                    }
+                    else if(s[i][lp] == '\n')
+                    {
+                        dnum = 0;
+                        Dnum++;
+                    }
+                    else
+                    {
+                        D[Dnum,dnum] += s[i][lp];
+                    }
                 }
 
-
-                if(s[i])
+                try
+                {
+                    Debug.Log("1文字目　"+s[i][lp] + "　1文字目　" + s[i][lp+1]);
+                    if (s[i][lp] == '\n' && s[i][lp + 1] == '\n')
+                    {
+                        Debug.Log("N++します");
+                        n++;
+                        lp += 1;
+                    }
+                }
+                catch
+                {
+                    if (lp + 1 == s[i].Length)
+                    {
+                        Debug.Log("最後エラー：無視できます");
+                    }
+                    else
+                    {
+                        Debug.LogError("エラー：原因を確認してください");
+                    }
+                }
             }
 
             try
@@ -287,20 +327,18 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             }
             catch (System.FormatException)
             {
-                Debug.LogError("原稿内容がおかしいです");
+                Debug.LogError("原稿内容がおかしいです。" + (i + 1) + "の原稿です。");
                 t = "ERROR";
-                id = 0;
+                //id = 0;
             }
-            NM[i] = new NewManuscript(Tnum,Dnum,t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
+            //NM[i] = new NewManuscript(Tnum,Dnum,t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
+            //NM[i] = new NewManuscript(10, 30, t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
+            NM[i] = new NewManuscript(3, 7, t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
 
-            /*if (i == 0)
+            if (i == 0)
             {
-                Debug.Log(t);
-                Debug.Log(d);
-                Debug.Log(h);
-                Debug.Log(g);
-                Debug.Log(r);
-            }*/
+                NM[i].Debugout();
+            }
 
         }
 
@@ -424,6 +462,14 @@ public class NewManuscript
     public GameObject GetManuscripts()
     {
         return Manuscripts;//本文を格納する変数
+    }
+
+    public void Debugout()
+    {
+        Debug.Log("タイトル:" + title);
+        Debug.Log("難易度:" + Difficulty);
+        for (int lp = 0; lp < text.Length; lp++) { Debug.Log(text[lp]); }
+        for (int lp = 0; lp < debris.GetLength(0); lp++) { Debug.Log(debris[lp, 0]); }
     }
 
 };
