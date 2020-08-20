@@ -40,7 +40,12 @@ public class Text_choice : MonoBehaviour
     float text_x = 0;
     float level_text_x = 0;
 
+    int Answer = 1;
+
     int count = 0;
+    int count2 = 0;
+    int count3 = 0;
+    int count4 = 0;
 
     public bool NextSpace = false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
     public bool NextSpace2 = false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
@@ -62,21 +67,27 @@ public class Text_choice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((NextSpace)|| (Input.GetKeyDown(KeyCode.Space)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if ((NextSpace)|| (Input.GetKeyDown(KeyCode.Alpha1)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
-            if (count < Robj.Length - 1)
-            {
-                Robj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
-                count++;
-            }
-            else
-            {
-                count = 0;
-                text_Destroy();
+            text_update();
+            NextSpace = false;
+        }
 
-                //text_Generate(text.text, 0, false, 2);
-                //text_Generate(roma.text, 0.5f, true, 5);
-            }
+        if ((NextSpace2) || (Input.GetKeyDown(KeyCode.Alpha2)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        {
+            text_update2();
+            NextSpace = false;
+        }
+
+        if ((NextSpace3) || (Input.GetKeyDown(KeyCode.Alpha3)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        {
+            text_update3();
+            NextSpace = false;
+        }
+
+        if ((NextSpace4) || (Input.GetKeyDown(KeyCode.Alpha4)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        {
+            text_update4();
             NextSpace = false;
         }
     }
@@ -314,6 +325,118 @@ public class Text_choice : MonoBehaviour
         for (int i = 0; i < Robj4.Length; i++)
         {
             Destroy(Robj4[i]);
+        }
+    }
+
+    void text_update()
+    {
+        if (count < Robj.Length - 1)
+        {
+            Robj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+            count++;
+        }
+        else
+        {
+            if (Answer == 1)
+            {
+                Debug.Log("正解");
+                count = 0;
+                count2 = 0;
+                count3 = 0;
+                count4 = 0;
+                text_Destroy();
+                text_Generate(text.text, 0, false, 2);
+                text_Generate(roma.text, 0.5f, true, 5);
+            }
+            else
+            {
+                Robj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+                Debug.Log("不正解");
+            }
+        }
+    }
+
+    void text_update2()
+    {
+        if (count2 < Robj2.Length - 1)
+        {
+            Robj2[count2].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+            count2++;
+        }
+        else
+        {
+            if (Answer == 2)
+            {
+                Debug.Log("正解");
+                count = 0;
+                count2 = 0;
+                count3 = 0;
+                count4 = 0;
+                text_Destroy();
+                text_Generate(text.text, 0, false, 2);
+                text_Generate(roma.text, 0.5f, true, 5);
+            }
+            else
+            {
+                Robj2[count2].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+                Debug.Log("不正解");
+            }
+        }
+    }
+
+    void text_update3()
+    {
+        if (count3 < Robj3.Length - 1)
+        {
+            Robj3[count3].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+            count3++;
+        }
+        else
+        {
+            if (Answer == 3)
+            {
+                Debug.Log("正解");
+                count = 0;
+                count2 = 0;
+                count3 = 0;
+                count4 = 0;
+                text_Destroy();
+                text_Generate(text.text, 0, false, 2);
+                text_Generate(roma.text, 0.5f, true, 5);
+            }
+            else
+            {
+                Robj3[count3].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+                Debug.Log("不正解");
+            }
+        }
+    }
+
+    void text_update4()
+    {
+        if (count4 < Robj4.Length - 1)
+        {
+            Robj4[count4].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+            count4++;
+        }
+        else
+        {
+            if (Answer == 4)
+            {
+                Debug.Log("正解");
+                count = 0;
+                count2 = 0;
+                count3 = 0;
+                count4 = 0;
+                text_Destroy();
+                text_Generate(text.text, 0, false, 2);
+                text_Generate(roma.text, 0.5f, true, 5);
+            }
+            else
+            {
+                Robj4[count4].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+                Debug.Log("不正解");
+            }
         }
     }
 }
