@@ -259,10 +259,13 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         for (int i = 0; i < num; i++)//各ファイルに関して処理、ファイル数分繰り返す
         {
             n = 0;Tnum = 0;Qnum = -3;Dnum = 0; dnum = 0; id = 0; t = "";d = "";//初期化
-            text = new string[3];//初期化
+            text = new string[10];//初期化
             D = new string[0,0,0];//初期化
+            for (int lp = 0; lp < text.Length; lp++)
+            {
+                text[lp] = "";
 
-
+            }
 
             for (int lp = 0; lp < s[i].Length; lp++)//そのファイルに含まれる文字数繰り返す
             {
@@ -279,6 +282,14 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 else if (n == 1)
                 {
                     if (s[i][lp] != '\r' && s[i][lp] != '\n' && s[i][lp] != ' ' && s[i][lp] != '　') d += s[i][lp];
+                    try
+                    {
+                        id = int.Parse(d);
+                    }
+                    catch (System.FormatException)
+                    {
+                        Debug.LogError("原稿内容がおかしいです。" + (i + 1) + "の原稿です。");
+                    }
                     //Debug.Log(d + "  文字数は" + lp);
                 }
                 else if (n == 2)
@@ -290,7 +301,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                         Tnum++;
                     }
                 }
-                else if (n == 3)
+                else if (n >= 3)
                 {
                     if (s[i][lp] == ' ' || s[i][lp] == '　')//半角、全角空白の場合
                     {
@@ -300,12 +311,14 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                     {
                         dnum = 0;
                         Dnum++;
+                        //Debug.Log("改行");
                     }
                     else
                     {
                         if (s[i][lp] != '\r' && s[i][lp] != '\n' &&s[i][lp] != ' ' && s[i][lp] != '　') D[Qnum,Dnum, dnum] += s[i][lp];
+                        //Debug.Log(Qnum+""+Dnum+""+dnum);
+                        //Debug.Log(D[Qnum, Dnum, 0] + " " + D[Qnum, Dnum, 1] + " " + D[Qnum, Dnum, 2] + "  文字数は" + lp);
                     }
-                    Debug.Log(D[Qnum,Dnum, 0] + " " + D[Qnum, Dnum, 1] + " " + D[Qnum, Dnum, 2] + "  文字数は" + lp);
                 }
 
                 try
@@ -316,29 +329,19 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                         n++;
                         lp += 4;
                         Qnum++;
-                        if(Qnum == -2)
+                        Dnum = 0;
+                        dnum = 0;
+                        if (Qnum == 0)
                         {
-                            try
-                            {
-                                id = int.Parse(d);
-                            }
-                            catch (System.FormatException)
-                            {
-                                Debug.LogError("原稿内容がおかしいです。" + (i + 1) + "の原稿です。");
-                                t = "ERROR";
-                                //id = 0;
-                            }
-                        }
-                        if(Qnum == 0)
-                        {
-                            D = new string[text.Length, id+1, 3];//初期化
+                            D = new string[text.Length, id + 1, 3];//初期化
+                            //Debug.Log("Dの初期化" + D.GetLength(0) + "" + D.GetLength(1) + "" + D.GetLength(2));
                             for (int llp = 0; llp < D.GetLength(0); llp++)
                             {
                                 for (int lllp = 0; lllp < D.GetLength(1); lllp++)
                                 {
                                     for (int llllp = 0; llllp < D.GetLength(2); llllp++)
                                     {
-                                        D[llp,lllp,llllp] = "";
+                                        D[llp, lllp, llllp] = "";
                                     }
                                 }
                             }

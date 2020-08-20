@@ -45,7 +45,7 @@ public class Text_test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loadText1 = GetText.text;
+      //  loadText1 = GetText.text;
         loadText1 = loadText1.Replace("1", "１");
         loadText1 = loadText1.Replace("2", "２");
         loadText1 = loadText1.Replace("3", "３");
@@ -57,7 +57,7 @@ public class Text_test : MonoBehaviour
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
         SplitLengh(loadText1);
-        RSplitLengh(GetText.Rtext);
+       // RSplitLengh(GetText.Rtext);
         string[] str = new string[splitted[Line].Length];
         string[] Rstr = new string[Rsplitted[Line].Length];
         string arr = splitted[Line];

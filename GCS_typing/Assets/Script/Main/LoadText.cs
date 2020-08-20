@@ -31,7 +31,7 @@ public class LoadText : MonoBehaviour
     void Start()
     {
         //GetText.text[0];
-        loadText1 = GetText.text;
+        //loadText1 = GetText.text;
         loadText1 = loadText1.Replace("1", "１");
         loadText1 = loadText1.Replace("2", "２");
         loadText1 = loadText1.Replace("3", "３");
@@ -43,12 +43,12 @@ public class LoadText : MonoBehaviour
         loadText1 = loadText1.Replace("9", "９");
         loadText1 = loadText1.Replace("0", "０");
 
-        string before = GetText.text;
-        string after = GetText.text.Replace("\n", "");
-        ret = before.Length - after.Length;
+       // string before = GetText.text;
+       // string after = GetText.text.Replace("\n", "");
+      //  ret = before.Length - after.Length;
 
         string[] del = { "\r\n" };
-        splitted = GetText.text.Split(del, StringSplitOptions.None);
+      //  splitted = GetText.text.Split(del, StringSplitOptions.None);
 
         num = new int[splitted.Length, GetText.word.Length];
 
