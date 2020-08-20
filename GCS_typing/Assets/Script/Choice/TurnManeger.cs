@@ -46,7 +46,7 @@ public class TurnManeger : MonoBehaviour
 
     private void Change()//★表示の切り替え
     {
-        //text.text = FN.M[num].GetTitle();
+        text.text = FN.NM[num].GetTitle();
         //text.text = "aaaaaa";
         OnStr();
     }
