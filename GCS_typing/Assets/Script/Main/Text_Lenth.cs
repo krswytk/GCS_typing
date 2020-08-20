@@ -19,11 +19,11 @@ public class Text_Lenth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (LoadText.sw == true)//行ごとの文字数をLineLenth[i]に格納
+        if (LoadText.sw == true)//行ごとの文字数をLineLenth[i]に格納
         {
             GetLengh(text.text);
             LoadText.sw = false;
-        }*/
+        }
     }
 
     void GetLengh(string str)
