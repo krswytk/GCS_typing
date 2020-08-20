@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class CheckTestScript : MonoBehaviour
 {
     public Text_test text_Test;
+    public Text_choice text_Choice;
     public GetText GetText;//判定する日本語のファイル
     
     private string[] Strings;
@@ -234,7 +235,7 @@ public class CheckTestScript : MonoBehaviour
     /// </summary>
     void LoadText()
     {
-        string TextLines = GetText.Htext;
+        string TextLines = GetText.Htext;//ここ変更、4つになるんかな？で、配列にでも
         Debug.Log("今読み込んだやつ→" + TextLines);//ok?
         Strings = TextLines.Split('\n');
         Debug.Log("一行目→" + Strings[0]);//ok?
