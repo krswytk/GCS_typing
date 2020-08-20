@@ -655,6 +655,7 @@ public class CheckTestScript : MonoBehaviour
                 break;
             case "ん":
                 if (NextChar=="行の最後"||NextChar=="あ" || NextChar == "い" || NextChar == "う" || NextChar == "え" || NextChar == "お" ||
+                    NextChar == "な" || NextChar == "に" || NextChar == "ぬ" || NextChar == "ね" || NextChar == "の" ||
                     NextChar == "や" || NextChar == "ゆ" || NextChar == "よ" || NextChar == "。" || NextChar == "、")
                 {
                     Debug.Log("終わりのん");
