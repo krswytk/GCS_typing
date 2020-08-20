@@ -451,8 +451,8 @@ public class NewManuscript
 
     public NewManuscript(int Hnum,int Dnum,string title, int Difficulty, string[] text, string[,] debris, GameObject Manuscripts)
     {
-        this.text = new string[Hnum];
-        this.debris = new string[Dnum,3];
+        this.text = new string[text.Length];
+        this.debris = new string[debris.GetLength(0), debris.GetLength(1)];
         this.title = title;
         this.Difficulty = Difficulty;
         this.text = text;
@@ -468,6 +468,14 @@ public class NewManuscript
     public int GetNumber()
     {
         return Difficulty;
+    }
+    public string[] GetText()
+    {
+        return text;
+    }
+    public string[,] GetDebris()
+    {
+        return debris;
     }
     public GameObject GetManuscripts()
     {
