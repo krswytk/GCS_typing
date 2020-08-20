@@ -46,7 +46,7 @@ public class TurnManeger : MonoBehaviour
 
     private void Change()//★表示の切り替え
     {
-        text.text = FN.M[num].GetTitle();
+        //text.text = FN.M[num].GetTitle();
         //text.text = "aaaaaa";
         OnStr();
     }
@@ -56,14 +56,22 @@ public class TurnManeger : MonoBehaviour
         {
             str[i].SetActive(false);
         }
-        
-        switch (FN.M[num].GetNumber())
+        /*
+        switch (FN.NM[num].GetNumber())
         {
             case 1: str[0].SetActive(true); break;
             case 2: str[1].SetActive(true); break;
             case 3: str[2].SetActive(true); break;
             case 4: str[3].SetActive(true); break;
             case 5: str[4].SetActive(true); break;
+            default: str[str.Length - 1].SetActive(true); break;
+        }
+        */
+        switch (FN.NM[num].GetNumber())
+        {
+            case 1: str[0].SetActive(true); break;
+            case 2: str[1].SetActive(true); break;
+            case 3: str[2].SetActive(true); break;
             default: str[str.Length - 1].SetActive(true); break;
         }
     }
