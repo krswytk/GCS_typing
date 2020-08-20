@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// GetText.csの変数Htextを判定
+/// </summary>
 public class CheckTestScript : MonoBehaviour
 {
     public Text_test text_Test;
-    public TextAsset TextF;//日本語テキストファイルがここに
-    public GetText GetText;//日本語がとってこれるかも
-    //public Text pre;//次を表示するとこ
-    //public Text_test text_Test;
-
+    public GetText GetText;//判定する日本語のファイル
+    
     private string[] Strings;
     private string NowString;//今読み込んでる行。これを一文字ずつ↓に入れる
     private string NowChar;//今のひらがな(大文字英語も)一文字→これを分解する
@@ -22,9 +23,7 @@ public class CheckTestScript : MonoBehaviour
 
     private int KeyNum;//アルファベット何文字目
     private int KanaNum;//NowStringでかな何文字目
-
-    //private bool a = false;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -655,7 +654,8 @@ public class CheckTestScript : MonoBehaviour
                 NowKey[2] = "おわり";
                 break;
             case "ん":
-                if (NextChar=="行の最後")
+                if (NextChar=="行の最後"||NextChar=="あ" || NextChar == "い" || NextChar == "う" || NextChar == "え" || NextChar == "お" ||
+                    NextChar == "や" || NextChar == "ゆ" || NextChar == "よ" || NextChar == "。" || NextChar == "、")
                 {
                     Debug.Log("終わりのん");
                     NowKey[0] = "n";
