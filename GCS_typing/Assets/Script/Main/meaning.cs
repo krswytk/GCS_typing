@@ -9,7 +9,7 @@ public class meaning : MonoBehaviour
     [SerializeField] private TextAsset textAsset;
     private string loadText1;
     public GetText GetText;
-    public LoadText LoadText;
+    //public LoadText LoadText;
     public int[,] num;
     public int[] meaning_line;
     public int[] meaning_word;
