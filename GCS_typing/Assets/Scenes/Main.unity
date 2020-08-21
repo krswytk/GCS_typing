@@ -1688,9 +1688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903156951d5bbec478a5636310e9887e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
-  Htext: 
-  Rtext: 
+  text: []
   word: []
   meaning: []
 --- !u!1 &519420028
@@ -5634,7 +5632,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_Test: {fileID: 2044241040}
-  TextF: {fileID: 0}
   GetText: {fileID: 496542784}
 --- !u!114 &2044241042
 MonoBehaviour:
@@ -5655,6 +5652,7 @@ MonoBehaviour:
   NextSpace2: 0
   NextSpace3: 0
   NextSpace4: 0
+  GetText: {fileID: 496542784}
 --- !u!222 &2044241044
 CanvasRenderer:
   m_ObjectHideFlags: 0

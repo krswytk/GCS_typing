@@ -14,6 +14,7 @@ public class Text_choice : MonoBehaviour
     private GameObject prefab;
     private string loadText;
     string[] del = { "\r\n" };
+    string[] del_ans = { "/" };
     string[] splitted;
 
     string[] str;
@@ -36,7 +37,7 @@ public class Text_choice : MonoBehaviour
     GameObject[] Robj3;
     GameObject[] Robj4;
 
-    int level = 3;
+    int level = 0;
     float text_x = 0;
     float level_text_x = 0;
 
@@ -47,90 +48,116 @@ public class Text_choice : MonoBehaviour
     int count3 = 0;
     int count4 = 0;
 
-    public bool NextSpace = false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
-    public bool NextSpace2 = false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
-    public bool NextSpace3 = false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
-    public bool NextSpace4 = false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
+    int problem_num = 0;
+    int clear_num = 0;
+
+    public bool[] NextSpace;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
+
+    public GetText GetText;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        text_Generate(text.text,0,false,2);
-        text_Generate(roma.text,0.5f,true,5);
-
-        //splitted[0] とかは桐澤　splitted[1] とかは片倉
+        NextSpace = new bool[4];
+        for (int i = 0; i < NextSpace.Length; i++)
+        {
+            NextSpace[i] = false;
+        }
+        //[問題番号0-9  ,  回答0-3  ,  0に単語 1にひらがな　2にローマ字]
+        //Debug.Log(GetText.debris.GetLength(1));
+        level = GetText.debris.GetLength(1) - 1;
+        clear_num = GetText.debris.GetLength(0);
+        answer_check();
+        text_Generate(text.text,0,false,2, problem_num);
+        text_Generate(roma.text,0.5f,true,5, problem_num);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((NextSpace)|| (Input.GetKeyDown(KeyCode.Alpha1)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+
+        if ((NextSpace[0]) || (Input.GetKeyDown(KeyCode.Alpha1)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update();
-            NextSpace = false;
+            NextSpace[0] = false;
         }
 
-        if ((NextSpace2) || (Input.GetKeyDown(KeyCode.Alpha2)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if ((NextSpace[1]) || (Input.GetKeyDown(KeyCode.Alpha2)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update2();
-            NextSpace = false;
+            NextSpace[1] = false;
         }
 
-        if ((NextSpace3) || (Input.GetKeyDown(KeyCode.Alpha3)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if ((NextSpace[2]) || (Input.GetKeyDown(KeyCode.Alpha3)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update3();
-            NextSpace = false;
+            NextSpace[2] = false;
         }
 
-        if ((NextSpace4) || (Input.GetKeyDown(KeyCode.Alpha4)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if ((NextSpace[3]) || (Input.GetKeyDown(KeyCode.Alpha4)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update4();
-            NextSpace = false;
+            NextSpace[3] = false;
         }
     }
 
-    void text_Generate(string Text,float y,bool sw,float width)//Text　読み込むテキスト,y　y座標,sw　ローマ字かどうか,width 文字幅
+    void answer_check()
+    {
+        string[] ans = GetText.text[problem_num].Split(del_ans, StringSplitOptions.None);
+
+        for (int i = 0; i < level+1; i++)
+        {
+            if (GetText.debris[problem_num, i, 0]==ans[1])
+            {
+                Answer = i;
+            }
+            
+        }
+    }
+
+    void text_Generate(string Text,float y,bool sw,float width, int problem_num)//Text　読み込むテキスト,y　y座標,sw　ローマ字かどうか,width 文字幅
     {
         loadText = Text;
         splitted = loadText.Split(del, StringSplitOptions.None);
-        for (int i = 0; i < level + 1; i++)
+        for (int i = 0; i < level+1; i++)
         {
 
             level_text_x = (-level / 2.0f + i) * 3;
 
             if (i == 0)
             {
-                arr = splitted[i];
-                str = new string[splitted[i].Length];
-
                 if (sw == false)
                 {
-                    obj = new GameObject[splitted[i].Length];
+                    arr = GetText.debris[problem_num, i, 0];
+                    obj = new GameObject[arr.Length];
                 }
                 else
                 {
-                    Robj = new GameObject[splitted[i].Length];
+                    arr = GetText.debris[problem_num, i, 2];
+                    Robj = new GameObject[arr.Length];
                 }
 
-                for (int i2 = 0; i2 < splitted[i].Length; i2++)
+                str = new string[arr.Length];
+
+                for (int i2 = 0; i2 < arr.Length; i2++)
                 {
                     str[i2] = arr[i2].ToString();
-                    if (splitted[i].Length % 2 == 0)//文字数が遇数なら
+                    if (arr.Length % 2 == 0)//文字数が遇数なら
                     {
-                        text_x = transform.position.x + ((i2 - (splitted[i].Length / 2) + 0.5f) / width);
+                        text_x = transform.position.x + ((i2 - (arr.Length / 2) + 0.5f) / width);
                     }
                     else//文字数が奇数なら
                     {
-                        if (i2 == (splitted[i].Length - 1) / 2)
+                        if (i2 == (arr.Length - 1) / 2)
                         {
                             text_x = transform.position.x;
                         }
                         else
                         {
-                            text_x = transform.position.x + ((-((splitted[i].Length - 1) / 2) + i2) / width);
+                            text_x = transform.position.x + ((-((arr.Length - 1) / 2) + i2) / width);
                         }
                     }
 
@@ -153,32 +180,35 @@ public class Text_choice : MonoBehaviour
             }
             if (i == 1)
             {
-                arr2 = splitted[i];
-                str2 = new string[splitted[i].Length];
                 if (sw == false)
                 {
-                    obj2 = new GameObject[splitted[i].Length];
+                    arr2 = GetText.debris[problem_num, i, 0];
+                    obj2 = new GameObject[arr2.Length];
                 }
                 else
                 {
-                    Robj2 = new GameObject[splitted[i].Length];
+                    arr2 = GetText.debris[problem_num, i, 2];
+                    Robj2 = new GameObject[arr2.Length];
                 }
-                for (int i2 = 0; i2 < splitted[i].Length; i2++)
+
+                str2 = new string[arr2.Length];
+
+                for (int i2 = 0; i2 < arr2.Length; i2++)
                 {
                     str2[i2] = arr2[i2].ToString();
-                    if (splitted[i].Length % 2 == 0)//文字数が遇数なら
+                    if (arr2.Length % 2 == 0)//文字数が遇数なら
                     {
-                        text_x = transform.position.x + ((i2 - (splitted[i].Length / 2) + 0.5f) / width);
+                        text_x = transform.position.x + ((i2 - (arr2.Length / 2) + 0.5f) / width);
                     }
                     else//文字数が奇数なら
                     {
-                        if (i2 == (splitted[i].Length - 1) / 2)
+                        if (i2 == (arr2.Length - 1) / 2)
                         {
                             text_x = transform.position.x;
                         }
                         else
                         {
-                            text_x = transform.position.x + ((-((splitted[i].Length - 1) / 2) + i2) / width);
+                            text_x = transform.position.x + ((-((arr2.Length - 1) / 2) + i2) / width);
                         }
                     }
                     if (sw == false)
@@ -200,32 +230,35 @@ public class Text_choice : MonoBehaviour
             }
             if (i == 2)
             {
-                arr3 = splitted[i];
-                str3 = new string[splitted[i].Length];
                 if (sw == false)
                 {
-                    obj3 = new GameObject[splitted[i].Length];
+                    arr3 = GetText.debris[problem_num, i, 0];
+                    obj3 = new GameObject[arr3.Length];
                 }
                 else
                 {
-                    Robj3 = new GameObject[splitted[i].Length];
+                    arr3 = GetText.debris[problem_num, i, 2];
+                    Robj3 = new GameObject[arr3.Length];
                 }
-                for (int i2 = 0; i2 < splitted[i].Length; i2++)
+
+                str3 = new string[arr3.Length];
+
+                for (int i2 = 0; i2 < arr3.Length; i2++)
                 {
                     str3[i2] = arr3[i2].ToString();
-                    if (splitted[i].Length % 2 == 0)//文字数が遇数なら
+                    if (arr3.Length % 2 == 0)//文字数が遇数なら
                     {
-                        text_x = transform.position.x + ((i2 - (splitted[i].Length / 2) + 0.5f) / width);
+                        text_x = transform.position.x + ((i2 - (arr3.Length / 2) + 0.5f) / width);
                     }
                     else//文字数が奇数なら
                     {
-                        if (i2 == (splitted[i].Length - 1) / 2)
+                        if (i2 == (arr3.Length - 1) / 2)
                         {
                             text_x = transform.position.x;
                         }
                         else
                         {
-                            text_x = transform.position.x + ((-((splitted[i].Length - 1) / 2) + i2) / width);
+                            text_x = transform.position.x + ((-((arr3.Length - 1) / 2) + i2) / width);
                         }
                     }
                     if (sw == false)
@@ -247,32 +280,35 @@ public class Text_choice : MonoBehaviour
             }
             if (i == 3)
             {
-                arr4 = splitted[i];
-                str4 = new string[splitted[i].Length];
                 if (sw == false)
                 {
-                    obj4 = new GameObject[splitted[i].Length];
+                    arr4 = GetText.debris[problem_num, i, 0];
+                    obj4 = new GameObject[arr4.Length];
                 }
                 else
                 {
-                    Robj4 = new GameObject[splitted[i].Length];
+                    arr4 = GetText.debris[problem_num, i, 2];
+                    Robj4 = new GameObject[arr4.Length];
                 }
-                for (int i2 = 0; i2 < splitted[i].Length; i2++)
+
+                str4 = new string[arr4.Length];
+
+                for (int i2 = 0; i2 < arr4.Length; i2++)
                 {
                     str4[i2] = arr4[i2].ToString();
-                    if (splitted[i].Length % 2 == 0)//文字数が遇数なら
+                    if (arr4.Length % 2 == 0)//文字数が遇数なら
                     {
-                        text_x = transform.position.x + ((i2 - (splitted[i].Length / 2) + 0.5f) / width);
+                        text_x = transform.position.x + ((i2 - (arr4.Length / 2) + 0.5f) / width);
                     }
                     else//文字数が奇数なら
                     {
-                        if (i2 == (splitted[i].Length - 1) / 2)
+                        if (i2 == (arr4.Length - 1) / 2)
                         {
                             text_x = transform.position.x;
                         }
                         else
                         {
-                            text_x = transform.position.x + ((-((splitted[i].Length - 1) / 2) + i2) / width);
+                            text_x = transform.position.x + ((-((arr4.Length - 1) / 2) + i2) / width);
                         }
                     }
                     if (sw == false)
@@ -297,39 +333,54 @@ public class Text_choice : MonoBehaviour
 
     void text_Destroy()
     {
-        for (int i = 0; i < obj.Length; i++)
+        if (level < 3)
         {
-            Destroy(obj[i]);
+            for (int i = 0; i < obj.Length; i++)
+            {
+                Destroy(obj[i]);
+            }
+            for (int i = 0; i < obj2.Length; i++)
+            {
+                Destroy(obj2[i]);
+            }
+
+            for (int i = 0; i < Robj.Length; i++)
+            {
+                Destroy(Robj[i]);
+            }
+            for (int i = 0; i < Robj2.Length; i++)
+            {
+                Destroy(Robj2[i]);
+            }
         }
-        for (int i = 0; i < obj2.Length; i++)
+        else
         {
-            Destroy(obj2[i]);
-        }
-        for (int i = 0; i < obj3.Length; i++)
-        {
-            Destroy(obj3[i]);
-        }
-        for (int i = 0; i < obj4.Length; i++)
-        {
-            Destroy(obj4[i]);
+            if (level < 4)
+            {
+                for (int i = 0; i < obj3.Length; i++)
+                {
+                    Destroy(obj3[i]);
+                }
+
+                for (int i = 0; i < Robj3.Length; i++)
+                {
+                    Destroy(Robj3[i]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < obj4.Length; i++)
+                {
+                    Destroy(obj4[i]);
+                }
+
+                for (int i = 0; i < Robj4.Length; i++)
+                {
+                    Destroy(Robj4[i]);
+                }
+            }
         }
 
-        for (int i = 0; i < Robj.Length; i++)
-        {
-            Destroy(Robj[i]);
-        }
-        for (int i = 0; i < Robj2.Length; i++)
-        {
-            Destroy(Robj2[i]);
-        }
-        for (int i = 0; i < Robj3.Length; i++)
-        {
-            Destroy(Robj3[i]);
-        }
-        for (int i = 0; i < Robj4.Length; i++)
-        {
-            Destroy(Robj4[i]);
-        }
     }
 
     void text_update()
@@ -341,16 +392,21 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
-            if (Answer == 1)
+            if (Answer == 0)
             {
-                Debug.Log("正解");
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
                 text_Destroy();
-                text_Generate(text.text, 0, false, 2);
-                text_Generate(roma.text, 0.5f, true, 5);
+                problem_num++;
+                if (clear_num < problem_num)
+                {
+                    Debug.Log("クリア判定");
+                }
+                answer_check();
+                text_Generate(text.text, 0, false, 2, problem_num);
+                text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
             else
             {
@@ -369,16 +425,21 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
-            if (Answer == 2)
+            if (Answer == 1)
             {
-                Debug.Log("正解");
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
                 text_Destroy();
-                text_Generate(text.text, 0, false, 2);
-                text_Generate(roma.text, 0.5f, true, 5);
+                problem_num++;
+                if (clear_num < problem_num)
+                {
+                    Debug.Log("クリア判定");
+                }
+                answer_check();
+                text_Generate(text.text, 0, false, 2, problem_num);
+                text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
             else
             {
@@ -397,16 +458,21 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
-            if (Answer == 3)
+            if (Answer == 2)
             {
-                Debug.Log("正解");
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
                 text_Destroy();
-                text_Generate(text.text, 0, false, 2);
-                text_Generate(roma.text, 0.5f, true, 5);
+                problem_num++;
+                if (clear_num < problem_num)
+                {
+                    Debug.Log("クリア判定");
+                }
+                answer_check();
+                text_Generate(text.text, 0, false, 2, problem_num);
+                text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
             else
             {
@@ -425,16 +491,21 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
-            if (Answer == 4)
+            if (Answer == 3)
             {
-                Debug.Log("正解");
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
                 text_Destroy();
-                text_Generate(text.text, 0, false, 2);
-                text_Generate(roma.text, 0.5f, true, 5);
+                problem_num++;
+                if (clear_num < problem_num)
+                {
+                    Debug.Log("クリア判定");
+                }
+                answer_check();
+                text_Generate(text.text, 0, false, 2, problem_num);
+                text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
             else
             {
