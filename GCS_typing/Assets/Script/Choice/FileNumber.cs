@@ -473,7 +473,7 @@ public class NewManuscript
         this.text = text;
         this.debris = debris;
         RandomDebris();
-        Debugout();
+        //Debugout();//デバック用
         this.Manuscripts = Manuscripts;
     }
 
@@ -501,9 +501,9 @@ public class NewManuscript
     public void Debugout()
     {
         Debug.Log("タイトル:" + title);
-        //Debug.Log("難易度:" + Difficulty);
+        Debug.Log("難易度:" + Difficulty);
         for (int lp = 0; lp < text.Length; lp++) { Debug.Log(text[lp]); }
-        for (int lp = 0; lp < debris.GetLength(0); lp++) { Debug.Log(debris[lp, 0, 0] +" "+ debris[lp, 1, 0]); }
+        for (int lp = 0; lp < debris.GetLength(0); lp++) { for (int c = 0; c < debris.GetLength(1); c++) { Debug.Log(debris[lp, c, 0]); } }
     }
 
     private void RandomDebris()
@@ -519,7 +519,7 @@ public class NewManuscript
             ary[lp] = lp;//要素１に０　２に１、、、デブリ数分格納
         }
 
-        Debug.Log(ary[0] + " " + ary[1]);
+        //Debug.Log(ary[0] + " " + ary[1]);
 
         for (int lp = 0; lp < D.GetLength(0); lp++)
         {
