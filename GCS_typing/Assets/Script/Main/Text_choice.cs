@@ -79,8 +79,7 @@ public class Text_choice : MonoBehaviour
     void Update()
     {
 
-        //if ((NextSpace[0]) || (Input.GetKeyDown(KeyCode.Alpha1)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
-        if (Input.GetKeyDown(KeyCode.Alpha1))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if ((NextSpace[0]) || (Input.GetKeyDown(KeyCode.Alpha1)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update();
             NextSpace[0] = false;
