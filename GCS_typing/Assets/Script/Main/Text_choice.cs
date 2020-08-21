@@ -12,10 +12,9 @@ public class Text_choice : MonoBehaviour
     private TextAsset roma;
     [SerializeField]
     private GameObject prefab;
-    private string loadText;
+
     string[] del = { "\r\n" };
     string[] del_ans = { "/" };
-    string[] splitted;
 
     string[] str;
     string[] str2;
@@ -48,12 +47,13 @@ public class Text_choice : MonoBehaviour
     int count3 = 0;
     int count4 = 0;
 
-    int problem_num = 0;
+    public int problem_num = 0;
     int clear_num = 0;
 
     public bool[] NextSpace;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
 
     public GetText GetText;
+    public main_text main_text;
 
 
 
@@ -72,7 +72,6 @@ public class Text_choice : MonoBehaviour
         answer_check();
         text_Generate(text.text,0,false,2, problem_num);
         text_Generate(roma.text,0.5f,true,5, problem_num);
-
     }
 
     // Update is called once per frame
@@ -120,8 +119,6 @@ public class Text_choice : MonoBehaviour
 
     void text_Generate(string Text,float y,bool sw,float width, int problem_num)//Text　読み込むテキスト,y　y座標,sw　ローマ字かどうか,width 文字幅
     {
-        loadText = Text;
-        splitted = loadText.Split(del, StringSplitOptions.None);
         for (int i = 0; i < level+1; i++)
         {
 
@@ -405,6 +402,7 @@ public class Text_choice : MonoBehaviour
                     Debug.Log("クリア判定");
                 }
                 answer_check();
+                main_text.text_change();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
@@ -438,6 +436,7 @@ public class Text_choice : MonoBehaviour
                     Debug.Log("クリア判定");
                 }
                 answer_check();
+                main_text.text_change();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
@@ -471,6 +470,7 @@ public class Text_choice : MonoBehaviour
                     Debug.Log("クリア判定");
                 }
                 answer_check();
+                main_text.text_change();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
@@ -504,6 +504,7 @@ public class Text_choice : MonoBehaviour
                     Debug.Log("クリア判定");
                 }
                 answer_check();
+                main_text.text_change();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
