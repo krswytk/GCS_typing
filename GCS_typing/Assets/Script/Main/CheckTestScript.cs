@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class CheckTestScript : MonoBehaviour
 {
     public Text_test text_Test;
+    public Text_choice text_Choice;
     public GetText GetText;//判定する日本語のファイル
     
     private string[] Strings;
@@ -234,9 +235,9 @@ public class CheckTestScript : MonoBehaviour
     /// </summary>
     void LoadText()
     {
-        //string TextLines = GetText.Htext;
-        //Debug.Log("今読み込んだやつ→" + TextLines);//ok?
-        //Strings = TextLines.Split('\n');
+        string TextLines = GetText.Htext;//ここ変更、4つになるんかな？で、配列にでも
+        Debug.Log("今読み込んだやつ→" + TextLines);//ok?
+        Strings = TextLines.Split('\n');
         Debug.Log("一行目→" + Strings[0]);//ok?
         lineNum = Strings.Length;//全部で何行だか入れる
 
@@ -655,6 +656,7 @@ public class CheckTestScript : MonoBehaviour
                 break;
             case "ん":
                 if (NextChar=="行の最後"||NextChar=="あ" || NextChar == "い" || NextChar == "う" || NextChar == "え" || NextChar == "お" ||
+                    NextChar == "な" || NextChar == "に" || NextChar == "ぬ" || NextChar == "ね" || NextChar == "の" ||
                     NextChar == "や" || NextChar == "ゆ" || NextChar == "よ" || NextChar == "。" || NextChar == "、")
                 {
                     Debug.Log("終わりのん");
