@@ -12,10 +12,9 @@ public class Text_choice : MonoBehaviour
     private TextAsset roma;
     [SerializeField]
     private GameObject prefab;
-    private string loadText;
+
     string[] del = { "\r\n" };
     string[] del_ans = { "/" };
-    string[] splitted;
 
     string[] str;
     string[] str2;
@@ -120,8 +119,6 @@ public class Text_choice : MonoBehaviour
 
     void text_Generate(string Text,float y,bool sw,float width, int problem_num)//Text　読み込むテキスト,y　y座標,sw　ローマ字かどうか,width 文字幅
     {
-        loadText = Text;
-        splitted = loadText.Split(del, StringSplitOptions.None);
         for (int i = 0; i < level+1; i++)
         {
 
