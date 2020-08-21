@@ -2,58 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class meaning : MonoBehaviour
 {
-    [SerializeField] private Text dataText;
-    [SerializeField] private TextAsset textAsset;
-    private string loadText1;
+    [SerializeField]
+    private Text Text;
+    [SerializeField]
+    private TextAsset dictionary;
+
+    string[] del_ans = { " " };
+    string[] del = { "\r\n" };
+
     public GetText GetText;
-    public LoadText LoadText;
-    public int[,] num;
-    public int[] meaning_line;
-    public int[] meaning_word;
+    public Text_choice Text_choice;
 
-    public int Add_num = 0;
-    public int Line = 0;
+    string text_main;
 
+    string[] text_meaning;
+    string[,] meaning_word;
+
+    string[] num;
 
     void Start()
     {
-        /*
-        loadText1 = textAsset.text;
+        text_meaning = dictionary.text.Split(del, StringSplitOptions.None);
+        meaning_word = new string[text_meaning.Length,3];
+        for (int i = 0; i < text_meaning.Length; i++)
+        {
+            num = text_meaning[i].Split(del_ans, StringSplitOptions.None);
+            for (int i2 = 0; i2 < num.Length; i2++)
+            {
+                meaning_word[i,i2] = num[i2];
+                Debug.Log(meaning_word[i, i2]);//iが単語の種類　i2が0、単語名1、単語の読み方2、単語の意味
+            }
+        }
 
-        if(loadText1.Length>42)
-            loadText1 = loadText1.Insert(42, "\n");
-        dataText.text = loadText1;
-        */
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            //Debug.Log(GetText.word[meaning_word[0]]);
-            for (int i = 0; i < Add_num; i++)
-            {
-                //Debug.Log(meaning_line[i]+"行目"+GetText.word[meaning_word[i]]);
-            }
-        }
 
+    }
 
+    public void text_change()
+    {
 
-        /*
-         
-        texttestのほうでラインを変更した時に
-         lineとここのmeaning_lineが一致すれば
-         ここのテキストをgettext.word[meaning_word[meaning_lineの()内と同じ数字]]
-         に変更する
-        
-
-
-
-
-         */
+        //Text.text = text_main;
+        //text_main = text_main.Remove(0, text_main.Length);
     }
 }
