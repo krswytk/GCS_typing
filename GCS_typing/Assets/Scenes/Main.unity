@@ -787,7 +787,7 @@ MonoBehaviour:
   dataText: {fileID: 146301396}
   textAsset: {fileID: 4900000, guid: b1b9c7084dee9974ba0fb517c153850c, type: 3}
   GetText: {fileID: 496542784}
-  LoadText: {fileID: 1898957812}
+  LoadText: {fileID: 0}
   meaning_line: 
   meaning_word: 
   Add_num: 0
@@ -4991,14 +4991,14 @@ GameObject:
   - component: {fileID: 1898957810}
   - component: {fileID: 1898957814}
   - component: {fileID: 1898957813}
-  - component: {fileID: 1898957812}
+  - component: {fileID: 1898957811}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1898957810
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5015,10 +5015,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -320.5, y: 39}
+  m_AnchoredPosition: {x: 398, y: 79}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1898957812
+--- !u!114 &1898957811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5027,17 +5027,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1898957809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b222d3cf2b604c84088e5c452781cbc2, type: 3}
+  m_Script: {fileID: 11500000, guid: 23312be1698c3f445a94ce8e00ef207f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataText: {fileID: 1898957813}
-  textAsset: {fileID: 4900000, guid: 26181cad8a73d2249a4c97f462e3bd3b, type: 3}
+  text: {fileID: 1898957813}
   GetText: {fileID: 496542784}
-  Text_test: {fileID: 2044241040}
-  meaning: {fileID: 146301394}
-  splitted: []
-  result: 
-  ret: 0
+  Text_choice: {fileID: 2044241042}
 --- !u!114 &1898957813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5060,18 +5055,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6d0aca9f3f0cf5541840eaf9c4ea6c6a, type: 3}
-    m_FontSize: 45
+    m_FontSize: 115
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 100
+    m_MaxSize: 117
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u4ECA\u5E74\u306E\uFF11\u6708\u304B\u3089\u731B\u5A01\u3092\u632F\u308B\u3063\u3066\u3044\u305F\r\n\u65B0\u578B\u30B3\u30ED\u30CA\u30A6\u30A4\u30EB\u30B9\u306B\u3064\u3044\u3066\u306E\u60C5\u5831\u3067\u3059\u3002\r\n7\u670823\u65E5\u306B\u56FD\u5185\u306E1\u65E5\u306B\u304A\u3051\u308B\u611F\u67D3\r\n\u78BA\u8A8D\u4EBA\u6570\u304C\u3001\u904E\u53BB\u6700\u591A\u306E981\u4EBA\u3092\r\n\u8A18\u9332\u3057\u307E\u3057\u305F\u3002\r\n\u307E\u305F\u540C28\u65E5\u306B\u3082981\u4EBA\u306E\u611F\u67D3\u3092\r\n\u78BA\u8A8D\u3057\u3066\u304A\u308A\u3001\u4ECA\u5F8C\u3068\u3082\u8B66\u6212\u304C\r\n\u5FC5\u8981\u3067\u3059\u3002\r\n\u3053\u306E\u30B3\u30ED\u30CA\u30A6\u30A4\u30EB\u30B9\u306E\u30EF\u30AF\u30C1\u30F3\u304C\u3001\r\n28\u65E5\u306B\u30A2\u30E1\u30EA\u30AB\u3067\u6700\u7D42\u6BB5\u968E\u306B\u3042\u305F\u308B\r\n\u7B2C3\u6BB5\u968E\u306E\u81E8\u5E8A\u8A66\u9A13\u306B\u5165\u3063\u305F\u3068\u767A\u8868\r\n\u3057\u307E\u3057\u305F\u3002\r\n\u7686\u3055\u3093\u3082\u4ECA\u5F8C\u3068\u30823\u5BC6\u3092\u907F\u3051\u3001\u30AF\u30E9\r\n\u30B9\u30BF\u30FC\u3092\u767A\u751F\u3055\u305B\u306A\u3044\u3088\u3046\u306B\u6CE8\u610F\u3092\r\n\u3057\u306A\u304C\u3089\u751F\u6D3B\u3092\u3057\u3066\u3044\u305F\u3060\u3051\u308C\u3070\u3068\r\n\u601D\u3044\u307E\u3059\u3002"
+  m_Text: "\u3042\u3044\u3046\u3048\u304A"
 --- !u!222 &1898957814
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5613,7 +5608,7 @@ MonoBehaviour:
   GetText: {fileID: 496542784}
   meaning: {fileID: 146301394}
   OnRisult: {fileID: 1468563245}
-  LoadText: {fileID: 1898957812}
+  LoadText: {fileID: 0}
   meaning_title: {fileID: 146301396}
   meaning_text: {fileID: 757580616}
   NextSpace: 0
@@ -5632,6 +5627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text_Test: {fileID: 2044241040}
+  text_choice: {fileID: 0}
   GetText: {fileID: 496542784}
 --- !u!114 &2044241042
 MonoBehaviour:
@@ -5648,11 +5644,10 @@ MonoBehaviour:
   text: {fileID: 4900000, guid: b1b9c7084dee9974ba0fb517c153850c, type: 3}
   roma: {fileID: 4900000, guid: 2d2cc9cefbd6d5d488feffb37a9ca230, type: 3}
   prefab: {fileID: 4173940732923891084, guid: 1d6ae5a7860afd24eb46e174a6240d12, type: 3}
-  NextSpace: 0
-  NextSpace2: 0
-  NextSpace3: 0
-  NextSpace4: 0
+  problem_num: 0
+  NextSpace: 
   GetText: {fileID: 496542784}
+  main_text: {fileID: 1898957811}
 --- !u!222 &2044241044
 CanvasRenderer:
   m_ObjectHideFlags: 0
