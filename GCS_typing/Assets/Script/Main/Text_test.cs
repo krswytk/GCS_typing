@@ -112,6 +112,7 @@ public class Text_test : MonoBehaviour
             Transparent[i].GetComponent<Text>().text = Rstr[i];
         }
 
+        /*
         if(meaning.meaning_line[meaning.Line]==0)
         {
             meaning_title.text = GetText.word[meaning.meaning_word[meaning.Line]];
@@ -122,6 +123,7 @@ public class Text_test : MonoBehaviour
             }
         }
         meaning.Line++;
+        */
     }
 
     // Update is called once per frame
@@ -162,6 +164,8 @@ public class Text_test : MonoBehaviour
 
                     text_move();
 
+                    /*
+
                     if (meaning.meaning_line[meaning.Line] == Line)
                     {
                         meaning_title.text = GetText.word[meaning.meaning_word[meaning.Line]];
@@ -171,7 +175,7 @@ public class Text_test : MonoBehaviour
                             meaning_text.text = meaning_text.text.Insert(30, "\n");
                         }
                         meaning.Line++;
-                    }
+                    }*/
 
 
                     string[] str = new string[splitted[Line].Length];
