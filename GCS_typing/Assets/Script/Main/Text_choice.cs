@@ -14,6 +14,7 @@ public class Text_choice : MonoBehaviour
     private GameObject prefab;
     private string loadText;
     string[] del = { "\r\n" };
+    string[] del_ans = { "/" };
     string[] splitted;
 
     string[] str;
@@ -48,11 +49,9 @@ public class Text_choice : MonoBehaviour
     int count4 = 0;
 
     int problem_num = 0;
+    int clear_num = 0;
 
-    public bool NextSpace = false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
-    public bool NextSpace2 = false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
-    public bool NextSpace3 = false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
-    public bool NextSpace4 = false;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
+    public bool[] NextSpace = new bool[4];//追加。判定でおｋならtrue→処理後falseに---------------------------確認
 
     public GetText GetText;
 
@@ -61,9 +60,15 @@ public class Text_choice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < NextSpace.Length; i++)
+        {
+            NextSpace[i] = false;
+        }
         //[問題番号0-9  ,  回答0-3  ,  0に単語 1にひらがな　2にローマ字]
         //Debug.Log(GetText.debris.GetLength(1));
         level = GetText.debris.GetLength(1) - 1;
+        clear_num = GetText.debris.GetLength(0);
+        answer_check();
         text_Generate(text.text,0,false,2, problem_num);
         text_Generate(roma.text,0.5f,true,5, problem_num);
 
@@ -72,29 +77,38 @@ public class Text_choice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((NextSpace)|| (Input.GetKeyDown(KeyCode.Alpha1)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if ((NextSpace[0])|| (Input.GetKeyDown(KeyCode.Alpha1)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update();
-            NextSpace = false;
+            NextSpace[0] = false;
         }
 
-        if ((NextSpace2) || (Input.GetKeyDown(KeyCode.Alpha2)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if ((NextSpace[1]) || (Input.GetKeyDown(KeyCode.Alpha2)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update2();
-            NextSpace = false;
+            NextSpace[1] = false;
         }
 
-        if ((NextSpace3) || (Input.GetKeyDown(KeyCode.Alpha3)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if ((NextSpace[2]) || (Input.GetKeyDown(KeyCode.Alpha3)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update3();
-            NextSpace = false;
+            NextSpace[2] = false;
         }
 
-        if ((NextSpace4) || (Input.GetKeyDown(KeyCode.Alpha4)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if ((NextSpace[3]) || (Input.GetKeyDown(KeyCode.Alpha4)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update4();
-            NextSpace = false;
+            NextSpace[3] = false;
         }
+    }
+
+    void answer_check()
+    {
+        string[] ans = GetText.text[problem_num].Split(del_ans, StringSplitOptions.None);
+        for (int i = 0; i < ans.Length; i++)
+        {
+            Debug.Log(ans[i]);
+        }  
     }
 
     void text_Generate(string Text,float y,bool sw,float width, int problem_num)//Text　読み込むテキスト,y　y座標,sw　ローマ字かどうか,width 文字幅
@@ -373,13 +387,16 @@ public class Text_choice : MonoBehaviour
         {
             if (Answer == 1)
             {
-                Debug.Log("正解");
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
                 text_Destroy();
                 problem_num++;
+                if (clear_num < problem_num)
+                {
+                    Debug.Log("クリア判定");
+                }
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
@@ -402,13 +419,16 @@ public class Text_choice : MonoBehaviour
         {
             if (Answer == 2)
             {
-                Debug.Log("正解");
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
                 text_Destroy();
                 problem_num++;
+                if (clear_num < problem_num)
+                {
+                    Debug.Log("クリア判定");
+                }
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
@@ -431,13 +451,16 @@ public class Text_choice : MonoBehaviour
         {
             if (Answer == 3)
             {
-                Debug.Log("正解");
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
                 text_Destroy();
                 problem_num++;
+                if (clear_num < problem_num)
+                {
+                    Debug.Log("クリア判定");
+                }
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
@@ -460,13 +483,16 @@ public class Text_choice : MonoBehaviour
         {
             if (Answer == 4)
             {
-                Debug.Log("正解");
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
                 text_Destroy();
                 problem_num++;
+                if (clear_num < problem_num)
+                {
+                    Debug.Log("クリア判定");
+                }
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
