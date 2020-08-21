@@ -2,6 +2,8 @@
 using System.Collections;
 using System.IO;
 using System.Text;
+using System.Linq;
+using System;
 
 public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 {
@@ -366,10 +368,12 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             //NM[i] = new NewManuscript(10, 30, t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
             NM[i] = new NewManuscript(t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
 
+            ///*
             if (i == 0)
             {
                 NM[i].Debugout();
             }
+            //*/
 
         }
 
@@ -478,6 +482,7 @@ public class NewManuscript
         this.Difficulty = Difficulty;
         this.text = text;
         this.debris = debris;
+        RandomDebris();
 
         this.Manuscripts = Manuscripts;
     }
@@ -509,5 +514,32 @@ public class NewManuscript
         Debug.Log("難易度:" + Difficulty);
         for (int lp = 0; lp < text.Length; lp++) { Debug.Log(text[lp]); }
         for (int lp = 0; lp < debris.GetLength(0); lp++) { Debug.Log(debris[lp, 0, 0]); }
+    }
+
+    private void RandomDebris()
+    {
+
+        string[,,] debris;
+        debris = new string[this.debris.GetLength(0), this.debris.GetLength(1), this.debris.GetLength(2)];
+        debris = this.debris;
+        int[] ary = new int[debris.GetLength(1)];
+        for (int lp = 0; lp < debris.GetLength(1); lp++)
+        {
+            ary[lp] = lp;
+        }
+        int[] ary2 = ary.OrderBy(i => Guid.NewGuid()).ToArray();
+
+        //Debug.Log(debris.GetLength(1) +","+ary2[0]+","+ ary2[1]);
+
+        for (int lp = 0; lp < debris.GetLength(0); lp++)
+        {
+            ary2 = ary.OrderBy(i => Guid.NewGuid()).ToArray();
+            for (int llp = 0; llp < debris.GetLength(1); llp++)
+            {
+                this.debris[lp, llp, 0] = debris[lp, ary2[llp], 0];
+                this.debris[lp, llp, 1] = debris[lp, ary2[llp], 1];
+                this.debris[lp, llp, 2] = debris[lp, ary2[llp], 2];
+            }
+        }
     }
 };
