@@ -51,7 +51,7 @@ public class Text_choice : MonoBehaviour
     int problem_num = 0;
     int clear_num = 0;
 
-    public bool[] NextSpace = new bool[4];//追加。判定でおｋならtrue→処理後falseに---------------------------確認
+    public bool[] NextSpace;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
 
     public GetText GetText;
 
@@ -60,6 +60,7 @@ public class Text_choice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        NextSpace = new bool[4];
         for (int i = 0; i < NextSpace.Length; i++)
         {
             NextSpace[i] = false;
@@ -77,7 +78,9 @@ public class Text_choice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((NextSpace[0])|| (Input.GetKeyDown(KeyCode.Alpha1)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+
+        //if ((NextSpace[0]) || (Input.GetKeyDown(KeyCode.Alpha1)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if (Input.GetKeyDown(KeyCode.Alpha1))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update();
             NextSpace[0] = false;
@@ -105,10 +108,15 @@ public class Text_choice : MonoBehaviour
     void answer_check()
     {
         string[] ans = GetText.text[problem_num].Split(del_ans, StringSplitOptions.None);
-        for (int i = 0; i < ans.Length; i++)
+
+        for (int i = 0; i < level+1; i++)
         {
-            Debug.Log(ans[i]);
-        }  
+            if (GetText.debris[problem_num, i, 0]==ans[1])
+            {
+                Answer = i;
+            }
+            
+        }
     }
 
     void text_Generate(string Text,float y,bool sw,float width, int problem_num)//Text　読み込むテキスト,y　y座標,sw　ローマ字かどうか,width 文字幅
@@ -385,7 +393,7 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
-            if (Answer == 1)
+            if (Answer == 0)
             {
                 count = 0;
                 count2 = 0;
@@ -397,6 +405,7 @@ public class Text_choice : MonoBehaviour
                 {
                     Debug.Log("クリア判定");
                 }
+                answer_check();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
@@ -417,7 +426,7 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
-            if (Answer == 2)
+            if (Answer == 1)
             {
                 count = 0;
                 count2 = 0;
@@ -429,6 +438,7 @@ public class Text_choice : MonoBehaviour
                 {
                     Debug.Log("クリア判定");
                 }
+                answer_check();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
@@ -449,7 +459,7 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
-            if (Answer == 3)
+            if (Answer == 2)
             {
                 count = 0;
                 count2 = 0;
@@ -461,6 +471,7 @@ public class Text_choice : MonoBehaviour
                 {
                     Debug.Log("クリア判定");
                 }
+                answer_check();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
@@ -481,7 +492,7 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
-            if (Answer == 4)
+            if (Answer == 3)
             {
                 count = 0;
                 count2 = 0;
@@ -493,6 +504,7 @@ public class Text_choice : MonoBehaviour
                 {
                     Debug.Log("クリア判定");
                 }
+                answer_check();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
             }
