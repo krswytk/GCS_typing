@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.IO;
 using System.Text;
-using System.Linq;
-using System;
 
 public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 {
@@ -366,14 +363,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
             //NM[i] = new NewManuscript(Tnum,Dnum,t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
             //NM[i] = new NewManuscript(10, 30, t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
-            NM[i] = new NewManuscript(t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
-
-            ///*
-            if (i == 0)
-            {
-                NM[i].Debugout();
-            }
-            //*/
+            NM[i] = new NewManuscript(t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]); 
 
         }
 
@@ -483,7 +473,7 @@ public class NewManuscript
         this.text = text;
         this.debris = debris;
         RandomDebris();
-
+        //Debugout();//デバック用
         this.Manuscripts = Manuscripts;
     }
 
@@ -513,33 +503,45 @@ public class NewManuscript
         Debug.Log("タイトル:" + title);
         Debug.Log("難易度:" + Difficulty);
         for (int lp = 0; lp < text.Length; lp++) { Debug.Log(text[lp]); }
-        for (int lp = 0; lp < debris.GetLength(0); lp++) { Debug.Log(debris[lp, 0, 0]); }
+        for (int lp = 0; lp < debris.GetLength(0); lp++) { for (int c = 0; c < debris.GetLength(1); c++) { Debug.Log(debris[lp, c, 0]); } }
     }
 
     private void RandomDebris()
     {
 
-        string[,,] debris;
-        debris = new string[this.debris.GetLength(0), this.debris.GetLength(1), this.debris.GetLength(2)];
-        debris = this.debris;
-        int[] ary = new int[debris.GetLength(1)];
-        for (int lp = 0; lp < debris.GetLength(1); lp++)
+        string[,,] D;
+        D = new string[this.debris.GetLength(0), this.debris.GetLength(1), this.debris.GetLength(2)];//初期化
+
+        int[] ary = new int[D.GetLength(1)];//デブリの数要素数を持つ配列を生成
+
+        for (int lp = 0; lp < D.GetLength(1); lp++)
         {
-            ary[lp] = lp;
+            ary[lp] = lp;//要素１に０　２に１、、、デブリ数分格納
         }
-        int[] ary2 = ary.OrderBy(i => Guid.NewGuid()).ToArray();
 
-        //Debug.Log(debris.GetLength(1) +","+ary2[0]+","+ ary2[1]);
+        //Debug.Log(ary[0] + " " + ary[1]);
 
-        for (int lp = 0; lp < debris.GetLength(0); lp++)
+        for (int lp = 0; lp < D.GetLength(0); lp++)
         {
-            ary2 = ary.OrderBy(i => Guid.NewGuid()).ToArray();
-            for (int llp = 0; llp < debris.GetLength(1); llp++)
+            C(ary);
+            for (int llp = 0; llp < D.GetLength(1); llp++)
             {
-                this.debris[lp, llp, 0] = debris[lp, ary2[llp], 0];
-                this.debris[lp, llp, 1] = debris[lp, ary2[llp], 1];
-                this.debris[lp, llp, 2] = debris[lp, ary2[llp], 2];
+                D[lp, llp, 0] = debris[lp, ary[llp], 0];
+                D[lp, llp, 1] = debris[lp, ary[llp], 1];
+                D[lp, llp, 2] = debris[lp, ary[llp], 2];
             }
+        }
+        debris = D;
+    }
+
+    private void C(int[] a)
+    {
+        for (int i = 0; i < a.Length; i++)
+        {
+            int cp = Random.Range(0, a.Length - 1);
+            int num = a[i];
+            a[i] = a[cp];
+            a[cp] = num;
         }
     }
 };
