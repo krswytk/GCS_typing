@@ -54,6 +54,7 @@ public class Text_choice : MonoBehaviour
 
     public GetText GetText;
     public main_text main_text;
+    public meaning meaning;
 
 
 
@@ -113,8 +114,8 @@ public class Text_choice : MonoBehaviour
             {
                 Answer = i;
             }
-            
         }
+        meaning.text_change(ans[1]);
     }
 
     void text_Generate(string Text,float y,bool sw,float width, int problem_num)//Text　読み込むテキスト,y　y座標,sw　ローマ字かどうか,width 文字幅
