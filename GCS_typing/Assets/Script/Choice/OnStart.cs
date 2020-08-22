@@ -39,7 +39,7 @@ public class OnStart : MonoBehaviour
         for (int i = 0; i < FN.count; i++)
         {
             GT.word[i] = FN.D[i].GetWord();
-            GT.meaning[i] = FN.D[i].GetMeaning();
+            GT.meaning[i] = FN.D[i].GetMeanings();
         }
         /////////////
 
