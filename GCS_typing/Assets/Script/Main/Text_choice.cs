@@ -55,6 +55,7 @@ public class Text_choice : MonoBehaviour
     public GetText GetText;
     public main_text main_text;
     public meaning meaning;
+    public CheckTestScript CheckTestScript;
 
 
 
@@ -406,6 +407,7 @@ public class Text_choice : MonoBehaviour
                 main_text.text_change();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
+                CheckTestScript.LoadText();
             }
             else
             {
@@ -440,6 +442,7 @@ public class Text_choice : MonoBehaviour
                 main_text.text_change();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
+                CheckTestScript.LoadText();
             }
             else
             {
@@ -474,6 +477,7 @@ public class Text_choice : MonoBehaviour
                 main_text.text_change();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
+                CheckTestScript.LoadText();
             }
             else
             {
@@ -508,6 +512,7 @@ public class Text_choice : MonoBehaviour
                 main_text.text_change();
                 text_Generate(text.text, 0, false, 2, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
+                CheckTestScript.LoadText();
             }
             else
             {

@@ -191,11 +191,11 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         string t;
         string k;
         string h;
-        int n = -1;
+        int n = 0;
         count = 0;
         for(int i = 0;i < s.Length; i++)
         {
-            if(s[i] == '\n')
+            if(s[i] == '\r' && s[i+1] == '\n')
             {
                 count++;
             }
@@ -208,32 +208,35 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             h = "";
             while (true)
             {
-                n++;
-                if (s[n] == ' ' || s[n] == '　' || s[n] == '\n')
+                if (s[n] == ' ' || s[n] == '　')
                 {
+                    n++;
                     break;
                 }
                 t += s[n];
+                n++;
             }
             //Debug.Log(t);
             while (true)
             {
-                n++;
-                if (s[n] == ' ' || s[n] == '　' || s[n] == '\n')
+                if (s[n] == ' ' || s[n] == '　')
                 {
+                    n++;
                     break;
                 }
                 k += s[n];
+                n++;
             }
             //Debug.Log(d);
             while (true)
             {
-                n++;
-                if (s[n] == ' ' || s[n] == '　' || s[n] == '\n')
+                if (s[n] == '\r' && s[n + 1] == '\n')
                 {
+                    n += 2;
                     break;
                 }
                 h += s[n];
+                n++;
             }
             //Debug.Log(h);
             D[i] = new Dictionary(t, k, h);
@@ -431,12 +434,16 @@ public class Dictionary
     private string word;//単語(漢字)を格納する変数
     private string Hiragana;//単語(ひらがな)を格納する変数
     private string meaning;//意味を格納する変数
+    private string meanings;//意味を改行して格納する変数
 
     public Dictionary(string word, string Hiragana, string meaning)
     {
         this.word = word;
         this.Hiragana = Hiragana;
-        this.meaning = meaning;
+        string M = meaning;
+        StringTidy(M);
+        Debug.Log(meaning);
+        Debug.Log(meanings);
     }
     public string GetWord()
     {
@@ -449,6 +456,27 @@ public class Dictionary
     public string GetMeaning()
     {
         return meaning;
+    }
+    public string GetMeanings()
+    {
+        return meanings;
+    }
+    private void StringTidy(string M)
+    {
+        this.meaning = "";
+        this.meanings = "";
+        for (int lp = 0; lp < M.Length; lp++)
+        {
+            if (M[lp] == '/')
+            {
+                this.meanings += "\r\n";
+            }
+            if (M[lp] != ' ' && M[lp] != '　' && M[lp] != '/')
+            {
+                this.meaning += M[lp];
+                this.meanings += M[lp];
+            }
+        }
     }
 
 }
