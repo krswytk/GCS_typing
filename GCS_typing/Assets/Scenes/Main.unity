@@ -5281,6 +5281,7 @@ MonoBehaviour:
   GetText: {fileID: 496542784}
   main_text: {fileID: 1898957811}
   meaning: {fileID: 146301394}
+  CheckTestScript: {fileID: 2044241040}
 --- !u!222 &2044241044
 CanvasRenderer:
   m_ObjectHideFlags: 0

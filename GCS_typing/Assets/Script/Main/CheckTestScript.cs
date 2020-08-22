@@ -288,10 +288,11 @@ public class CheckTestScript : MonoBehaviour
     /// 初期設定
     /// TextLinesに読み込み、Stringsに行で振り分け、行数をLinenumに
     /// </summary>
-    void LoadText()
+    public void LoadText()
     {
         dummynum= GetText.debris.GetLength(1);
-        Debug.Log("選択肢の数は"+dummynum);
+
+        Debug.Log("問題番号"+ text_choice.problem_num+"を読み込み");
         //dummynum = 2;///仮に指定しちゃう
         //string TextLines = GetText.Htext;//ここ変更、4つになるんかな？で、配列にでも
         //string TextLines1 = GetText.debris[1, 1, 1]; //1が日本語
