@@ -70,6 +70,7 @@ public class CheckTestScript : MonoBehaviour
                 //↓こいつ関数にして引数でそれぞれみたいなことをするのでは？
                 for (int i=0;i< dummynum;i++)
                 {
+                    Debug.Log(i+"個目の選択し判定　キー："+NowKeys[i,KeyNums[i]]);
                     KeyCheck(i);
                 }
                 
@@ -328,9 +329,9 @@ public class CheckTestScript : MonoBehaviour
         NowChars[m] = NowStrings[m].Substring(n, 1);//NowStringの先頭からn文字をaに(0スタート)
         Debug.Log("NowString.Length="+ NowStrings[m].Length);
         Debug.Log("n=" + n);
-        if (n < NowStrings[m].Length)//改行文字とかの関係：n < NowStrings[m].Length - 2これいらんくなった？
+        if (n < NowStrings[m].Length-1)//改行文字とかの関係：n < NowStrings[m].Length - 2これいらんくなった？
         {
-            NextChars[m] = NowStrings[m].Substring(n, 1);//次の文字がある
+            NextChars[m] = NowStrings[m].Substring(n+1, 1);//次の文字がある
             Debug.Log("次の文字ある：" + NextChars[m]);
         }
         else
@@ -966,6 +967,7 @@ public class CheckTestScript : MonoBehaviour
         //↓ゃゅょ(拗音)の処理
         if (NextChars[n] == "ゃ" || NextChars[n] == "ゅ" || NextChars[n] == "ょ")
         {
+            Debug.Log("ちっちゃいやゆよ！");
             switch (NextChars[n])
             {
                 case "ゃ":
