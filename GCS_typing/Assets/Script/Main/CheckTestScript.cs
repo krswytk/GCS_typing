@@ -290,6 +290,9 @@ public class CheckTestScript : MonoBehaviour
     /// </summary>
     public void LoadText()
     {
+        /*
+         一回初期化
+         */
         dummynum= GetText.debris.GetLength(1);
 
         Debug.Log("問題番号"+ text_choice.problem_num+"を読み込み");
@@ -307,9 +310,10 @@ public class CheckTestScript : MonoBehaviour
         {
             NowStrings[j]= GetText.debris[text_choice.problem_num, j, 1];
             Debug.Log(j+"番目読み込み："+NowStrings[j]);
+            KanaNums[j] = 0;
             SetChar(j, 0);
         }
-        
+
         //NowStrings[0] = "あいうえお";
         //NowStrings[1] = "かきくけこ";
         
@@ -952,7 +956,31 @@ public class CheckTestScript : MonoBehaviour
                 break;
 
             //促音処理
-
+            case "ぁ":
+                NowKeys[n, 0] = "l";
+                NowKeys[n, 1] = "a";
+                NowKeys[n, 2] = "おわり";
+                break;
+            case "ぃ":
+                NowKeys[n, 0] = "l";
+                NowKeys[n, 1] = "i";
+                NowKeys[n, 2] = "おわり";
+                break;
+            case "ぅ":
+                NowKeys[n, 0] = "l";
+                NowKeys[n, 1] = "u";
+                NowKeys[n, 2] = "おわり";
+                break;
+            case "ぇ":
+                NowKeys[n, 0] = "l";
+                NowKeys[n, 1] = "e";
+                NowKeys[n, 2] = "おわり";
+                break;
+            case "ぉ":
+                NowKeys[n, 0] = "l";
+                NowKeys[n, 1] = "o";
+                NowKeys[n, 2] = "おわり";
+                break;
             case "っ":
                 //この関数をもう一度呼び出す
 
