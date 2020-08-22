@@ -442,8 +442,8 @@ public class Dictionary
         this.Hiragana = Hiragana;
         string M = meaning;
         StringTidy(M);
-        Debug.Log(meaning);
-        Debug.Log(meanings);
+        //Debug.Log(meaning);
+        //Debug.Log(meanings);
     }
     public string GetWord()
     {
