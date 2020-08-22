@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KeyDown : MonoBehaviour
+public class Key_Prediction : MonoBehaviour
 {
     public GameObject a;
     public GameObject b;
@@ -58,6 +58,63 @@ public class KeyDown : MonoBehaviour
 
 
 
+
+
+
+
+    public bool A;
+    public bool B;
+    public bool C;
+    public bool D;
+    public bool E;
+    public bool F;
+    public bool G;
+    public bool H;
+    public bool I;
+    public bool J;
+    public bool K;
+    public bool L;
+    public bool M;
+    public bool N;
+    public bool O;
+    public bool P;
+    public bool Q;
+    public bool R;
+    public bool S;
+    public bool T;
+    public bool U;
+    public bool V;
+    public bool W;
+    public bool X;
+    public bool Y;
+    public bool Z;
+    public bool Num1;
+    public bool Num2;
+    public bool Num3;
+    public bool Num4;
+    public bool Num5;
+    public bool Num6;
+    public bool Num7;
+    public bool Num8;
+    public bool Num9;
+    public bool Num0;
+
+    public bool Minus;
+    public bool caret;
+    public bool dollar;
+
+    public bool at;
+    public bool leftBracket;
+    public bool semicolon;
+    public bool colon;
+    public bool rightBracket;
+    public bool comma;
+    public bool period;
+    public bool slash;
+    public bool underscore;
+
+
+
     void Start()
     {
 
@@ -67,7 +124,7 @@ public class KeyDown : MonoBehaviour
     void Update()
     {
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.A))
+        if (A==true)
         {
             a.SetActive(true);
         }
@@ -78,7 +135,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.B))
+        if (B == true)
         {
             b.SetActive(true);
         }
@@ -89,7 +146,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.C))
+        if (C == true)
         {
             c.SetActive(true);
         }
@@ -100,7 +157,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.D))
+        if (D == true)
         {
             d.SetActive(true);
         }
@@ -111,7 +168,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.E))
+        if (E == true)
         {
             e.SetActive(true);
         }
@@ -122,7 +179,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.F))
+        if (F == true)
         {
             f.SetActive(true);
         }
@@ -133,7 +190,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.G))
+        if (G == true)
         {
             g.SetActive(true);
         }
@@ -144,7 +201,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.H))
+        if (H == true)
         {
             h.SetActive(true);
         }
@@ -155,7 +212,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.I))
+        if (I == true)
         {
             i.SetActive(true);
         }
@@ -166,7 +223,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.J))
+        if (J == true)
         {
             j.SetActive(true);
         }
@@ -177,7 +234,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.K))
+        if (K == true)
         {
             k.SetActive(true);
         }
@@ -188,7 +245,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.L))
+        if (L == true)
         {
             l.SetActive(true);
         }
@@ -199,7 +256,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.M))
+        if (M == true)
         {
             m.SetActive(true);
         }
@@ -210,7 +267,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.N))
+        if (N == true)
         {
             n.SetActive(true);
         }
@@ -221,7 +278,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.O))
+        if (O == true)
         {
             o.SetActive(true);
         }
@@ -232,7 +289,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.P))
+        if (P == true)
         {
             p.SetActive(true);
         }
@@ -242,9 +299,9 @@ public class KeyDown : MonoBehaviour
         }
 
         //////////////////////////////////////////////////////////////////////////
-        
 
-        if (Input.GetKey(KeyCode.Q))
+
+        if (Q == true)
         {
             q.SetActive(true);
         }
@@ -255,7 +312,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.R))
+        if (R == true)
         {
             r.SetActive(true);
         }
@@ -266,7 +323,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.S))
+        if (S == true)
         {
             s.SetActive(true);
         }
@@ -277,7 +334,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.T))
+        if (T == true)
         {
             t.SetActive(true);
         }
@@ -288,7 +345,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.U))
+        if (U == true)
         {
             u.SetActive(true);
         }
@@ -299,7 +356,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.V))
+        if (V == true)
         {
             v.SetActive(true);
         }
@@ -310,7 +367,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.W))
+        if (W == true)
         {
             w.SetActive(true);
         }
@@ -321,7 +378,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.X))
+        if (X == true)
         {
             x.SetActive(true);
         }
@@ -332,7 +389,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Y))
+        if (Y == true)
         {
             y.SetActive(true);
         }
@@ -343,7 +400,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Z))
+        if (Z == true)
         {
             z.SetActive(true);
         }
@@ -354,7 +411,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Num1 == true)
         {
             num1.SetActive(true);
         }
@@ -366,7 +423,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (Num2 == true)
         {
             num2.SetActive(true);
         }
@@ -378,7 +435,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Alpha3))
+        if (Num3 == true)
         {
             num3.SetActive(true);
         }
@@ -390,7 +447,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Alpha4))
+        if (Num4 == true)
         {
             num4.SetActive(true);
         }
@@ -402,7 +459,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Alpha5))
+        if (Num5 == true)
         {
             num5.SetActive(true);
         }
@@ -414,7 +471,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Alpha6))
+        if (Num6 == true)
         {
             num6.SetActive(true);
         }
@@ -426,7 +483,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Alpha7))
+        if (Num7 == true)
         {
             num7.SetActive(true);
         }
@@ -438,7 +495,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Alpha8))
+        if (Num8 == true)
         {
             num8.SetActive(true);
         }
@@ -450,7 +507,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Alpha9))
+        if (Num9 == true)
         {
             num9.SetActive(true);
         }
@@ -462,7 +519,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Alpha0))
+        if (Num0 == true)
         {
             num0.SetActive(true);
         }
@@ -473,7 +530,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Minus))
+        if (Minus == true)
         {
 
             minus.SetActive(true);
@@ -486,7 +543,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Quote))//Caret(^)
+        if (caret == true)//Caret(^)
         {
 
             Caret.SetActive(true);
@@ -499,7 +556,7 @@ public class KeyDown : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.Backslash))//これ→\
+        if (dollar == true)//これ→\
         {
 
             Dollar.SetActive(true);
@@ -511,7 +568,7 @@ public class KeyDown : MonoBehaviour
         }
 
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.Underscore))//動かん
+        if (underscore == true)//動かん
         {
             Underscore.SetActive(true);
         }
@@ -520,7 +577,7 @@ public class KeyDown : MonoBehaviour
             Underscore.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.Slash))
+        if (slash == true)
         {
             Slash.SetActive(true);
         }
@@ -529,7 +586,7 @@ public class KeyDown : MonoBehaviour
             Slash.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.Period))
+        if (period == true)
         {
             Period.SetActive(true);
         }
@@ -538,7 +595,7 @@ public class KeyDown : MonoBehaviour
             Period.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.Comma))
+        if (comma == true)
         {
             Comma.SetActive(true);
         }
@@ -547,7 +604,7 @@ public class KeyDown : MonoBehaviour
             Comma.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.RightBracket))
+        if (rightBracket == true)
         {
             RightBracket.SetActive(true);
         }
@@ -556,7 +613,7 @@ public class KeyDown : MonoBehaviour
             RightBracket.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.Semicolon))//Colon
+        if (colon == true)//Colon
         {
             Colon.SetActive(true);
         }
@@ -565,7 +622,7 @@ public class KeyDown : MonoBehaviour
             Colon.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.Equals))//Semicolon
+        if (semicolon == true)//Semicolon
         {
             Semicolon.SetActive(true);
         }
@@ -574,7 +631,7 @@ public class KeyDown : MonoBehaviour
             Semicolon.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.LeftBracket))
+        if (leftBracket == true)
         {
             LeftBracket.SetActive(true);
         }
@@ -583,7 +640,7 @@ public class KeyDown : MonoBehaviour
             LeftBracket.SetActive(false);
         }
         //////////////////////////////////////////////////////////////////////////
-        if (Input.GetKey(KeyCode.BackQuote))//@です。
+        if (at == true)//@です。
         {
             At.SetActive(true);
         }
