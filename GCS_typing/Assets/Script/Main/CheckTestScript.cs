@@ -108,7 +108,7 @@ public class CheckTestScript : MonoBehaviour
             {//「じ」であり、「ゃゅょ」であり、yが打たれたら内部だけ更新
                 KeyNums[n]++;
                 PreKey = Input.inputString;
-                Debug.Log("選択肢"+n+"で成功判定");
+                Debug.Log("選択肢"+n+"で成功判定次のキー："+NextChars[n]);
             }
             else
             {
@@ -116,7 +116,7 @@ public class CheckTestScript : MonoBehaviour
                 text_choice.NextSpace[n] = true;
                 KeyNums[n]++;
                 PreKey = Input.inputString;
-                Debug.Log("選択肢" + n + "で成功判定");
+                Debug.Log("選択肢"+n+"で成功判定次のキー："+NextChars[n]);
             }
             //Debug.Log("成功です");
             //ローマ字ならここで送信
@@ -133,14 +133,14 @@ public class CheckTestScript : MonoBehaviour
                     {
                         //Debug.Log("成功です");
                         //ローマ字ならここで送信
-                        text_Test.NextSpace = true;
+                        //text_Test.NextSpace = true;
                         text_choice.NextSpace[n] = true;
                         NowKeys[n, 1] = "s";
                         NowKeys[n, 2] = "u";
                         NowKeys[n, 3] = "おわり";
                         KeyNums[n]++;
                         PreKey = Input.inputString;
-                        Debug.Log("選択肢" + n + "で成功判定");
+                        Debug.Log("選択肢"+n+"で成功判定次のキー："+NextChars[n]);
                     }
                     break;
                 case "ふ":
@@ -148,11 +148,11 @@ public class CheckTestScript : MonoBehaviour
                     {
                         //Debug.Log("成功です");
                         //ローマ字ならここで送信
-                        text_Test.NextSpace = true;
+                        //text_Test.NextSpace = true;
                         text_choice.NextSpace[n] = true;
                         KeyNums[n]++;
                         PreKey = Input.inputString;
-                        Debug.Log("選択肢" + n + "で成功判定");
+                        Debug.Log("選択肢"+n+"で成功判定次のキー："+NextChars[n]);
                     }
                     break;
 
@@ -161,27 +161,27 @@ public class CheckTestScript : MonoBehaviour
                     {
                         //Debug.Log("成功です");
                         //ローマ字ならここで送信
-                        text_Test.NextSpace = true;
+                        //text_Test.NextSpace = true;
                         text_choice.NextSpace[n] = true;
                         KeyNums[n]++;
                         PreKey = Input.inputString;
-                        Debug.Log("選択肢" + n + "で成功判定");
+                        Debug.Log("選択肢"+n+"で成功判定次のキー："+NextChars[n]);
                     }
                     if (KeyNums[n] == 1 && PreKey == "j")//ｊで売ってたら
                     {
                         if ((NextChars[n] == "ゃ" && Input.inputString == "a") || (NextChars[n] == "ゅ" && Input.inputString == "u") || (NextChars[n] == "ょ" && Input.inputString == "o"))//やゆよ
                         {
-                            text_Test.NextSpace = true;
+                            //text_Test.NextSpace = true;
                             text_choice.NextSpace[n] = true;
                             KeyNums[n]++;
                             PreKey = Input.inputString;
-                            Debug.Log("選択肢" + n + "で成功判定");
+                            Debug.Log("選択肢"+n+"で成功判定次のキー："+NextChars[n]);
                         }
-                        text_Test.NextSpace = true;
+                        //text_Test.NextSpace = true;
                         text_choice.NextSpace[n] = true;
                         KeyNums[n]++;
                         PreKey = Input.inputString;
-                        Debug.Log("選択肢" + n + "で成功判定");
+                        Debug.Log("選択肢"+n+"で成功判定次のキー："+NextChars[n]);
                     }
                     break;
 
@@ -191,10 +191,10 @@ public class CheckTestScript : MonoBehaviour
                     {
 
                         KeyNums[n]++;
-                        text_Test.NextSpace = true;
+                        //text_Test.NextSpace = true;
                         text_choice.NextSpace[n] = true;
                         PreKey = Input.inputString;
-                        Debug.Log("選択肢" + n + "で成功判定");
+                        Debug.Log("選択肢"+n+"で成功判定次のキー："+NextChars[n]);
                     }
                     if (KeyNums[n] == 1 && Input.inputString == "h")//
                     {
@@ -207,9 +207,9 @@ public class CheckTestScript : MonoBehaviour
                         NowKeys[n, 3] = "おわり";
                         if (NextChars[n] == "ゃ" || NextChars[n] == "ゅ" || NextChars[n] == "ょ")//しゃなら
                         {
-                            text_Test.NextSpace = true;
+                            //text_Test.NextSpace = true;
                             text_choice.NextSpace[n] = true;
-                            Debug.Log("選択肢" + n + "で成功判定");
+                            Debug.Log("選択肢"+n+"で成功判定次のキー："+NextChars[n]);
                         }
                         KeyNums[n]++;
                         PreKey = Input.inputString;
