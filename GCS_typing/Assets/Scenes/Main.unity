@@ -769,7 +769,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 252, y: 300}
+  m_AnchoredPosition: {x: -149, y: 300}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146301394
@@ -784,7 +784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03e284586ca0ad448ae1c87928a7a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: {fileID: 146301396}
+  Text_title: {fileID: 146301396}
+  Text: {fileID: 757580616}
   dictionary: {fileID: 4900000, guid: 59ce19c9f14aab442ba2980725d76c85, type: 3}
   GetText: {fileID: 496542784}
   Text_choice: {fileID: 2044241042}
@@ -2279,7 +2280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &757580615
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2296,7 +2297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 433, y: 237}
+  m_AnchoredPosition: {x: 23.7, y: 237}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &757580616
@@ -5279,6 +5280,7 @@ MonoBehaviour:
   NextSpace: 
   GetText: {fileID: 496542784}
   main_text: {fileID: 1898957811}
+  meaning: {fileID: 146301394}
 --- !u!222 &2044241044
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ using System;
 public class meaning : MonoBehaviour
 {
     [SerializeField]
+    private Text Text_title;
+    [SerializeField]
     private Text Text;
     [SerializeField]
     private TextAsset dictionary;
@@ -34,7 +36,7 @@ public class meaning : MonoBehaviour
             for (int i2 = 0; i2 < num.Length; i2++)
             {
                 meaning_word[i,i2] = num[i2];
-                Debug.Log(meaning_word[i, i2]);//iが単語の種類　i2が0、単語名1、単語の読み方2、単語の意味
+                //Debug.Log(meaning_word[i, i2]);//iが単語の種類　i2が　0　単語名　1　単語の読み方　2　単語の意味
             }
         }
 
@@ -46,8 +48,17 @@ public class meaning : MonoBehaviour
 
     }
 
-    public void text_change()
+    public void text_change(string ans)
     {
+        Debug.Log(ans);
+        for (int i = 0; i < text_meaning.Length; i++)
+        {
+            if (meaning_word[i, 0]==ans)
+            {
+                Text_title.text = meaning_word[i, 0];
+                Text.text = meaning_word[i, 2];
+            }
+        }
 
         //Text.text = text_main;
         //text_main = text_main.Remove(0, text_main.Length);
