@@ -17,10 +17,10 @@
 富士 ふじ fuji
 
 スーパーコンピューター すーぱーこんぴゅーたー su-pa-konpyu-ta-
-スパシーバコンピューター すぱしーばこんぴゅーたー supasi-bakonpyu-ta-
+量子コンピューター りょうしこんぴゅーたー ryousikonpyu-ta-
 
 TOP500 TOP500 TOP500
-TOP100 TOP100 TOP100
+ノード のーど no-do
 
 京 けい kei
 垓 がい gai
@@ -41,4 +41,4 @@ PCU PCU PCU
 NEC NEC NEC
 
 HPC HPC HPC
-NPC NPC NPC
+GPU GPU GPU
