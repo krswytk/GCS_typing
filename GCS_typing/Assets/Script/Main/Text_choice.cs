@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Text_choice : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class Text_choice : MonoBehaviour
     public main_text main_text;
     public meaning meaning;
     public CheckTestScript CheckTestScript;
+    public OnRisult OnRisult;
 
 
 
@@ -72,7 +74,7 @@ public class Text_choice : MonoBehaviour
         level = GetText.debris.GetLength(1) - 1;
         clear_num = GetText.debris.GetLength(0);
         answer_check();
-        text_Generate(text.text,0,false,2, problem_num);
+        text_Generate(text.text,0,false,5, problem_num);
         text_Generate(roma.text,0.5f,true,5, problem_num);
     }
 
@@ -124,7 +126,7 @@ public class Text_choice : MonoBehaviour
         for (int i = 0; i < level+1; i++)
         {
 
-            level_text_x = (-level / 2.0f + i) * 3;
+            level_text_x = (-level / 2.0f + i) * 5;
 
             if (i == 0)
             {
@@ -164,7 +166,7 @@ public class Text_choice : MonoBehaviour
                     {
                         obj[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         obj[i2].transform.parent = transform;
-                        obj[i2].transform.localScale = new Vector3(1, 1, 1);//希望する値
+                        obj[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         obj[i2].GetComponent<Text>().text = str[i2];
                     }else
                     {
@@ -214,7 +216,7 @@ public class Text_choice : MonoBehaviour
                     {
                         obj2[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         obj2[i2].transform.parent = transform;
-                        obj2[i2].transform.localScale = new Vector3(1, 1, 1);//希望する値
+                        obj2[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         obj2[i2].GetComponent<Text>().text = str2[i2];
                     }
                     else
@@ -264,7 +266,7 @@ public class Text_choice : MonoBehaviour
                     {
                         obj3[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         obj3[i2].transform.parent = transform;
-                        obj3[i2].transform.localScale = new Vector3(1, 1, 1);//希望する値
+                        obj3[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         obj3[i2].GetComponent<Text>().text = str3[i2];
                     }
                     else
@@ -314,7 +316,7 @@ public class Text_choice : MonoBehaviour
                     {
                         obj4[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         obj4[i2].transform.parent = transform;
-                        obj4[i2].transform.localScale = new Vector3(1, 1, 1);//希望する値
+                        obj4[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         obj4[i2].GetComponent<Text>().text = str4[i2];
                     }
                     else
@@ -393,17 +395,23 @@ public class Text_choice : MonoBehaviour
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
-                text_Destroy();
                 problem_num++;
-                if (clear_num < problem_num)
+                Debug.Log("現在の問題"+problem_num+ "クリア問題数" + clear_num);
+                if (clear_num <= problem_num)
                 {
                     Debug.Log("クリア判定");
+                    //OnRisult.flag = true;
+                    SceneManager.LoadScene("Result");
                 }
-                answer_check();
-                main_text.text_change();
-                text_Generate(text.text, 0, false, 2, problem_num);
-                text_Generate(roma.text, 0.5f, true, 5, problem_num);
-                CheckTestScript.LoadText();
+                else
+                {
+                    text_Destroy();
+                    answer_check();
+                    main_text.text_change();
+                    text_Generate(text.text, 0, false, 5, problem_num);
+                    text_Generate(roma.text, 0.5f, true, 5, problem_num);
+                    CheckTestScript.LoadText();
+                }
             }
             else
             {
@@ -430,13 +438,15 @@ public class Text_choice : MonoBehaviour
                 count4 = 0;
                 text_Destroy();
                 problem_num++;
-                if (clear_num < problem_num)
+                if (clear_num <= problem_num)
                 {
                     Debug.Log("クリア判定");
+                    //OnRisult.flag = true;
+                    SceneManager.LoadScene("Result");
                 }
                 answer_check();
                 main_text.text_change();
-                text_Generate(text.text, 0, false, 2, problem_num);
+                text_Generate(text.text, 0, false, 5, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
                 CheckTestScript.LoadText();
             }
@@ -465,13 +475,15 @@ public class Text_choice : MonoBehaviour
                 count4 = 0;
                 text_Destroy();
                 problem_num++;
-                if (clear_num < problem_num)
+                if (clear_num <= problem_num)
                 {
                     Debug.Log("クリア判定");
+                    //OnRisult.flag = true;
+                    SceneManager.LoadScene("Result");
                 }
                 answer_check();
                 main_text.text_change();
-                text_Generate(text.text, 0, false, 2, problem_num);
+                text_Generate(text.text, 0, false, 5, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
                 CheckTestScript.LoadText();
             }
@@ -500,13 +512,15 @@ public class Text_choice : MonoBehaviour
                 count4 = 0;
                 text_Destroy();
                 problem_num++;
-                if (clear_num < problem_num)
+                if (clear_num <= problem_num)
                 {
                     Debug.Log("クリア判定");
+                    //OnRisult.flag = true;
+                    SceneManager.LoadScene("Result");
                 }
                 answer_check();
                 main_text.text_change();
-                text_Generate(text.text, 0, false, 2, problem_num);
+                text_Generate(text.text, 0, false, 5, problem_num);
                 text_Generate(roma.text, 0.5f, true, 5, problem_num);
                 CheckTestScript.LoadText();
             }
