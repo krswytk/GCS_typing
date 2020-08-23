@@ -56,8 +56,6 @@ public class KeyDown : MonoBehaviour
     public GameObject Slash;
     public GameObject Underscore;
 
-
-
     void Start()
     {
 
