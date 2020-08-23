@@ -26,16 +26,9 @@ public class CheckTestScript : MonoBehaviour
     private int[] lineNums = new int[4];//
     private int[] lineNoms = new int[4];//
 
-    //private string NowString;//今読み込んでる行。これを一文字ずつ↓に入れる＊＊＊選択肢が1行になったのでいらない。後で消すと思う。
-    //private string NowChar;//今のひらがな(大文字英語も)一文字→これを分解する＊＊＊選択肢が1行になったのでいらない。後で消すと思う。
-    //private string NextChar;//次の文字、拗音,促音のため。＊＊＊選択肢が1行になったのでいらない。後で消すと思う。
+    
     private string PreKey = "";//じのjとかし、ちのchとか
-    //private string[] NowKey = new string[4];//分解されたキーはこちら**charじゃないかも？
-    //private int lineNum;//全体の行数＊＊＊選択肢が1行になったのでいらない。後で消すと思う。
-    //private int lineNow;//今の行数＊＊＊選択肢が1行になったのでいらない。後で消すと思う。
-
-    //private int KeyNum;//アルファベット何文字目
-    //private int KanaNum;//NowStringでかな何文字目
+    
 
 
     int dummynum;//選択肢の数、１～４
@@ -137,9 +130,7 @@ public class CheckTestScript : MonoBehaviour
                 case "つ":
                     if (KeyNums[n] == 1 && Input.inputString == "s")//tsu
                     {
-                        //Debug.Log("成功です");
-                        //ローマ字ならここで送信
-                        //text_Test.NextSpace = true;
+                        
                         text_choice.NextSpace[n] = true;
                         NowKeys[n, 1] = "s";
                         NowKeys[n, 2] = "u";
@@ -152,9 +143,7 @@ public class CheckTestScript : MonoBehaviour
                 case "ふ":
                     if (KeyNums[n] == 0 && Input.inputString == "f")//fu
                     {
-                        //Debug.Log("成功です");
-                        //ローマ字ならここで送信
-                        //text_Test.NextSpace = true;
+                        
                         text_choice.NextSpace[n] = true;
                         KeyNums[n]++;
                         PreKey = Input.inputString;
@@ -165,9 +154,7 @@ public class CheckTestScript : MonoBehaviour
                 case "じ":
                     if (KeyNums[n] == 0 && Input.inputString == "j")//ji,jyaとかも先頭だけだからおｋ？
                     {
-                        //Debug.Log("成功です");
-                        //ローマ字ならここで送信
-                        //text_Test.NextSpace = true;
+                        
                         text_choice.NextSpace[n] = true;
                         KeyNums[n]++;
                         PreKey = Input.inputString;
@@ -194,16 +181,12 @@ public class CheckTestScript : MonoBehaviour
                     }
                     if (KeyNums[n] == 1 && Input.inputString == "h")//
                     {
-                        //Debug.Log("成功です");
-                        //ローマ字ならここで送信
-                        //↓ガイドの仕方によってはここで送る。ガイド固定なのでここでは送らない。
-                        //text_Test.NextSpace = true;
                         NowKeys[n, 1] = "h";
                         NowKeys[n, 2] = "i";
                         NowKeys[n, 3] = "おわり";
                         if (NextChars[n] == "ゃ" || NextChars[n] == "ゅ" || NextChars[n] == "ょ")//しゃなら
                         {
-                            //text_Test.NextSpace = true;
+                            
                             text_choice.NextSpace[n] = true;
                             Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
                         }
@@ -257,22 +240,6 @@ public class CheckTestScript : MonoBehaviour
         if (KanaNums[n]  >= NowStrings[n].Length)//なんでプラス？
         {
             Debug.Log("行の最後まで来ました。次の行を読み込みます。");//そんなものはない
-            //次の行を呼ぶ
-
-            /*
-            lineNows[n]++;
-            if (lineNums[n] == lineNows[n])
-            {
-                //Debug.Log("終了です");
-            }
-            else
-            {
-                // Debug.Log("SetStringの呼び出し");
-                SetStrig(lineNows[n]);
-            }
-            //Debug.Log("次の行→"+lineNow);
-            */
-
         }
         else
         {
@@ -292,15 +259,6 @@ public class CheckTestScript : MonoBehaviour
         dummynum= GetText.debris.GetLength(1);
 
         Debug.Log("問題番号"+ text_choice.problem_num+"を読み込み");
-        //dummynum = 2;///仮に指定しちゃう
-        //string TextLines = GetText.Htext;//ここ変更、4つになるんかな？で、配列にでも
-        //string TextLines1 = GetText.debris[1, 1, 1]; //1が日本語
-        //Debug.Log("今読み込んだやつ→" + TextLines1);//ok?
-                                            //Strings = TextLines.Split('\n');
-                                            //Debug.Log("一行目→" + Strings[0]);//ok?
-                                            //lineNum = Strings.Length;//全部で何行だか入れる
-
-        //ここで、NowStringsに代入
         
         for (int j=0;j<dummynum;j++)
         {
@@ -309,10 +267,6 @@ public class CheckTestScript : MonoBehaviour
             KanaNums[j] = 0;
             SetChar(j, 0);
         }
-
-        //NowStrings[0] = "あいうえお";
-        //NowStrings[1] = "かきくけこ";
-        
 
     }
 
