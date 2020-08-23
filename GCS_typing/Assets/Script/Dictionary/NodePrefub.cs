@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class NodePrefub : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class NodePrefub : MonoBehaviour
 
             text.text = splitText2[i * 3];
             g_object.setNumber(i);
-            
+
         }
     }
     public void InputText()
@@ -41,25 +42,13 @@ public class NodePrefub : MonoBehaviour
         //テキストにinputFieldの内容を反映
         for (int i = 0; i < splitText1.Length - 2; i++)
         {
-            if (inputField.text == splitText2[i * 3])
+            
+            if (inputField.text == "")
             {
-                var item = GameObject.Instantiate(prefab) as RectTransform;
-                item.name = "node" + i;
-                item.SetParent(transform, false);
-
-                var text = item.GetComponentInChildren<Text>();
-                var g_object = item.GetComponent<GetClickedText>();
-
-                text.text = splitText2[i * 3];
-                g_object.setNumber(i);
-
-            }
-            else if(inputField.text == "")
-            {
-               
+                
                 GameObject obj = GameObject.Find("node" + i);
                 Destroy(obj);
-                
+
                 var item = GameObject.Instantiate(prefab) as RectTransform;
                 item.name = "node" + i;
                 item.SetParent(transform, false);
@@ -69,10 +58,29 @@ public class NodePrefub : MonoBehaviour
 
                 text.text = splitText2[i * 3];
                 g_object.setNumber(i);
+            }
+            else if (splitText2[i * 3].Contains(inputField.text) || splitText2[i * 3 + 1].Contains(inputField.text))
+            {
+
+                if (GameObject.Find("node" + i) == false)
+                {
+
+                    var item = GameObject.Instantiate(prefab) as RectTransform;
+                    item.name = "node" + i;
+                    item.SetParent(transform, false);
+
+                    var text = item.GetComponentInChildren<Text>();
+                    var g_object = item.GetComponent<GetClickedText>();
+
+                    text.text = splitText2[i * 3];
+                    g_object.setNumber(i);
+                }
+                
+                
             }
             else
             {
-                
+                Debug.Log("呼び出された" + i);
                 GameObject obj = GameObject.Find("node" + i);
                 Destroy(obj);
                 
