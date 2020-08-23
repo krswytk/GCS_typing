@@ -332,7 +332,7 @@ public class Text_choice : MonoBehaviour
 
     void text_Destroy()
     {
-        if (level < 3)
+        if (level > 0)
         {
             for (int i = 0; i < obj.Length; i++)
             {
@@ -352,34 +352,30 @@ public class Text_choice : MonoBehaviour
                 Destroy(Robj2[i]);
             }
         }
-        else
+        if (level > 1)
         {
-            if (level < 4)
+            for (int i = 0; i < obj3.Length; i++)
             {
-                for (int i = 0; i < obj3.Length; i++)
-                {
-                    Destroy(obj3[i]);
-                }
-
-                for (int i = 0; i < Robj3.Length; i++)
-                {
-                    Destroy(Robj3[i]);
-                }
+                Destroy(obj3[i]);
             }
-            else
-            {
-                for (int i = 0; i < obj4.Length; i++)
-                {
-                    Destroy(obj4[i]);
-                }
 
-                for (int i = 0; i < Robj4.Length; i++)
-                {
-                    Destroy(Robj4[i]);
-                }
+            for (int i = 0; i < Robj3.Length; i++)
+            {
+                Destroy(Robj3[i]);
             }
         }
+        if (level > 2)
+        {
+            for (int i = 0; i < obj4.Length; i++)
+            {
+                Destroy(obj4[i]);
+            }
 
+            for (int i = 0; i < Robj4.Length; i++)
+            {
+                Destroy(Robj4[i]);
+            }
+        }
     }
 
     void text_update()
