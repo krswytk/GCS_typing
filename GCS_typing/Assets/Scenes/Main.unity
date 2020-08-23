@@ -796,7 +796,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146301392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -5282,6 +5282,7 @@ MonoBehaviour:
   main_text: {fileID: 1898957811}
   meaning: {fileID: 146301394}
   CheckTestScript: {fileID: 2044241040}
+  OnRisult: {fileID: 1468563245}
 --- !u!222 &2044241044
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -55,7 +55,7 @@ public class meaning : MonoBehaviour
         {
             if (meaning_word[i, 0]==ans)
             {
-                Text_title.text = meaning_word[i, 0];
+                //Text_title.text = meaning_word[i, 0];
                 Text.text = meaning_word[i, 2];
             }
         }
