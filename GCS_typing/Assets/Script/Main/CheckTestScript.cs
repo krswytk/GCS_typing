@@ -322,6 +322,13 @@ public class CheckTestScript : MonoBehaviour
             case "う":
                 NowKeys[n, 0] = "u";
                 NowKeys[n, 1] = "おわり";
+                if (NextChars[n]=="ぃ")
+                {
+                    KanaNums[n]++;
+                    NowKeys[n, 0] = "w";
+                    NowKeys[n, 1] = "i";
+                    NowKeys[n, 2] = "おわり";
+                }
                 break;
             case "え":
                 NowKeys[n, 0] = "e";
