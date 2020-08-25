@@ -35,6 +35,7 @@ public class meaning : MonoBehaviour
             num = text_meaning[i].Split(del_ans, StringSplitOptions.None);
             for (int i2 = 0; i2 < num.Length; i2++)
             {
+                Debug.Log(num[i2] + " " + i2);
                 meaning_word[i,i2] = num[i2];
                 //Debug.Log(meaning_word[i, i2]);//iが単語の種類　i2が　0　単語名　1　単語の読み方　2　単語の意味
             }
