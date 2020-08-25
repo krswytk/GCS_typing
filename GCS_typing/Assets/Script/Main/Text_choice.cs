@@ -82,25 +82,25 @@ public class Text_choice : MonoBehaviour
     void Update()
     {
 
-        if ((NextSpace[0]) || (Input.GetKeyDown(KeyCode.Alpha1)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if (NextSpace[0])/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update();
             NextSpace[0] = false;
         }
 
-        if ((NextSpace[1]) || (Input.GetKeyDown(KeyCode.Alpha2)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if (NextSpace[1])/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update2();
             NextSpace[1] = false;
         }
 
-        if ((NextSpace[2]) || (Input.GetKeyDown(KeyCode.Alpha3)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if (NextSpace[2])/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update3();
             NextSpace[2] = false;
         }
 
-        if ((NextSpace[3]) || (Input.GetKeyDown(KeyCode.Alpha4)))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if (NextSpace[3])/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update4();
             NextSpace[3] = false;
