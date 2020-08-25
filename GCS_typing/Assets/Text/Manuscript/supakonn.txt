@@ -34,7 +34,7 @@ TOP500 TOP500 TOP500
 CPU CPU CPU
 PCU PCU PCU
 
-ビッグデータ びっくでーた bikkude-ta
+ビッグデータ びっグでーた biggude-ta
 シグナル しぐなる sigunaru
 
 富士通 ふじつう hujituu
