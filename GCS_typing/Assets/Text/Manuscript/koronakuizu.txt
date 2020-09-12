@@ -1,4 +1,4 @@
-コロナウイルス
+﻿コロナウイルス
 
 2
 
@@ -37,7 +37,7 @@
 スーパースプレッダー すーぱーすぷれっだー su-pa-supuredda-
 三密 さんみつ sanmitu
 
-PCR検査 ぴーしーあーるけんさ PCRkensa
+PCR検査 PCRけんさ PCRkensa
 ワクチン わくちん wakutinn
 エアロゾル感染 えあろぞるかんせん earozorukansenn
 
