@@ -58,6 +58,7 @@ public class meaning : MonoBehaviour
             {
                 //Text_title.text = meaning_word[i, 0];
                 Text.text = meaning_word[i, 2];
+                //Text.text = "てすと";
             }
         }
 
