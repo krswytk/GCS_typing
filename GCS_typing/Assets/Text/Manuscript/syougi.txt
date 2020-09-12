@@ -1,4 +1,4 @@
-将棋
+﻿将棋
 
 2
 
@@ -39,7 +39,7 @@
 
 棋士 きし kisi
 将棋士 しょうぎし syougisi
-将棋マン syougimann
+将棋マン しょうぎまん syougimann
 
 タイトル戦 たいとるせん taitorusenn
 対局 たいきょく taikyoku

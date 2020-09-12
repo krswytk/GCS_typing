@@ -1,4 +1,4 @@
-環境問題
+﻿環境問題
 
 3
 
@@ -14,7 +14,7 @@
 南極の孤島に暮らすトビムシから/マイクロプラスチック/が発見された
 
 環境緊急事態 かんきょうきんきゅうじたい kankyoukinkyuuzitai
-緊急事態宣言 きんきゅじたいせんげん kinnkyuuzitaisengenn
+緊急事態宣言 きんきゅうじたいせんげん kinkyuuzitaisengenn
 ラムサール条約 らむさーるじょうやく ramusa-ruzyouyaku
 非常事態宣言 ひじょうじたいせんげん hizyouzitaisengen
 

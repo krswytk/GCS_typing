@@ -125,7 +125,7 @@ public class CheckTestScript : MonoBehaviour
         }
         else
         {
-            //別表記。し、つ、ふ、じ、しゃ、ちゃ、じゃ
+            //別表記。し、つ、ふ、じ、しゃ、ちゃ、じゃ、ぃ
             switch (NowChars[n])
             {
                 case "つ":
@@ -209,6 +209,13 @@ public class CheckTestScript : MonoBehaviour
                     }
                     break;
 
+                case "ぃ":
+                    if (KeyNums[n] == 0 && Input.inputString == "x")
+                    {
+                        text_choice.NextSpace[n] = true;
+                        KeyNums[n]++;
+                    }
+                        break;
 
                 default:
                     Debug.Log("失敗ですこれ打って：" + NowKeys[n, KeyNums[n]]+",nは"+n);
@@ -274,7 +281,10 @@ public class CheckTestScript : MonoBehaviour
             KanaNums[j] = 0;
             SetChar(j, 0);
         }
-
+        for (int n=0;n<4;n++)
+        {
+            text_choice.NextSpace[n] = false;
+        }
     }
 
 
