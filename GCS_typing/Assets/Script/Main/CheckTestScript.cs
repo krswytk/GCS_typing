@@ -58,7 +58,10 @@ public class CheckTestScript : MonoBehaviour
         if (Input.anyKeyDown)
         {
             //Debug.Log("入力：" + Input.inputString);//押されたキーがこれ
-
+            if (Input.inputString != " ")
+            {
+                debugenter();
+            }
             if (Input.inputString != " " && Input.inputString != "\n" && !Input.GetMouseButton(0) && !Input.GetKeyDown(KeyCode.LeftShift))//エンターじゃないとか
             {
 
@@ -142,6 +145,7 @@ public class CheckTestScript : MonoBehaviour
                     }
                     break;
                 case "ふ":
+                    Debug.Log("「ふ」の判定に入りました");
                     if (KeyNums[n] == 0 && Input.inputString == "f")//fu
                     {
                         
@@ -149,6 +153,25 @@ public class CheckTestScript : MonoBehaviour
                         KeyNums[n]++;
                         PreKey = Input.inputString;
                         Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
+                        Debug.Log("ふがfで判定");
+                    }
+                    if (KeyNums[n]==1&&PreKey=="f"&&Input.inputString=="o"&&NextChars[n]=="ぉ")//foの判定
+                    {
+                        Debug.Log("fのあとo");
+                        text_choice.NextSpace[n] = true;//oの色を変える
+
+                        //
+                        Debug.Log("作業開始");
+                        Debug.Log("kanaNums=" + KanaNums[n]);
+                        Debug.Log("この時の文字列：" + NowStrings[n]);
+                        KanaNums[n]++;//先にタス
+                        Debug.Log("Finchar送る");
+                        FinChar(n);//文字送って
+                        
+                        Debug.Log("作業終了");
+                        Debug.Log("kanaNums=" + KanaNums[n]);
+                        Debug.Log("文字列：" + NowStrings[n]);
+
                     }
                     break;
 
@@ -1031,6 +1054,16 @@ public class CheckTestScript : MonoBehaviour
         KanaNum = 0;
         SetChar(0);
         */
+    }
+
+    void debugenter()
+    {
+        Debug.Log("デバッグ開始");
+        for (int i=0;i< GetText.debris.GetLength(1); i++)
+        {
+            Debug.Log(0+"つ目の正解キー："+NowKeys[i,KeyNums[i]]);
+        }
+        Debug.Log("デバッグ終了");
     }
 
 }
