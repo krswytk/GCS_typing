@@ -176,8 +176,8 @@ public class CheckTestScript : MonoBehaviour
                     }
                     break;
 
-                case "じ":
-                    if (KeyNums[n] == 0 && Input.inputString == "j")//ji,jyaとかも先頭だけだからおｋ？
+                case "じ"://z判定に変更する
+                    if (KeyNums[n] == 0 && Input.inputString == "z")//ji,jyaとかも先頭だけだからおｋ？
                     {
                         
                         text_choice.NextSpace[n] = true;
@@ -464,7 +464,7 @@ public class CheckTestScript : MonoBehaviour
                 NowKeys[n, 2] = "おわり";
                 break;
             case "じ":
-                NowKeys[n, 0] = "z";
+                NowKeys[n, 0] = "j";
                 NowKeys[n, 1] = "i";
                 NowKeys[n, 2] = "おわり";
                 break;
@@ -1016,6 +1016,28 @@ public class CheckTestScript : MonoBehaviour
                     KanaNums[n]++;
                     break;
             }
+            if (NowChars[n] == "じ")//クソコードja
+            {
+                switch (NextChars[n]) {
+                    case "ゃ":
+                        NowKeys[n, 1] = "a";
+                        NowKeys[n, 2] = "おわり";
+                        
+                        break;
+                    case "ゅ":
+                        NowKeys[n, 1] = "u";
+                        NowKeys[n, 2] = "おわり";
+                        
+                        break;
+                    case "ょ":
+                        NowKeys[n, 1] = "o";
+                        NowKeys[n, 2] = "おわり";
+                        
+                        break;
+                }
+
+            }
+            
 
         }
 
