@@ -1,4 +1,4 @@
-スパコン
+﻿スパコン
 
 1
 
@@ -34,7 +34,7 @@ TOP500 TOP500 TOP500
 CPU CPU CPU
 PCU PCU PCU
 
-ビッグデータ びっグでーた biggude-ta
+ビッグデータ びっぐでーた biggude-ta
 シグナル しぐなる sigunaru
 
 富士通 ふじつう hujituu
