@@ -1,4 +1,4 @@
-環境問題
+﻿環境問題
 
 3
 
@@ -14,7 +14,7 @@
 南極の孤島に暮らすトビムシから/マイクロプラスチック/が発見された
 
 環境緊急事態 かんきょうきんきゅうじたい kankyoukinkyuuzitai
-緊急事態宣言 きんきゅじたいせんげん kinnkyuuzitaisengenn
+緊急事態宣言 きんきゅうじたいせんげん kinkyuuzitaisengenn
 ラムサール条約 らむさーるじょうやく ramusa-ruzyouyaku
 非常事態宣言 ひじょうじたいせんげん hizyouzitaisengen
 
@@ -59,6 +59,6 @@ G20 G20 G20
 ASEAN ASEAN ASEAN
 
 マイクロプラスチック まいくろぷらすちっく maikuropurasutikku
-熱可塑性プラスチック ねつそかいせいぷらすちっく netusokaiseipurasutikku
+熱可塑性プラスチック ねつかそせいぷらすちっく netukasoseipurasutikku
 熱硬化性プラスチック ねつこうかせいぷらすちっく netukoukaseipurasutikku
 レジ袋 れじぶくろ rezibukuro

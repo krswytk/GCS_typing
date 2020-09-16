@@ -35,6 +35,7 @@ public class meaning : MonoBehaviour
             num = text_meaning[i].Split(del_ans, StringSplitOptions.None);
             for (int i2 = 0; i2 < num.Length; i2++)
             {
+                //Debug.Log(num[i2] + " " + i2);
                 meaning_word[i,i2] = num[i2];
                 //Debug.Log(meaning_word[i, i2]);//iが単語の種類　i2が　0　単語名　1　単語の読み方　2　単語の意味
             }
@@ -51,12 +52,16 @@ public class meaning : MonoBehaviour
     public void text_change(string ans)
     {
         Debug.Log(ans);
+        Debug.Log(text_meaning.Length);
         for (int i = 0; i < text_meaning.Length; i++)
         {
+            Debug.Log(meaning_word[i, 0]);
             if (meaning_word[i, 0]==ans)
             {
                 //Text_title.text = meaning_word[i, 0];
                 Text.text = meaning_word[i, 2];
+                Debug.Log("テキスト変形");
+                //Text.text = "てすと";
             }
         }
 

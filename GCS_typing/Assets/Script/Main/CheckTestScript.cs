@@ -53,18 +53,23 @@ public class CheckTestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(KeyNums[1]);
         //入力があったり、初回
         if (Input.anyKeyDown)
         {
             //Debug.Log("入力：" + Input.inputString);//押されたキーがこれ
-
+            if (Input.inputString != " ")
+            {
+                debugenter();
+            }
             if (Input.inputString != " " && Input.inputString != "\n" && !Input.GetMouseButton(0) && !Input.GetKeyDown(KeyCode.LeftShift))//エンターじゃないとか
             {
 
                 //↓こいつ関数にして引数でそれぞれみたいなことをするのでは？
                 for (int i=0;i< dummynum;i++)
                 {
-                    Debug.Log(i+"個目の選択し判定　キー："+NowKeys[i,KeyNums[i]]);
+                    //Debug.Log(KeyNums[i]);
+                    //Debug.Log(i+"個目の選択し判定　キー："+NowKeys[i,KeyNums[i]]);
                     KeyCheck(i);
                 }
                 
@@ -96,16 +101,16 @@ public class CheckTestScript : MonoBehaviour
     /// <param name="n"></param>
     void KeyCheck(int n)
     {
-        Debug.Log("選択肢"+n+"の判定。対象は："+ NowKeys[n, KeyNums[n]]);
+        //Debug.Log("選択肢"+n+"の判定。対象は："+ NowKeys[n, KeyNums[n]]);
         if (NowKeys[n, KeyNums[n]] == Input.inputString)
         {
             if (Input.inputString == "y" && NowChars[n] == "じ" && (NextChars[n] == "ゃ" || NextChars[n] == "ゅ" || NextChars[n] == "ょ"))//じゃとか
             {//「じ」であり、「ゃゅょ」であり、yが打たれたら内部だけ更新
-                Debug.Log("じゃとかの判定はここ");
+                //Debug.Log("じゃとかの判定はここ");
                 text_choice.NextSpace[n] = true;
                 KeyNums[n]++;
                 PreKey = Input.inputString;
-                Debug.Log("選択肢"+n+"で成功判定次のキー："+NowKeys[n,KeyNums[n]]);
+                //Debug.Log("選択肢"+n+"で成功判定次のキー："+NowKeys[n,KeyNums[n]]);
             }
             else
             {
@@ -114,8 +119,7 @@ public class CheckTestScript : MonoBehaviour
                 text_choice.NextSpace[n] = true;
                 KeyNums[n]++;
                 PreKey = Input.inputString;
-                Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
-                
+                //Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
             }
             //Debug.Log("成功です");
             //ローマ字ならここで送信
@@ -124,7 +128,7 @@ public class CheckTestScript : MonoBehaviour
         }
         else
         {
-            //別表記。し、つ、ふ、じ、しゃ、ちゃ、じゃ
+            //別表記。し、つ、ふ、じ、しゃ、ちゃ、じゃ、ぃ
             switch (NowChars[n])
             {
                 case "つ":
@@ -137,10 +141,11 @@ public class CheckTestScript : MonoBehaviour
                         NowKeys[n, 3] = "おわり";
                         KeyNums[n]++;
                         PreKey = Input.inputString;
-                        Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
+                        //Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
                     }
                     break;
                 case "ふ":
+                    Debug.Log("「ふ」の判定に入りました");
                     if (KeyNums[n] == 0 && Input.inputString == "f")//fu
                     {
                         
@@ -148,21 +153,41 @@ public class CheckTestScript : MonoBehaviour
                         KeyNums[n]++;
                         PreKey = Input.inputString;
                         Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
+                        Debug.Log("ふがfで判定");
+                    }
+                    if (KeyNums[n]==1&&PreKey=="f"&&Input.inputString=="o"&&NextChars[n]=="ぉ")//foの判定
+                    {
+                        Debug.Log("fのあとo");
+                        text_choice.NextSpace[n] = true;//oの色を変える
+
+                        //
+                        Debug.Log("作業開始");
+                        Debug.Log("kanaNums=" + KanaNums[n]);
+                        Debug.Log("この時の文字列：" + NowStrings[n]);
+                        KanaNums[n]++;//先にタス
+                        Debug.Log("Finchar送る");
+                        FinChar(n);//文字送って
+                        
+                        Debug.Log("作業終了");
+                        Debug.Log("kanaNums=" + KanaNums[n]);
+                        Debug.Log("文字列：" + NowStrings[n]);
+
+
                     }
                     break;
 
-                case "じ":
-                    if (KeyNums[n] == 0 && Input.inputString == "j")//ji,jyaとかも先頭だけだからおｋ？
+                case "じ"://z判定に変更する
+                    if (KeyNums[n] == 0 && Input.inputString == "z")//ji,jyaとかも先頭だけだからおｋ？
                     {
                         
                         text_choice.NextSpace[n] = true;
                         KeyNums[n]++;
                         PreKey = Input.inputString;
-                        Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
+                        //Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
                         if (NextChars[n]=="ゃ"|| NextChars[n] == "ゅ" || NextChars[n] == "ょ")
                         {
-                            Debug.Log("じゃをjで打ったため、無理やり次をyに");
-                            Debug.Log("これ打って：" + NowKeys[n, KeyNums[n]] + ",nは" + n);
+                            //Debug.Log("じゃをjで打ったため、無理やり次をyに");
+                            //Debug.Log("これ打って：" + NowKeys[n, KeyNums[n]] + ",nは" + n);
                             NowKeys[n, KanaNums[n]] = "y";
                         }
                     }
@@ -177,7 +202,7 @@ public class CheckTestScript : MonoBehaviour
                         //text_Test.NextSpace = true;
                         text_choice.NextSpace[n] = true;
                         PreKey = Input.inputString;
-                        Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
+                        //Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
                     }
                     if (KeyNums[n] == 1 && Input.inputString == "h")//
                     {
@@ -188,7 +213,7 @@ public class CheckTestScript : MonoBehaviour
                         {
                             
                             text_choice.NextSpace[n] = true;
-                            Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
+                            //Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
                         }
                         KeyNums[n]++;
                         PreKey = Input.inputString;
@@ -208,10 +233,17 @@ public class CheckTestScript : MonoBehaviour
                     }
                     break;
 
+                case "ぃ":
+                    if (KeyNums[n] == 0 && Input.inputString == "x")
+                    {
+                        text_choice.NextSpace[n] = true;
+                        KeyNums[n]++;
+                    }
+                        break;
 
                 default:
-                    Debug.Log("失敗ですこれ打って：" + NowKeys[n, KeyNums[n]]+",nは"+n);
-                    Debug.Log("keynum：" + KeyNums[n]);
+                    //Debug.Log("失敗ですこれ打って：" + NowKeys[n, KeyNums[n]]+",nは"+n);
+                    //Debug.Log("keynum：" + KeyNums[n]);
                     break;
             }
             /*スコアいらない？
@@ -234,12 +266,12 @@ public class CheckTestScript : MonoBehaviour
     {
         KeyNums[n] = 0;
         KanaNums[n]++;
-        Debug.Log("FinChar発動　n＝" + KanaNums[n]);
-        Debug.Log("kanaNum："+KanaNums[n]);
-        Debug.Log("Length：" + NowStrings[n].Length);
+        //Debug.Log("FinChar発動　n＝" + KanaNums[n]);
+        //Debug.Log("kanaNum："+KanaNums[n]);
+        //Debug.Log("Length：" + NowStrings[n].Length);
         if (KanaNums[n]  >= NowStrings[n].Length)//なんでプラス？
         {
-            Debug.Log("行の最後まで来ました。次の行を読み込みます。");//そんなものはない
+            //Debug.Log("行の最後まで来ました。次の行を読み込みます。");//そんなものはない
         }
         else
         {
@@ -258,16 +290,25 @@ public class CheckTestScript : MonoBehaviour
          */
         dummynum= GetText.debris.GetLength(1);
 
-        Debug.Log("問題番号"+ text_choice.problem_num+"を読み込み");
+
+        for (int j = 0; j < 4; j++)
+        {
+            KeyNums[j] = 0;
+        }
+
+        //Debug.Log("問題番号"+ text_choice.problem_num+"を読み込み");
         
         for (int j=0;j<dummynum;j++)
         {
             NowStrings[j]= GetText.debris[text_choice.problem_num, j, 1];
-            Debug.Log(j+"番目読み込み："+NowStrings[j]);
+            //Debug.Log(j+"番目読み込み："+NowStrings[j]);
             KanaNums[j] = 0;
             SetChar(j, 0);
         }
-
+        for (int n=0;n<4;n++)
+        {
+            text_choice.NextSpace[n] = false;
+        }
     }
 
 
@@ -279,19 +320,19 @@ public class CheckTestScript : MonoBehaviour
     /// <param name="n"></param>
     void SetChar(int m, int n)
     {
-        Debug.Log("SetChar発動");
-        Debug.Log(m+"個目の選択肢の、"+n+"番目を分けます");
+        //Debug.Log("SetChar発動");
+        //Debug.Log(m+"個目の選択肢の、"+n+"番目を分けます");
         NowChars[m] = NowStrings[m].Substring(n, 1);//NowStringの先頭からn文字をaに(0スタート)
-        Debug.Log("NowString.Length="+ NowStrings[m].Length);
-        Debug.Log("n=" + n);
+        //Debug.Log("NowString.Length="+ NowStrings[m].Length);
+        //Debug.Log("n=" + n+ "m=" + m);
         if (n < NowStrings[m].Length-1)//改行文字とかの関係：n < NowStrings[m].Length - 2これいらんくなった？
         {
             NextChars[m] = NowStrings[m].Substring(n+1, 1);//次の文字がある
-            Debug.Log("次の文字ある：" + NextChars[m]);
+            //Debug.Log("次の文字ある：" + NextChars[m]);
         }
         else
         {
-            Debug.Log("次の文字ない");
+            //Debug.Log("次の文字ない");
             NextChars[m] = "行の最後";
         }
 
@@ -307,7 +348,7 @@ public class CheckTestScript : MonoBehaviour
     /// </summary>
     void CharSplit(int n, string kana)
     {
-        Debug.Log("CharSplit始動：選択し"+n+"の"+kana+"を分解");
+        //Debug.Log("CharSplit始動：選択し"+n+"の"+kana+"を分解");
         //普通の文字の処理
         switch (kana)
         {
@@ -423,7 +464,7 @@ public class CheckTestScript : MonoBehaviour
                 NowKeys[n, 2] = "おわり";
                 break;
             case "じ":
-                NowKeys[n, 0] = "z";
+                NowKeys[n, 0] = "j";
                 NowKeys[n, 1] = "i";
                 NowKeys[n, 2] = "おわり";
                 break;
@@ -953,7 +994,7 @@ public class CheckTestScript : MonoBehaviour
         //↓ゃゅょ(拗音)の処理
         if (NextChars[n] == "ゃ" || NextChars[n] == "ゅ" || NextChars[n] == "ょ")
         {
-            Debug.Log("ちっちゃいやゆよ！");
+            //Debug.Log("ちっちゃいやゆよ！");
             switch (NextChars[n])
             {
                 case "ゃ":
@@ -975,6 +1016,28 @@ public class CheckTestScript : MonoBehaviour
                     KanaNums[n]++;
                     break;
             }
+            if (NowChars[n] == "じ")//クソコードja
+            {
+                switch (NextChars[n]) {
+                    case "ゃ":
+                        NowKeys[n, 1] = "a";
+                        NowKeys[n, 2] = "おわり";
+                        
+                        break;
+                    case "ゅ":
+                        NowKeys[n, 1] = "u";
+                        NowKeys[n, 2] = "おわり";
+                        
+                        break;
+                    case "ょ":
+                        NowKeys[n, 1] = "o";
+                        NowKeys[n, 2] = "おわり";
+                        
+                        break;
+                }
+
+            }
+            
 
         }
 
@@ -995,7 +1058,7 @@ public class CheckTestScript : MonoBehaviour
             if (10 < i)
             {
                 //(そんなことはないと思うが…)バグです
-                Debug.Log("\"おわり\"が見つからないとかいうバグです");
+                //Debug.Log("\"おわり\"が見つからないとかいうバグです");
                 break;
             }
         }
@@ -1014,6 +1077,16 @@ public class CheckTestScript : MonoBehaviour
         KanaNum = 0;
         SetChar(0);
         */
+    }
+
+    void debugenter()
+    {
+        Debug.Log("デバッグ開始");
+        for (int i=0;i< GetText.debris.GetLength(1); i++)
+        {
+            Debug.Log(0+"つ目の正解キー："+NowKeys[i,KeyNums[i]]);
+        }
+        Debug.Log("デバッグ終了");
     }
 
 }
