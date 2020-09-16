@@ -110,7 +110,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\u3053\u308C\u304C\u7D76\u671B\u3060\u3041\uFF01\uFF01"
 --- !u!1 &2798747092604690349
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,4 +189,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: koregazetubouda
