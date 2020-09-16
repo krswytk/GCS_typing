@@ -59,6 +59,6 @@ G20 G20 G20
 ASEAN ASEAN ASEAN
 
 マイクロプラスチック まいくろぷらすちっく maikuropurasutikku
-熱可塑性プラスチック ねつそかいせいぷらすちっく netusokaiseipurasutikku
+熱可塑性プラスチック ねつかそせいぷらすちっく netukasoseipurasutikku
 熱硬化性プラスチック ねつこうかせいぷらすちっく netukoukaseipurasutikku
 レジ袋 れじぶくろ rezibukuro
