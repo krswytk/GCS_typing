@@ -3962,7 +3962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Manuscript: {fileID: 2067147780}
   stage: 10
-  time: 0.05
+  time: 0.01
   sound1: {fileID: 8300000, guid: a16cb69ad8f26054b8df77e4ec96a6fb, type: 3}
 --- !u!82 &1121174793
 AudioSource:
@@ -4362,7 +4362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Manuscript: {fileID: 2067147780}
   stage: 10
-  time: 0.05
+  time: 0.01
   sound1: {fileID: 8300000, guid: a16cb69ad8f26054b8df77e4ec96a6fb, type: 3}
 --- !u!82 &1175382997
 AudioSource:
