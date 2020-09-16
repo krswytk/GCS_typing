@@ -8,17 +8,19 @@ public class OnDictionary : MonoBehaviour
     [SerializeField] AudioClip sound1;
     AudioSource audioSource;
     FileNumber FN;
+    TurnManeger TM;
     int num;//単語数
     public void Start()
     {
         audioSource = GetComponent<AudioSource>();
         FN = GameObject.Find("TestManuscripS").GetComponent<FileNumber>();
+        TM = GameObject.Find("TestManuscripS").GetComponent<TurnManeger>();
         num = FN.count;
     }
 
     public void OnDictionarys()
     {
-        //SceneManager.sceneLoaded += GameSceneLoaded;
+        SceneManager.sceneLoaded += GameSceneLoaded;
 
         audioSource.PlayOneShot(sound1);
         SceneManager.LoadScene("Dictionary");
