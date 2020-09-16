@@ -413,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 196227620}
   textAsset: {fileID: 4900000, guid: 59ce19c9f14aab442ba2980725d76c85, type: 3}
+  g_text: {fileID: 1512294273}
 --- !u!1 &288165131
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,6 +1299,7 @@ MonoBehaviour:
   prefab: {fileID: 5269841484166025740, guid: a477f6922b63d86438f10fc374d23419, type: 3}
   textAsset: {fileID: 4900000, guid: 59ce19c9f14aab442ba2980725d76c85, type: 3}
   inputField: {fileID: 1021336488}
+  g_text: {fileID: 1512294273}
 --- !u!1 &1284915028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,6 +1410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: []
   word: []
+  hiragana: []
   meaning: []
 --- !u!4 &1512294274
 Transform:
