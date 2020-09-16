@@ -8,17 +8,19 @@ public class OnDictionary : MonoBehaviour
     [SerializeField] AudioClip sound1;
     AudioSource audioSource;
     FileNumber FN;
+    TurnManeger TM;
     int num;//単語数
     public void Start()
     {
         audioSource = GetComponent<AudioSource>();
         FN = GameObject.Find("TestManuscripS").GetComponent<FileNumber>();
+        TM = GameObject.Find("TestManuscripS").GetComponent<TurnManeger>();
         num = FN.count;
     }
 
     public void OnDictionarys()
     {
-        //SceneManager.sceneLoaded += GameSceneLoaded;
+        SceneManager.sceneLoaded += GameSceneLoaded;
 
         audioSource.PlayOneShot(sound1);
         SceneManager.LoadScene("Dictionary");
@@ -26,19 +28,26 @@ public class OnDictionary : MonoBehaviour
     
     private void GameSceneLoaded(Scene next, LoadSceneMode mode)
     {
-        GeterText GT = GameObject.Find("GeterText").GetComponent<GeterText>();
+        GetText GT = GameObject.Find("GetText").GetComponent<GetText>();
 
-        GT.word = new string[num];
-        GT.hiragana = new string[num];
-        GT.meaning = new string[num];
+        /////////辞書部分の渡し
+        GT.word = new string[FN.count];
+        Debug.Log(FN.count);
+        GT.meaning = new string[FN.count];
 
         for (int i = 0; i < FN.count; i++)
         {
             GT.word[i] = FN.D[i].GetWord();
-            GT.hiragana[i] = FN.D[i].GetHiragana();
-            GT.meaning[i] = FN.D[i].GetMeaning();
-            //Debug.Log(FN.M[i].GetText());
+            GT.meaning[i] = FN.D[i].GetMeanings();
         }
+        /////////////
+
+
+        ///////////原稿の渡し
+        GT.text = FN.NM[TM.GetTMnum()].GetText();
+        GT.debris = FN.NM[TM.GetTMnum()].GetDebris();
+        /////////////
+
         SceneManager.sceneLoaded -= GameSceneLoaded;
     }
 

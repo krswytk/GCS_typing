@@ -382,7 +382,7 @@ public class Text_choice : MonoBehaviour
 
     void text_update()
     {
-        if (count < Robj.Length - 1)
+        if (count < Robj.Length-1)
         {
             Robj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
             count++;
@@ -391,27 +391,12 @@ public class Text_choice : MonoBehaviour
         {
             if (Answer == 0)
             {
+                Robj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
-                problem_num++;
-                Debug.Log("現在の問題"+problem_num+ "クリア問題数" + clear_num);
-                if (clear_num <= problem_num)
-                {
-                    Debug.Log("クリア判定");
-                    //OnRisult.flag = true;
-                    SceneManager.LoadScene("Result");
-                }
-                else
-                {
-                    text_Destroy();
-                    answer_check();
-                    main_text.text_change();
-                    text_Generate(text.text, 0, false, 5, problem_num);
-                    text_Generate(roma.text, 0.5f, true, 5, problem_num);
-                    CheckTestScript.LoadText();
-                }
+                StartCoroutine("SamplecoRoutine"); //動く
             }
             else
             {
@@ -423,7 +408,7 @@ public class Text_choice : MonoBehaviour
 
     void text_update2()
     {
-        if (count2 < Robj2.Length - 1)
+        if (count2 < Robj2.Length-1)
         {
             Robj2[count2].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
             count2++;
@@ -432,23 +417,12 @@ public class Text_choice : MonoBehaviour
         {
             if (Answer == 1)
             {
+                Robj2[count2].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
-                text_Destroy();
-                problem_num++;
-                if (clear_num <= problem_num)
-                {
-                    Debug.Log("クリア判定");
-                    //OnRisult.flag = true;
-                    SceneManager.LoadScene("Result");
-                }
-                answer_check();
-                main_text.text_change();
-                text_Generate(text.text, 0, false, 5, problem_num);
-                text_Generate(roma.text, 0.5f, true, 5, problem_num);
-                CheckTestScript.LoadText();
+                StartCoroutine("SamplecoRoutine"); //動く
             }
             else
             {
@@ -460,7 +434,7 @@ public class Text_choice : MonoBehaviour
 
     void text_update3()
     {
-        if (count3 < Robj3.Length - 1)
+        if (count3 < Robj3.Length-1)
         {
             Robj3[count3].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
             count3++;
@@ -469,23 +443,12 @@ public class Text_choice : MonoBehaviour
         {
             if (Answer == 2)
             {
+                Robj3[count3].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
-                text_Destroy();
-                problem_num++;
-                if (clear_num <= problem_num)
-                {
-                    Debug.Log("クリア判定");
-                    //OnRisult.flag = true;
-                    SceneManager.LoadScene("Result");
-                }
-                answer_check();
-                main_text.text_change();
-                text_Generate(text.text, 0, false, 5, problem_num);
-                text_Generate(roma.text, 0.5f, true, 5, problem_num);
-                CheckTestScript.LoadText();
+                StartCoroutine("SamplecoRoutine"); //動く
             }
             else
             {
@@ -497,7 +460,7 @@ public class Text_choice : MonoBehaviour
 
     void text_update4()
     {
-        if (count4 < Robj4.Length - 1)
+        if (count4 < Robj4.Length-1)
         {
             Robj4[count4].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
             count4++;
@@ -506,23 +469,12 @@ public class Text_choice : MonoBehaviour
         {
             if (Answer == 3)
             {
+                Robj4[count4].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 count = 0;
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
-                text_Destroy();
-                problem_num++;
-                if (clear_num <= problem_num)
-                {
-                    Debug.Log("クリア判定");
-                    //OnRisult.flag = true;
-                    SceneManager.LoadScene("Result");
-                }
-                answer_check();
-                main_text.text_change();
-                text_Generate(text.text, 0, false, 5, problem_num);
-                text_Generate(roma.text, 0.5f, true, 5, problem_num);
-                CheckTestScript.LoadText();
+                StartCoroutine("SamplecoRoutine"); //動く
             }
             else
             {
@@ -530,5 +482,24 @@ public class Text_choice : MonoBehaviour
                 Debug.Log("不正解");
             }
         }
+    }
+
+    IEnumerator SamplecoRoutine()//コルーチン。遅延用の処理
+    {
+        Debug.Log("コルーチン内で起動");
+        yield return new WaitForSeconds(3.0f);
+        text_Destroy();
+        problem_num++;
+        if (clear_num <= problem_num)
+        {
+            Debug.Log("クリア判定");
+            //OnRisult.flag = true;
+            SceneManager.LoadScene("Result");
+        }
+        answer_check();
+        main_text.text_change();
+        text_Generate(text.text, 0, false, 5, problem_num);
+        text_Generate(roma.text, 0.5f, true, 5, problem_num);
+        CheckTestScript.LoadText();
     }
 }
