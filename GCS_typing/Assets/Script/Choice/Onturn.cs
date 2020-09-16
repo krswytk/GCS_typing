@@ -19,8 +19,8 @@ public class Onturn : MonoBehaviour
     //float sin = Mathf.Sin(Time.time);
     //float cos = Mathf.Cos(Time.time);
 
-    [SerializeField] float stage = 10;//1押し何段階で次の原稿に回るか
-    [SerializeField] float time = 0.05f;//1段階の進むのにかかる時間　time * stage が1押し分の所要時間
+    [SerializeField] float stage;//1押し何段階で次の原稿に回るか
+    [SerializeField] float time;//1段階の進むのにかかる時間　time * stage が1押し分の所要時間
     float y;
 
     private bool sw = false;
