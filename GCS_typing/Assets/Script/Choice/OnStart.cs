@@ -24,7 +24,7 @@ public class OnStart : MonoBehaviour
         SceneManager.sceneLoaded += GameSceneLoaded;
 
         audioSource.PlayOneShot(sound1);
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("NewMain");
     }
 
     private void GameSceneLoaded(Scene next, LoadSceneMode mode)
