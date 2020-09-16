@@ -9,10 +9,5 @@ public class GetText : MonoBehaviour
     //[問題番号0-9  ,  回答0-3  ,  0に単語 1にひらがな　2にローマ字]
     public string[] word;    //各配列に辞書の単語が入っている
     public string[] meaning; //上の要素と同じ番号に単語の意味が入っている
-    /*
-    private void Start()
-    {
 
-    }
-    */
 }

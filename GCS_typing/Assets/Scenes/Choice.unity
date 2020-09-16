@@ -5975,8 +5975,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Manuscript: {fileID: 2067147780}
-  stage: 10
-  time: 0.05
+  stage: 1
+  time: 1
   sound1: {fileID: 8300000, guid: a16cb69ad8f26054b8df77e4ec96a6fb, type: 3}
 --- !u!1 &2089342381
 GameObject:
