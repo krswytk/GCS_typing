@@ -29,12 +29,13 @@ public class mean : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(g_text.word[3]);
         if (g_text.word.Length > 0)
         {
             Text text = _text.GetComponent<Text>();
             text.text = splitText1[meanNumber * 3] + "\n" + splitText1[meanNumber * 3 + 1] + "\n" + splitText1[meanNumber * 3 + 2];
         }
-        Debug.Log(g_text.word[3]);
+       
     }
     public void numberSet(int number)
     {

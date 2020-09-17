@@ -27,9 +27,9 @@ public class NodePrefub : MonoBehaviour
         {
             for (int j = 0; j < g_text.word.Length; j++)
             {
+
                 if (g_text.word[j] == splitText2[i * 3])
                 {
-
                     var item = GameObject.Instantiate(prefab) as RectTransform;
                     item.name = "node" + i;
                     item.SetParent(transform, false);
@@ -39,6 +39,7 @@ public class NodePrefub : MonoBehaviour
 
                     text.text = splitText2[i * 3];
                     g_object.setNumber(i);
+
                 }
             }
 
