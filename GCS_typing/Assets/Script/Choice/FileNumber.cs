@@ -201,6 +201,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             }
         }
         D = new Dictionary[count];
+        Debug.Log(count);//辞書の単語数
         for (int i = 0; i < count; i++)
         {
             t = "";
@@ -240,7 +241,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             }
             //Debug.Log(h);
             D[i] = new Dictionary(t, k, h);
-            //Debug.Log(D[i].GetWord());
+            Debug.Log(D[i].GetWord() + " i = " + i);
         }
 
     }
@@ -280,7 +281,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 if (n == 0)
                 {
                     if (s[i][lp] != '\r' && s[i][lp] != '\n' && s[i][lp] != ' ' && s[i][lp] != '　') t += s[i][lp];
-                    //Debug.Log(t + "  文字数は" + lp);
+                    Debug.Log(t + "  文字数は" + lp);
                 }
                 else if (n == 1)
                 {
@@ -367,8 +368,8 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 
             //NM[i] = new NewManuscript(Tnum,Dnum,t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
             //NM[i] = new NewManuscript(10, 30, t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
-            NM[i] = new NewManuscript(t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]); 
-
+            NM[i] = new NewManuscript(t, id, text, D, this.GetComponent<GenerateDictionary>().Manuscripts[i]);
+            //Debug.Log(t);
         }
 
     }
