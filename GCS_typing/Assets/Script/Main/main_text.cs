@@ -30,7 +30,7 @@ public class main_text : MonoBehaviour
     public void text_change()
     {
         string[] ans = GetText.text[Text_choice.problem_num].Split(del_ans, StringSplitOptions.None);
-        ans[1] = "[   ]";
+        ans[1] = "<color=#ff0000ff>[   ]</color>";
         for (int i = 0; i < 3; i++)
         {
             text_main = String.Concat(text_main, ans[i]);
