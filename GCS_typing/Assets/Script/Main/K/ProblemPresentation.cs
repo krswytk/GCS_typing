@@ -31,6 +31,13 @@ public class ProblemPresentation : MonoBehaviour
     void ChangeProblemPresentation()//問題文の入れ替えを行う
     {
         ProblemText.text = "aaa<color=#00ffffff>AAA</color>";
-        ProblemText.text = Ptext[number];
+        try
+        {
+            ProblemText.text = Ptext[number];
+        }
+        catch
+        {
+            ProblemText.text = "デバッグ<color=#00ffffff>中だってばよ</color>";
+        }
     }
 }
