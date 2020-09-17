@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ProblemPresentation : MonoBehaviour
 {
-    private GetText GetText;
     private AllManeger AllManeger;
     private int number;
     private string[] Ptext;
@@ -13,11 +12,10 @@ public class ProblemPresentation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetText = GameObject.Find("GetText").GetComponent<GetText>();//ゲットテキストのゲットテキストスクリプトを取得
         AllManeger = this.GetComponent<AllManeger>();
         number = AllManeger.GetNumber();//ゲットテキストのゲットテキストスクリプトを取得
-        Ptext = new string[10];
-        Ptext = GetText.text;
+        Ptext = new string[AllManeger.GetProblemNumber()];//問題数分のメモリ確保
+        Ptext = AllManeger.GetProblemText();
         ProblemText = GameObject.Find("QuestionText").GetComponent<Text>();//問題文表示のテキストを取得
         ChangeProblemPresentation();//問題文の表示/入れ替えを行う
     }
@@ -30,7 +28,14 @@ public class ProblemPresentation : MonoBehaviour
 
     void ChangeProblemPresentation()//問題文の入れ替えを行う
     {
-        ProblemText.text = "aaa<color=#00ffffff>AAA</color>";
-        ProblemText.text = Ptext[number];
+        number = AllManeger.GetNumber();
+        try
+        {
+            ProblemText.text = Ptext[number];
+        }
+        catch
+        {
+            ProblemText.text = "デバッグ<color=#00ffffff>中だってばよ</color>";
+        }
     }
 }
