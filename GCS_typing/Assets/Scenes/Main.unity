@@ -810,7 +810,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9a60635952b55684ba18a2775d763c59, type: 3}
+    m_Font: {fileID: 12800000, guid: cb4d8b43ca78beb439ef80c19d56aa78, type: 3}
     m_FontSize: 59
     m_FontStyle: 1
     m_BestFit: 0
@@ -1608,6 +1608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: []
   word: []
+  hiragana: []
   meaning: []
 --- !u!1 &519420028
 GameObject:
@@ -2321,7 +2322,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 9a60635952b55684ba18a2775d763c59, type: 3}
+    m_Font: {fileID: 12800000, guid: cb4d8b43ca78beb439ef80c19d56aa78, type: 3}
     m_FontSize: 59
     m_FontStyle: 1
     m_BestFit: 0
