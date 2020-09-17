@@ -16,6 +16,8 @@ public class SelectDisplay : MonoBehaviour//選択肢を表示するスクリプ
     private Text[] Kanji;
     private Text[] Romaji;
 
+    private string[] Roma;
+
     private int Difficulty;
 
     void Start()
@@ -29,6 +31,7 @@ public class SelectDisplay : MonoBehaviour//選択肢を表示するスクリプ
         Box = new GameObject[Difficulty];
         Kanji = new Text[Difficulty];
         Romaji = new Text[Difficulty];
+        Roma = new string[Difficulty];
         Box = SelectManeger.GetBox();
         for (int i = 0; i < Difficulty; i++)
         {
@@ -36,7 +39,7 @@ public class SelectDisplay : MonoBehaviour//選択肢を表示するスクリプ
             Romaji[i] = Box[i].transform.Find("Romaji").gameObject.GetComponent<Text>();
         }
 
-            KanjiC();
+        KanjiC();
     }
 
     // Update is called once per frame
@@ -53,10 +56,19 @@ public class SelectDisplay : MonoBehaviour//選択肢を表示するスクリプ
     {
         for(int i = 0;i < Difficulty; i++)
         {
-            Debug.Log("選択肢漢字表示");
-            Debug.Log(Box[i]);
+            //Debug.Log("選択肢漢字表示");
+            //Debug.Log(Box[i]);
             Kanji[i].text = GetText.debris[number,i,0];
-            Romaji[i].text = GetText.debris[number, i, 2];
+            Rnum = 0;
+            Roma[i] = GetText.debris[number, i, 2];//ローマ字を入れておく
+            Romaji[i].text = Roma[i];
         }
+    }
+
+    private int Rnum;
+    void RomaCororC( int num )//入力したらローマ字の色が変わるスクリプト //num = その問題の番号0-1,2,3　のいずれか
+    {
+        Roma[num] = "<color=#00ffffff>" + GetText.debris[number, num, 2].Insert(1, "</color>");
+       // Romaji[i].text = Roma[num];
     }
 }
