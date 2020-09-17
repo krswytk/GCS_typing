@@ -281,7 +281,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
                 if (n == 0)
                 {
                     if (s[i][lp] != '\r' && s[i][lp] != '\n' && s[i][lp] != ' ' && s[i][lp] != '　') t += s[i][lp];
-                    Debug.Log(t + "  文字数は" + lp);
+                    //Debug.Log(t + "  文字数は" + lp);
                 }
                 else if (n == 1)
                 {
