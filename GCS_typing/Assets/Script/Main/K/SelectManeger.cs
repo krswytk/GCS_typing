@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SelectManeger : MonoBehaviour
 {
-    private GetText GetText;
     private AllManeger AllManeger;
     private int number;
     private int Difficulty;//デブリの数＝難易度を格納する
@@ -18,7 +17,6 @@ public class SelectManeger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetText = GameObject.Find("GetText").GetComponent<GetText>();//ゲットテキストのゲットテキストスクリプトを取得
         AllManeger = this.GetComponent<AllManeger>();
         number = AllManeger.GetNumber();//ゲットテキストのゲットテキストスクリプトを取得
         Difficulty = AllManeger.GetDifficulty();//難易度を格納

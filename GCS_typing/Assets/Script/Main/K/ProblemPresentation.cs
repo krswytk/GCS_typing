@@ -28,6 +28,7 @@ public class ProblemPresentation : MonoBehaviour
 
     void ChangeProblemPresentation()//問題文の入れ替えを行う
     {
+        number = AllManeger.GetNumber();
         try
         {
             ProblemText.text = Ptext[number];
