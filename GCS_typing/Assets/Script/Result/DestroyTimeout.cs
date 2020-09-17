@@ -30,11 +30,11 @@ public class DestroyTimeout : MonoBehaviour
         //Destroy(Difficulty, outtimer);
 
         text = new string[5];
-        text[0] = "・・・練習あるのみですね。";
-        text[1] = "ミスが少々目立ちますね。\nもっと頑張りましょう！"; 
-        text[2] = "可もなく不可もなくと\nいった感じですね。\nまだまだ成長できますよ！";
-        text[3] = "概ね良好ですね。\n完璧な原稿まで\nもう少しですよ！";
-        text[4] = "流石です！\nこれなら安心して\n任せられますね！";
+        text[0] = "うーん・・・。\n勉強あるのみですね。";
+        text[1] = "学ぶことは多いと思いますが\n一緒に頑張りましょう"; 
+        text[2] = "良いですね！\n一緒にもう少し\n頑張っていきましょう！";
+        text[3] = "とても良い感じです！\n次も貴方と一緒に\n頑張りたいです！";
+        text[4] = "素晴らしい結果ですね！\n貴方の知識\n私も見習いたいです";
 
         t = tx.GetComponent<Text>();
         t2 = tx2.GetComponent<Text>();
