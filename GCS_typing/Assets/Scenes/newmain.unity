@@ -1336,6 +1336,7 @@ GameObject:
   - component: {fileID: 228835249}
   - component: {fileID: 228835252}
   - component: {fileID: 228835251}
+  - component: {fileID: 228835253}
   m_Layer: 0
   m_Name: Maneger
   m_TagString: Untagged
@@ -1417,6 +1418,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b41d159d611b24a4cae1ab7953352bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &228835253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228835246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d52003c5935bca4e9dd7dbe051e8b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &247539881
@@ -2895,7 +2908,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: -100}
+  m_AnchoredPosition: {x: 60, y: -92}
   m_SizeDelta: {x: 1250, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471672526
@@ -6128,7 +6141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1141896850
 Transform:
   m_ObjectHideFlags: 0
@@ -8018,7 +8031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1580402164
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8035,8 +8048,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -649, y: -87}
+  m_SizeDelta: {x: 616.8, y: 346.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1580402165
 MonoBehaviour:
@@ -8058,7 +8071,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: bed0d1ca14dee15449753a8ebceeb279, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

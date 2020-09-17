@@ -53,8 +53,8 @@ public class SelectDisplay : MonoBehaviour//選択肢を表示するスクリプ
     {
         for(int i = 0;i < Difficulty; i++)
         {
-            Debug.Log("選択肢漢字表示");
-            Debug.Log(Box[i]);
+            //Debug.Log("選択肢漢字表示");
+            //Debug.Log(Box[i]);
             Kanji[i].text = GetText.debris[number,i,0];
             Romaji[i].text = GetText.debris[number, i, 2];
         }
