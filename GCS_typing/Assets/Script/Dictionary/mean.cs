@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class mean : MonoBehaviour
 {
     public static int meanNumber;
@@ -23,6 +24,9 @@ public class mean : MonoBehaviour
         loadText1 = textAsset.text;
         splitText1 = loadText1.Split(char.Parse("\n"), char.Parse(" "));
         splitText2 = loadText1.Split(char.Parse(" "));
+
+        for(int i = 0;i < splitText1.Length;i++)
+            splitText1[i] = splitText1[i].Replace("/", "");
         g_text = g_text.GetComponent<GetText>();
     }
 
