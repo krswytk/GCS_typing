@@ -13,6 +13,10 @@ public class Text_choice : MonoBehaviour
     private TextAsset roma;
     [SerializeField]
     private GameObject prefab;
+    [SerializeField]
+    private GameObject prefab_maru;
+    [SerializeField]
+    private GameObject prefab_batu;
 
     string[] del = { "\r\n" };
     string[] del_ans = { "/" };
@@ -36,6 +40,8 @@ public class Text_choice : MonoBehaviour
     GameObject[] Robj2;
     GameObject[] Robj3;
     GameObject[] Robj4;
+
+    GameObject[,] marubatu = new GameObject[4,2];
 
     int level = 0;
     float text_x = 0;
@@ -168,7 +174,15 @@ public class Text_choice : MonoBehaviour
                         obj[i2].transform.parent = transform;
                         obj[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         obj[i2].GetComponent<Text>().text = str[i2];
-                    }else
+
+                        if (i2 == 0)
+                        {
+                            marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
+                            marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
+                        }
+
+                    }
+                    else
                     {
                         Robj[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         Robj[i2].transform.parent = transform;
@@ -218,6 +232,11 @@ public class Text_choice : MonoBehaviour
                         obj2[i2].transform.parent = transform;
                         obj2[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         obj2[i2].GetComponent<Text>().text = str2[i2];
+                        if (i2 == 0)
+                        {
+                            marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
+                            marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
+                        }
                     }
                     else
                     {
@@ -268,6 +287,11 @@ public class Text_choice : MonoBehaviour
                         obj3[i2].transform.parent = transform;
                         obj3[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         obj3[i2].GetComponent<Text>().text = str3[i2];
+                        if (i2 == 0)
+                        {
+                            marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
+                            marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
+                        }
                     }
                     else
                     {
@@ -318,6 +342,11 @@ public class Text_choice : MonoBehaviour
                         obj4[i2].transform.parent = transform;
                         obj4[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         obj4[i2].GetComponent<Text>().text = str4[i2];
+                        if (i2 == 0)
+                        {
+                            marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
+                            marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
+                        }
                     }
                     else
                     {
@@ -353,6 +382,11 @@ public class Text_choice : MonoBehaviour
             {
                 Destroy(Robj2[i]);
             }
+            for (int i = 0; i < 2; i++)
+            {
+                Destroy(marubatu[i, 0]);
+                Destroy(marubatu[i, 1]);
+            }
         }
         if (level > 1)
         {
@@ -365,6 +399,9 @@ public class Text_choice : MonoBehaviour
             {
                 Destroy(Robj3[i]);
             }
+
+            Destroy(marubatu[2, 0]);
+            Destroy(marubatu[2, 1]);
         }
         if (level > 2)
         {
@@ -377,6 +414,9 @@ public class Text_choice : MonoBehaviour
             {
                 Destroy(Robj4[i]);
             }
+
+            Destroy(marubatu[3, 0]);
+            Destroy(marubatu[3, 1]);
         }
     }
 
@@ -396,12 +436,14 @@ public class Text_choice : MonoBehaviour
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
+                marubatu[0, 0].SetActive(true);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
             {
                 Robj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
+                marubatu[0, 1].SetActive(true);
             }
         }
     }
@@ -422,12 +464,14 @@ public class Text_choice : MonoBehaviour
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
+                marubatu[1, 0].SetActive(true);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
             {
                 Robj2[count2].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
+                marubatu[1, 1].SetActive(true);
             }
         }
     }
@@ -448,12 +492,14 @@ public class Text_choice : MonoBehaviour
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
+                marubatu[2, 0].SetActive(true);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
             {
                 Robj3[count3].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
+                marubatu[2, 1].SetActive(true);
             }
         }
     }
@@ -474,12 +520,14 @@ public class Text_choice : MonoBehaviour
                 count2 = 0;
                 count3 = 0;
                 count4 = 0;
+                marubatu[3, 0].SetActive(true);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
             {
                 Robj4[count4].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
+                marubatu[3, 1].SetActive(true);
             }
         }
     }
