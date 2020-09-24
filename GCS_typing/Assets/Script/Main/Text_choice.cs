@@ -17,6 +17,8 @@ public class Text_choice : MonoBehaviour
     private GameObject prefab_maru;
     [SerializeField]
     private GameObject prefab_batu;
+    [SerializeField]
+    private GameObject choice_light;
 
     string[] del = { "\r\n" };
     string[] del_ans = { "/" };
@@ -54,6 +56,9 @@ public class Text_choice : MonoBehaviour
     int count3 = 0;
     int count4 = 0;
 
+
+    int choice_answer = 0;
+
     public int problem_num = 0;
     int clear_num = 0;
 
@@ -65,7 +70,7 @@ public class Text_choice : MonoBehaviour
     public CheckTestScript CheckTestScript;
     public OnRisult OnRisult;
 
-
+    Vector3[] light_position = new Vector3[4];
 
     // Start is called before the first frame update
     void Start()
@@ -87,26 +92,75 @@ public class Text_choice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("choice_answer:" + choice_answer);
 
-        if (NextSpace[0])/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if (Input.GetKey(KeyCode.Backspace))
+        {
+            choice_light.SetActive(false);
+            choice_answer = 0;
+            text_back();
+        }
+
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            if(choice_answer==0)
+            {
+                choice_light.SetActive(true);
+            }
+            choice_answer = 1;
+            choice_light.transform.position = light_position[0];
+            text_back();
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            if (choice_answer == 0)
+            {
+                choice_light.SetActive(true);
+            }
+            choice_answer = 2;
+            choice_light.transform.position = light_position[1];
+            text_back();
+        }
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            if (choice_answer == 0)
+            {
+                choice_light.SetActive(true);
+            }
+            choice_answer = 3;
+            choice_light.transform.position = light_position[2];
+            text_back();
+        }
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            if (choice_answer == 0)
+            {
+                choice_light.SetActive(true);
+            }
+            choice_answer = 4;
+            choice_light.transform.position = light_position[3];
+            text_back();
+        }
+
+        if ((NextSpace[0])&&(choice_answer==1))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update();
             NextSpace[0] = false;
         }
 
-        if (NextSpace[1])/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if (NextSpace[1] && (choice_answer == 2))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update2();
             NextSpace[1] = false;
         }
 
-        if (NextSpace[2])/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if (NextSpace[2] && (choice_answer == 3))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update3();
             NextSpace[2] = false;
         }
 
-        if (NextSpace[3])/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if (NextSpace[3] && (choice_answer == 4))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update4();
             NextSpace[3] = false;
@@ -177,6 +231,7 @@ public class Text_choice : MonoBehaviour
 
                         if (i2 == 0)
                         {
+                            light_position[0] = new Vector3(transform.position.x + level_text_x, transform.position.y - y,-10);
                             marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
                             marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
                         }
@@ -234,6 +289,7 @@ public class Text_choice : MonoBehaviour
                         obj2[i2].GetComponent<Text>().text = str2[i2];
                         if (i2 == 0)
                         {
+                            light_position[1] = new Vector3(transform.position.x + level_text_x, transform.position.y - y, -10);
                             marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
                             marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
                         }
@@ -289,6 +345,7 @@ public class Text_choice : MonoBehaviour
                         obj3[i2].GetComponent<Text>().text = str3[i2];
                         if (i2 == 0)
                         {
+                            light_position[2] = new Vector3(transform.position.x + level_text_x, transform.position.y - y, -10);
                             marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
                             marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
                         }
@@ -344,6 +401,7 @@ public class Text_choice : MonoBehaviour
                         obj4[i2].GetComponent<Text>().text = str4[i2];
                         if (i2 == 0)
                         {
+                            light_position[3] = new Vector3(transform.position.x + level_text_x, transform.position.y - y, -10);
                             marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
                             marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y), transform.rotation);
                         }
@@ -418,6 +476,34 @@ public class Text_choice : MonoBehaviour
             Destroy(marubatu[3, 0]);
             Destroy(marubatu[3, 1]);
         }
+    }
+
+    void text_back()
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Robj[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
+        }
+        for (int i = 0; i < count2; i++)
+        {
+            Robj2[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
+        }
+        for (int i = 0; i < count3; i++)
+        {
+            Robj3[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
+        }
+        for (int i = 0; i < count4; i++)
+        {
+            Robj4[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
+        }
+
+
+        count = 0;
+        count2 = 0;
+        count3 = 0;
+        count4 = 0;
+
+
     }
 
     void text_update()
