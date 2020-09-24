@@ -131,6 +131,17 @@ public class CheckTestScript : MonoBehaviour
             //別表記。し、つ、ふ、じ、しゃ、ちゃ、じゃ、ぃ
             switch (NowChars[n])
             {
+                case "ん":
+                    if (KeyNums[n]==0&&Input.inputString=="x")
+                    {
+                        text_choice.NextSpace[n] = true;
+                        NowKeys[n, 1] = "n";
+                        NowKeys[n, 2] = "おわり";
+                        KeyNums[n]++;
+                        PreKey = Input.inputString;
+                    }
+                    break;
+
                 case "つ":
                     if (KeyNums[n] == 1 && Input.inputString == "s")//tsu
                     {
@@ -232,8 +243,11 @@ public class CheckTestScript : MonoBehaviour
                         NowKeys[n, 2] = "o";
                     }
                     break;
-
+                case "ぁ":
                 case "ぃ":
+                case "ぅ":
+                case "ぇ":
+                case "ぉ":
                     if (KeyNums[n] == 0 && Input.inputString == "x")
                     {
                         text_choice.NextSpace[n] = true;
