@@ -16,7 +16,7 @@
 環境緊急事態 かんきょうきんきゅうじたい kankyoukinkyuuzitai
 緊急事態宣言 きんきゅうじたいせんげん kinkyuuzitaisengenn
 ラムサール条約 らむさーるじょうやく ramusa-ruzyouyaku
-非常事態宣言 ひじょうじたいせんげん hizyouzitaisengen
+非常事態宣言 ひじょうじたいせんげん hjouzitaisengen
 
 環境省 かんきょうしょう kankyousyou
 経済産業省 けいざいさんぎょうしょう keizaisangyousyou
