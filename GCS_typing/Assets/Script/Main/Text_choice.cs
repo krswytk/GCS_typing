@@ -502,8 +502,8 @@ public class Text_choice : MonoBehaviour
         count2 = 0;
         count3 = 0;
         count4 = 0;
-
-
+        //ここで読み直し
+        CheckTestScript.LoadText();
     }
 
     void text_update()
