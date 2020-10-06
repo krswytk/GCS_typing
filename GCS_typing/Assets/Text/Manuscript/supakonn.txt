@@ -25,8 +25,8 @@ TOP500 TOP500 TOP500
 京 けい kei
 垓 がい gai
 
-理化学研究所 りかがくけんきゅうじょ rikagakukenkyuujyo
-リコージャパン りこーじゃぱん riko-jyapann
+理化学研究所 りかがくけんきゅうじょ rikagakukenkyuujo
+リコージャパン りこーじゃぱん riko-japann
 
 人工知能 じんこうちのう jinkoutinou
 バーチャルリアリティー ばーちゃるりありてぃー ba-tyaruriaritexi-
