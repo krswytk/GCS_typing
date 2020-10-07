@@ -121,8 +121,25 @@ public class Text_choice : MonoBehaviour
             choice_answer = 0;
             text_back();
         }
-
+        /*
         if (Input.GetKey(KeyCode.Alpha1))
+        {
+            text_Button(0);
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            text_Button(1);
+        }
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            text_Button(2);
+        }
+        if (Input.GetKey(KeyCode.Alpha4))
+        {
+            text_Button(3);
+        }*/
+
+        if ((count == 0) && (count2 == 0) && (count3 == 0) && (count4 == 0) && (NextSpace[0]))
         {
             text_Button(0);
         }
