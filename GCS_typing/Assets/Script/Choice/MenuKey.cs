@@ -11,7 +11,7 @@ public class MenuKey : MonoBehaviour
     [SerializeField] GameObject LK;
     [SerializeField] GameObject SK;
 
-    private OnDictionary OnDictionary;
+    //private OnDictionary OnDictionary;
     private OnStart OnStart;
     private OnTitle OnTitle;
     private Onturn Rturn;
@@ -25,7 +25,7 @@ public class MenuKey : MonoBehaviour
         num = 1;
         CK();
 
-        OnDictionary = GameObject.Find("Dictionary").GetComponent<OnDictionary>();
+        //OnDictionary = GameObject.Find("Dictionary").GetComponent<OnDictionary>();
         OnStart = GameObject.Find("Start").GetComponent<OnStart>();
         OnTitle = GameObject.Find("ReTitle").GetComponent<OnTitle>();
         Rturn = GameObject.Find("RightRotation").GetComponent<Onturn>();
@@ -42,19 +42,19 @@ public class MenuKey : MonoBehaviour
                 case 1:
                     if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//左系のボタンが押された
                     {
-                        num = 2;
+                        num = 4;
                     }
                     if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//右系のボタンが押された
                     {
-                        num = 2;
+                        num = 3;
                     }
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
                     {
-                        num = 5;
+                        num = 1;
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
-                        num = 4;
+                        num = 5;
                     }
                     break;
                 case 2:
@@ -72,7 +72,7 @@ public class MenuKey : MonoBehaviour
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
-                        num = 3;
+                        num = 5;
                     }
                     break;
                 case 3:
@@ -82,11 +82,12 @@ public class MenuKey : MonoBehaviour
                     }
                     if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//右系のボタンが押された
                     {
-                        num = 4;
+                        num = 3;
+                        Rturn.OnRight();
                     }
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
                     {
-                        num = 2;
+                        num = 1;
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
@@ -96,7 +97,9 @@ public class MenuKey : MonoBehaviour
                 case 4:
                     if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//左系のボタンが押された
                     {
-                        num = 3;
+                        num = 4;
+                        Debug.Log("444");
+                        Lturn.OnLeft();
                     }
                     if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//右系のボタンが押された
                     {
@@ -122,11 +125,11 @@ public class MenuKey : MonoBehaviour
                     }
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
                     {
-                        num = 4;
+                        num = 1;
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
-                        num = 1;
+                        num = 5;
                     }
                     break;
                 default:
@@ -142,7 +145,7 @@ public class MenuKey : MonoBehaviour
                         OnTitle.OnStart();
                         break;
                     case 2:
-                        OnDictionary.OnDictionarys();
+                        //OnDictionary.OnDictionarys();
                         break;
                     case 3:
                         Rturn.OnRight();
@@ -162,7 +165,7 @@ public class MenuKey : MonoBehaviour
         CK();
     }
         
-    void CK()
+    public void CK()
     {
         TK.SetActive(false);
         DK.SetActive(false);
