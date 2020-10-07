@@ -71,6 +71,7 @@ public class Text_choice : MonoBehaviour
     int clear_num = 0;
 
     public bool[] NextSpace;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
+    bool[] Ans_sw;
 
     public GetText GetText;
     public main_text main_text;
@@ -85,9 +86,11 @@ public class Text_choice : MonoBehaviour
     void Start()
     {
         NextSpace = new bool[4];
+        Ans_sw = new bool[4];
         for (int i = 0; i < NextSpace.Length; i++)
         {
             NextSpace[i] = false;
+            Ans_sw[i] = false;
         }
         //[問題番号0-9  ,  回答0-3  ,  0に単語 1にひらがな　2にローマ字]
         //Debug.Log(GetText.debris.GetLength(1));
@@ -139,24 +142,26 @@ public class Text_choice : MonoBehaviour
             text_Button(3);
         }*/
 
-        if ((count == 0) && (count2 == 0) && (count3 == 0) && (count4 == 0) && (NextSpace[0]))
+        Debug.Log(choice_answer);
+
+        if ((choice_answer == 0) && (NextSpace[0]) && (Ans_sw[0]==false))
         {
             text_Button(0);
         }
-        if (Input.GetKey(KeyCode.Alpha2))
+        if ((choice_answer == 0) && (NextSpace[1]) && (Ans_sw[1] == false))
         {
             text_Button(1);
         }
-        if (Input.GetKey(KeyCode.Alpha3))
+        if ((choice_answer == 0) && (NextSpace[2]) && (Ans_sw[2] == false))
         {
             text_Button(2);
         }
-        if (Input.GetKey(KeyCode.Alpha4))
+        if ((choice_answer == 0) && (NextSpace[3]) && (Ans_sw[3] == false))
         {
             text_Button(3);
         }
 
-        if ((NextSpace[0])&&(choice_answer==1))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
+        if (NextSpace[0] && (choice_answer == 1))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
             text_update();
             NextSpace[0] = false;
@@ -504,7 +509,7 @@ public class Text_choice : MonoBehaviour
 
     public void text_Button(int num)
     {
-        if(num <= level)
+        if (num <= level)
         {
             if (choice_answer == 0)
             {
@@ -512,29 +517,70 @@ public class Text_choice : MonoBehaviour
             }
             choice_answer = num + 1;
             choice_light.transform.position = light_position[num];
-            text_back();
+            //text_back();
         }
     }
 
     void text_back()
     {
-        for (int i = 0; i < count; i++)
+        if(Ans_sw[0] == false)
         {
-            Robj[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
-        }
-        for (int i = 0; i < count2; i++)
+            for (int i = 0; i < Robj.Length; i++)
+            {
+                Robj[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
+            }
+        }else
         {
-            Robj2[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
-        }
-        for (int i = 0; i < count3; i++)
-        {
-            Robj3[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
-        }
-        for (int i = 0; i < count4; i++)
-        {
-            Robj4[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
+            for (int i = 0; i < Robj.Length; i++)
+            {
+                Robj[i].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+            }
         }
 
+        if (Ans_sw[1] == false)
+        {
+            for (int i = 0; i < Robj2.Length; i++)
+            {
+                Robj2[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < Robj2.Length; i++)
+            {
+                Robj2[i].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+            }
+        }
+
+        if (Ans_sw[2] == false)
+        {
+            for (int i = 0; i < Robj3.Length; i++)
+            {
+                Robj3[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < Robj3.Length; i++)
+            {
+                Robj3[i].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+            }
+        }
+
+        if (Ans_sw[3] == false)
+        {
+            for (int i = 0; i < Robj4.Length; i++)
+            {
+                Robj4[i].GetComponent<Text>().color = new Color(1, 0, 0, 1);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < Robj4.Length; i++)
+            {
+                Robj4[i].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
+            }
+        }
 
         count = 0;
         count2 = 0;
@@ -568,6 +614,10 @@ public class Text_choice : MonoBehaviour
                 Robj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[0, 1].SetActive(true);
+                choice_light.SetActive(false);
+                choice_answer  = 0;
+                Ans_sw[0] = true;
+                text_back();
             }
         }
     }
@@ -596,6 +646,10 @@ public class Text_choice : MonoBehaviour
                 Robj2[count2].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[1, 1].SetActive(true);
+                choice_light.SetActive(false);
+                choice_answer = 0;
+                Ans_sw[1] = true;
+                text_back();
             }
         }
     }
@@ -624,6 +678,10 @@ public class Text_choice : MonoBehaviour
                 Robj3[count3].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[2, 1].SetActive(true);
+                choice_light.SetActive(false);
+                choice_answer = 0;
+                Ans_sw[2] = true;
+                text_back();
             }
         }
     }
@@ -652,6 +710,10 @@ public class Text_choice : MonoBehaviour
                 Robj4[count4].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[3, 1].SetActive(true);
+                choice_light.SetActive(false);
+                choice_answer = 0;
+                Ans_sw[3] = true;
+                text_back();
             }
         }
     }
