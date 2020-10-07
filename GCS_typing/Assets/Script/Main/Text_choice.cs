@@ -607,6 +607,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[0, 0].SetActive(true);
+                main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -639,6 +640,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[1, 0].SetActive(true);
+                main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -671,6 +673,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[2, 0].SetActive(true);
+                main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -703,6 +706,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[3, 0].SetActive(true);
+                main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else

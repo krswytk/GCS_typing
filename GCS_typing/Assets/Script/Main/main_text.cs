@@ -39,4 +39,17 @@ public class main_text : MonoBehaviour
         text.text = text_main;
         text_main = text_main.Remove(0, text_main.Length);
     }
+
+    public void text_change_after()
+    {
+        string[] ans = GetText.text[Text_choice.problem_num].Split(del_ans, StringSplitOptions.None);
+        ans[1] = "<color=#ff0000ff>"+ ans[1] + "</color>";
+        for (int i = 0; i < 3; i++)
+        {
+            text_main = String.Concat(text_main, ans[i]);
+        }
+        Debug.Log(text_main);
+        text.text = text_main;
+        text_main = text_main.Remove(0, text_main.Length);
+    }
 }
