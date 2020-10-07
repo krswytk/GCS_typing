@@ -761,102 +761,127 @@ public class CheckTestScript : MonoBehaviour
                 NowKeys[n, 1] = "おわり";
                 break;
             case "B":
+            case "b":
                 NowKeys[n, 0] = "b";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "C":
+            case "c":
                 NowKeys[n, 0] = "c";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "D":
+            case "d":
                 NowKeys[n, 0] = "d";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "E":
+            case "e":
                 NowKeys[n, 0] = "e";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "F":
+            case "f":
                 NowKeys[n, 0] = "f";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "G":
+            case "g":
                 NowKeys[n, 0] = "g";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "H":
+            case "h":
                 NowKeys[n, 0] = "h";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "I":
+            case "i":
                 NowKeys[n, 0] = "i";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "J":
+            case "j":
                 NowKeys[n, 0] = "j";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "K":
+            case "k":
                 NowKeys[n, 0] = "k";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "L":
+            case "l":
                 NowKeys[n, 0] = "l";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "M":
+            case "m":
                 NowKeys[n, 0] = "m";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "N":
+            case "n":
                 NowKeys[n, 0] = "n";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "O":
+            case "o":
                 NowKeys[n, 0] = "o";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "P":
+            case "p":
                 NowKeys[n, 0] = "p";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "Q":
+            case "q":
                 NowKeys[n, 0] = "q";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "R":
+            case "r":
                 NowKeys[n, 0] = "r";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "S":
+            case "s":
                 NowKeys[n, 0] = "s";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "T":
+            case "t":
                 NowKeys[n, 0] = "t";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "U":
+            case "u":
                 NowKeys[n, 0] = "u";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "V":
+            case "v":
                 NowKeys[n, 0] = "v";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "W":
+            case "w":
                 NowKeys[n, 0] = "w";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "X":
+            case "x":
                 NowKeys[n, 0] = "x";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "Y":
+            case "y":
                 NowKeys[n, 0] = "y";
                 NowKeys[n, 1] = "おわり";
                 break;
             case "Z":
+            case "z":
                 NowKeys[n, 0] = "z";
                 NowKeys[n, 1] = "おわり";
                 break;
