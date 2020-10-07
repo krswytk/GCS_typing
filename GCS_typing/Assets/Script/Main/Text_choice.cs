@@ -567,6 +567,7 @@ public class Text_choice : MonoBehaviour
             }
         }
 
+        /*
         if (Ans_sw[3] == false)
         {
             for (int i = 0; i < Robj4.Length; i++)
@@ -580,13 +581,17 @@ public class Text_choice : MonoBehaviour
             {
                 Robj4[i].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
             }
-        }
+        }*/
 
         count = 0;
         count2 = 0;
         count3 = 0;
         count4 = 0;
         //ここで読み直し
+        for (int i = 0; i < NextSpace.Length; i++)
+        {
+            NextSpace[i] = false;
+        }
         CheckTestScript.LoadText();
     }
 
