@@ -724,11 +724,17 @@ public class Text_choice : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         text_Destroy();
         problem_num++;
+        choice_light.SetActive(false);
+        choice_answer = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            Ans_sw[i] = false;
+        }
         if (clear_num <= problem_num)
         {
             Debug.Log("クリア判定");
             //OnRisult.flag = true;
-            SceneManager.LoadScene("Result");
+            SceneManager.LoadScene("Choice");
         }
         answer_check();
         main_text.text_change();

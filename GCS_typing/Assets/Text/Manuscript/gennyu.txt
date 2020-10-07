@@ -16,7 +16,7 @@
 環境緊急事態 かんきょうきんきゅうじたい kankyoukinkyuuzitai
 緊急事態宣言 きんきゅうじたいせんげん kinkyuuzitaisengenn
 ラムサール条約 らむさーるじょうやく ramusa-rujouyaku
-非常事態宣言 ひじょうじたいせんげん hjouzitaisengen
+非常事態宣言 ひじょうじたいせんげん hijouzitaisengen
 
 環境省 かんきょうしょう kankyousyou
 経済産業省 けいざいさんぎょうしょう keizaisangyousyou
@@ -36,7 +36,7 @@ AU AU AU
 ラムサール条約 らむさーるじょうやく ramusa-rujouyaku
 ポツダム宣言 ポツダム宣言 putudamusengenn
 パリ協定 ぱりきょうてい parikyoutei
-メルセン条約 めるせんじょうやく merusenzyouyaku
+メルセン条約 めるせんじょうやく merusenjouyaku
 
 ブルーエコノミー ぶるーえこのみー buru-ekonomi-
 GoToトラベル GoToとらべる GoTotoraberu
