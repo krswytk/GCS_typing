@@ -22,7 +22,7 @@ public class MenuKey : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        num = 1;
+        num = 0;
         CK();
 
         //OnDictionary = GameObject.Find("Dictionary").GetComponent<OnDictionary>();
@@ -39,6 +39,24 @@ public class MenuKey : MonoBehaviour
         {
             switch (num)
             {
+                case 0:
+                    if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//左系のボタンが押された
+                    {
+                        num = 4;
+                    }
+                    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//右系のボタンが押された
+                    {
+                        num = 3;
+                    }
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
+                    {
+                        num = 1;
+                    }
+                    if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
+                    {
+                        num = 5;
+                    }
+                    break;
                 case 1:
                     if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//左系のボタンが押された
                     {
@@ -98,7 +116,6 @@ public class MenuKey : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//左系のボタンが押された
                     {
                         num = 4;
-                        Debug.Log("444");
                         Lturn.OnLeft();
                     }
                     if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//右系のボタンが押された
@@ -141,6 +158,8 @@ public class MenuKey : MonoBehaviour
             {
                 switch (num)
                 {
+                    case 0:
+                        break;
                     case 1:
                         OnTitle.OnStart();
                         break;
@@ -175,6 +194,8 @@ public class MenuKey : MonoBehaviour
 
         switch (num)
         {
+            case 0:
+                break;
             case 1:
                 TK.SetActive(true);
                 break;
