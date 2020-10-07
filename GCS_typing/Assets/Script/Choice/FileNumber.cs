@@ -241,7 +241,7 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             }
             //Debug.Log(h);
             D[i] = new Dictionary(t, k, h);
-            Debug.Log(D[i].GetWord() + " i = " + i);
+            //Debug.Log(D[i].GetWord() + " i = " + i);
         }
 
     }
