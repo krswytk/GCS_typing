@@ -56,14 +56,23 @@ public class KeyDown : MonoBehaviour
     public GameObject Slash;
     public GameObject Underscore;
 
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.anyKeyDown && !Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetMouseButton(2))
+        {
+            audioSource.PlayOneShot(sound1);
+        }
+
+
         //////////////////////////////////////////////////////////////////////////
         if (Input.GetKey(KeyCode.A))
         {

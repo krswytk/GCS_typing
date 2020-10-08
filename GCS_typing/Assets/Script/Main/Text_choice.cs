@@ -82,9 +82,13 @@ public class Text_choice : MonoBehaviour
     Vector3[] light_position = new Vector3[4];// ライトの位置
     Vector3[] choice_position = new Vector3[4];// 問題の位置
 
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         NextSpace = new bool[4];
         Ans_sw = new bool[4];
         for (int i = 0; i < NextSpace.Length; i++)
@@ -202,6 +206,7 @@ public class Text_choice : MonoBehaviour
 
     void text_Generate(string Text,float y,bool sw,float width, int problem_num)//Text　読み込むテキスト,y　y座標,sw　ローマ字かどうか,width 文字幅
     {
+        audioSource.PlayOneShot(sound1);
         choice_answer = 0;
         choice_light.SetActive(false);
         for (int i = 0; i < level+1; i++)
