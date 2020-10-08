@@ -2,43 +2,53 @@
 
 1
 
-2020年7月5日、/東京都知事選挙/が行われました。
-今回の/投票率/は前回を下回る55パーセントでした。
-/現職/の小池百合子氏が圧倒的大差で再選しました。
-今回の選挙ではウィズコロナを意識した/選挙活動/が行われました。
-twitter上では一部の/政見放送/が話題になりました。
-ポスター問題について/選挙管理委員会/に問い合わせが相次ぎました。
-/公職選挙法/の解釈と実情の乖離が浮き彫りになりました。
-SNS上では俗に言う「/零票確認/ガチ勢」が話題になりました。
-選挙のなかで個性的な制作を掲げる/候補者/が出馬していました。
-一部の政治団体による/選挙ポスター/が世の物議を醸しています。
+2020年7月5日、/東京都知事選挙/が行われました
+今回の/投票率/は前回を下回る55パーセントでした
+/現職/の小池百合子氏が圧倒的大差で再選しました
+今回はウィズコロナを意識した/選挙活動/が行われました
+twitter上では一部の/政見放送/が話題になりました
+ポスター問題で/選挙管理委員会/に抗議が相次ぎました
+/公職選挙法/の解釈と実情の乖離が浮き彫りになりました
+SNS上で俗に言う「/零票確認/ガチ勢」が話題になりました
+期間中で個性的な政策を掲げる/候補者/が出馬していました
+一部の団体による/選挙ポスター/が世の物議を醸しています
 
 東京都知事選挙 とうきょうとちじせんきょ toukyoutotijisenkyo
 衆議院議員選挙 しゅうぎいんぎいんせんきょ syuugiingiinsenkyo
+解散総選挙 かいさんそうせんきょ kaisansousenkyo
 
 投票率 とうひょうりつ touhyouritu
-得票率 とくひょうりつ tokuhyouritu
+支持率 しじりつ siziritu
+稼働率 かどうりつ kadouritu
 
 現職 げんしょく gensyoku
 前職 ぜんしょく zensyoku
+本職 ほんしょく honsyoku
 
 選挙活動 せんきょかつどう senkyokatudou
 駅前演説 えきまええんぜつ ekimaeenzetu
+広報配布 こうほうはいふ kouhouhaihu
 
 政見放送 せいけんほうそう seikenhousou
 記者会見 きしゃかいけん kisyakaikenn
+お気持ち表明 おきもちひょうめい okimotihyoumei
 
 選挙管理委員会 せんきょかんりいいんかい senkyokanriiinkai
-選挙監視委員会 せんきょかんしいいんかい senkyokansiiinkai
+公正選挙委員会 こうせいせんきょいいんかい kouseisenkyoiinkai
+投票公正委員会 とうひょうこうせいいいんかい touhyoukouseiiinkai
 
 公職選挙法 こうしょくせんきょほう kousyokusenkyohou
 選挙公正法 せんきょこうせいほう senkyokouseihou
+運営適正法 うんえいてきせいほう unneikouseihou
 
 零票確認 ぜろひょうかくにん zerohyoukakunin
 朝一参加 あさいちさんか asaitisanka
+最速投票 さいそくとうひょう saisokutouhyou
 
 候補者 こうほしゃ kouhosya
 参加者 さんかしゃ sankasya
+被投票者 ひとうひょうしゃ hitouhyousya
 
 選挙ポスター せんきょぽすたー senkyoposuta-
 広報用紙 こうほうようし kouhouyousi
+壁面公示用紙 へきめんこうじようし hekimenkoujiyousi
