@@ -12,6 +12,10 @@ public class Menekey : MonoBehaviour
 
     private int num;//現在のキーの場所 1S 2K
 
+    [SerializeField] AudioClip select;
+    [SerializeField] AudioClip enter;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,8 @@ public class Menekey : MonoBehaviour
         CK();
         titlestart = GameObject.Find("EventSystem").GetComponent<titlestart>();
         //OnDictionary = GameObject.Find("Dictionary").GetComponent<OnDictionary>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,59 +37,59 @@ public class Menekey : MonoBehaviour
                 case 0:
                     if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//左系のボタンが押された
                     {
-                        num = 1;
+                        num = 1; audioSource.PlayOneShot(select);
                     }
                     if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//右系のボタンが押された
                     {
-                        num = 1;
+                        num = 1; audioSource.PlayOneShot(select);
                     }
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.C))//上系のボタンが押された
                     {
-                        num = 2;
+                        num = 2; audioSource.PlayOneShot(select);
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
-                        num = 1;
+                        num = 1; audioSource.PlayOneShot(select);
                     }
                     break;
                 case 1:
                     if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//左系のボタンが押された
                     {
                         num = 1;
-                        titlestart.OnClickStartButton();
+                        titlestart.OnClickStartButton(); audioSource.PlayOneShot(enter);
                     }
                     if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//右系のボタンが押された
                     {
                         num = 1;
-                        titlestart.OnClickStartButton();
+                        titlestart.OnClickStartButton(); audioSource.PlayOneShot(enter);
                     }
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.C))//上系のボタンが押された
                     {
-                        num = 2;
+                        num = 2; audioSource.PlayOneShot(select);
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
                         num = 1;
-                        titlestart.OnClickStartButton();
+                        titlestart.OnClickStartButton(); audioSource.PlayOneShot(enter);
                     }
                     break;
                 case 2:
                     if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//左系のボタンが押された
                     {
-                        num = 1;
+                        num = 1; audioSource.PlayOneShot(select);
                     }
                     if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//右系のボタンが押された
                     {
-                        num = 1;
+                        num = 1; audioSource.PlayOneShot(select);
                     }
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.C))//上系のボタンが押された
                     {
                         num = 2;
-                        titlestart.Credit();
+                        titlestart.Credit(); audioSource.PlayOneShot(enter);
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
-                        num = 1;
+                        num = 1; audioSource.PlayOneShot(select);
                     }
                     break;
                
