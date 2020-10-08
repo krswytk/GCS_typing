@@ -15,7 +15,7 @@
 
 環境緊急事態 かんきょうきんきゅうじたい kankyoukinkyuuzitai
 ラムサール条約 らむさーるじょうやく ramusa-rujouyaku
-非常事態宣言 ひじょうじたいせんげん hijouzitaisengen
+非常事態宣言 ひじょうじたいせんげん hijouzitaisengenn
 
 環境省 かんきょうしょう kankyousyou
 防衛庁 ぼうえいちょう boueityou
@@ -23,7 +23,7 @@
 
 JICA JICA JICA
 WHO WHO WHO
-WPO WPO WPO
+世界保健機関 せかいほけんきかん sekaihokenkikann
 
 ホットスポット ほっとすぽっと hottosupotto
 クールスポット くーるすぽっと ku-rusupotto
