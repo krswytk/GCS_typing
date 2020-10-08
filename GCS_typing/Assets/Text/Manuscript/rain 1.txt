@@ -1,6 +1,6 @@
 豪雨・台風問題
 
-3
+2
 
 複数箇所で河川の/氾濫/が発生し、避難を強いられました
 豪雨の影響で88棟の住宅に/浸水/被害がありました
@@ -18,7 +18,7 @@
 冠水 かんすい kansui
 
 浸水 しんすい sinsui
-陥没 かんぼつ kanbotu
+溢水 いっすい issui
 洪水 こうずい kouzui
 
 ゲリラ豪雨 げりらごうう geriragouu
@@ -33,20 +33,20 @@
 温暖前線 おんだんぜんせん ondanzensenn
 積乱雲 せきらうん sekiraunn
 
-避難情報 ひなんじょうほう hinanjyouhou
+避難情報 ひなんじょうほう hinanjouhou
 早期注意報 そうきちゅういほう soukityuuihou
 大雨特別警報 おおあめとくべつけいほう ooametokubetukeihou
 
 土砂崩れ どしゃくずれ dosyakuzure
 停電 ていでん teiden
-液状化 えきじょうか ekijyouka
+液状化 えきじょうか ekijouka
 
 防災行動 ぼうさいこうどう bousaikoudou
 避難指示 ひなんしじ hinansiji
-予防準備 よぼうじゅんび yoboujyunbi
+予防準備 よぼうじゅんび yoboujunbi
 
 指示 しじ siji
-準備 じゅんび jyunbi
+準備 じゅんび junbi
 命令 めいれい meirei
 
 高潮警報 たかしおけいほう takasiokeihou
