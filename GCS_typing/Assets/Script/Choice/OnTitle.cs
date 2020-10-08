@@ -14,7 +14,7 @@ public class OnTitle : MonoBehaviour
     public void OnStart()
     {
         audioSource.PlayOneShot(sound1);
-        SceneManager.LoadScene("Start");
+        feadSC.fade("Start");
     }
 
 }
