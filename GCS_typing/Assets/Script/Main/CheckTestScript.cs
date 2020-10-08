@@ -1058,6 +1058,7 @@ public class CheckTestScript : MonoBehaviour
             }
             if (NowChars[n] == "じ")//クソコードja
             {
+                NowKeys[n, 0] = "j";
                 switch (NextChars[n]) {
                     case "ゃ":
                         NowKeys[n, 1] = "a";
