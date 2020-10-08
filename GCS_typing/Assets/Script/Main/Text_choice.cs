@@ -120,7 +120,7 @@ public class Text_choice : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Backspace))
         {
-            choice_light.SetActive(false);
+            //choice_light.SetActive(false);
             choice_answer = 0;
             text_back();
         }
@@ -142,7 +142,7 @@ public class Text_choice : MonoBehaviour
             text_Button(3);
         }*/
 
-        Debug.Log(choice_answer);
+        //Debug.Log(choice_answer);
 
         if ((choice_answer == 0) && (NextSpace[0]) && (Ans_sw[0]==false))
         {
@@ -513,10 +513,10 @@ public class Text_choice : MonoBehaviour
         {
             if (choice_answer == 0)
             {
-                choice_light.SetActive(true);
+                //choice_light.SetActive(true);
             }
             choice_answer = num + 1;
-            choice_light.transform.position = light_position[num];
+            //choice_light.transform.position = light_position[num];
             //text_back();
         }
     }
@@ -620,7 +620,7 @@ public class Text_choice : MonoBehaviour
                 Robj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[0, 1].SetActive(true);
-                choice_light.SetActive(false);
+                //choice_light.SetActive(false);
                 choice_answer  = 0;
                 Ans_sw[0] = true;
                 text_back();
@@ -653,7 +653,7 @@ public class Text_choice : MonoBehaviour
                 Robj2[count2].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[1, 1].SetActive(true);
-                choice_light.SetActive(false);
+                //choice_light.SetActive(false);
                 choice_answer = 0;
                 Ans_sw[1] = true;
                 text_back();
@@ -686,7 +686,7 @@ public class Text_choice : MonoBehaviour
                 Robj3[count3].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[2, 1].SetActive(true);
-                choice_light.SetActive(false);
+                //choice_light.SetActive(false);
                 choice_answer = 0;
                 Ans_sw[2] = true;
                 text_back();
@@ -719,7 +719,7 @@ public class Text_choice : MonoBehaviour
                 Robj4[count4].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[3, 1].SetActive(true);
-                choice_light.SetActive(false);
+                //choice_light.SetActive(false);
                 choice_answer = 0;
                 Ans_sw[3] = true;
                 text_back();
@@ -733,7 +733,7 @@ public class Text_choice : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         text_Destroy();
         problem_num++;
-        choice_light.SetActive(false);
+        //choice_light.SetActive(false);
         choice_answer = 0;
         for (int i = 0; i < 4; i++)
         {
