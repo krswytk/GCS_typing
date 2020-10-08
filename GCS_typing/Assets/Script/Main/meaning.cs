@@ -58,7 +58,7 @@ public class meaning : MonoBehaviour
             if (GetText.word[i] == ans)
             {
                 //Text_title.text = meaning_word[i, 0];
-                Text.text = meaning_word[i, 2];
+                Text.text = GetText.meaning[i];
                 Debug.Log("テキスト変形");
                 //Text.text = "てすと";
             }
