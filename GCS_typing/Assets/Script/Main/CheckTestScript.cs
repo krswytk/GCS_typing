@@ -106,7 +106,7 @@ public class CheckTestScript : MonoBehaviour
         {
             if (Input.inputString == "y" && NowChars[n] == "じ" && (NextChars[n] == "ゃ" || NextChars[n] == "ゅ" || NextChars[n] == "ょ"))//じゃとか
             {//「じ」であり、「ゃゅょ」であり、yが打たれたら内部だけ更新
-                //Debug.Log("じゃとかの判定はここ");
+                Debug.Log("じゃとかの判定はここ");
                 text_choice.NextSpace[n] = true;
                 KeyNums[n]++;
                 PreKey = Input.inputString;
@@ -190,7 +190,8 @@ public class CheckTestScript : MonoBehaviour
                 case "じ"://z判定に変更する
                     if (KeyNums[n] == 0 && Input.inputString == "z")//ji,jyaとかも先頭だけだからおｋ？
                     {
-                        
+                        Debug.Log("じがzで打たれた");
+                        Debug.Log("次の想定キー："+NowKeys[n,KeyNums[n]+1]);
                         text_choice.NextSpace[n] = true;
                         KeyNums[n]++;
                         PreKey = Input.inputString;
@@ -478,7 +479,7 @@ public class CheckTestScript : MonoBehaviour
                 NowKeys[n, 2] = "おわり";
                 break;
             case "じ":
-                NowKeys[n, 0] = "j";
+                NowKeys[n, 0] = "z";
                 NowKeys[n, 1] = "i";
                 NowKeys[n, 2] = "おわり";
                 break;
@@ -1123,7 +1124,7 @@ public class CheckTestScript : MonoBehaviour
         Debug.Log("デバッグ開始");
         for (int i=0;i< GetText.debris.GetLength(1); i++)
         {
-            Debug.Log(0+"つ目の正解キー："+NowKeys[i,KeyNums[i]]);
+            Debug.Log(i+"つ目の正解キー："+NowKeys[i,KeyNums[i]]);
         }
         Debug.Log("デバッグ終了");
     }
