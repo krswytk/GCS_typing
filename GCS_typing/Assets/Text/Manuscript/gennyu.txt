@@ -39,7 +39,7 @@ WHO WHO WHO
 
 焼き畑 やきはた yakihata
 自然農法 しぜんのうほう sizennnouhou
-循環型農業 じゅんかんがたのうぎょう zyunkangatanougyou
+循環型農業 じゅんかんがたのうぎょう junkangatanougyou
 
 環境賞 かんきょうしょう kankyousyou
 生物賞 せいぶつしょう seibutusyou
