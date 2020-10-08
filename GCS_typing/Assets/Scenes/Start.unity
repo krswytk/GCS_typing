@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SK: {fileID: 2022327646}
-  CK: {fileID: 439406708}
+  KK: {fileID: 439406708}
 --- !u!1 &1625342769
 GameObject:
   m_ObjectHideFlags: 0
