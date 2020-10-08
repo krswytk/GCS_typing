@@ -83,6 +83,8 @@ public class Text_choice : MonoBehaviour
     Vector3[] choice_position = new Vector3[4];// 問題の位置
 
     public AudioClip sound1;
+    public AudioClip maru;
+    public AudioClip batu;
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -206,6 +208,7 @@ public class Text_choice : MonoBehaviour
 
     void text_Generate(string Text,float y,bool sw,float width, int problem_num)//Text　読み込むテキスト,y　y座標,sw　ローマ字かどうか,width 文字幅
     {
+        audioSource.volume = 0.2f;
         audioSource.PlayOneShot(sound1);
         choice_answer = 0;
         choice_light.SetActive(false);
@@ -609,6 +612,7 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
+            audioSource.volume = 1.0f;
             if (Answer == 0)
             {
                 Robj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
@@ -617,6 +621,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[0, 0].SetActive(true);
+                audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
@@ -625,6 +630,7 @@ public class Text_choice : MonoBehaviour
                 Robj[count].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[0, 1].SetActive(true);
+                audioSource.PlayOneShot(batu);
                 //choice_light.SetActive(false);
                 choice_answer  = 0;
                 Ans_sw[0] = true;
@@ -642,6 +648,7 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
+            audioSource.volume = 1.0f;
             if (Answer == 1)
             {
                 Robj2[count2].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
@@ -650,6 +657,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[1, 0].SetActive(true);
+                audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
@@ -658,6 +666,7 @@ public class Text_choice : MonoBehaviour
                 Robj2[count2].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[1, 1].SetActive(true);
+                audioSource.PlayOneShot(batu);
                 //choice_light.SetActive(false);
                 choice_answer = 0;
                 Ans_sw[1] = true;
@@ -675,6 +684,7 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
+            audioSource.volume = 1.0f;
             if (Answer == 2)
             {
                 Robj3[count3].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
@@ -683,6 +693,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[2, 0].SetActive(true);
+                audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
@@ -691,6 +702,7 @@ public class Text_choice : MonoBehaviour
                 Robj3[count3].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[2, 1].SetActive(true);
+                audioSource.PlayOneShot(batu);
                 //choice_light.SetActive(false);
                 choice_answer = 0;
                 Ans_sw[2] = true;
@@ -708,6 +720,7 @@ public class Text_choice : MonoBehaviour
         }
         else
         {
+            audioSource.volume = 1.0f;
             if (Answer == 3)
             {
                 Robj4[count4].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
@@ -716,6 +729,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[3, 0].SetActive(true);
+                audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
@@ -724,6 +738,7 @@ public class Text_choice : MonoBehaviour
                 Robj4[count4].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
                 Debug.Log("不正解");
                 marubatu[3, 1].SetActive(true);
+                audioSource.PlayOneShot(batu);
                 //choice_light.SetActive(false);
                 choice_answer = 0;
                 Ans_sw[3] = true;

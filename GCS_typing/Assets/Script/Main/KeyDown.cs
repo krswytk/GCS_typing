@@ -57,7 +57,11 @@ public class KeyDown : MonoBehaviour
     public GameObject Underscore;
 
     public AudioClip sound1;
+    public AudioClip sound2;
+    public AudioClip sound3;
     AudioSource audioSource;
+
+    int sound_sw = 0;
 
     void Start()
     {
@@ -69,7 +73,26 @@ public class KeyDown : MonoBehaviour
     {
         if (Input.anyKeyDown && !Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetMouseButton(2))
         {
-            audioSource.PlayOneShot(sound1);
+            if (sound_sw == 0)
+            {
+                audioSource.PlayOneShot(sound1);
+                sound_sw = 1;
+            }
+            else
+            {
+                if (sound_sw == 1)
+                {
+                    audioSource.PlayOneShot(sound2);
+                    sound_sw = 2;
+                }else
+                {
+                    if (sound_sw == 2)
+                    {
+                        audioSource.PlayOneShot(sound3);
+                        sound_sw = 0;
+                    }
+                }
+            }
         }
 
 
