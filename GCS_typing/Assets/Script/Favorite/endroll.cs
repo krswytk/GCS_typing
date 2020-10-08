@@ -35,6 +35,11 @@ public class endroll : MonoBehaviour
                 rolend = true;
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Start");
+        }
     }
     IEnumerator Gotitle(){//タイトルへの移行に使うよ
         yield return new WaitForSeconds(2f);

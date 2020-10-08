@@ -472,6 +472,7 @@ public class Dictionary
             if (M[lp] == '/')
             {
                 this.meanings += "\r\n";
+                //Debug.LogError("すらっしゅはっけんーーー！！");
             }
             if (M[lp] != ' ' && M[lp] != '　' && M[lp] != '/')
             {
@@ -479,6 +480,8 @@ public class Dictionary
                 this.meanings += M[lp];
             }
         }
+        //Debug.Log(meaning);
+        //Debug.Log(meanings);
     }
 
 }

@@ -5,18 +5,18 @@ using UnityEngine;
 public class Menekey : MonoBehaviour
 {
     [SerializeField] GameObject SK;
-    [SerializeField] GameObject CK;
+    [SerializeField] GameObject KK;
 
     //private OnDictionary OnDictionary;
     private titlestart titlestart;
 
-    private int num;//現在のキーの場所 1T 2D 3R 4L 5S
+    private int num;//現在のキーの場所 1S 2K
 
     // Start is called before the first frame update
     void Start()
     {
         num = 0;
-        CcK();
+        CK();
         titlestart = GameObject.Find("EventSystem").GetComponent<titlestart>();
         //OnDictionary = GameObject.Find("Dictionary").GetComponent<OnDictionary>();
     }
@@ -37,7 +37,7 @@ public class Menekey : MonoBehaviour
                     {
                         num = 1;
                     }
-                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.C))//上系のボタンが押された
                     {
                         num = 2;
                     }
@@ -50,18 +50,21 @@ public class Menekey : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))//左系のボタンが押された
                     {
                         num = 1;
+                        titlestart.OnClickStartButton();
                     }
                     if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))//右系のボタンが押された
                     {
                         num = 1;
+                        titlestart.OnClickStartButton();
                     }
-                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.C))//上系のボタンが押された
                     {
                         num = 2;
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
                         num = 1;
+                        titlestart.OnClickStartButton();
                     }
                     break;
                 case 2:
@@ -73,9 +76,10 @@ public class Menekey : MonoBehaviour
                     {
                         num = 1;
                     }
-                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.C))//上系のボタンが押された
                     {
                         num = 2;
+                        titlestart.Credit();
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
@@ -106,13 +110,13 @@ public class Menekey : MonoBehaviour
                 }
             }
         }
-        CcK();
+        CK();
     }
 
-    public void CcK()
+    private void CK()
     {
         SK.SetActive(false);
-        CK.SetActive(false);
+        KK.SetActive(false);
 
         switch (num)
         {
@@ -122,7 +126,7 @@ public class Menekey : MonoBehaviour
                 SK.SetActive(true);
                 break;
             case 2:
-                CK.SetActive(true);
+                KK.SetActive(true);
                 break;
             default:
                 Debug.LogError("欄外になっています。選択枠のエラーです/003");

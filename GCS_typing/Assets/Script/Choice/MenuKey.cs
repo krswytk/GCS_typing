@@ -48,7 +48,7 @@ public class MenuKey : MonoBehaviour
                     {
                         num = 3;
                     }
-                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.R))//上系のボタンが押された
                     {
                         num = 1;
                     }
@@ -66,9 +66,10 @@ public class MenuKey : MonoBehaviour
                     {
                         num = 3;
                     }
-                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.R))//上系のボタンが押された
                     {
                         num = 1;
+                        OnTitle.OnStart();
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
@@ -84,7 +85,7 @@ public class MenuKey : MonoBehaviour
                     {
                         num = 1;
                     }
-                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.R))//上系のボタンが押された
                     {
                         num = 5;
                     }
@@ -103,7 +104,7 @@ public class MenuKey : MonoBehaviour
                         num = 3;
                         Rturn.OnRight();
                     }
-                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.R))//上系のボタンが押された
                     {
                         num = 1;
                     }
@@ -122,7 +123,7 @@ public class MenuKey : MonoBehaviour
                     {
                         num = 3;
                     }
-                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))//上系のボタンが押された
+                    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.R))//上系のボタンが押された
                     {
                         num = 1;
                     }
@@ -147,6 +148,7 @@ public class MenuKey : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
                         num = 5;
+                        OnStart.OnStarts();
                     }
                     break;
                 default:
@@ -184,7 +186,7 @@ public class MenuKey : MonoBehaviour
         CK();
     }
         
-    public void CK()
+    private void CK()
     {
         TK.SetActive(false);
         DK.SetActive(false);

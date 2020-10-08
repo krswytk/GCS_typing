@@ -567,6 +567,7 @@ public class Text_choice : MonoBehaviour
             }
         }
 
+        /*
         if (Ans_sw[3] == false)
         {
             for (int i = 0; i < Robj4.Length; i++)
@@ -580,13 +581,17 @@ public class Text_choice : MonoBehaviour
             {
                 Robj4[i].GetComponent<Text>().color = new Color(0, 0, 0, 0.25f);
             }
-        }
+        }*/
 
         count = 0;
         count2 = 0;
         count3 = 0;
         count4 = 0;
         //ここで読み直し
+        for (int i = 0; i < NextSpace.Length; i++)
+        {
+            NextSpace[i] = false;
+        }
         CheckTestScript.LoadText();
     }
 
@@ -607,6 +612,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[0, 0].SetActive(true);
+                main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -639,6 +645,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[1, 0].SetActive(true);
+                main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -671,6 +678,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[2, 0].SetActive(true);
+                main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -703,6 +711,7 @@ public class Text_choice : MonoBehaviour
                 count3 = 0;
                 count4 = 0;
                 marubatu[3, 0].SetActive(true);
+                main_text.text_change_after();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -724,11 +733,17 @@ public class Text_choice : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         text_Destroy();
         problem_num++;
+        choice_light.SetActive(false);
+        choice_answer = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            Ans_sw[i] = false;
+        }
         if (clear_num <= problem_num)
         {
             Debug.Log("クリア判定");
             //OnRisult.flag = true;
-            SceneManager.LoadScene("Result");
+            SceneManager.LoadScene("Choice");
         }
         answer_check();
         main_text.text_change();

@@ -53,13 +53,12 @@ public class meaning : MonoBehaviour
     {
         Debug.Log(ans);
         Debug.Log(text_meaning.Length);
-        for (int i = 0; i < text_meaning.Length; i++)
+        for (int i = 0; i < GetText.word.Length; i++)
         {
-            Debug.Log(meaning_word[i, 0]);
-            if (meaning_word[i, 0]==ans)
+            if (GetText.word[i] == ans)
             {
                 //Text_title.text = meaning_word[i, 0];
-                Text.text = meaning_word[i, 2];
+                Text.text = GetText.meaning[i];
                 Debug.Log("テキスト変形");
                 //Text.text = "てすと";
             }

@@ -41,6 +41,7 @@ public class OnStart : MonoBehaviour
         {
             GT.word[i] = FN.D[i].GetWord();
             GT.meaning[i] = FN.D[i].GetMeanings();
+            Debug.Log(FN.D[i].GetMeanings());
         }
         /////////////
 
