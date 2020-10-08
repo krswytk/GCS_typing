@@ -498,7 +498,9 @@ MonoBehaviour:
   Period: {fileID: 1627182424}
   Slash: {fileID: 562569743}
   Underscore: {fileID: 2064082681}
-  sound1: {fileID: 8300000, guid: d52d416a327cba34c85e8d0195ddd5d7, type: 3}
+  sound1: {fileID: 8300000, guid: 21a4dc80dd69bd94298506566219c412, type: 3}
+  sound2: {fileID: 8300000, guid: 3031af07374d57f46bde8d240d0fc78b, type: 3}
+  sound3: {fileID: 8300000, guid: e0dfb70ab79fd284bb1347a4e9e69b92, type: 3}
 --- !u!82 &68186762
 AudioSource:
   m_ObjectHideFlags: 0
@@ -511,7 +513,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6262,7 +6264,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.408
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6378,7 +6380,9 @@ MonoBehaviour:
   meaning: {fileID: 146301394}
   CheckTestScript: {fileID: 2044241040}
   OnRisult: {fileID: 1468563245}
-  sound1: {fileID: 8300000, guid: d52d416a327cba34c85e8d0195ddd5d7, type: 3}
+  sound1: {fileID: 8300000, guid: 89c002c028de8df4198c48ecb69d36c0, type: 3}
+  maru: {fileID: 8300000, guid: 67949d5c789ca464ba3cb68d22882880, type: 3}
+  batu: {fileID: 8300000, guid: 3d8fdf4d09bdfb549a5b2a58f4eafd15, type: 3}
 --- !u!222 &2044241044
 CanvasRenderer:
   m_ObjectHideFlags: 0
