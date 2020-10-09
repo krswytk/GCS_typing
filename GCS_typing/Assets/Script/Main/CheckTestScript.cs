@@ -18,9 +18,9 @@ public class CheckTestScript : MonoBehaviour
     private string[] NowChars = new string[4];//選択肢それぞれの今打つひらがな
     private string[] NextChars = new string[4];//それぞれの次の文字、拗音,促音のため。
     private string[] PreInputKey = new string[4];//じ、し、ちとか
-    private string[,] NowKeys = new string[4, 4];//分解されたキーはこちら**charじゃないかも？
+    public string[,] NowKeys = new string[4, 4];//分解されたキーはこちら**charじゃないかも？
 
-    private int[] KeyNums = new int[4];//それぞれのアルファベット何文字目
+    public int[] KeyNums = new int[4];//それぞれのアルファベット何文字目
     private int[] KanaNums = new int[4];//NowStringsで,かな何文字目
 
     private int[] lineNums = new int[4];//
@@ -260,14 +260,21 @@ public class CheckTestScript : MonoBehaviour
                     //Debug.Log("keynum：" + KeyNums[n]);
                     break;
             }
-            /*スコアいらない？
-            if (text_Test.NextSpace == false)
+            //スコアいらない？
+            if (((text_choice.NextSpace[0] == false) && (text_choice.NextSpace[1] == false) && (text_choice.NextSpace[2] == false)) && (text_choice.choice_answer == 0) && (n == 2))
             {
-                text_Test.Failure++;
-                text_Test.score_sw = false;
+                Debug.Log("choice_answer == " + text_choice.choice_answer);
+                Debug.Log("text_choice.NextSpace[0] == " + text_choice.NextSpace[0] + "text_choice.NextSpace[1] == " + text_choice.NextSpace[1] + "text_choice.NextSpace[2] == " + text_choice.NextSpace[2]);
+                text_choice.Failure++;
+                //text_choice.score_sw = false;
             }
-            */
 
+            if ((text_choice.NextSpace[n] == false) && (text_choice.choice_answer - 1 == n))
+            {
+                //Debug.Log("choice_answer == " + text_choice.choice_answer + "i == " + i);
+                text_choice.Failure++;
+                //text_choice.score_sw = false;
+            }
         }
 
     }
@@ -1123,7 +1130,7 @@ public class CheckTestScript : MonoBehaviour
         Debug.Log("デバッグ開始");
         for (int i=0;i< GetText.debris.GetLength(1); i++)
         {
-            Debug.Log(0+"つ目の正解キー："+NowKeys[i,KeyNums[i]]);
+            //Debug.Log(0+"つ目の正解キー："+NowKeys[i,KeyNums[i]]);
         }
         Debug.Log("デバッグ終了");
     }

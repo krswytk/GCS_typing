@@ -87,6 +87,12 @@ public class Text_choice : MonoBehaviour
     public AudioClip batu;
     AudioSource audioSource;
 
+    int score_Failure = 50;
+    int score_time = 50;
+    float time = 0;
+    public int Failure = 0;
+    public bool score_sw = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -124,6 +130,8 @@ public class Text_choice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(Failure);
+
         if (Input.GetKey(KeyCode.Backspace))
         {
             //choice_light.SetActive(false);
@@ -189,6 +197,25 @@ public class Text_choice : MonoBehaviour
         {
             text_update4();
             NextSpace[3] = false;
+        }
+
+        if ((Failure % 5 == 0) && (Failure != 0) && (score_sw == false))
+        {
+            if (score_Failure > -1)
+            {
+                score_Failure--;
+            }
+            score_sw = true;
+        }
+
+        if (time > 20)
+        {
+            if (score_time > -1)
+            {
+                score_time--;
+            }
+            Debug.Log(score_time);
+            time = 0;
         }
     }
 
