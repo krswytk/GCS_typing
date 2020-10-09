@@ -58,6 +58,34 @@ public class KeyChoice : MonoBehaviour
 
     public CheckTestScript CheckTestScript;
 
+
+    string choice_a;
+    string choice_b;
+    string choice_c;
+    string choice_d;
+    string choice_e;
+    string choice_f;
+    string choice_g;
+    string choice_h;
+    string choice_i;
+    string choice_j;
+    string choice_k;
+    string choice_l;
+    string choice_m;
+    string choice_n;
+    string choice_o;
+    string choice_p;
+    string choice_q;
+    string choice_r;
+    string choice_s;
+    string choice_t;
+    string choice_u;
+    string choice_v;
+    string choice_w;
+    string choice_x;
+    string choice_y;
+    string choice_z;
+
     void Start()
     {
 
@@ -71,8 +99,9 @@ public class KeyChoice : MonoBehaviour
             //Debug.Log(i+1 + "つ目の正解キー：" + CheckTestScript.NowKeys[i, CheckTestScript.KeyNums[i]]);
         }
 
-        if (CheckTestScript.NowKeys[0, CheckTestScript.KeyNums[0]]=="h")
+        if (CheckTestScript.NowKeys[0, CheckTestScript.KeyNums[0]].Equals("h"))
         {
+            Debug.Log("h");
             h.SetActive(true);
         }
         else
@@ -158,14 +187,7 @@ public class KeyChoice : MonoBehaviour
 
         //////////////////////////////////////////////////////////////////////////
 
-        if (Input.GetKey(KeyCode.H))
-        {
-            h.SetActive(true);
-        }
-        else
-        {
-            h.SetActive(false);
-        }
+
 
         //////////////////////////////////////////////////////////////////////////
 
