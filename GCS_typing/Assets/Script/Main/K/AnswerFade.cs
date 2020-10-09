@@ -17,6 +17,7 @@ public class AnswerFade : MonoBehaviour
         WhiteFadeObjectColorImage = WhiteFadeObject.GetComponent<Image>();
     }
 
+
     public void WhiteFade()
     {
         WhiteFadeObjectColorImage.color = new Color(1, 1, 1, 0);//徐々に1に近づける  
