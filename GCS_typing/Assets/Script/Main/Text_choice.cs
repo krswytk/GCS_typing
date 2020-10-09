@@ -71,7 +71,7 @@ public class Text_choice : MonoBehaviour
     int clear_num = 0;
 
     public bool[] NextSpace;//追加。判定でおｋならtrue→処理後falseに---------------------------確認
-    bool[] Ans_sw;
+    public bool[] Ans_sw;
 
     public GetText GetText;
     public main_text main_text;
