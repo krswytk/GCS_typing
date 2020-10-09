@@ -10159,6 +10159,8 @@ MonoBehaviour:
   sound1: {fileID: 8300000, guid: 89c002c028de8df4198c48ecb69d36c0, type: 3}
   maru: {fileID: 8300000, guid: 67949d5c789ca464ba3cb68d22882880, type: 3}
   batu: {fileID: 8300000, guid: 3d8fdf4d09bdfb549a5b2a58f4eafd15, type: 3}
+  Failure: 0
+  score_sw: 0
 --- !u!222 &2044241044
 CanvasRenderer:
   m_ObjectHideFlags: 0
