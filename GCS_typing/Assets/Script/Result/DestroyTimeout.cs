@@ -59,7 +59,7 @@ public class DestroyTimeout : MonoBehaviour
 
     private void Risult()
     {
-        t.text = "タイム\n" + "ミスタイプ数　" + 1.ToString("000")+  "\n" + text[n];
+        t.text = "タイム\n" + "ミスタイプ数　" + Tc.Failure.ToString("000")+  "\n" + text[n];
         i.sprite = anImage[n];
         audioSource.PlayOneShot(sound[n]);
     }
