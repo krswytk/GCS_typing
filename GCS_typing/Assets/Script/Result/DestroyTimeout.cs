@@ -23,6 +23,7 @@ public class DestroyTimeout : MonoBehaviour
     private int n = 3;
     // [SerializeField] private sp
 
+    Text_choice Tc;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +59,7 @@ public class DestroyTimeout : MonoBehaviour
 
     private void Risult()
     {
-        t.text = text[n];
+        t.text = "タイム\n" + "ミスタイプ数　" + text[n];
         i.sprite = anImage[n];
         audioSource.PlayOneShot(sound[n]);
     }
