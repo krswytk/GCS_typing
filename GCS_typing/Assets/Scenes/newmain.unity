@@ -756,6 +756,9 @@ MonoBehaviour:
   Period: {fileID: 1627182424}
   Slash: {fileID: 562569743}
   Underscore: {fileID: 2064082681}
+  sound1: {fileID: 0}
+  sound2: {fileID: 0}
+  sound3: {fileID: 0}
 --- !u!1 &84581882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,6 +1575,9 @@ MonoBehaviour:
   Period: {fileID: 1658994806}
   Slash: {fileID: 1655710753}
   Underscore: {fileID: 978715430}
+  sound1: {fileID: 0}
+  sound2: {fileID: 0}
+  sound3: {fileID: 0}
 --- !u!1 &252214454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2149,7 @@ RectTransform:
   - {fileID: 1141896850}
   - {fileID: 1184322597}
   - {fileID: 974904041}
+  - {fileID: 426626021}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2568,6 +2575,98 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &426626020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426626021}
+  - component: {fileID: 426626024}
+  - component: {fileID: 426626023}
+  - component: {fileID: 426626022}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &426626021
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426626020}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 342847939}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -846, y: -504}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &426626022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426626020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a191f612b35603b4dbfa3f7d65aec3ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &426626023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426626020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &426626024
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426626020}
+  m_CullTransparentMesh: 0
 --- !u!1 &426731985
 GameObject:
   m_ObjectHideFlags: 0
@@ -10146,6 +10245,14 @@ MonoBehaviour:
   text: {fileID: 4900000, guid: b1b9c7084dee9974ba0fb517c153850c, type: 3}
   roma: {fileID: 4900000, guid: 2d2cc9cefbd6d5d488feffb37a9ca230, type: 3}
   prefab: {fileID: 4173940732923891084, guid: 1d6ae5a7860afd24eb46e174a6240d12, type: 3}
+  prefab_maru: {fileID: 0}
+  prefab_batu: {fileID: 0}
+  choice_light: {fileID: 0}
+  choice_Button: {fileID: 0}
+  choice_Button2: {fileID: 0}
+  choice_Button3: {fileID: 0}
+  choice_Button4: {fileID: 0}
+  choice_answer: 0
   problem_num: 0
   NextSpace: 
   GetText: {fileID: 496542784}
@@ -10153,6 +10260,9 @@ MonoBehaviour:
   meaning: {fileID: 146301394}
   CheckTestScript: {fileID: 2044241040}
   OnRisult: {fileID: 1468563245}
+  sound1: {fileID: 0}
+  maru: {fileID: 0}
+  batu: {fileID: 0}
 --- !u!222 &2044241044
 CanvasRenderer:
   m_ObjectHideFlags: 0
