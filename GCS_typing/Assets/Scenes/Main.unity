@@ -1229,6 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72ea81c06567e64c81aaa96ed99ccea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text_Choice: {fileID: 2044241042}
   a: {fileID: 869454884}
   b: {fileID: 1364386062}
   c: {fileID: 1134109829}
@@ -10722,6 +10723,7 @@ MonoBehaviour:
   choice_answer: 0
   problem_num: 0
   NextSpace: 
+  Ans_sw: 
   GetText: {fileID: 496542784}
   main_text: {fileID: 1898957811}
   meaning: {fileID: 146301394}
