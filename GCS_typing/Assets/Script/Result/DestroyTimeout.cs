@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DestroyTimeout : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class DestroyTimeout : MonoBehaviour
     private int n = 3;
     // [SerializeField] private sp
 
+    private float countTime = 10.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,18 +49,23 @@ public class DestroyTimeout : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         outtimer -= Time.deltaTime;
         seconds = (int)outtimer+1;
         t2.text = seconds.ToString() + "秒後にセレクト画面に移行します";
         if(seconds < 0)
         {
             Difficulty.SetActive(false);
+            countTime -= Time.deltaTime;
+            if (countTime < 0.0f)
+                Text_choice.Failure = 0;
+                SceneManager.LoadScene("Choice");
         }
     }
 
     private void Risult()
     {
-        t.text = "タイム\n" + "ミスタイプ数　" + Text_choice.Failure.ToString("000")+  "\n" + text[n];
+        t.text = "タイム　" + Timer.countTime.ToString() + "\n" + "ミスタイプ数　" + Text_choice.Failure.ToString()+  "\n" + text[n];
         i.sprite = anImage[n];
         audioSource.PlayOneShot(sound[n]);
     }
