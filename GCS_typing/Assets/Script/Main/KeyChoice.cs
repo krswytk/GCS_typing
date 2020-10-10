@@ -200,13 +200,6 @@ public class KeyChoice : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            Debug.Log(i+1 + "つ目の正解キー：" + CheckTestScript.NowKeys[i, CheckTestScript.KeyNums[i]]);
-        }
-
-        Debug.Log(text_Choice.Ans_sw[0]);
-
-        for (int i = 0; i < 3; i++)
-        {
             keydown_choice(i);
         }
         
