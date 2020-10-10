@@ -265,14 +265,14 @@ public class CheckTestScript : MonoBehaviour
             {
                 Debug.Log("choice_answer == " + text_choice.choice_answer);
                 Debug.Log("text_choice.NextSpace[0] == " + text_choice.NextSpace[0] + "text_choice.NextSpace[1] == " + text_choice.NextSpace[1] + "text_choice.NextSpace[2] == " + text_choice.NextSpace[2]);
-                text_choice.Failure++;
+                Text_choice.Failure++;
                 //text_choice.score_sw = false;
             }
 
             if ((text_choice.NextSpace[n] == false) && (text_choice.choice_answer - 1 == n))
             {
                 //Debug.Log("choice_answer == " + text_choice.choice_answer + "i == " + i);
-                text_choice.Failure++;
+                Text_choice.Failure++;
                 //text_choice.score_sw = false;
             }
         }
