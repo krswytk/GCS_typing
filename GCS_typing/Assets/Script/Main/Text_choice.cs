@@ -90,7 +90,7 @@ public class Text_choice : MonoBehaviour
     int score_Failure = 50;
     int score_time = 50;
     float time = 0;
-    public int Failure = 0;
+    public static int Failure = 0;
     public bool score_sw = false;
 
     // Start is called before the first frame update

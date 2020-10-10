@@ -218,14 +218,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("a") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0)a.SetActive(true);
-            if (num == 0) a.SetActive(true);
-            if (num == 0) a.SetActive(true);
+            if (num == 1) a.SetActive(true);
+            if (num == 2) a.SetActive(true);
         }
         else
         {
             if (num == 0) a.SetActive(false);
-            if (num == 0) a.SetActive(false);
-            if (num == 0) a.SetActive(false);
+            if (num == 1) a.SetActive(false);
+            if (num == 2) a.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -233,14 +233,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("b") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) b.SetActive(true);
-            if (num == 0) b.SetActive(true);
-            if (num == 0) b.SetActive(true);
+            if (num == 1) b.SetActive(true);
+            if (num == 2) b.SetActive(true);
         }
         else
         {
             if (num == 0) b.SetActive(false);
-            if (num == 0) b.SetActive(false);
-            if (num == 0) b.SetActive(false);
+            if (num == 1) b.SetActive(false);
+            if (num == 2) b.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -248,14 +248,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("c") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) c.SetActive(true);
-            if (num == 0) c.SetActive(true);
-            if (num == 0) c.SetActive(true);
+            if (num == 1) c.SetActive(true);
+            if (num == 2) c.SetActive(true);
         }
         else
         {
             if (num == 0) c.SetActive(false);
-            if (num == 0) c.SetActive(false);
-            if (num == 0) c.SetActive(false);
+            if (num == 1) c.SetActive(false);
+            if (num == 2) c.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -263,14 +263,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("d") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) d.SetActive(true);
-            if (num == 0) d.SetActive(true);
-            if (num == 0) d.SetActive(true);
+            if (num == 1) d.SetActive(true);
+            if (num == 2) d.SetActive(true);
         }
         else
         {
             if (num == 0) d.SetActive(false);
-            if (num == 0) d.SetActive(false);
-            if (num == 0) d.SetActive(false);
+            if (num == 1) d.SetActive(false);
+            if (num == 2) d.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -278,14 +278,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("e") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) e.SetActive(true);
-            if (num == 0) e.SetActive(true);
-            if (num == 0) e.SetActive(true);
+            if (num == 1) e.SetActive(true);
+            if (num == 2) e.SetActive(true);
         }
         else
         {
             if (num == 0) e.SetActive(false);
-            if (num == 0) e.SetActive(false);
-            if (num == 0) e.SetActive(false);
+            if (num == 1) e.SetActive(false);
+            if (num == 2) e.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -293,14 +293,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("f") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) f.SetActive(true);
-            if (num == 0) f.SetActive(true);
-            if (num == 0) f.SetActive(true);
+            if (num == 1) f.SetActive(true);
+            if (num == 2) f.SetActive(true);
         }
         else
         {
             if (num == 0) f.SetActive(false);
-            if (num == 0) f.SetActive(false);
-            if (num == 0) f.SetActive(false);
+            if (num == 1) f.SetActive(false);
+            if (num == 2) f.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -308,14 +308,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("g") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) g.SetActive(true);
-            if (num == 0) g.SetActive(true);
-            if (num == 0) g.SetActive(true);
+            if (num == 1) g.SetActive(true);
+            if (num == 2) g.SetActive(true);
         }
         else
         {
             if (num == 0) g.SetActive(false);
-            if (num == 0) g.SetActive(false);
-            if (num == 0) g.SetActive(false);
+            if (num == 1) g.SetActive(false);
+            if (num == 2) g.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -323,14 +323,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("h") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) h.SetActive(true);
-            if (num == 0) h.SetActive(true);
-            if (num == 0) h.SetActive(true);
+            if (num == 1) h.SetActive(true);
+            if (num == 2) h.SetActive(true);
         }
         else
         {
             if (num == 0) h.SetActive(false);
-            if (num == 0) h.SetActive(false);
-            if (num == 0) h.SetActive(false);
+            if (num == 1) h.SetActive(false);
+            if (num == 2) h.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -338,14 +338,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("i") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) i.SetActive(true);
-            if (num == 0) i.SetActive(true);
-            if (num == 0) i.SetActive(true);
+            if (num == 1) i.SetActive(true);
+            if (num == 2) i.SetActive(true);
         }
         else
         {
             if (num == 0) i.SetActive(false);
-            if (num == 0) i.SetActive(false);
-            if (num == 0) i.SetActive(false);
+            if (num == 1) i.SetActive(false);
+            if (num == 2) i.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -353,14 +353,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("j") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) j.SetActive(true);
-            if (num == 0) j.SetActive(true);
-            if (num == 0) j.SetActive(true);
+            if (num == 1) j.SetActive(true);
+            if (num == 2) j.SetActive(true);
         }
         else
         {
             if (num == 0) j.SetActive(false);
-            if (num == 0) j.SetActive(false);
-            if (num == 0) j.SetActive(false);
+            if (num == 1) j.SetActive(false);
+            if (num == 2) j.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -368,14 +368,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("k") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) k.SetActive(true);
-            if (num == 0) k.SetActive(true);
-            if (num == 0) k.SetActive(true);
+            if (num == 1) k.SetActive(true);
+            if (num == 2) k.SetActive(true);
         }
         else
         {
             if (num == 0) k.SetActive(false);
-            if (num == 0) k.SetActive(false);
-            if (num == 0) k.SetActive(false);
+            if (num == 1) k.SetActive(false);
+            if (num == 2) k.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -383,14 +383,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("l") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) l.SetActive(true);
-            if (num == 0) l.SetActive(true);
-            if (num == 0) l.SetActive(true);
+            if (num == 1) l.SetActive(true);
+            if (num == 2) l.SetActive(true);
         }
         else
         {
             if (num == 0) l.SetActive(false);
-            if (num == 0) l.SetActive(false);
-            if (num == 0) l.SetActive(false);
+            if (num == 1) l.SetActive(false);
+            if (num == 2) l.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -398,14 +398,14 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("m") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) m.SetActive(true);
-            if (num == 0) m.SetActive(true);
-            if (num == 0) m.SetActive(true);
+            if (num == 1) m.SetActive(true);
+            if (num == 2) m.SetActive(true);
         }
         else
         {
             if (num == 0) m.SetActive(false);
-            if (num == 0) m.SetActive(false);
-            if (num == 0) m.SetActive(false);
+            if (num == 1) m.SetActive(false);
+            if (num == 2) m.SetActive(false);
         }
 
         //////////////////////////////////////////////////////////////////////////
@@ -413,8 +413,8 @@ public class KeyChoice : MonoBehaviour
         if (CheckTestScript.NowKeys[num, CheckTestScript.KeyNums[num]].Equals("n") && (text_Choice.choice_answer == 0 || text_Choice.choice_answer == num+1) && text_Choice.Ans_sw[num] == false)
         {
             if (num == 0) n.SetActive(true);
-            if (num == 0) n.SetActive(true);
-            if (num == 0) n.SetActive(true);
+            if (num == 1) n.SetActive(true);
+            if (num == 2) n.SetActive(true);
         }
         else
         {
