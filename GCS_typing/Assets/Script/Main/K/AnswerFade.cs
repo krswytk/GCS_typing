@@ -11,16 +11,10 @@ public class AnswerFade : MonoBehaviour
     [SerializeField] GameObject WhiteFadeObject;
 
     private static Image WhiteFadeObjectColorImage;
-
-    // Start is called before the first frame update
-    void Start()
+    
+    public void WhiteFade(GameObject WhiteFadeObject)
     {
         WhiteFadeObjectColorImage = WhiteFadeObject.GetComponent<Image>();
-    }
-
-
-    public void WhiteFade()
-    {
         WhiteFadeObjectColorImage.color = new Color(1, 1, 1, 0);
         for (int i = 0; i <= 255; i++)
         {

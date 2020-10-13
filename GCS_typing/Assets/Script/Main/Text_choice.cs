@@ -96,6 +96,10 @@ public class Text_choice : MonoBehaviour
     public static int Failure = 0;
     public bool score_sw = false;
 
+
+
+    [SerializeField]
+    private GameObject WhiteFadeObject;//フェード用　追加　キリサワ
     // Start is called before the first frame update
     void Start()
     {
@@ -657,7 +661,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[0, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
-                AnswerFade.WhiteFade();
+                AnswerFade.WhiteFade(WhiteFadeObject);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -694,7 +698,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[1, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
-                AnswerFade.WhiteFade();
+                AnswerFade.WhiteFade(WhiteFadeObject);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -731,7 +735,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[2, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
-                AnswerFade.WhiteFade();
+                AnswerFade.WhiteFade(WhiteFadeObject);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -768,7 +772,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[3, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
-                AnswerFade.WhiteFade();
+                AnswerFade.WhiteFade(WhiteFadeObject);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
