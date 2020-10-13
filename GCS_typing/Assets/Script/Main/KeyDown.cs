@@ -60,8 +60,10 @@ public class KeyDown : MonoBehaviour
     public AudioClip sound2;
     public AudioClip sound3;
     AudioSource audioSource;
+    public Text_choice Text_choice;
 
     int sound_sw = 0;
+    public bool type = false;
 
     void Start()
     {
@@ -71,28 +73,40 @@ public class KeyDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(type);
         if (Input.anyKeyDown && !Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetMouseButton(2))
         {
-            if (sound_sw == 0)
+            Debug.Log("KeyDown");
+            if (type == true)
             {
-                audioSource.PlayOneShot(sound1);
-                sound_sw = 1;
+                if (sound_sw == 0)
+                {
+                    audioSource.PlayOneShot(sound1);
+                    sound_sw = 1;
+                }
+                else
+                {
+                    if (sound_sw == 1)
+                    {
+                        audioSource.PlayOneShot(sound2);
+                        sound_sw = 2;
+                    }
+                    else
+                    {
+                        if (sound_sw == 2)
+                        {
+                            audioSource.PlayOneShot(sound3);
+                            sound_sw = 0;
+                        }
+                    }
+                }
+                type = false;
             }
             else
             {
-                if (sound_sw == 1)
-                {
-                    audioSource.PlayOneShot(sound2);
-                    sound_sw = 2;
-                }else
-                {
-                    if (sound_sw == 2)
-                    {
-                        audioSource.PlayOneShot(sound3);
-                        sound_sw = 0;
-                    }
-                }
+                Text_choice.misstype();
             }
+            
         }
 
 

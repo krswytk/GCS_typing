@@ -884,6 +884,8 @@ MonoBehaviour:
   sound1: {fileID: 8300000, guid: 21a4dc80dd69bd94298506566219c412, type: 3}
   sound2: {fileID: 8300000, guid: 3031af07374d57f46bde8d240d0fc78b, type: 3}
   sound3: {fileID: 8300000, guid: e0dfb70ab79fd284bb1347a4e9e69b92, type: 3}
+  Text_choice: {fileID: 2044241042}
+  type: 0
 --- !u!82 &68186762
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2997,12 +2999,12 @@ PrefabInstance:
     - target: {fileID: 8533480036452248801, guid: 086bbb34730a3584780641a9921a2421,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 185.7
       objectReference: {fileID: 0}
     - target: {fileID: 8533480036452248801, guid: 086bbb34730a3584780641a9921a2421,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -58.7
       objectReference: {fileID: 0}
     - target: {fileID: 8533480036452248801, guid: 086bbb34730a3584780641a9921a2421,
         type: 3}
@@ -18513,6 +18515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text_Test: {fileID: 0}
   text_choice: {fileID: 2044241042}
+  KeyDown: {fileID: 68186761}
   GetText: {fileID: 496542784}
   KeyNums: 00000000000000000000000000000000
 --- !u!82 &2044241041
@@ -18644,9 +18647,12 @@ MonoBehaviour:
   meaning: {fileID: 146301394}
   CheckTestScript: {fileID: 2044241040}
   OnRisult: {fileID: 1468563245}
+  AnswerFade: {fileID: 45912854}
+  KeyDown: {fileID: 68186761}
   sound1: {fileID: 8300000, guid: 89c002c028de8df4198c48ecb69d36c0, type: 3}
   maru: {fileID: 8300000, guid: 67949d5c789ca464ba3cb68d22882880, type: 3}
   batu: {fileID: 8300000, guid: 3d8fdf4d09bdfb549a5b2a58f4eafd15, type: 3}
+  miss: {fileID: 8300000, guid: 6f13c994778afbc4580d2aac543cf1d9, type: 3}
   score_sw: 0
 --- !u!222 &2044241044
 CanvasRenderer:
