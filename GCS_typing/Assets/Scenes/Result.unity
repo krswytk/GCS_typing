@@ -1225,7 +1225,7 @@ MonoBehaviour:
   an: {fileID: 326918738}
   tx: {fileID: 2088108167}
   tx2: {fileID: 1069167560}
-  outtimer: 3
+  outtimer: 15
   anImage:
   - {fileID: 21300000, guid: db766de45d3986343af1fb3a70e8488a, type: 3}
   - {fileID: 21300000, guid: 58ef210094b6af846a5debcea57e6892, type: 3}

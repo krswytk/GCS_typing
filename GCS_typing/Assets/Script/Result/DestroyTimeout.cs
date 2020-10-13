@@ -10,7 +10,7 @@ public class DestroyTimeout : MonoBehaviour
     [SerializeField] private GameObject an;
     [SerializeField] private GameObject tx;
     [SerializeField] private GameObject tx2;
-    public float outtimer = 15.0f;
+    public float outtimer;
     int seconds;
 
     [SerializeField] private Sprite[] anImage; 
@@ -24,7 +24,7 @@ public class DestroyTimeout : MonoBehaviour
     private int n = 3;
     // [SerializeField] private sp
 
-    private float countTime = 10.0f;
+    private float countTime = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +43,7 @@ public class DestroyTimeout : MonoBehaviour
         i = an.GetComponent<Image>();
         
         audioSource = GetComponent<AudioSource>();
-        Risult();
+        Result(0);
     }
 
     // Update is called once per frame
@@ -56,16 +56,18 @@ public class DestroyTimeout : MonoBehaviour
         if(seconds < 0)
         {
             Difficulty.SetActive(false);
-            countTime -= Time.deltaTime;
-            if (countTime < 0.0f)
-                Text_choice.Failure = 0;
-                SceneManager.LoadScene("Choice");
         }
+        countTime -= Time.deltaTime;
+        if (countTime < 0.0f)
+            Result(1);
     }
 
-    private void Risult()
+    private void Result(int count)
     {
-        t.text = "タイム　" + Timer.countTime.ToString() + "\n" + "ミスタイプ数　" + Text_choice.Failure.ToString()+  "\n" + text[n];
+        if (count == 0)
+            t.text = "タイム　" + Timer.countTime.ToString() + "\n" + "ミスタイプ数" + Text_choice.Failure.ToString() + "\n";
+        else
+            t.text = text[n];
         i.sprite = anImage[n];
         audioSource.PlayOneShot(sound[n]);
     }
@@ -73,6 +75,6 @@ public class DestroyTimeout : MonoBehaviour
     public void SetScore(int i)
     {
         n = i;
-        Risult();
+        //Result();
     }
 }
