@@ -791,7 +791,7 @@ public class Text_choice : MonoBehaviour
             Debug.Log("クリア判定");
             //OnRisult.flag = true;
             //SceneManager.LoadScene("Choice");
-            feadSC.fade("Choice");
+            feadSC.fade("Result");
         }
         answer_check();
         main_text.text_change();

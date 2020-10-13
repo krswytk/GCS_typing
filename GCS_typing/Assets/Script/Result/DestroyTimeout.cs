@@ -43,6 +43,7 @@ public class DestroyTimeout : MonoBehaviour
         i = an.GetComponent<Image>();
         
         audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(sound[n]);
         Result(0);
     }
 
@@ -55,7 +56,7 @@ public class DestroyTimeout : MonoBehaviour
         t2.text = seconds.ToString() + "秒後にセレクト画面に移行します";
         if(seconds < 0)
         {
-            Difficulty.SetActive(false);
+            SceneManager.LoadScene("Choice");
         }
         countTime -= Time.deltaTime;
         if (countTime < 0.0f)
@@ -69,7 +70,7 @@ public class DestroyTimeout : MonoBehaviour
         else
             t.text = text[n];
         i.sprite = anImage[n];
-        audioSource.PlayOneShot(sound[n]);
+        
     }
 
     public void SetScore(int i)
