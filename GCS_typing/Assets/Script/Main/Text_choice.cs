@@ -78,6 +78,8 @@ public class Text_choice : MonoBehaviour
     public meaning meaning;
     public CheckTestScript CheckTestScript;
     public OnRisult OnRisult;
+    public AnswerFade AnswerFade;
+    public KeyDown KeyDown;
 
     Vector3[] light_position = new Vector3[4];// ライトの位置
     Vector3[] choice_position = new Vector3[4];// 問題の位置
@@ -85,6 +87,7 @@ public class Text_choice : MonoBehaviour
     public AudioClip sound1;
     public AudioClip maru;
     public AudioClip batu;
+    public AudioClip miss;
     AudioSource audioSource;
 
     int score_Failure = 50;
@@ -93,6 +96,10 @@ public class Text_choice : MonoBehaviour
     public static int Failure = 0;
     public bool score_sw = false;
 
+
+
+    [SerializeField]
+    private GameObject WhiteFadeObject;//フェード用　追加　キリサワ
     // Start is called before the first frame update
     void Start()
     {
@@ -177,24 +184,28 @@ public class Text_choice : MonoBehaviour
 
         if (NextSpace[0] && (choice_answer == 1))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
+            KeyDown.type = true;
             text_update();
             NextSpace[0] = false;
         }
 
         if (NextSpace[1] && (choice_answer == 2))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
+            KeyDown.type = true;
             text_update2();
             NextSpace[1] = false;
         }
 
         if (NextSpace[2] && (choice_answer == 3))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
+            KeyDown.type = true;
             text_update3();
             NextSpace[2] = false;
         }
 
         if (NextSpace[3] && (choice_answer == 4))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
+            KeyDown.type = true;
             text_update4();
             NextSpace[3] = false;
         }
@@ -301,7 +312,7 @@ public class Text_choice : MonoBehaviour
                         Robj[i2].transform.parent = transform;
                         Robj[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         Robj[i2].GetComponent<Text>().text = str[i2];
-                        Robj[i2].GetComponent<Text>().color = new Color(1, 0, 0, 1);
+                        Robj[i2].GetComponent<Text>().color = new Color(140 / 255f, 19 / 255f, 8 / 255f, 1);
                     }
                     
                 }
@@ -360,7 +371,7 @@ public class Text_choice : MonoBehaviour
                         Robj2[i2].transform.parent = transform;
                         Robj2[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         Robj2[i2].GetComponent<Text>().text = str2[i2];
-                        Robj2[i2].GetComponent<Text>().color = new Color(0, 0, 1, 1);
+                        Robj2[i2].GetComponent<Text>().color = new Color(8 / 255f, 17 / 255f, 140 / 255f, 1);
                     }
                 }
             }
@@ -418,7 +429,7 @@ public class Text_choice : MonoBehaviour
                         Robj3[i2].transform.parent = transform;
                         Robj3[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
                         Robj3[i2].GetComponent<Text>().text = str3[i2];
-                        Robj3[i2].GetComponent<Text>().color = new Color(0, 1, 0, 1);
+                        Robj3[i2].GetComponent<Text>().color = new Color(17 / 255f, 140 / 255f, 8 / 255f, 1);
                     }
                 }
             }
@@ -650,6 +661,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[0, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
+                AnswerFade.WhiteFade(WhiteFadeObject);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -686,6 +698,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[1, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
+                AnswerFade.WhiteFade(WhiteFadeObject);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -722,6 +735,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[2, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
+                AnswerFade.WhiteFade(WhiteFadeObject);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -758,6 +772,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[3, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
+                AnswerFade.WhiteFade(WhiteFadeObject);
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -798,5 +813,11 @@ public class Text_choice : MonoBehaviour
         text_Generate(text.text, 0.4f, false, 5, problem_num);
         text_Generate(roma.text, 0.9f, true, 5, problem_num);
         CheckTestScript.LoadText();
+    }
+
+    public void misstype()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.PlayOneShot(miss);
     }
 }
