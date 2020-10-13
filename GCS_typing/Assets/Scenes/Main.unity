@@ -646,7 +646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cedecf79829a62a4dacc189d2104bfba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTime: 1
+  FFadeTime: 0.5
+  RFadeTime: 0.5
   WhiteFadeObject: {fileID: 3481415}
 --- !u!114 &45912855
 MonoBehaviour:
