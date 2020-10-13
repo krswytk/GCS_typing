@@ -46,7 +46,7 @@ USB USB USB
 アクセス あくせす akusesu
 
 富士通 ふじつう hujituu
-日立製作所 にちりつせいさくじょ nitirituseisakujo
+日立製作所 ひたちせいさくじょ hitatiseisakujo
 NTT NTT NTT
 
 HPC HPC HPC
