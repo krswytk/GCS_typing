@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class AnswerFade : MonoBehaviour
 {
-    [SerializeField] float FadeTime = 1.0f;
+    [SerializeField] float FFadeTime = 0.7f;
+    [SerializeField] float RFadeTime = 0.3f;
     [SerializeField] GameObject WhiteFadeObject;
 
     private static Image WhiteFadeObjectColorImage;
@@ -20,19 +21,28 @@ public class AnswerFade : MonoBehaviour
 
     public void WhiteFade()
     {
-        WhiteFadeObjectColorImage.color = new Color(1, 1, 1, 0);//徐々に1に近づける  
+        WhiteFadeObjectColorImage.color = new Color(1, 1, 1, 0);
         for (int i = 0; i <= 255; i++)
         {
-            StartCoroutine(start(Map(i, 0, 255, 0, FadeTime), i, () =>//徐々に値を増やす　最後がtimerの値になる
+            StartCoroutine(start(Map(i, 0, 255, 0, FFadeTime), i, () =>//徐々に値を増やす　最後がtimerの値になる
             {
 
             }));
+            Debug.Log(i);
+        }
+        /*
+        c = 0;
+        for (int i = 0; i <= 255; i += c)
+        {
             StartCoroutine(end(Map(i, 0, 255, 0, FadeTime), 255 - i, () =>//徐々に値を増やす　最後がtimerの値になる
             {
 
             }));
-            
+
+            c += 1;
+
         }
+        */
 
     }
     private IEnumerator start(float waitTime, int i,Action action)
@@ -41,7 +51,21 @@ public class AnswerFade : MonoBehaviour
 
         WhiteFadeObjectColorImage.color = new Color(1, 1, 1, i / 255.0f);
         action();
-        //Debug.Log(i);
+
+        if (i == 253)
+        {
+            int c = 0;
+            for (int l = 0; l <= 255; l += c)
+            {
+                StartCoroutine(end(Map(l, 0, 255, 0, RFadeTime), 255 - l, () =>//徐々に値を増やす　最後がtimerの値になる
+                {
+
+                }));
+
+                c += 1;
+
+            }
+        }
     }
     private IEnumerator end(float waitTime, int i, Action action)
     {
@@ -49,7 +73,6 @@ public class AnswerFade : MonoBehaviour
 
         WhiteFadeObjectColorImage.color = new Color(1, 1, 1, i / 255.0f);
         action();
-        //Debug.Log(i);
     }
     float Map(float value, float start1, float stop1, float start2, float stop2)
     {
