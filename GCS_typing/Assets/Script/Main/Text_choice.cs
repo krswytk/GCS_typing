@@ -78,6 +78,8 @@ public class Text_choice : MonoBehaviour
     public meaning meaning;
     public CheckTestScript CheckTestScript;
     public OnRisult OnRisult;
+    public AnswerFade AnswerFade;
+    public KeyDown KeyDown;
 
     Vector3[] light_position = new Vector3[4];// ライトの位置
     Vector3[] choice_position = new Vector3[4];// 問題の位置
@@ -85,6 +87,7 @@ public class Text_choice : MonoBehaviour
     public AudioClip sound1;
     public AudioClip maru;
     public AudioClip batu;
+    public AudioClip miss;
     AudioSource audioSource;
 
     int score_Failure = 50;
@@ -177,24 +180,28 @@ public class Text_choice : MonoBehaviour
 
         if (NextSpace[0] && (choice_answer == 1))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
+            KeyDown.type = true;
             text_update();
             NextSpace[0] = false;
         }
 
         if (NextSpace[1] && (choice_answer == 2))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
+            KeyDown.type = true;
             text_update2();
             NextSpace[1] = false;
         }
 
         if (NextSpace[2] && (choice_answer == 3))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
+            KeyDown.type = true;
             text_update3();
             NextSpace[2] = false;
         }
 
         if (NextSpace[3] && (choice_answer == 4))/////////////////////////一文字ずつ消えるところ、左の条件は最後には消すはず
         {
+            KeyDown.type = true;
             text_update4();
             NextSpace[3] = false;
         }
@@ -650,6 +657,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[0, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
+                AnswerFade.WhiteFade();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -686,6 +694,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[1, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
+                AnswerFade.WhiteFade();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -722,6 +731,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[2, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
+                AnswerFade.WhiteFade();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -758,6 +768,7 @@ public class Text_choice : MonoBehaviour
                 marubatu[3, 0].SetActive(true);
                 audioSource.PlayOneShot(maru);
                 main_text.text_change_after();
+                AnswerFade.WhiteFade();
                 StartCoroutine("SamplecoRoutine"); //動く
             }
             else
@@ -798,5 +809,11 @@ public class Text_choice : MonoBehaviour
         text_Generate(text.text, 0.4f, false, 5, problem_num);
         text_Generate(roma.text, 0.9f, true, 5, problem_num);
         CheckTestScript.LoadText();
+    }
+
+    public void misstype()
+    {
+        audioSource.volume = 0.2f;
+        audioSource.PlayOneShot(miss);
     }
 }

@@ -11,6 +11,7 @@ public class CheckTestScript : MonoBehaviour
 {
     public Text_test text_Test;
     public Text_choice text_choice;
+    public KeyDown KeyDown;
     public GetText GetText;//判定する日本語のファイル
 
     private string[] Strings = new string[4];
@@ -106,7 +107,7 @@ public class CheckTestScript : MonoBehaviour
         {
             if (Input.inputString == "y" && NowChars[n] == "じ" && (NextChars[n] == "ゃ" || NextChars[n] == "ゅ" || NextChars[n] == "ょ"))//じゃとか
             {//「じ」であり、「ゃゅょ」であり、yが打たれたら内部だけ更新
-                //Debug.Log("じゃとかの判定はここ");
+             //Debug.Log("じゃとかの判定はここ");
                 text_choice.NextSpace[n] = true;
                 KeyNums[n]++;
                 PreKey = Input.inputString;
@@ -115,7 +116,7 @@ public class CheckTestScript : MonoBehaviour
             else
             {
                 //text_Test.NextSpace = true;//これ何かのミスな気がする
-                
+
                 text_choice.NextSpace[n] = true;
                 KeyNums[n]++;
                 PreKey = Input.inputString;
@@ -132,7 +133,7 @@ public class CheckTestScript : MonoBehaviour
             switch (NowChars[n])
             {
                 case "ん":
-                    if (KeyNums[n]==0&&Input.inputString=="x")
+                    if (KeyNums[n] == 0 && Input.inputString == "x")
                     {
                         text_choice.NextSpace[n] = true;
                         NowKeys[n, 1] = "n";
@@ -145,7 +146,7 @@ public class CheckTestScript : MonoBehaviour
                 case "つ":
                     if (KeyNums[n] == 1 && Input.inputString == "s")//tsu
                     {
-                        
+
                         text_choice.NextSpace[n] = true;
                         NowKeys[n, 1] = "s";
                         NowKeys[n, 2] = "u";
@@ -159,14 +160,14 @@ public class CheckTestScript : MonoBehaviour
                     Debug.Log("「ふ」の判定に入りました");
                     if (KeyNums[n] == 0 && Input.inputString == "f")//fu
                     {
-                        
+
                         text_choice.NextSpace[n] = true;
                         KeyNums[n]++;
                         PreKey = Input.inputString;
                         Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
                         Debug.Log("ふがfで判定");
                     }
-                    if (KeyNums[n]==1&&PreKey=="f"&&Input.inputString=="o"&&NextChars[n]=="ぉ")//foの判定
+                    if (KeyNums[n] == 1 && PreKey == "f" && Input.inputString == "o" && NextChars[n] == "ぉ")//foの判定
                     {
                         Debug.Log("fのあとo");
                         text_choice.NextSpace[n] = true;//oの色を変える
@@ -178,7 +179,7 @@ public class CheckTestScript : MonoBehaviour
                         KanaNums[n]++;//先にタス
                         Debug.Log("Finchar送る");
                         FinChar(n);//文字送って
-                        
+
                         Debug.Log("作業終了");
                         Debug.Log("kanaNums=" + KanaNums[n]);
                         Debug.Log("文字列：" + NowStrings[n]);
@@ -190,12 +191,12 @@ public class CheckTestScript : MonoBehaviour
                 case "じ"://z判定に変更する
                     if (KeyNums[n] == 0 && Input.inputString == "z")//ji,jyaとかも先頭だけだからおｋ？
                     {
-                        
+
                         text_choice.NextSpace[n] = true;
                         KeyNums[n]++;
                         PreKey = Input.inputString;
                         //Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
-                        if (NextChars[n]=="ゃ"|| NextChars[n] == "ゅ" || NextChars[n] == "ょ")
+                        if (NextChars[n] == "ゃ" || NextChars[n] == "ゅ" || NextChars[n] == "ょ")
                         {
                             //Debug.Log("じゃをjで打ったため、無理やり次をyに");
                             //Debug.Log("これ打って：" + NowKeys[n, KeyNums[n]] + ",nは" + n);
@@ -222,7 +223,7 @@ public class CheckTestScript : MonoBehaviour
                         NowKeys[n, 3] = "おわり";
                         if (NextChars[n] == "ゃ" || NextChars[n] == "ゅ" || NextChars[n] == "ょ")//しゃなら
                         {
-                            
+
                             text_choice.NextSpace[n] = true;
                             //Debug.Log("選択肢" + n + "で成功判定次のキー：" + NowKeys[n, KeyNums[n]]);
                         }
@@ -253,7 +254,7 @@ public class CheckTestScript : MonoBehaviour
                         text_choice.NextSpace[n] = true;
                         KeyNums[n]++;
                     }
-                        break;
+                    break;
 
                 default:
                     //Debug.Log("失敗ですこれ打って：" + NowKeys[n, KeyNums[n]]+",nは"+n);
@@ -263,9 +264,10 @@ public class CheckTestScript : MonoBehaviour
             //スコアいらない？
             if (((text_choice.NextSpace[0] == false) && (text_choice.NextSpace[1] == false) && (text_choice.NextSpace[2] == false)) && (text_choice.choice_answer == 0) && (n == 2))
             {
-                Debug.Log("choice_answer == " + text_choice.choice_answer);
-                Debug.Log("text_choice.NextSpace[0] == " + text_choice.NextSpace[0] + "text_choice.NextSpace[1] == " + text_choice.NextSpace[1] + "text_choice.NextSpace[2] == " + text_choice.NextSpace[2]);
+                //(text_choice.Ans_sw[n] == false)
+                Debug.Log("CheckTestScript");
                 Text_choice.Failure++;
+                //KeyDown.type = true;
                 //text_choice.score_sw = false;
             }
 
@@ -273,11 +275,14 @@ public class CheckTestScript : MonoBehaviour
             {
                 //Debug.Log("choice_answer == " + text_choice.choice_answer + "i == " + i);
                 Text_choice.Failure++;
+                //KeyDown.type = true;
                 //text_choice.score_sw = false;
             }
         }
 
-    }
+
+
+        }
 
     /// <summary>
     /// 次のひらがなを読み込む関数。
