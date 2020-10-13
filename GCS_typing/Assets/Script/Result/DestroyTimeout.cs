@@ -21,22 +21,13 @@ public class DestroyTimeout : MonoBehaviour
     [SerializeField] AudioClip[] sound;
     private AudioSource audioSource;
 
-    private int n;
+    private int n = 3;
     // [SerializeField] private sp
 
     private float countTime = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
-        if (Text_choice.Failure < 10)
-            n = 4;
-        else if (Text_choice.Failure > 10 && Text_choice.Failure < 20)
-            n = 3;
-        else if (Text_choice.Failure > 20 && Text_choice.Failure < 30)
-            n = 2;
-        else if (Text_choice.Failure > 30 && Text_choice.Failure < 40)
-            n = 1;
-
         //Difficulty = GameObject.Find("Difficulty");
         //Destroy(Difficulty, outtimer);
 
@@ -63,9 +54,8 @@ public class DestroyTimeout : MonoBehaviour
         outtimer -= Time.deltaTime;
         seconds = (int)outtimer+1;
         t2.text = seconds.ToString() + "秒後にセレクト画面に移行します";
-        if(seconds < 1)
+        if(seconds < 0)
         {
-            Timer.countTime = 0;
             SceneManager.LoadScene("Choice");
         }
         countTime -= Time.deltaTime;
