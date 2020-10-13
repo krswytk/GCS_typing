@@ -24,7 +24,7 @@ public class DestroyTimeout : MonoBehaviour
     private int n = 3;
     // [SerializeField] private sp
 
-    private float countTime = 3.0f;
+    private float countTime = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +66,7 @@ public class DestroyTimeout : MonoBehaviour
     private void Result(int count)
     {
         if (count == 0)
-            t.text = "タイム　" + Timer.countTime.ToString() + "\n" + "ミスタイプ数" + Text_choice.Failure.ToString() + "\n";
+            t.text = "タイム　" + Timer.countTime.ToString() + "\n" + "ミスタイプ数　" + Text_choice.Failure.ToString() + "\n";
         else
             t.text = text[n];
         i.sprite = anImage[n];
