@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 5109979368079248493, guid: 086bbb34730a3584780641a9921a2421,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8533480036452248801, guid: 086bbb34730a3584780641a9921a2421,
         type: 3}
@@ -260,7 +260,7 @@ PrefabInstance:
     - target: {fileID: 2674802355809388148, guid: 086bbb34730a3584780641a9921a2421,
         type: 3}
       propertyPath: m_Color.a
-      value: 0.54901963
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114680715371689130, guid: 086bbb34730a3584780641a9921a2421,
         type: 3}
@@ -1080,7 +1080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.52, y: -3.75}
+  m_AnchoredPosition: {x: 8.94, y: -5.67}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45912854
@@ -32911,6 +32911,7 @@ MonoBehaviour:
   batu: {fileID: 8300000, guid: 3d8fdf4d09bdfb549a5b2a58f4eafd15, type: 3}
   miss: {fileID: 8300000, guid: 6f13c994778afbc4580d2aac543cf1d9, type: 3}
   score_sw: 0
+  WhiteFadeObject: {fileID: 3481415}
 --- !u!222 &2044241044
 CanvasRenderer:
   m_ObjectHideFlags: 0
