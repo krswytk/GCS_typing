@@ -18,7 +18,7 @@ SNS上で俗に言う「/零票確認/ガチ勢」が話題になりました
 解散総選挙 かいさんそうせんきょ kaisansousenkyo
 
 投票率 とうひょうりつ touhyouritu
-支持率 しじりつ siziritu
+支持率 しじりつ sijiritu
 稼働率 かどうりつ kadouritu
 
 現職 げんしょく gensyoku

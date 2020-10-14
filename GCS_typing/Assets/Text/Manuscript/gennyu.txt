@@ -13,9 +13,9 @@
 /国連気候行動サミット/に参加のためヨットで移動した
 南極のトビムシから/マイクロプラスチック/を発見した
 
-環境緊急事態 かんきょうきんきゅうじたい kankyoukinkyuuzitai
+環境緊急事態 かんきょうきんきゅうじたい kankyoukinkyuujitai
 ラムサール条約 らむさーるじょうやく ramusa-rujouyaku
-非常事態宣言 ひじょうじたいせんげん hijouzitaisengenn
+非常事態宣言 ひじょうじたいせんげん hijoujitaisengenn
 
 環境省 かんきょうしょう kankyousyou
 防衛庁 ぼうえいちょう boueityou
@@ -51,4 +51,4 @@ ASEAN ASEAN ASEAN
 
 マイクロプラスチック まいくろぷらすちっく maikuropurasutikku
 熱可塑性プラスチック ねつかそせいぷらすちっく netukasoseipurasutikku
-レジ袋 れじぶくろ rezibukuro
+レジ袋 れじぶくろ rejibukuro
