@@ -13,7 +13,7 @@
 「富岳」は理化学研究所と/富士通/で共同開発を行いました
 世界最速のスパコンは、/HPC/を動作させるCPUを変えます
 
-富岳 ふがく fugaku
+富岳 ふがく hugaku
 天河二号 てんがにごう tenganigou
 Roadrunner Roadrunner Roadrunner
 
@@ -34,7 +34,7 @@ TOP500 TOP500 TOP500
 科学研究所 かがくけんきゅうじょ kagakukenkyuujyo
 
 人工知能 じんこうちのう jinkoutinou
-バーチャルリアリティー ばーちゃるりありてぃー ba-tyaruriaritexi-
+バーチャルリアリティー ばーちゃるりありてぃー ba-tyaruriariteli-
 IoT IoT IoT
 
 CPU CPU CPU
