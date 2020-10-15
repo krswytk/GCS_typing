@@ -31,7 +31,7 @@
 
 梅雨前線 ばいうぜんせん baiuzensenn
 温暖前線 おんだんぜんせん ondanzensenn
-積乱雲 せきらうん sekiraunn
+積乱雲 せきらんうん sekirannunn
 
 避難情報 ひなんじょうほう hinanjouhou
 早期注意報 そうきちゅういほう soukityuuihou
@@ -51,4 +51,4 @@
 
 高潮警報 たかしおけいほう takasiokeihou
 土石流警報 どせきりゅうけいほう dosekiryuukeihou
-緊急事態宣言 きんきゅうじたいせんげん kinkyuujiraisengenn
+緊急事態宣言 きんきゅうじたいせんげん kinkyuujitaisengenn

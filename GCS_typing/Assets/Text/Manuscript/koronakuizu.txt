@@ -45,10 +45,10 @@ PCR検査 PCRけんさ PCRkensa
 エアロゾル感染 えあろぞるかんせん earozorukansenn
 抗原検査 こうげんけんさ kougenkensa
 
-緊急事態宣言 きんきゅうじたいせんげん kinkyuuzitaisengenn
+緊急事態宣言 きんきゅうじたいせんげん kinkyuujitaisengenn
 濃厚接触 のうこうせっしょく noukousessyoku
 飛沫感染 ひまつかんせん himatukansenn
 
 ウィズコロナ うぃずころな wizukorona
-外出自粛 がいしゅつじしゅく　gaisyutuzisyuku
+外出自粛 がいしゅつじしゅく　gaisyutujisyuku
 在宅勤務 ざいたくきんむ zaitakukinmu
