@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GoPauseScript : MonoBehaviour
 {
-    
+    bool paused;
     void Start()
     {
-        
+        paused = false;
     }
 
     // Update is called once per frame
@@ -16,8 +16,16 @@ public class GoPauseScript : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            Debug.Log("1回");
-            SceneManager.LoadScene("Pause", LoadSceneMode.Additive);
+            if (paused)//あったら削除
+            {
+                Scene scene = SceneManager.GetSceneByName("Pause");
+                SceneManager.UnloadSceneAsync(scene);
+            }
+            else//ないので表示
+            {
+                SceneManager.LoadScene("Pause", LoadSceneMode.Additive);
+            }
+            paused = !paused;
         }
     }
 }
