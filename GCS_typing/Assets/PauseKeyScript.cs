@@ -16,7 +16,8 @@ public class PauseKeyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pauseDestroyScript = GameObject.Find("Canvas").GetComponent<PauseDestroyScript>();
+        pauseDestroyScript = GameObject.Find("CanvasP").GetComponent<PauseDestroyScript>();
+        if (pauseDestroyScript == null) Debug.Log("ぬる！");
         num = 0;
         CK();
     }
@@ -35,7 +36,7 @@ public class PauseKeyScript : MonoBehaviour
                     }
                     if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))//下系のボタンが押された
                     {
-                        num = 3; //audioSource.PlayOneShot(select);
+                        num = 1; //audioSource.PlayOneShot(select);//3より1の方がいい感じだったので。
                     }
                     break;
 
