@@ -539,7 +539,6 @@ GameObject:
   - component: {fileID: 1056166204}
   - component: {fileID: 1056166203}
   - component: {fileID: 1056166202}
-  - component: {fileID: 1056166201}
   m_Layer: 5
   m_Name: choiceButton
   m_TagString: Untagged
@@ -566,18 +565,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 320, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1056166201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056166199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd1382d08e059af4e9db6a960d72ec06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1056166202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +608,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1056166201}
+      - m_Target: {fileID: 1962771544}
         m_MethodName: GoChoicefunc
         m_Mode: 1
         m_Arguments:
@@ -839,6 +826,7 @@ GameObject:
   - component: {fileID: 1962771542}
   - component: {fileID: 1962771541}
   - component: {fileID: 1962771540}
+  - component: {fileID: 1962771544}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -930,6 +918,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1962771544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962771539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1382d08e059af4e9db6a960d72ec06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2029291075
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +942,6 @@ GameObject:
   - component: {fileID: 2029291080}
   - component: {fileID: 2029291079}
   - component: {fileID: 2029291078}
-  - component: {fileID: 2029291077}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -969,18 +968,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 320, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2029291077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029291075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd1382d08e059af4e9db6a960d72ec06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2029291078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,7 +1011,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2029291077}
+      - m_Target: {fileID: 1962771544}
         m_MethodName: PauseDestroyfunc
         m_Mode: 1
         m_Arguments:
@@ -1086,7 +1073,6 @@ GameObject:
   - component: {fileID: 2040076511}
   - component: {fileID: 2040076510}
   - component: {fileID: 2040076509}
-  - component: {fileID: 2040076508}
   m_Layer: 5
   m_Name: ExsitButton
   m_TagString: Untagged
@@ -1113,18 +1099,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 320, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2040076508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040076506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd1382d08e059af4e9db6a960d72ec06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2040076509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,7 +1142,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2040076508}
+      - m_Target: {fileID: 1962771544}
         m_MethodName: Exsitfunc
         m_Mode: 1
         m_Arguments:

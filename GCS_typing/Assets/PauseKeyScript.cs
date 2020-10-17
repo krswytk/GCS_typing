@@ -8,11 +8,15 @@ public class PauseKeyScript : MonoBehaviour
     [SerializeField] GameObject choicebutton;//ボタンの背景的な青い画像を
     [SerializeField] GameObject exsitbutton;//インスペクタから入れました
 
+    private Canvas Canvas;
+    private PauseDestroyScript pauseDestroyScript;
+
     private int num;//現在のキーの場所 1B 2C 3E
 
     // Start is called before the first frame update
     void Start()
     {
+        pauseDestroyScript = GameObject.Find("Canvas").GetComponent<PauseDestroyScript>();
         num = 0;
         CK();
     }
@@ -77,6 +81,13 @@ public class PauseKeyScript : MonoBehaviour
                 {
                     case 0:break;
                     case 1://メニューに戻る的な
+                        pauseDestroyScript.PauseDestroyfunc();
+                        break;
+                    case 2:
+                        pauseDestroyScript.GoChoicefunc();
+                        break;
+                    case 3:
+                        pauseDestroyScript.Exsitfunc();
                         break;
                 }
             }
