@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GoPauseScript : MonoBehaviour
 {
-    bool paused;
+    public bool paused;
     void Start()
     {
         paused = false;
