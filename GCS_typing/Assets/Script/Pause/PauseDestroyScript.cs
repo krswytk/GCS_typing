@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseDestroyScript : MonoBehaviour
 {
-    
+    GameObject eventsystem;
+    GoPauseScript script;
     public void PauseDestroyfunc()
     {
+        eventsystem = GameObject.Find("EventSystem");
+        script = eventsystem.GetComponent<GoPauseScript>();
+        script.paused = false;
         Scene scene = SceneManager.GetSceneByName("Pause");//合体しているうちの、こっちだけ
         Debug.Log("消します");
         SceneManager.UnloadSceneAsync(scene);
