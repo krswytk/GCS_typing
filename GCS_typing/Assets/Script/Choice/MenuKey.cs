@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuKey : MonoBehaviour
 {
+    GoPauseScript GoPauseScript;
     [SerializeField] GameObject TK;
     [SerializeField] GameObject DK;
     [SerializeField] GameObject RK;
@@ -35,13 +36,14 @@ public class MenuKey : MonoBehaviour
         Rturn = GameObject.Find("RightRotation").GetComponent<Onturn>();
         Lturn = GameObject.Find("LeftRotation").GetComponent<Onturn>();
 
-        audioSource = GetComponent<AudioSource>(); 
+        audioSource = GetComponent<AudioSource>();
+        GoPauseScript = GameObject.Find("EventSystem").GetComponent<GoPauseScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)//キーが押されたら
+        if (Input.anyKeyDown&&!GoPauseScript.paused)//キーが押されたら
         {
             switch (num)
             {
