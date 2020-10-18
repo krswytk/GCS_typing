@@ -18054,6 +18054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a191f612b35603b4dbfa3f7d65aec3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoPauseScript: {fileID: 0}
 --- !u!114 &1012305050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24695,7 +24696,6 @@ GameObject:
   - component: {fileID: 1468563243}
   - component: {fileID: 1468563242}
   - component: {fileID: 1468563245}
-  - component: {fileID: 1468563246}
   - component: {fileID: 1468563247}
   m_Layer: 0
   m_Name: EventSystem
@@ -24767,18 +24767,6 @@ MonoBehaviour:
   sound1: {fileID: 0}
   flag: 0
   TT: {fileID: 0}
---- !u!114 &1468563246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1468563241}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a2aa114481e1d44927dda1ffa987f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1468563247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24791,6 +24779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e72a017fcbcb384bb03ecece2d704bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
 --- !u!1 &1471046112
 GameObject:
   m_ObjectHideFlags: 0
@@ -26809,6 +26798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a191f612b35603b4dbfa3f7d65aec3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoPauseScript: {fileID: 1468563247}
 --- !u!114 &1616897616
 MonoBehaviour:
   m_ObjectHideFlags: 0

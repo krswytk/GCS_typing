@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 1051510197}
   - component: {fileID: 1051510200}
   - component: {fileID: 1051510201}
-  - component: {fileID: 1051510202}
+  - component: {fileID: 1051510203}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -700,7 +700,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1051510202
+--- !u!114 &1051510203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -709,9 +709,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1051510196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a2aa114481e1d44927dda1ffa987f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e72a017fcbcb384bb03ecece2d704bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
 --- !u!1 &1069167560
 GameObject:
   m_ObjectHideFlags: 0
