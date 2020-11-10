@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Text;
-using UnityEngine.UI;
 
 public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
 {
@@ -12,8 +11,6 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
     public Manuscript[] M;
     public Dictionary[] D;
     public NewManuscript[] NM;
-    private TextAsset[] File;
-    private TextAsset Di;
 
     private string[][][] kiririn;//[原稿番号][行数][表示する単語]
 
@@ -34,19 +31,6 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
     /// </summary>
     void ReadManuscriptFiles()
     {
-        File = Resources.LoadAll<TextAsset>("Text/Manuscript");
-        for (int i = 0; i < File.Length; i++)
-        {
-            Debug.Log(File[i].text);
-        }
-        Mstr = new string[File.Length];
-        for (int i = 0; i < File.Length; i++)
-        {
-            Mstr[i] = File[i].text.ToString();
-        }
-        num = File.Length;//numはファイルの数
-
-        /*
         string path = Application.dataPath + "/" + "Text" + "/" + "Manuscript";
         string[] files = Directory.GetFiles(path, "*.txt", SearchOption.AllDirectories);
         Mstr = new string[files.Length];
@@ -57,20 +41,10 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
             sr.Close();
         }
         num = files.Length;//numはファイルの数
-        */
     }
 
     void ReadDictionaryFiles()
     {
-        Di = Resources.Load<TextAsset>("Text/dictionary");
-        Debug.Log(Di.text);
-        Dstr = Di.text.ToString();
-        /*
-        for (int i = 0; i < File.Length; i++)
-        {
-            Mstr[i] = File[i].text.ToString();
-        }
-
         string[] str;
         string path = Application.dataPath + "/" + "Text";
         string[] files = Directory.GetFiles(path, "*.txt", SearchOption.AllDirectories);
@@ -83,7 +57,6 @@ public class FileNumber : MonoBehaviour//原稿の個数をnumに格納
         }
         Dstr = str[0];
         //Debug.Log(Dstr);
-        */
     }
 
     public void Start()
