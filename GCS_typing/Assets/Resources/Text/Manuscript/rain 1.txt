@@ -10,7 +10,7 @@
 浸水被害があるため/避難情報/を確認して行動してください
 豪雨の影響で/土砂崩れ/が相次ぎ一部集落が孤立しています
 国土交通省では適切な/防災行動/をとるよう呼び掛けています
-避難/指示/が発表されており極めて危険な状況です
+/避難指示/が発表されており極めて危険な状況です
 台風によって四国地方を中心に/高潮警報/が発表されました
 
 氾濫 はんらん hanrann
@@ -31,7 +31,7 @@
 
 梅雨前線 ばいうぜんせん baiuzensenn
 温暖前線 おんだんぜんせん ondanzensenn
-積乱雲 せきらうん sekiraunn
+積乱雲 せきらんうん sekirannunn
 
 避難情報 ひなんじょうほう hinanjouhou
 早期注意報 そうきちゅういほう soukityuuihou
@@ -45,10 +45,10 @@
 避難指示 ひなんしじ hinansiji
 予防準備 よぼうじゅんび yoboujunbi
 
-指示 しじ siji
-準備 じゅんび junbi
-命令 めいれい meirei
+避難指示 ひなんしじ hinansiji
+防災準備 ぼうさいじゅんび bousaijunbi
+退避命令 たいひめいれい taihimeirei
 
 高潮警報 たかしおけいほう takasiokeihou
 土石流警報 どせきりゅうけいほう dosekiryuukeihou
-緊急事態宣言 きんきゅうじたいせんげん kinkyuujiraisengenn
+緊急事態宣言 きんきゅうじたいせんげん kinkyuujitaisengenn

@@ -18054,6 +18054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a191f612b35603b4dbfa3f7d65aec3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoPauseScript: {fileID: 0}
 --- !u!114 &1012305050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18075,7 +18076,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 915ea54b213f5a74590bf16cb0649a0e, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -24821,7 +24822,7 @@ GameObject:
   - component: {fileID: 1468563243}
   - component: {fileID: 1468563242}
   - component: {fileID: 1468563245}
-  - component: {fileID: 1468563246}
+  - component: {fileID: 1468563247}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -24892,7 +24893,7 @@ MonoBehaviour:
   sound1: {fileID: 0}
   flag: 0
   TT: {fileID: 0}
---- !u!114 &1468563246
+--- !u!114 &1468563247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24901,9 +24902,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1468563241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a2aa114481e1d44927dda1ffa987f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e72a017fcbcb384bb03ecece2d704bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
 --- !u!1 &1471046112
 GameObject:
   m_ObjectHideFlags: 0
@@ -26907,8 +26909,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 810.7, y: 500}
-  m_SizeDelta: {x: 160, y: 60}
+  m_AnchoredPosition: {x: 819.6, y: 500}
+  m_SizeDelta: {x: 177.8, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1616897615
 MonoBehaviour:
@@ -26922,6 +26924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a191f612b35603b4dbfa3f7d65aec3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoPauseScript: {fileID: 1468563247}
 --- !u!114 &1616897616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26943,7 +26946,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 915ea54b213f5a74590bf16cb0649a0e, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
