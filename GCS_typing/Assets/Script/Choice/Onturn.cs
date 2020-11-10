@@ -44,12 +44,13 @@ public class Onturn : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    
     private void Update()
     {
         if (sw == false)
         {
             Number = FN.GetFN();
-            //Debug.Log(Number);
+            Debug.Log(Number);
             y = 360 / Number / stage;
             sw = true;
         }
