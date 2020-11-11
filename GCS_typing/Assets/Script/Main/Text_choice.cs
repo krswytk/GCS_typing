@@ -96,6 +96,8 @@ public class Text_choice : MonoBehaviour
     public static int Failure = 0;
     public bool score_sw = false;
 
+    float text_width;
+
 
 
     [SerializeField]
@@ -103,6 +105,7 @@ public class Text_choice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        text_width = 0.04f;
         audioSource = GetComponent<AudioSource>();
         NextSpace = new bool[4];
         Ans_sw = new bool[4];
@@ -116,8 +119,8 @@ public class Text_choice : MonoBehaviour
         level = GetText.debris.GetLength(1) - 1;
         clear_num = GetText.debris.GetLength(0);
         answer_check();
-        text_Generate(text.text, 0.4f, false,5, problem_num);
-        text_Generate(roma.text,0.9f,true,5, problem_num);
+        text_Generate(text.text, -10.0f, false, text_width, problem_num);
+        text_Generate(roma.text,50.0f,true, text_width, problem_num);
 
         choice_Button.transform.position = choice_position[0];
         choice_Button2.transform.position = choice_position[1];
@@ -250,10 +253,16 @@ public class Text_choice : MonoBehaviour
         audioSource.PlayOneShot(sound1);
         choice_answer = 0;
         choice_light.SetActive(false);
-        for (int i = 0; i < level+1; i++)
-        {
 
-            level_text_x = (-level / 2.0f + i) * 5;
+        if (sw == false)
+        {
+            width = width / 1.3f;//問題の文字間隔　widthが小さいほど感覚が開く
+        }
+
+            for (int i = 0; i < level+1; i++)
+            {
+
+            level_text_x = (-level / 2.0f + i) * 500;
 
             if (i == 0)
             {
@@ -294,7 +303,7 @@ public class Text_choice : MonoBehaviour
                     {
                         obj[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         obj[i2].transform.parent = transform;
-                        obj[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
+                        obj[i2].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);//希望する値
                         obj[i2].GetComponent<Text>().text = str[i2];
 
                         if (i2 == 0)
@@ -310,7 +319,7 @@ public class Text_choice : MonoBehaviour
                     {
                         Robj[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         Robj[i2].transform.parent = transform;
-                        Robj[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
+                        Robj[i2].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);//希望する値
                         Robj[i2].GetComponent<Text>().text = str[i2];
                         Robj[i2].GetComponent<Text>().color = new Color(140 / 255f, 19 / 255f, 8 / 255f, 1);
                     }
@@ -355,7 +364,7 @@ public class Text_choice : MonoBehaviour
                     {
                         obj2[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         obj2[i2].transform.parent = transform;
-                        obj2[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
+                        obj2[i2].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);//希望する値
                         obj2[i2].GetComponent<Text>().text = str2[i2];
                         if (i2 == 0)
                         {
@@ -369,7 +378,7 @@ public class Text_choice : MonoBehaviour
                     {
                         Robj2[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         Robj2[i2].transform.parent = transform;
-                        Robj2[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
+                        Robj2[i2].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);//希望する値
                         Robj2[i2].GetComponent<Text>().text = str2[i2];
                         Robj2[i2].GetComponent<Text>().color = new Color(8 / 255f, 17 / 255f, 140 / 255f, 1);
                     }
@@ -413,7 +422,7 @@ public class Text_choice : MonoBehaviour
                     {
                         obj3[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         obj3[i2].transform.parent = transform;
-                        obj3[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
+                        obj3[i2].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);//希望する値
                         obj3[i2].GetComponent<Text>().text = str3[i2];
                         if (i2 == 0)
                         {
@@ -427,7 +436,7 @@ public class Text_choice : MonoBehaviour
                     {
                         Robj3[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         Robj3[i2].transform.parent = transform;
-                        Robj3[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
+                        Robj3[i2].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);//希望する値
                         Robj3[i2].GetComponent<Text>().text = str3[i2];
                         Robj3[i2].GetComponent<Text>().color = new Color(17 / 255f, 140 / 255f, 8 / 255f, 1);
                     }
@@ -471,7 +480,7 @@ public class Text_choice : MonoBehaviour
                     {
                         obj4[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         obj4[i2].transform.parent = transform;
-                        obj4[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
+                        obj4[i2].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);//希望する値
                         obj4[i2].GetComponent<Text>().text = str4[i2];
                         if (i2 == 0)
                         {
@@ -485,7 +494,7 @@ public class Text_choice : MonoBehaviour
                     {
                         Robj4[i2] = Instantiate(prefab, new Vector2(text_x + level_text_x, transform.position.y - y), transform.rotation);
                         Robj4[i2].transform.parent = transform;
-                        Robj4[i2].transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);//希望する値
+                        Robj4[i2].transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);//希望する値
                         Robj4[i2].GetComponent<Text>().text = str4[i2];
                         Robj4[i2].GetComponent<Text>().color = new Color(1, 0, 0, 1);
                     }
@@ -810,8 +819,8 @@ public class Text_choice : MonoBehaviour
         }
         answer_check();
         main_text.text_change();
-        text_Generate(text.text, 0.4f, false, 5, problem_num);
-        text_Generate(roma.text, 0.9f, true, 5, problem_num);
+        text_Generate(text.text, -10.0f, false, text_width, problem_num);
+        text_Generate(roma.text, 50.0f, true, text_width, problem_num);
         CheckTestScript.LoadText();
     }
 
