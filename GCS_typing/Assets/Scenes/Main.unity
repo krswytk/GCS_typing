@@ -46766,9 +46766,9 @@ MonoBehaviour:
   text: {fileID: 4900000, guid: b1b9c7084dee9974ba0fb517c153850c, type: 3}
   roma: {fileID: 4900000, guid: 2d2cc9cefbd6d5d488feffb37a9ca230, type: 3}
   prefab: {fileID: 4173940732923891084, guid: 1d6ae5a7860afd24eb46e174a6240d12, type: 3}
-  prefab_maru: {fileID: 1502119054070689076, guid: 0d97a3c4e374e6f429a8e21f2802c8ed,
+  prefab_maru: {fileID: 6592992803753253119, guid: 15aec579c8ea3434f89e9c70f685eb97,
     type: 3}
-  prefab_batu: {fileID: 7775592942809050225, guid: 6a01f369af4d383418946864c7876feb,
+  prefab_batu: {fileID: 9150592336419340250, guid: 24a7e0d09aaa39349b6c8971dc8b3fec,
     type: 3}
   choice_light: {fileID: 293422311}
   choice_Button: {fileID: 1760003459}

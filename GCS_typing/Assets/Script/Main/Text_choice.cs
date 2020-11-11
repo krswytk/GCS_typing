@@ -312,6 +312,8 @@ public class Text_choice : MonoBehaviour
                             light_position[0] = new Vector3(transform.position.x + level_text_x, transform.position.y - y,-10);
                             marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y - 0.1f), transform.rotation);
                             marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y-0.6f), transform.rotation);
+                            marubatu[i, 0].transform.parent = transform;
+                            marubatu[i, 1].transform.parent = transform;
                         }
 
                     }
@@ -372,6 +374,8 @@ public class Text_choice : MonoBehaviour
                             light_position[1] = new Vector3(transform.position.x + level_text_x, transform.position.y - y, -10);
                             marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y - 0.1f), transform.rotation);
                             marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y - 0.6f), transform.rotation);
+                            marubatu[i, 0].transform.parent = transform;
+                            marubatu[i, 1].transform.parent = transform;
                         }
                     }
                     else
@@ -430,6 +434,8 @@ public class Text_choice : MonoBehaviour
                             light_position[2] = new Vector3(transform.position.x + level_text_x, transform.position.y - y, -10);
                             marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y - 0.1f), transform.rotation);
                             marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y - 0.6f), transform.rotation);
+                            marubatu[i, 0].transform.parent = transform;
+                            marubatu[i, 1].transform.parent = transform;
                         }
                     }
                     else
@@ -488,6 +494,8 @@ public class Text_choice : MonoBehaviour
                             light_position[3] = new Vector3(transform.position.x + level_text_x, transform.position.y - y, -10);
                             marubatu[i, 0] = Instantiate(prefab_maru, new Vector2(transform.position.x + level_text_x, transform.position.y - y - 0.1f), transform.rotation);
                             marubatu[i, 1] = Instantiate(prefab_batu, new Vector2(transform.position.x + level_text_x, transform.position.y - y - 0.6f), transform.rotation);
+                            marubatu[i, 0].transform.parent = transform;
+                            marubatu[i, 1].transform.parent = transform;
                         }
                     }
                     else
