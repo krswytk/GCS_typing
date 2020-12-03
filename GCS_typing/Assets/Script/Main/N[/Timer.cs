@@ -16,7 +16,13 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GoPauseScript.paused)
+        try{
+            if (!GoPauseScript.paused)
+            {
+                countTime += Time.deltaTime; //スタートしてからの秒数を格納
+            }
+        }
+        catch
         {
             countTime += Time.deltaTime; //スタートしてからの秒数を格納
         }
